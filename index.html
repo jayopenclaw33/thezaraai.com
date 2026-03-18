@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="ZaraAI — AI education for everyone. Learn how to build and use your own personal AI agent. Led by Jax Scott, one of the top women in AI and cybersecurity."/>
+  <meta name="description" content="ZaraAI: AI education for everyone. Learn how to build and use your own personal AI agent. Led by Jax Scott, one of the top women in AI and cybersecurity."/>
   <meta name="keywords" content="ZaraAI, AI education, personal AI agent, women in AI, AI girl, AI women, boss AI lady, female AI educator, AI for beginners, how to use AI, AI agent setup, OpenClaw, Jax Scott, AI community, AI learning, women AI leader, AI influencer, AI education women, top women in artificial intelligence" />
-  <meta name="author" content="Jax Scott — ZaraAI.com" />
+  <meta name="author" content="Jax Scott, ZaraAI.com" />
   <link rel="canonical" href="https://thezaraai.com" />
-  <title>ZaraAI — Your AI, Evolved</title>
+  <title>ZaraAI: Your AI, Evolved</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -42,13 +42,15 @@
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 100;
+      background: rgba(8,11,18,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 18px 40px;
-      background: rgba(8,11,18,0.85);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
     }
     .nav-logo {
       font-size: 1.3rem;
@@ -56,6 +58,7 @@
       letter-spacing: -0.5px;
       color: var(--text);
       text-decoration: none;
+      flex-shrink: 0;
     }
     .nav-logo span { color: var(--green); }
     .nav-links { display: flex; gap: 32px; align-items: center; }
@@ -65,6 +68,7 @@
       font-size: 0.9rem;
       font-weight: 500;
       transition: color 0.2s;
+      white-space: nowrap;
     }
     .nav-links a:hover { color: var(--text); }
     .nav-cta {
@@ -75,8 +79,55 @@
       font-weight: 600 !important;
       font-size: 0.85rem !important;
       transition: background 0.2s !important;
+      white-space: nowrap;
     }
     .nav-cta:hover { background: var(--green-dim) !important; }
+
+    /* HAMBURGER */
+    .nav-hamburger {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 4px 8px;
+      line-height: 1;
+    }
+
+    /* MOBILE NAV DROPDOWN */
+    .nav-mobile-menu {
+      display: none;
+      flex-direction: column;
+      background: rgba(8,11,18,0.97);
+      border-top: 1px solid var(--border);
+      padding: 16px 20px 20px;
+      gap: 12px;
+    }
+    .nav-mobile-menu.open { display: flex; }
+    .nav-mobile-menu a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+      transition: color 0.2s;
+    }
+    .nav-mobile-menu a:last-child { border-bottom: none; }
+    .nav-mobile-menu a:hover { color: var(--text); }
+    .nav-mobile-menu .nav-cta {
+      display: block;
+      text-align: center;
+      margin-top: 4px;
+      border-bottom: none !important;
+    }
+
+    @media (max-width: 768px) {
+      .nav-inner { padding: 18px 20px; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: block; }
+    }
 
     /* HERO */
     .hero {
@@ -88,6 +139,14 @@
       padding: 120px 20px 80px;
       position: relative;
       overflow: hidden;
+    }
+    @media (max-width: 768px) {
+      .hero { padding: 100px 16px 60px; }
+      .hero h1 { letter-spacing: -1px; }
+      .hero p { font-size: 1rem; }
+      .hero-buttons { flex-direction: column; align-items: stretch; }
+      .hero-buttons .btn-primary,
+      .hero-buttons .btn-secondary { text-align: center; }
     }
     .hero-glow {
       position: absolute;
@@ -290,6 +349,7 @@
       display: flex;
       gap: 16px;
       justify-content: center;
+      flex-wrap: wrap;
       margin-bottom: 24px;
     }
     .social-btn {
@@ -307,18 +367,41 @@
       transition: border-color 0.2s, color 0.2s;
     }
     .social-btn:hover { border-color: var(--green); color: var(--text); }
+
+    /* GENERAL MOBILE */
+    @media (max-width: 768px) {
+      section { padding: 60px 20px; }
+      .section-title { font-size: clamp(1.6rem, 6vw, 2.5rem); }
+      .cta-section form { flex-direction: column; align-items: stretch; }
+      .cta-section form input { min-width: unset; width: 100%; }
+      .cta-section form .btn-primary { width: 100%; text-align: center; }
+      .terminal { font-size: 0.78rem; }
+    }
+    @media (max-width: 480px) {
+      .section-sub { font-size: 0.95rem; }
+      .btn-primary, .btn-secondary { padding: 12px 20px; font-size: 0.95rem; }
+    }
   </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <a href="/" class="nav-logo">Zara<span>AI</span></a>
-  <div class="nav-links">
-    <a href="#what">About</a>
-    <a href="#features">Features</a>
-    <a href="./guide/index.html">Guide</a>
-    <a href="#community" class="nav-cta">Join Community</a>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Zara<span>AI</span></a>
+    <div class="nav-links">
+      <a href="#what">About</a>
+      <a href="#features">Features</a>
+      <a href="./guide/index.html">Guide</a>
+      <a href="#community" class="nav-cta">Join Community</a>
+    </div>
+    <button class="nav-hamburger" aria-label="Toggle menu" onclick="toggleNav()">&#9776;</button>
+  </div>
+  <div class="nav-mobile-menu" id="navMobile">
+    <a href="#what" onclick="closeNav()">About</a>
+    <a href="#features" onclick="closeNav()">Features</a>
+    <a href="./guide/index.html" onclick="closeNav()">Guide</a>
+    <a href="#community" class="nav-cta" onclick="closeNav()">Join Community</a>
   </div>
 </nav>
 
@@ -329,7 +412,7 @@
   <div style="position:relative; z-index:1;">
     <div class="hero-badge">⚡ AI Agent Platform</div>
     <h1>Your AI,<br><span class="accent">Evolved.</span></h1>
-    <p>Meet Zara — an AI agent that remembers you, takes action, and works for you around the clock. Not a chatbot. Something more.</p>
+    <p>Meet Zara, an AI agent that remembers you, takes action, and works for you around the clock. Not a chatbot. Something more.</p>
     <div class="hero-buttons">
       <a href="#what" class="btn-primary">Learn More</a>
       <a href="./guide/index.html" class="btn-secondary">Read the Guide →</a>
@@ -344,34 +427,34 @@
       <div>
         <div class="section-label">What is ZaraAI?</div>
         <h2 class="section-title">Not a chatbot.<br>A teammate.</h2>
-        <p class="section-sub">Most people use AI like a search engine — ask a question, get an answer, move on. An AI agent is different. It knows you, acts for you, and gets smarter over time.</p>
+        <p class="section-sub">Most people use AI like a search engine: ask a question, get an answer, move on. An AI agent is different, get an answer, move on. An AI agent is different. It knows you, acts for you, and gets smarter over time.</p>
         <ul class="what-list">
           <li>
             <div class="icon">🧠</div>
             <div>
               <strong>Remembers You</strong>
-              <span>Persistent memory across every conversation — your preferences, goals, and context.</span>
+              <span>Persistent memory across every conversation, your preferences, goals, and context.</span>
             </div>
           </li>
           <li>
             <div class="icon">⚡</div>
             <div>
               <strong>Takes Action</strong>
-              <span>Sends messages, checks email, manages your calendar, drafts content — and more.</span>
+              <span>Sends messages, checks email, manages your calendar, drafts content, and more.</span>
             </div>
           </li>
           <li>
             <div class="icon">🔒</div>
             <div>
               <strong>Runs Locally</strong>
-              <span>Your agent lives on your device. Your data stays yours — not in some company's cloud.</span>
+              <span>Your agent lives on your device. Your data stays yours, not in some company's cloud.</span>
             </div>
           </li>
           <li>
             <div class="icon">📱</div>
             <div>
               <strong>Always Accessible</strong>
-              <span>Message your agent via Telegram, WhatsApp, or SMS — from anywhere.</span>
+              <span>Message your agent via Telegram, WhatsApp, or SMS, from anywhere.</span>
             </div>
           </li>
         </ul>
@@ -384,8 +467,8 @@
             <div class="dot dot-green"></div>
           </div>
           <div class="terminal-body">
-            <div><span class="t-prompt">Jax → </span><span class="t-cmd">Can you draft my newsletter for today?</span></div>
-            <div class="t-out" style="margin-top:8px;">Sure — pulling your notes and last send...</div>
+            <div><span class="t-prompt">Maya → </span><span class="t-cmd">Can you draft my newsletter for today?</span></div>
+            <div class="t-out" style="margin-top:8px;">Sure, pulling your notes and last send...</div>
             <div class="t-out">Found 3 drafts from this week.</div>
             <div class="t-out">Based on your content pillars, here's a draft:</div>
             <div class="t-highlight" style="margin-top:8px;">"This week in AI: 5 things that actually matter..."</div>
@@ -403,18 +486,18 @@
     <div style="text-align:center;">
       <div class="section-label">Capabilities</div>
       <h2 class="section-title">Everything you need.<br>Nothing you don't.</h2>
-      <p class="section-sub" style="margin: 0 auto;">Built on OpenClaw — open-source, privacy-first, and endlessly extensible.</p>
+      <p class="section-sub" style="margin: 0 auto;">Built on OpenClaw: open-source, privacy-first, and endlessly extensible.</p>
     </div>
     <div class="features-grid">
       <div class="feature-card">
         <div class="feature-icon">💬</div>
         <h3>Natural Conversation</h3>
-        <p>Talk to your agent like a real person. No commands, no menus — just say what you need.</p>
+        <p>Talk to your agent like a real person. No commands, no menus, just say what you need.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">📧</div>
         <h3>Email & Calendar</h3>
-        <p>Read, draft, and send emails. Check and manage your schedule — all from a message.</p>
+        <p>Read, draft, and send emails. Check and manage your schedule, all from a message.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">📱</div>
@@ -477,5 +560,14 @@
   <p class="footer-copy">&copy; 2026 ZaraAI. All rights reserved. &nbsp;|&nbsp; <a href="mailto:jax@outpostgray.com" style="color:inherit;">jax@outpostgray.com</a></p>
 </footer>
 
+<script>
+  function toggleNav() {
+    var menu = document.getElementById('navMobile');
+    menu.classList.toggle('open');
+  }
+  function closeNav() {
+    document.getElementById('navMobile').classList.remove('open');
+  }
+</script>
 </body>
 </html>
