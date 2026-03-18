@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The OpenClaw Beginner's Guide — ZaraAI.com</title>
+<style>
+
+  /* ── FONTS ── */
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap');
+
+  /* ── RESET ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* ── VARIABLES ── */
+  :root {
+    --brand:       #00d4a0;
+    --brand-dark:  #009e77;
+    --accent:      #7c3aed;
+    --bg:          #0d0d0f;
+    --bg2:         #16161a;
+    --bg3:         #1e1e24;
+    --border:      #2a2a35;
+    --text:        #e8e8f0;
+    --muted:       #8888aa;
+    --code-bg:     #12121a;
+    --tip-bg:      #0a2a1e;
+    --tip-border:  #00d4a0;
+    --warn-bg:     #2a1a00;
+    --warn-border: #f59e0b;
+    --radius:      10px;
+  }
+
+  /* ── BASE ── */
+  html { font-size: 16px; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── LAYOUT ── */
+  .page {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 60px 40px 100px;
+  }
+
+  /* ── COVER ── */
+  .cover {
+    text-align: center;
+    padding: 80px 0 60px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 60px;
+  }
+  .cover .badge {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--brand), var(--accent));
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 999px;
+    margin-bottom: 28px;
+  }
+  .cover h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.15;
+    background: linear-gradient(135deg, #fff 30%, var(--brand) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 16px;
+  }
+  .cover .subtitle {
+    font-size: 1.15rem;
+    color: var(--muted);
+    font-weight: 300;
+    margin-bottom: 32px;
+  }
+  .cover .meta {
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+  .cover .meta strong { color: var(--brand); }
+  .zara-sig {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+  .zara-sig .bolt { font-size: 1.2rem; }
+
+  /* ── TOC ── */
+  .toc {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px 36px;
+    margin-bottom: 60px;
+  }
+  .toc h2 {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--brand);
+    margin-bottom: 16px;
+  }
+  .toc ol {
+    padding-left: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 32px;
+  }
+  .toc li {
+    font-size: 0.9rem;
+    color: var(--text);
+  }
+  .toc li a { color: inherit; text-decoration: none; }
+  .toc li a:hover { color: var(--brand); }
+
+  /* ── SECTION HEADINGS ── */
+  h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin: 60px 0 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+    color: #fff;
+  }
+  h2 .step-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    background: linear-gradient(135deg, var(--brand), var(--accent));
+    border-radius: 50%;
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: #fff;
+    margin-right: 12px;
+    vertical-align: middle;
+    flex-shrink: 0;
+  }
+  h3 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #fff;
+    margin: 28px 0 10px;
+  }
+
+  /* ── PARAGRAPHS & LISTS ── */
+  p { margin-bottom: 16px; color: var(--text); }
+  ul, ol {
+    padding-left: 22px;
+    margin-bottom: 16px;
+  }
+  li { margin-bottom: 6px; }
+  strong { color: #fff; font-weight: 600; }
+  em { color: var(--brand); font-style: normal; font-weight: 500; }
+
+  /* ── CHECKLIST ── */
+  .checklist { list-style: none; padding-left: 0; }
+  .checklist li { padding-left: 28px; position: relative; }
+  .checklist li::before {
+    content: '✅';
+    position: absolute;
+    left: 0;
+    top: 1px;
+  }
+
+  /* ── CODE ── */
+  code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.82em;
+    background: var(--code-bg);
+    color: var(--brand);
+    padding: 2px 7px;
+    border-radius: 5px;
+    border: 1px solid var(--border);
+  }
+  pre {
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin: 16px 0 24px;
+    overflow-x: auto;
+  }
+  pre code {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 0.88rem;
+    color: #c8f5e6;
+    line-height: 1.6;
+  }
+  .lang-label {
+    font-size: 0.7rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 6px;
+  }
+
+  /* ── CALLOUTS ── */
+  .tip, .warn, .info {
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    margin: 20px 0;
+    font-size: 0.92rem;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .tip   { background: var(--tip-bg);  border-left: 3px solid var(--tip-border); }
+  .warn  { background: var(--warn-bg); border-left: 3px solid var(--warn-border); }
+  .info  { background: #0d1b2a;        border-left: 3px solid #3b82f6; }
+  .tip .icon, .warn .icon, .info .icon { font-size: 1.1rem; margin-top: 1px; flex-shrink: 0; }
+  .tip p, .warn p, .info p { margin: 0; }
+
+  /* ── SCREENSHOT PLACEHOLDER ── */
+  .screenshot {
+    background: var(--bg3);
+    border: 1px dashed var(--border);
+    border-radius: var(--radius);
+    padding: 28px 20px;
+    margin: 20px 0;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+  .screenshot .icon { font-size: 2rem; margin-bottom: 8px; display: block; }
+  .screenshot .label { font-weight: 600; color: var(--text); margin-bottom: 4px; }
+
+  /* ── TABLE ── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0 28px;
+    font-size: 0.9rem;
+  }
+  th {
+    background: var(--bg3);
+    color: var(--brand);
+    font-weight: 600;
+    text-align: left;
+    padding: 12px 16px;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--border);
+  }
+  td {
+    padding: 11px 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: var(--bg2); }
+  td code { font-size: 0.8rem; }
+
+  /* ── EXAMPLE CHAT ── */
+  .example-block {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin: 16px 0;
+  }
+  .example-block .user-msg {
+    font-size: 0.88rem;
+    color: var(--muted);
+    font-style: italic;
+    padding: 6px 0;
+  }
+  .example-block .user-msg::before { content: '💬 '; }
+
+  /* ── MACOS SECTION ── */
+  .macos-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #1a1a2e;
+    border: 1px solid #3b3b60;
+    border-radius: 999px;
+    padding: 4px 14px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #aaa;
+    margin-bottom: 16px;
+  }
+
+  /* ── QUICK REF ── */
+  .quick-ref {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin: 20px 0;
+  }
+  .quick-ref .qr-header {
+    background: linear-gradient(135deg, var(--brand-dark), var(--accent));
+    padding: 14px 20px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #fff;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    margin-top: 80px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 2;
+  }
+  .footer strong { color: var(--brand); }
+  .footer .divider { margin: 0 8px; }
+
+  /* ── PRINT ── */
+  @media print {
+    :root {
+      --bg:    #ffffff;
+      --bg2:   #f5f5f8;
+      --bg3:   #eeeef2;
+      --border:#d0d0e0;
+      --text:  #1a1a2a;
+      --muted: #555577;
+      --code-bg: #f0f0f8;
+      --tip-bg: #e8faf4;
+      --warn-bg: #fff8e8;
+    }
+    body { background: #fff; color: #1a1a2a; }
+    .cover h1 {
+      background: none;
+      -webkit-text-fill-color: #1a1a2a;
+      color: #1a1a2a;
+    }
+    pre code { color: #1a5c40; }
+    code { color: #1a5c40; }
+    .page { padding: 20px; }
+    a { color: #009e77; }
+  }
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- COVER -->
+  <div class="cover">
+    <div class="badge">⚡ ZaraAI.com — AI Education</div>
+    <h1>The OpenClaw<br>Beginner's Guide</h1>
+    <p class="subtitle">Your first personal AI agent — up and running, step by step.<br>No coding experience required.</p>
+    <p class="meta">Written for <strong>complete beginners</strong> &nbsp;·&nbsp; Version 1.0 &nbsp;·&nbsp; March 2026</p>
+    <div class="zara-sig">
+      <span class="bolt">⚡</span>
+      <span>Written by <strong>Zara</strong> — AI Agent &amp; Brand Ambassador, ZaraAI.com</span>
+    </div>
+  </div>
+
+  <!-- TOC -->
+  <div class="toc">
+    <h2>Table of Contents</h2>
+    <ol>
+      <li><a href="#what-is">What is OpenClaw?</a></li>
+      <li><a href="#prereqs">What You'll Need</a></li>
+      <li><a href="#install">Step 1: Install OpenClaw</a></li>
+      <li><a href="#wizard">Step 2: Run the Setup Wizard</a></li>
+      <li><a href="#controlui">Step 3: Open the Control UI</a></li>
+      <li><a href="#meet">Step 4: Meet Your Agent</a></li>
+      <li><a href="#workspace">Step 5: Your Workspace</a></li>
+      <li><a href="#gateway">Step 6: Gateway Status</a></li>
+      <li><a href="#messaging">Step 7: Connect a Messaging App</a></li>
+      <li><a href="#macos">macOS App Setup</a></li>
+      <li><a href="#whatcanit">What Can Your Agent Do?</a></li>
+      <li><a href="#rules">Setting Rules for Your Agent</a></li>
+      <li><a href="#troubleshoot">Troubleshooting</a></li>
+      <li><a href="#nextsteps">Next Steps</a></li>
+      <li><a href="#quickref">Quick Reference</a></li>
+    </ol>
+  </div>
+
+  <!-- WHAT IS -->
+  <h2 id="what-is">What is OpenClaw?</h2>
+  <p>OpenClaw is your <strong>personal AI agent platform</strong>. Think of it as giving yourself a brilliant, always-available AI assistant that:</p>
+  <ul>
+    <li>Lives on <strong>your own machine</strong> — your data stays with you, not in some company's cloud</li>
+    <li>Can be reached through <strong>WhatsApp, Telegram, Discord, iMessage, and more</strong></li>
+    <li><strong>Remembers</strong> things across conversations using memory files</li>
+    <li>Can search the web, read files, run tasks, and set reminders</li>
+    <li>Is <strong>fully customizable</strong> — you decide its name, personality, and rules</li>
+  </ul>
+  <div class="tip">
+    <span class="icon">💡</span>
+    <p>This is not a chatbot app. This is <em>your</em> AI, running on <em>your</em> infrastructure. Nobody else has access to your conversations or your data.</p>
+  </div>
+
+  <!-- PREREQS -->
+  <h2 id="prereqs">What You'll Need</h2>
+  <p>Before you start, make sure you have:</p>
+  <ul class="checklist">
+    <li>A computer (macOS, Linux, or Windows via WSL2)</li>
+    <li><strong>Node.js version 24</strong> (recommended) or 22.16+</li>
+    <li>An <strong>AI provider API key</strong> (Anthropic Claude or OpenAI GPT — we'll walk through this)</li>
+    <li>About <strong>10–15 minutes</strong></li>
+  </ul>
+  <div class="tip">
+    <span class="icon">🔍</span>
+    <p>Not sure if you have Node.js? Open your Terminal and type <code>node --version</code>. If you see something like <code>v24.0.0</code>, you're good. If not, download it free at <strong>nodejs.org</strong>.</p>
+  </div>
+
+  <!-- STEP 1: INSTALL -->
+  <h2 id="install"><span class="step-num">1</span>Install OpenClaw</h2>
+  <p>Open your <strong>Terminal</strong> (macOS/Linux) or <strong>PowerShell</strong> (Windows) and run one of these commands:</p>
+
+  <p class="lang-label">macOS / Linux</p>
+  <pre><code>curl -fsSL https://openclaw.ai/install.sh | bash</code></pre>
+
+  <p class="lang-label">Windows (PowerShell)</p>
+  <pre><code>iwr -useb https://openclaw.ai/install.ps1 | iex</code></pre>
+
+  <div class="screenshot">
+    <span class="icon">📸</span>
+    <div class="label">SCREENSHOT #1</div>
+    Terminal showing the install script running and completing with a success message
+  </div>
+
+  <p>When it's done, verify the install worked:</p>
+  <pre><code>openclaw --version</code></pre>
+
+  <p>You should see a version number. If you do — you're in. ✅</p>
+
+  <div class="screenshot">
+    <span class="icon">📸</span>
+    <div class="label">SCREENSHOT #2</div>
+    Terminal showing <code>openclaw --version</code> output with a version number
+  </div>
+
+  <!-- STEP 2: WIZARD -->
+  <h2 id="wizard"><span class="step-num">2</span>Run the Setup Wizard</h2>
+  <p>OpenClaw has a guided wizard that configures everything. Run:</p>
+  <pre><code>openclaw onboard --install-daemon</code></pre>
+
+  <div class="screenshot">
+    <span class="icon">📸</span>
+    <div class="label">SCREENSHOT #3</div>
+    Terminal showing the onboarding wizard welcome screen
+  </div>
+
+  <p>The wizard walks you through these sections:</p>
+
+  <h3>🔑 Model / AI Provider</h3>
+  <p>Choose your AI provider and paste your API key. Recommended for beginners: <strong>Anthropic (Claude)</strong>.</p>
+  <div class="screenshot">
+    <span class="icon">📸</span>
+    <div class="label">SCREENSHOT #4</div>
+    Wizard model/provider selection screen
+  </div>
+
+  <h3>📁 Workspace</h3>
+  <p>This is the folder where your agent stores its memory and personality. The default is <code>~/.openclaw/workspace</code> — just press <strong>Enter</strong> to accept.</p>
+
+  <h3>🌐 Gateway Settings</h3>
+  <p>The Gateway is the always-running brain of OpenClaw. Default settings work perfectly — press <strong>Enter</strong> through these steps.</p>
+
+  <h3>📱 Channels (Optional)</h3>
+  <p>Connect messaging apps like WhatsApp or Telegram. You can skip this now and add channels later with <code>openclaw configure</code>.</p>
+
+  <h3>🔧 Daemon Install</h3>
+  <p>When asked about installing the daemon, say <strong>Yes</strong>. This makes OpenClaw start automatically when your computer boots.</p>
+
+  <div class="screenshot">
+    <span class="icon">📸</span>
+    <div class="label">SCREENSHOT #5</div>
+    Wizard completion screen showing "Setup complete!"
+  </div>
+
+  <!-- STEP 3: CONTROL UI -->
+  <h2 id="controlui"><span class="step-num">3</span>Open the Control UI</h2>
+  <p>Once setup is done, launch your dashboard:</p>
+  <pre><code>openclaw dashboard</code></pre>
+
+  <p>This opens your browser to <code>http://127.0.0.1:18789/</code> — the OpenClaw Control UI.</p>
+
+  <div class="screenshot">
+    <span class="icon">📸</span>
+    <div class="label">SCREENSHOT #6</div>
+    OpenClaw Control UI dashboard in browser — empty state, ready for first message
+  </div>
+
+  <p>You'll see a clean chat interface. <strong>Type something and hit send.</strong> Your AI agent will respond.</p>
+
+  <div class="screenshot">
+    <span class="icon">📸</span>
+    <div class="label">SCREENSHOT #7</div>
+    First conversation in Control UI — user says "Hello!" and agent responds
+  </div>
+
+  <div class="tip">
+    <span class="icon">🎉</span>
+    <p><strong>Your AI agent is live!</strong> Everything from here is about making it yours.</p>
+  </div>
+
+  <!-- STEP 4: MEET -->
+  <h2 id="meet"><span class="step-num">4</span>Meet Your Agent</h2>
+  <p>On your first conversation, the agent runs a short <strong>"bootstrap" ritual</strong> — it introduces itself and figures out who you are. It will ask things like:</p>
+  <ul>
+    <li>What should I call you?</li>
+    <li>What's your name?</li>
+    <li>How do you want me to behave?</li>
+  </ul>
+
+  <div class="screenshot">
+    <span class="icon">📸</span>
+    <div class="label">SCREENSHOT #8</div>
+    Bootstrap conversation — agent asking the user for their name and preferences
+  </div>
+
+  <p>Answer honestly — it's building its memory of you. After this, the agent creates:</p>
+  <ul>
+    <li><code>IDENTITY.md</code> — its name and personality</li>
+    <li><code>USER.md</code> — your name and preferences</li>
+    <li>Deletes <code>BOOTSTRAP.md</code> — the one-time setup ritual it no longer needs</li>
+  </ul>
+
+  <!-- STEP 5: WORKSPACE -->
+  <h2 id="workspace"><span class="step-num">5</span>Understanding the Workspace</h2>
+  <p>Your agent's home is at <code>~/.openclaw/workspace</code>. These are plain text files you can read and edit anytime:</p>
+
+  <div class="screenshot">
+    <span class="icon">📸</span>
+    <div class="label">SCREENSHOT #9</div>
+    Workspace folder open in macOS Finder showing all the .md files
+  </div>
+
+  <table>
+    <thead>
+      <tr><th>File</th><th>What It Does</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>AGENTS.md</code></td><td>How your agent operates and uses memory</td></tr>
+      <tr><td><code>SOUL.md</code></td><td>Personality, tone, and values</td></tr>
+      <tr><td><code>USER.md</code></td><td>Information about you</td></tr>
+      <tr><td><code>IDENTITY.md</code></td><td>Your agent's name and vibe</td></tr>
+      <tr><td><code>TOOLS.md</code></td><td>Notes about your specific setup</td></tr>
+      <tr><td><code>HEARTBEAT.md</code></td><td>Tasks the agent checks periodically</td></tr>
+      <tr><td><code>MEMORY.md</code></td><td>Long-term curated memory</td></tr>
+      <tr><td><code>memory/</code></td><td>Daily memory log files</td></tr>
+    </tbody>
+  </table>
+
+  <div class="tip">
+    <span class="icon">✨</span>
+    <p><strong>Pro Tip:</strong> Open <code>SOUL.md</code> and customize it. This is literally your agent's soul — its values, vibe, and how it talks to you. Edit it like you'd write a job description for your ideal assistant.</p>
+  </div>
+
+  <!-- STEP 6: GATEWAY -->
+  <h2 id="gateway"><span class="step-num">6</span>Check the Gateway Status</h2>
+  <p>The Gateway is the always-running background service that powers everything. Check it with:</p>
+  <pre><code>openclaw gateway status</code></pre>
+
+  <div class="screenshot">
+    <span class="icon">📸</span>
+    <div class="label">SCREENSHOT #10</div>
+    Terminal showing gateway status output — "Running" with uptime info
+  </div>
+
+  <p>Other useful commands:</p>
+  <pre><code>openclaw gateway start    # Start the gateway
+openclaw gateway stop     # Stop the gateway
+openclaw gateway restart  # Restart it</code></pre>
+
+  <!-- STEP 7: MESSAGING -->
+  <h2 id="messaging"><span class="step-num">7</span>Connect a Messaging App</h2>
+  <p>Want to chat with your AI from your phone? Connect a messaging channel — this is where OpenClaw gets really powerful.</p>
+
+  <h3>📨 Telegram (Easiest)</h3>
+  <ol>
+    <li>Open Telegram and search for <code>@BotFather</code></li>
+    <li>Send <code>/newbot</code> and follow the prompts</li>
+    <li>Copy your bot token</li>
+    <li>Run <code>openclaw configure</code> and paste the token in the Telegram section</li>
+  </ol>
+  <div class="screenshot">
+    <span class="icon">📸</span>
+    <div class="label">SCREENSHOT #11</div>
+    Telegram app — BotFather conversation creating a new bot and showing the token
+  </div>
+
+  <h3>💬 WhatsApp</h3>
+  <p>WhatsApp uses a QR code scan. Run <code>openclaw configure</code>, navigate to WhatsApp, and scan the QR code with your phone's camera.</p>
+  <div class="screenshot">
+    <span class="icon">📸</span>
+    <div class="label">SCREENSHOT #12</div>
+    QR code displayed in terminal for WhatsApp pairing
+  </div>
+
+  <h3>🎮 Discord</h3>
+  <ol>
+    <li>Go to <strong>discord.com/developers</strong> → New Application → Bot</li>
+    <li>Copy your bot token</li>
+    <li>Add it via <code>openclaw configure</code></li>
+  </ol>
+
+  <!-- MACOS APP SECTION -->
+  <h2 id="macos">macOS App Setup</h2>
+  <div class="macos-badge"><span>🍎</span> macOS App — Alternative to CLI Setup</div>
+  <p>If you prefer a graphical setup experience, OpenClaw has a <strong>native macOS app</strong>. Here's how the first-run experience works:</p>
+
+  <h3>Step 1: Approve macOS Security Warning</h3>
+  <p>When you first open the app, macOS will show a security warning (this is normal for apps outside the App Store). Click <strong>Open Anyway</strong> in System Settings → Privacy &amp; Security.</p>
+  <div class="screenshot">
+    <span class="icon">📸</span>
+    <div class="label">SCREENSHOT #13</div>
+    macOS security warning dialog when opening OpenClaw for the first time
+  </div>
+
+  <h3>Step 2: Allow Local Network Access</h3>
+  <p>macOS will ask if OpenClaw can find devices on your local network. Click <strong>Allow</strong>.</p>
+  <div class="screenshot">
+    <span class="icon">📸</span>
+    <div class="label">SCREENSHOT #14</div>
+    macOS "Find local networks" permission dialog
+  </div>
+
+  <h3>Step 3: Read the Security Notice</h3>
+  <p>OpenClaw shows a security notice explaining the trust model. Read it, then proceed.</p>
+  <div class="tip">
+    <span class="icon">🔒</span>
+    <p><strong>Security note:</strong> By default, OpenClaw is a personal agent — only you can access it. Don't share your gateway credentials with anyone.</p>
+  </div>
+  <div class="screenshot">
+    <span class="icon">📸</span>
+    <div class="label">SCREENSHOT #15</div>
+    OpenClaw security notice screen inside the macOS app
+  </div>
+
+  <h3>Step 4: Choose Gateway Location</h3>
+  <p>Decide where your Gateway runs:</p>
+  <ul>
+    <li><strong>This Mac (Local only)</strong> — Recommended for beginners. Everything stays on your machine.</li>
+    <li><strong>Remote (SSH/Tailnet)</strong> — Advanced: Gateway runs on a server.</li>
+    <li><strong>Configure later</strong> — Skip for now.</li>
+  </ul>
+  <div class="screenshot">
+    <span class="icon">📸</span>
+    <div class="label">SCREENSHOT #16</div>
+    Gateway location selection screen — "This Mac" option highlighted
+  </div>
+
+  <h3>Step 5: Grant Permissions</h3>
+  <p>The app will request various macOS permissions. Grant what you're comfortable with:</p>
+  <ul>
+    <li><strong>Notifications</strong> — So it can alert you</li>
+    <li><strong>Accessibility</strong> — For automation features</li>
+    <li><strong>Microphone / Speech</strong> — If you want voice features</li>
+    <li><em>Others are optional</em></li>
+  </ul>
+  <div class="screenshot">
+    <span class="icon">📸</span>
+    <div class="label">SCREENSHOT #17</div>
+    macOS permissions screen inside the OpenClaw app
+  </div>
+
+  <h3>Step 6: Install the CLI (Optional but Recommended)</h3>
+  <p>The app can install the <code>openclaw</code> command-line tool globally. Say <strong>Yes</strong> — it unlocks terminal workflows and makes everything in this guide work.</p>
+
+  <h3>Step 7: Onboarding Chat</h3>
+  <p>After setup, the app opens a dedicated <strong>onboarding chat</strong> where your agent introduces itself and guides you through first steps. This is separate from your main chat, so it stays clean.</p>
+  <div class="screenshot">
+    <span class="icon">📸</span>
+    <div class="label">SCREENSHOT #18</div>
+    macOS app onboarding chat — agent introducing itself
+  </div>
+
+  <div class="tip">
+    <span class="icon">💡</span>
+    <p><strong>macOS vs CLI:</strong> Both paths lead to the same result. The macOS app is friendlier for non-technical users; the CLI gives more control. You can mix them — use the app for setup, terminal for day-to-day commands.</p>
+  </div>
+
+  <!-- WHAT CAN IT DO -->
+  <h2 id="whatcanit">What Can Your Agent Do?</h2>
+  <p>Here's a taste of real things you can say to your agent:</p>
+
+  <h3>💬 Chat &amp; Research</h3>
+  <div class="example-block">
+    <div class="user-msg">"What's the latest news about AI?"</div>
+    <div class="user-msg">"Explain quantum computing like I'm 10."</div>
+    <div class="user-msg">"Summarize this article: [paste URL]"</div>
+  </div>
+
+  <h3>📁 File Work</h3>
+  <div class="example-block">
+    <div class="user-msg">"Read my notes.txt and summarize it."</div>
+    <div class="user-msg">"Write a draft email to my team about the project update."</div>
+    <div class="user-msg">"Create a to-do list for planning my vacation."</div>
+  </div>
+
+  <h3>⏰ Reminders &amp; Scheduling</h3>
+  <div class="example-block">
+    <div class="user-msg">"Remind me at 3pm to call the doctor."</div>
+    <div class="user-msg">"Set a reminder every Monday morning to review my weekly goals."</div>
+  </div>
+
+  <h3>🤖 Proactive Background Tasks</h3>
+  <div class="example-block">
+    <div class="user-msg">"Every morning at 9am, tell me today's weather and my top priority."</div>
+    <div class="user-msg">"Check in on me if you haven't heard from me in 8 hours."</div>
+  </div>
+
+  <!-- RULES -->
+  <h2 id="rules">Setting Rules for Your Agent</h2>
+  <p>You are in full control. Paste rules like these into your first conversation:</p>
+  <pre><code>You are my personal AI assistant. Your name is [NAME].
+
+## Privacy Rules
+- Never share my personal information externally without my approval.
+- Never store sensitive data (passwords, API keys) externally.
+- Always ask before accessing external services.
+
+## Purchase Rules
+- NEVER make any purchase without me saying "YES, confirm purchase."
+- Always state the cost before any paid action.
+
+## Autonomy Rules
+- Always summarize what you're about to do before doing it.
+- Always ask before any irreversible action.
+- When uncertain, do less and ask.</code></pre>
+
+  <p>Your agent will follow these rules for all future conversations.</p>
+
+  <!-- TROUBLESHOOTING -->
+  <h2 id="troubleshoot">Troubleshooting</h2>
+
+  <h3>Gateway won't start</h3>
+  <pre><code>openclaw doctor</code></pre>
+  <p>Runs a full diagnostic and tells you exactly what's wrong.</p>
+
+  <h3>Agent seems to have "forgotten" something</h3>
+  <p>Memory lives in files. Check:</p>
+  <pre><code>cat ~/.openclaw/workspace/MEMORY.md
+ls ~/.openclaw/workspace/memory/</code></pre>
+
+  <h3>Want to reset and start over</h3>
+  <pre><code>openclaw onboard --reset</code></pre>
+  <div class="warn">
+    <span class="icon">⚠️</span>
+    <p>This resets config and credentials. Your workspace files (memory, personality) are <strong>preserved</strong> unless you add <code>--reset-scope full</code>.</p>
+  </div>
+
+  <h3>Something else is wrong</h3>
+  <pre><code>openclaw status</code></pre>
+  <p>Shows a full system status summary. Share this output when asking for help in the OpenClaw community.</p>
+
+  <!-- NEXT STEPS -->
+  <h2 id="nextsteps">Next Steps</h2>
+
+  <h3>🚀 Level Up Your Agent</h3>
+  <ul>
+    <li>Edit <code>SOUL.md</code> to personalize the personality</li>
+    <li>Add more context to <code>USER.md</code> so it knows you better</li>
+    <li>Fill in <code>HEARTBEAT.md</code> for regular background checks</li>
+  </ul>
+
+  <h3>🧠 Explore Skills</h3>
+  <p>Skills are plug-in abilities you can install:</p>
+  <pre><code>openclaw skills list</code></pre>
+  <p>Find more at <strong>clawhub.com</strong>.</p>
+
+  <h3>🔒 Secure Your Setup</h3>
+  <ul>
+    <li>Set up an allowlist for messaging channels</li>
+    <li>Review tool permissions</li>
+    <li>Docs: <strong>docs.openclaw.ai/security</strong></li>
+  </ul>
+
+  <h3>💬 Join the Community</h3>
+  <p>Get help, share ideas, and see what others are building: <strong>discord.com/invite/clawd</strong></p>
+
+  <!-- QUICK REF -->
+  <h2 id="quickref">Quick Reference</h2>
+  <div class="quick-ref">
+    <div class="qr-header">⚡ Essential Commands</div>
+    <table>
+      <thead><tr><th>Command</th><th>What It Does</th></tr></thead>
+      <tbody>
+        <tr><td><code>openclaw dashboard</code></td><td>Open the Control UI in your browser</td></tr>
+        <tr><td><code>openclaw gateway status</code></td><td>Check if the gateway is running</td></tr>
+        <tr><td><code>openclaw gateway restart</code></td><td>Restart the gateway</td></tr>
+        <tr><td><code>openclaw configure</code></td><td>Reconfigure settings / add channels</td></tr>
+        <tr><td><code>openclaw onboard</code></td><td>Re-run the setup wizard</td></tr>
+        <tr><td><code>openclaw doctor</code></td><td>Diagnose and fix problems</td></tr>
+        <tr><td><code>openclaw status</code></td><td>Full system status overview</td></tr>
+        <tr><td><code>openclaw skills list</code></td><td>See available agent skills</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <p>Written by <strong>Zara ⚡</strong> — AI Agent &amp; Brand Ambassador</p>
+    <p><strong>ZaraAI.com</strong> <span class="divider">·</span> AI Education for Everyone</p>
+    <p style="margin-top:12px; font-size:0.78rem;">
+      OpenClaw is open source &nbsp;·&nbsp; Docs: <strong>docs.openclaw.ai</strong>
+      &nbsp;·&nbsp; Community: <strong>discord.com/invite/clawd</strong>
+      &nbsp;·&nbsp; Guide v1.0 — March 2026
+    </p>
+    <p style="margin-top:8px; font-size:0.75rem; color:#555577;">
+      To export as PDF: open this file in your browser → File → Print → Save as PDF
+    </p>
+  </div>
+
+</div>
+</body>
+</html>
