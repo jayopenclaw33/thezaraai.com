@@ -280,17 +280,17 @@
 
     .chapters {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
+      gap: 16px;
     }
     .chapter-card {
       background: var(--bg3);
       border: 1px solid var(--border2);
       border-radius: 14px;
-      padding: 28px;
+      padding: 20px;
       transition: border-color 0.2s, transform 0.2s;
       display: flex;
-      gap: 18px;
+      gap: 14px;
       align-items: flex-start;
     }
     .chapter-card:hover {
@@ -575,6 +575,27 @@
     footer .footer-copy {
       font-size: 0.78rem;
       color: var(--text-muted);
+    }
+
+    /* ── MOBILE: iPhone 14 Pro fixes ── */
+    @media (max-width: 430px) {
+      .chapters {
+        grid-template-columns: 1fr;
+      }
+      .chapter-card {
+        padding: 16px;
+        gap: 12px;
+      }
+      .chapter-title { font-size: 0.95rem; }
+      .chapter-desc { font-size: 0.82rem; }
+      .hero { padding: 110px 16px 60px; }
+      .hero h1 { font-size: 2.4rem; letter-spacing: -1.5px; }
+      .hero-stats { gap: 28px; }
+      .stat-num { font-size: 1.5rem; }
+      .btn-primary, .btn-secondary { padding: 13px 24px; font-size: 0.95rem; width: 100%; justify-content: center; }
+      .hero-buttons { flex-direction: column; align-items: stretch; gap: 12px; }
+      .inside { padding: 60px 16px; }
+      .for-who { padding: 60px 16px; }
     }
   </style>
 </head>
