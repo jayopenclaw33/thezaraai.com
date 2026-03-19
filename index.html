@@ -368,6 +368,27 @@
     }
     .social-btn:hover { border-color: var(--green); color: var(--text); }
 
+
+    /* ZARA PROFILE IMAGE */
+    .hero-profile {
+      width: 120px; height: 120px;
+      border-radius: 50%;
+      border: 3px solid var(--green);
+      object-fit: cover;
+      margin: 0 auto 24px;
+      display: block;
+      box-shadow: 0 0 30px rgba(0,229,160,0.25);
+    }
+    /* ZARA BANNER */
+    .zara-banner-img {
+      width: 100%;
+      max-width: 900px;
+      border-radius: 16px;
+      margin: 0 auto 60px;
+      display: block;
+      border: 1px solid var(--border);
+      box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+    }
     /* GENERAL MOBILE */
     @media (max-width: 768px) {
       section { padding: 60px 20px; }
@@ -410,6 +431,7 @@
   <div class="hero-glow"></div>
   <div class="hero-glow2"></div>
   <div style="position:relative; z-index:1;">
+    <img src="./images/zara-profile.png" alt="Zara AI" class="hero-profile" />
     <div class="hero-badge">⚡ AI Agent Platform</div>
     <h1>Your AI,<br><span class="accent">Evolved.</span></h1>
     <p>Meet Zara, an AI agent that remembers you, takes action, and works for you around the clock. Not a chatbot. Something more.</p>
@@ -423,6 +445,7 @@
 <!-- WHAT IS ZARA -->
 <section id="what">
   <div class="container">
+    <img src="./images/zara-banner.png" alt="ZaraAI Banner" class="zara-banner-img" />
     <div class="what-grid">
       <div>
         <div class="section-label">What is ZaraAI?</div>
