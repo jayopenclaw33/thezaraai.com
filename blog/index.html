@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZaraAI Blog — AI Agents, Education & Cybersecurity | theZaraAI.com</title>
+  <meta name="description" content="The ZaraAI blog — practical guides, honest reviews, and deep dives on AI agents, personal AI, and cybersecurity by Jax Scott.">
+  <meta name="keywords" content="AI agent blog, AI education, OpenClaw blog, personal AI agent, cybersecurity AI, Jax Scott">
+  <meta name="author" content="Jax Scott">
+  <link rel="canonical" href="https://thezaraai.com/blog/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ZaraAI Blog — AI Agents, Education & Cybersecurity">
+  <meta property="og:description" content="Practical AI agent guides, honest tool reviews, and cybersecurity insights by Jax Scott.">
+  <meta property="og:url" content="https://thezaraai.com/blog/">
+  <meta property="og:site_name" content="theZaraAI.com">
+  <meta property="og:image" content="https://thezaraai.com/assets/zara-og.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@the_Zaraai">
+  <meta name="twitter:title" content="ZaraAI Blog — AI Agents, Education & Cybersecurity">
+  <meta name="twitter:description" content="Practical AI agent guides and honest reviews by Jax Scott.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #080b12; color: #e2e8f0; font-family: 'Inter', sans-serif; line-height: 1.7; }
+    a { color: #00e5a0; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* NAV */
+    nav { background: #0e1220; border-bottom: 1px solid #1e2a3a; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 64px; position: sticky; top: 0; z-index: 100; }
+    .nav-logo { font-size: 1.4rem; font-weight: 800; color: #fff; }
+    .nav-logo span { color: #00e5a0; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { color: #94a3b8; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: #00e5a0; text-decoration: none; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: #94a3b8; border-radius: 2px; }
+    .mobile-menu { display: none; flex-direction: column; background: #0e1220; border-top: 1px solid #1e2a3a; padding: 1rem 2rem; gap: 1rem; }
+    .mobile-menu a { color: #94a3b8; font-weight: 500; }
+    .mobile-menu.open { display: flex; }
+
+    /* HERO */
+    .blog-hero { background: linear-gradient(135deg, #0e1220 0%, #0d1a2e 100%); padding: 4rem 2rem 3rem; text-align: center; border-bottom: 1px solid #1e2a3a; }
+    .blog-hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; color: #fff; margin-bottom: 0.75rem; }
+    .blog-hero h1 span { color: #00e5a0; }
+    .blog-hero p { color: #94a3b8; font-size: 1.1rem; max-width: 600px; margin: 0 auto 2rem; }
+
+    /* EMAIL CTA TOP */
+    .email-cta-top { background: #0e1220; border: 1px solid #00e5a0; border-radius: 12px; padding: 2rem; max-width: 620px; margin: 0 auto; }
+    .email-cta-top h3 { color: #00e5a0; font-size: 1.1rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .email-cta-top p { color: #94a3b8; font-size: 0.9rem; margin-bottom: 1rem; }
+    .cta-form { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+    .cta-form input[type="email"] { flex: 1; min-width: 200px; padding: 0.7rem 1rem; background: #080b12; border: 1px solid #1e2a3a; border-radius: 8px; color: #e2e8f0; font-family: 'Inter', sans-serif; font-size: 0.95rem; outline: none; }
+    .cta-form input[type="email"]:focus { border-color: #00e5a0; }
+    .cta-form button { padding: 0.7rem 1.5rem; background: #00e5a0; color: #080b12; font-weight: 700; border: none; border-radius: 8px; cursor: pointer; font-family: 'Inter', sans-serif; font-size: 0.95rem; white-space: nowrap; }
+
+    /* POSTS GRID */
+    .blog-main { max-width: 1100px; margin: 0 auto; padding: 4rem 2rem; }
+    .section-label { color: #64748b; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 2rem; }
+    .posts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
+    .post-card { background: #0e1220; border: 1px solid #1e2a3a; border-radius: 12px; padding: 1.8rem; display: flex; flex-direction: column; transition: border-color 0.2s, transform 0.2s; }
+    .post-card:hover { border-color: rgba(0,229,160,0.4); transform: translateY(-3px); }
+    .post-tag { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; }
+    .tag-education { background: rgba(0,229,160,0.1); color: #00e5a0; border: 1px solid rgba(0,229,160,0.25); }
+    .tag-comparison { background: rgba(124,58,237,0.1); color: #a78bfa; border: 1px solid rgba(124,58,237,0.25); }
+    .tag-tutorial { background: rgba(59,130,246,0.1); color: #60a5fa; border: 1px solid rgba(59,130,246,0.25); }
+    .post-card h2 { font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem; line-height: 1.4; }
+    .post-card p { color: #94a3b8; font-size: 0.9rem; line-height: 1.6; flex-grow: 1; margin-bottom: 1.5rem; }
+    .post-card .read-more { color: #00e5a0; font-weight: 600; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.3rem; }
+    .post-card .read-more:hover { text-decoration: underline; }
+    .post-meta { color: #475569; font-size: 0.8rem; margin-bottom: 0.75rem; }
+
+    /* SOCIAL FOLLOW */
+    .social-section { background: #0e1220; border: 1px solid #1e2a3a; border-radius: 12px; padding: 2.5rem; text-align: center; margin-top: 4rem; }
+    .social-section h2 { color: #fff; font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .social-section p { color: #94a3b8; margin-bottom: 1.5rem; }
+    .social-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-social { padding: 0.6rem 1.4rem; border-radius: 8px; font-weight: 600; font-size: 0.9rem; transition: opacity 0.2s; }
+    .btn-x { background: #000; color: #fff; border: 1px solid #333; }
+    .btn-ig { background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045); color: #fff; }
+    .btn-social:hover { opacity: 0.85; text-decoration: none; }
+
+    footer { background: #0e1220; border-top: 1px solid #1e2a3a; text-align: center; padding: 2rem; color: #475569; font-size: 0.85rem; }
+
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .blog-hero { padding: 2.5rem 1.5rem 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="https://thezaraai.com" class="nav-logo">Zara<span>AI</span></a>
+  <ul class="nav-links">
+    <li><a href="https://thezaraai.com">Home</a></li>
+    <li><a href="https://thezaraai.com/guide/openclaw-guide.html">Guide</a></li>
+    <li><a href="https://thezaraai.com/blog/">Blog</a></li>
+  </ul>
+  <button class="hamburger" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu">
+  <a href="https://thezaraai.com">Home</a>
+  <a href="https://thezaraai.com/guide/openclaw-guide.html">Guide</a>
+  <a href="https://thezaraai.com/blog/">Blog</a>
+</div>
+
+<div class="blog-hero">
+  <h1>The Zara<span>AI</span> Blog</h1>
+  <p>Real talk on AI agents, personal AI, and cybersecurity. No hype — just what actually works.</p>
+  <div class="email-cta-top">
+    <h3>⚡ Get new posts in your inbox</h3>
+    <p>Join the ZaraAI newsletter — free tutorials and AI agent insights, weekly.</p>
+    <form class="cta-form" action="https://outpostgray.us14.list-manage.com/subscribe/post?u=01c2b078c7fc9c8b7b540856c&id=1d2b5ea4d6&f_id=002691e1f0" method="post" target="_blank">
+      <input type="email" name="EMAIL" placeholder="your@email.com" required>
+      <button type="submit">Subscribe Free →</button>
+    </form>
+  </div>
+</div>
+
+<div class="blog-main">
+  <p class="section-label">Latest Posts</p>
+  <div class="posts-grid">
+
+    <div class="post-card">
+      <span class="post-tag tag-education">AI Education</span>
+      <p class="post-meta">March 18, 2026 · 6 min read</p>
+      <h2>What Is an AI Agent? (And Why You Need One in 2026)</h2>
+      <p>You've been using chatbots. But a chatbot is not an agent — and the difference will change how you work. Here's what an AI agent actually is, and why 2026 is the year it matters.</p>
+      <a href="https://thezaraai.com/blog/what-is-an-ai-agent.html" class="read-more">Read More →</a>
+    </div>
+
+    <div class="post-card">
+      <span class="post-tag tag-comparison">Comparison</span>
+      <p class="post-meta">March 18, 2026 · 7 min read</p>
+      <h2>OpenClaw vs ChatGPT: Why I Stopped Paying $20/Month</h2>
+      <p>An honest breakdown of ChatGPT vs OpenClaw — what each does well, the real privacy and cost differences, and who should use which in 2026.</p>
+      <a href="https://thezaraai.com/blog/openclaw-vs-chatgpt.html" class="read-more">Read More →</a>
+    </div>
+
+    <div class="post-card">
+      <span class="post-tag tag-tutorial">Tutorial</span>
+      <p class="post-meta">March 18, 2026 · 8 min read</p>
+      <h2>How to Give Your AI Agent a Real Memory (Step-by-Step)</h2>
+      <p>Most AI forgets you the moment the chat ends. Here's how to set up MEMORY.md, SOUL.md, and daily logs in OpenClaw — so your agent actually remembers who you are.</p>
+      <a href="https://thezaraai.com/blog/how-to-give-ai-agent-memory.html" class="read-more">Read More →</a>
+    </div>
+
+  </div>
+
+  <div class="social-section">
+    <h2>Follow Along</h2>
+    <p>Daily AI agent tips, tutorials, and drops on X and Instagram — join the community.</p>
+    <div class="social-buttons">
+      <a href="https://x.com/the_Zaraai" class="btn-social btn-x" target="_blank">Follow on X →</a>
+      <a href="https://instagram.com/the_Zaraai" class="btn-social btn-ig" target="_blank">Follow on Instagram →</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 <a href="https://thezaraai.com">theZaraAI.com</a> · Built by <a href="https://iamjax.me">Jax Scott</a></p>
+</footer>
+
+</body>
+</html>
