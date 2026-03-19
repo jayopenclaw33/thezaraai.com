@@ -433,10 +433,9 @@
   <p class="lang-label">Windows (PowerShell)</p>
   <pre><code>iwr -useb https://openclaw.ai/install.ps1 | iex</code></pre>
 
-  <div class="screenshot">
-    <span class="icon">📸</span>
-    <div class="label">SCREENSHOT #1</div>
-    Terminal showing the install script running and completing with a success message
+  <div class="expect-box">
+    <div class="expect-label">✅ What you'll see</div>
+    The installer downloads OpenClaw and its dependencies. You'll see lines scrolling by as packages install — this is normal. When it's done, you'll see a success message like <strong>"OpenClaw installed successfully"</strong> and return to your normal terminal prompt.
   </div>
 
   <p>When it's done, verify the install worked:</p>
@@ -444,10 +443,9 @@
 
   <p>You should see a version number. If you do — you're in. ✅</p>
 
-  <div class="screenshot">
-    <span class="icon">📸</span>
-    <div class="label">SCREENSHOT #2</div>
-    Terminal showing <code>openclaw --version</code> output with a version number
+  <div class="expect-box">
+    <div class="expect-label">✅ What you'll see</div>
+    A single line like <code>openclaw/2.x.x</code> or similar. Any version number means your install succeeded. If you get "command not found," close and reopen your terminal and try again.
   </div>
 
   <!-- STEP 2: WIZARD -->
@@ -455,20 +453,18 @@
   <p>OpenClaw has a guided wizard that configures everything. Run:</p>
   <pre><code>openclaw onboard --install-daemon</code></pre>
 
-  <div class="screenshot">
-    <span class="icon">📸</span>
-    <div class="label">SCREENSHOT #3</div>
-    Terminal showing the onboarding wizard welcome screen
+  <div class="expect-box">
+    <div class="expect-label">✅ What you'll see</div>
+    A welcome screen with the OpenClaw logo printed in your terminal, followed by a series of prompts. The wizard is interactive — use your arrow keys to select options and <strong>Enter</strong> to confirm. Don't worry about making a mistake; you can re-run the wizard anytime.
   </div>
 
   <p>The wizard walks you through these sections:</p>
 
   <h3>🔑 Model / AI Provider</h3>
   <p>Choose your AI provider and paste your API key. Recommended for beginners: <strong>Anthropic (Claude)</strong>.</p>
-  <div class="screenshot">
-    <span class="icon">📸</span>
-    <div class="label">SCREENSHOT #4</div>
-    Wizard model/provider selection screen
+  <div class="expect-box">
+    <div class="expect-label">✅ What you'll see</div>
+    A list of AI providers (Anthropic, OpenAI, etc.). Use arrow keys to select your choice, then paste your API key when prompted. The key will appear as dots for security — that's expected. If you don't have a key yet, go to <strong>console.anthropic.com</strong> or <strong>platform.openai.com</strong> and create one (free tier available).
   </div>
 
   <h3>📁 Workspace</h3>
@@ -483,10 +479,9 @@
   <h3>🔧 Daemon Install</h3>
   <p>When asked about installing the daemon, say <strong>Yes</strong>. This makes OpenClaw start automatically when your computer boots.</p>
 
-  <div class="screenshot">
-    <span class="icon">📸</span>
-    <div class="label">SCREENSHOT #5</div>
-    Wizard completion screen showing "Setup complete!"
+  <div class="expect-box">
+    <div class="expect-label">✅ What you'll see</div>
+    A "Setup complete!" confirmation with a summary of what was configured. The gateway will start automatically. You'll also see a URL like <code>http://127.0.0.1:18789</code> — that's your Control UI address for the next step.
   </div>
 
   <!-- STEP 3: CONTROL UI -->
@@ -496,18 +491,16 @@
 
   <p>This opens your browser to <code>http://127.0.0.1:18789/</code> — the OpenClaw Control UI.</p>
 
-  <div class="screenshot">
-    <span class="icon">📸</span>
-    <div class="label">SCREENSHOT #6</div>
-    OpenClaw Control UI dashboard in browser — empty state, ready for first message
+  <div class="expect-box">
+    <div class="expect-label">✅ What you'll see</div>
+    A dark-themed chat interface in your browser — clean and minimal. There's a text input at the bottom and empty chat space above. This is your agent's home base. If the browser doesn't open automatically, copy <code>http://127.0.0.1:18789</code> and paste it into your browser manually.
   </div>
 
   <p>You'll see a clean chat interface. <strong>Type something and hit send.</strong> Your AI agent will respond.</p>
 
-  <div class="screenshot">
-    <span class="icon">📸</span>
-    <div class="label">SCREENSHOT #7</div>
-    First conversation in Control UI — user says "Hello!" and agent responds
+  <div class="expect-box">
+    <div class="expect-label">✅ What you'll see</div>
+    Your message appears on the right, and after a second or two the agent replies on the left. The first response may take a moment — it's waking up for the first time. If it takes more than 30 seconds, check that your API key was entered correctly by running <code>openclaw status</code> in your terminal.
   </div>
 
   <div class="tip">
@@ -524,10 +517,9 @@
     <li>How do you want me to behave?</li>
   </ul>
 
-  <div class="screenshot">
-    <span class="icon">📸</span>
-    <div class="label">SCREENSHOT #8</div>
-    Bootstrap conversation — agent asking the user for their name and preferences
+  <div class="expect-box">
+    <div class="expect-label">✅ What you'll see</div>
+    Your agent will start the conversation by introducing itself and asking a few questions — your name, how you'd like it to behave, what to call itself. This is the <strong>bootstrap ritual</strong>. Just answer naturally. There's no wrong answer. This only happens once.
   </div>
 
   <p>Answer honestly — it's building its memory of you. After this, the agent creates:</p>
@@ -541,10 +533,9 @@
   <h2 id="workspace"><span class="step-num">5</span>Understanding the Workspace</h2>
   <p>Your agent's home is at <code>~/.openclaw/workspace</code>. These are plain text files you can read and edit anytime:</p>
 
-  <div class="screenshot">
-    <span class="icon">📸</span>
-    <div class="label">SCREENSHOT #9</div>
-    Workspace folder open in macOS Finder showing all the .md files
+  <div class="expect-box">
+    <div class="expect-label">✅ What you'll see</div>
+    If you open Finder and navigate to your home folder → <code>.openclaw</code> → <code>workspace</code>, you'll see a collection of <code>.md</code> (Markdown) files. These are plain text — you can open and edit them in any text editor like TextEdit, VS Code, or even Notepad. Changes take effect on your agent's next message.
   </div>
 
   <table>
@@ -573,10 +564,9 @@
   <p>The Gateway is the always-running background service that powers everything. Check it with:</p>
   <pre><code>openclaw gateway status</code></pre>
 
-  <div class="screenshot">
-    <span class="icon">📸</span>
-    <div class="label">SCREENSHOT #10</div>
-    Terminal showing gateway status output — "Running" with uptime info
+  <div class="expect-box">
+    <div class="expect-label">✅ What you'll see</div>
+    A status table showing <strong>Gateway: Running</strong> with an uptime counter, the port it's listening on (default: 18789), and any connected channels. If it shows "Stopped," run <code>openclaw gateway start</code> to bring it back up.
   </div>
 
   <p>Other useful commands:</p>
@@ -595,18 +585,16 @@ openclaw gateway restart  # Restart it</code></pre>
     <li>Copy your bot token</li>
     <li>Run <code>openclaw configure</code> and paste the token in the Telegram section</li>
   </ol>
-  <div class="screenshot">
-    <span class="icon">📸</span>
-    <div class="label">SCREENSHOT #11</div>
-    Telegram app — BotFather conversation creating a new bot and showing the token
+  <div class="expect-box">
+    <div class="expect-label">✅ What you'll see in Telegram</div>
+    BotFather will reply with a message saying your bot was created, followed by a long token that looks like: <code>1234567890:ABCDefGhIJKlmNoPQRsTUVwxyZ</code>. Copy the <strong>entire token</strong> including the numbers before the colon. Paste it exactly when OpenClaw prompts you — no extra spaces.
   </div>
 
   <h3>💬 WhatsApp</h3>
   <p>WhatsApp uses a QR code scan. Run <code>openclaw configure</code>, navigate to WhatsApp, and scan the QR code with your phone's camera.</p>
-  <div class="screenshot">
-    <span class="icon">📸</span>
-    <div class="label">SCREENSHOT #12</div>
-    QR code displayed in terminal for WhatsApp pairing
+  <div class="expect-box">
+    <div class="expect-label">✅ What you'll see</div>
+    A QR code rendered in your terminal using text characters. Open WhatsApp on your phone → tap the three dots (Android) or Settings (iPhone) → Linked Devices → Link a Device → point your camera at the terminal QR code. You have about 20 seconds before it expires — if it does, just press Enter in the terminal to regenerate it.
   </div>
 
   <h3>🎮 Discord</h3>
@@ -623,18 +611,16 @@ openclaw gateway restart  # Restart it</code></pre>
 
   <h3>Step 1: Approve macOS Security Warning</h3>
   <p>When you first open the app, macOS will show a security warning (this is normal for apps outside the App Store). Click <strong>Open Anyway</strong> in System Settings → Privacy &amp; Security.</p>
-  <div class="screenshot">
-    <span class="icon">📸</span>
-    <div class="label">SCREENSHOT #13</div>
-    macOS security warning dialog when opening OpenClaw for the first time
+  <div class="expect-box">
+    <div class="expect-label">✅ What you'll see</div>
+    A macOS dialog saying <strong>"Apple cannot check it for malicious software"</strong> or similar. This is standard for any app distributed outside the App Store. To proceed: go to <strong>System Settings → Privacy & Security</strong>, scroll down, and click <strong>"Open Anyway"</strong> next to the OpenClaw entry. You only need to do this once.
   </div>
 
   <h3>Step 2: Allow Local Network Access</h3>
   <p>macOS will ask if OpenClaw can find devices on your local network. Click <strong>Allow</strong>.</p>
-  <div class="screenshot">
-    <span class="icon">📸</span>
-    <div class="label">SCREENSHOT #14</div>
-    macOS "Find local networks" permission dialog
+  <div class="expect-box">
+    <div class="expect-label">✅ What you'll see</div>
+    A macOS popup asking: <em>"OpenClaw would like to find and connect to devices on your local network."</em> Click <strong>Allow</strong>. This lets OpenClaw communicate with its gateway on your local machine. It does not give the app access to other devices on your network.
   </div>
 
   <h3>Step 3: Read the Security Notice</h3>
@@ -643,10 +629,9 @@ openclaw gateway restart  # Restart it</code></pre>
     <span class="icon">🔒</span>
     <p><strong>Security note:</strong> By default, OpenClaw is a personal agent — only you can access it. Don't share your gateway credentials with anyone.</p>
   </div>
-  <div class="screenshot">
-    <span class="icon">📸</span>
-    <div class="label">SCREENSHOT #15</div>
-    OpenClaw security notice screen inside the macOS app
+  <div class="expect-box">
+    <div class="expect-label">✅ What you'll see</div>
+    A screen explaining OpenClaw's security model — who can access your agent and how. Read it carefully. The key points: your agent is private by default, only accessible from your machine or approved channels. When ready, click <strong>Continue</strong> or <strong>I Understand</strong> to proceed.
   </div>
 
   <h3>Step 4: Choose Gateway Location</h3>
@@ -656,10 +641,9 @@ openclaw gateway restart  # Restart it</code></pre>
     <li><strong>Remote (SSH/Tailnet)</strong> — Advanced: Gateway runs on a server.</li>
     <li><strong>Configure later</strong> — Skip for now.</li>
   </ul>
-  <div class="screenshot">
-    <span class="icon">📸</span>
-    <div class="label">SCREENSHOT #16</div>
-    Gateway location selection screen — "This Mac" option highlighted
+  <div class="expect-box">
+    <div class="expect-label">✅ What you'll see</div>
+    Three options: <strong>This Mac</strong>, <strong>Remote server</strong>, and <strong>Configure later</strong>. Select <strong>This Mac</strong> for a local-only setup — this is the recommended choice for beginners. Your agent runs entirely on your laptop; nothing is sent to external servers except your AI provider API calls.
   </div>
 
   <h3>Step 5: Grant Permissions</h3>
@@ -670,10 +654,9 @@ openclaw gateway restart  # Restart it</code></pre>
     <li><strong>Microphone / Speech</strong> — If you want voice features</li>
     <li><em>Others are optional</em></li>
   </ul>
-  <div class="screenshot">
-    <span class="icon">📸</span>
-    <div class="label">SCREENSHOT #17</div>
-    macOS permissions screen inside the OpenClaw app
+  <div class="expect-box">
+    <div class="expect-label">✅ What you'll see</div>
+    A screen listing permissions OpenClaw can request: Notifications, Accessibility, Microphone, etc. Each has a toggle or "Grant" button. <strong>Notifications</strong> is the most useful to enable — it lets your agent alert you when something needs attention. The rest are optional and can be enabled later in System Settings → Privacy & Security.
   </div>
 
   <h3>Step 6: Install the CLI (Optional but Recommended)</h3>
@@ -681,10 +664,9 @@ openclaw gateway restart  # Restart it</code></pre>
 
   <h3>Step 7: Onboarding Chat</h3>
   <p>After setup, the app opens a dedicated <strong>onboarding chat</strong> where your agent introduces itself and guides you through first steps. This is separate from your main chat, so it stays clean.</p>
-  <div class="screenshot">
-    <span class="icon">📸</span>
-    <div class="label">SCREENSHOT #18</div>
-    macOS app onboarding chat — agent introducing itself
+  <div class="expect-box">
+    <div class="expect-label">✅ What you'll see</div>
+    A dedicated onboarding chat window (separate from your main chat) where your agent walks you through first steps. It will introduce itself, explain what it can do, and guide you through the bootstrap process. Follow along naturally — this is your agent learning who you are for the first time.
   </div>
 
   <div class="tip">
