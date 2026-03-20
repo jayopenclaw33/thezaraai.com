@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Two New Products Just Dropped — Here's What They Are and Why I Built Them | theZaraAI.com</title>
+  <meta name="description" content="The AI Agent Starter Kit and the Cybersecurity AI Prompt Pack are live. Here's what they are, who they're for, and the real story behind why I built them.">
+  <meta name="keywords" content="AI agent starter kit, cybersecurity AI prompts, AI prompt pack, personal AI agent, Jax Scott products, theZaraAI">
+  <meta name="author" content="Jax Scott">
+  <link rel="canonical" href="https://thezaraai.com/blog/products-launch.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Two New Products Just Dropped — Here's What They Are and Why I Built Them">
+  <meta property="og:description" content="The AI Agent Starter Kit ($27) and Cybersecurity AI Prompt Pack ($47) are live. Here's the story behind both.">
+  <meta property="og:url" content="https://thezaraai.com/blog/products-launch.html">
+  <meta property="og:site_name" content="theZaraAI.com">
+  <meta property="og:image" content="https://thezaraai.com/assets/zara-og.png">
+  <meta property="article:author" content="Jax Scott">
+  <meta property="article:published_time" content="2026-03-20">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@the_Zaraai">
+  <meta name="twitter:title" content="Two New Products Just Dropped — Here's What They Are and Why I Built Them">
+  <meta name="twitter:description" content="The AI Agent Starter Kit and Cybersecurity AI Prompt Pack are live. Here's what's inside and why I built them.">
+  <meta name="twitter:image" content="https://thezaraai.com/assets/zara-og.png">
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Two New Products Just Dropped — Here's What They Are and Why I Built Them",
+    "description": "The AI Agent Starter Kit and the Cybersecurity AI Prompt Pack are live. Here's what they are, who they're for, and the real story behind why I built them.",
+    "author": {
+      "@type": "Person",
+      "name": "Jax Scott",
+      "url": "https://iamjax.me"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "theZaraAI.com",
+      "url": "https://thezaraai.com"
+    },
+    "datePublished": "2026-03-20",
+    "dateModified": "2026-03-20",
+    "url": "https://thezaraai.com/blog/products-launch.html",
+    "mainEntityOfPage": "https://thezaraai.com/blog/products-launch.html"
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #080b12; color: #e2e8f0; font-family: 'Inter', sans-serif; line-height: 1.7; }
+    a { color: #00e5a0; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* NAV */
+    nav { background: #0e1220; border-bottom: 1px solid #1e2a3a; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 64px; position: sticky; top: 0; z-index: 100; }
+    .nav-logo { font-size: 1.4rem; font-weight: 800; color: #fff; }
+    .nav-logo span { color: #00e5a0; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { color: #94a3b8; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: #00e5a0; text-decoration: none; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: #94a3b8; border-radius: 2px; }
+    .mobile-menu { display: none; flex-direction: column; background: #0e1220; border-top: 1px solid #1e2a3a; padding: 1rem 2rem; gap: 1rem; }
+    .mobile-menu a { color: #94a3b8; font-weight: 500; }
+    .mobile-menu.open { display: flex; }
+
+    /* ARTICLE */
+    .article-hero { background: linear-gradient(135deg, #0e1220 0%, #0d1a2e 100%); padding: 4rem 2rem 3rem; text-align: center; border-bottom: 1px solid #1e2a3a; }
+    .article-hero .tag { display: inline-block; background: rgba(0,229,160,0.1); color: #00e5a0; border: 1px solid rgba(0,229,160,0.3); border-radius: 20px; padding: 4px 14px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; }
+    .article-hero h1 { font-size: clamp(1.8rem, 5vw, 3rem); font-weight: 800; color: #fff; max-width: 800px; margin: 0 auto 1rem; }
+    .article-meta { color: #64748b; font-size: 0.9rem; }
+    .article-meta span { color: #94a3b8; }
+
+    .article-container { max-width: 780px; margin: 0 auto; padding: 3rem 2rem 5rem; }
+    .article-container h2 { font-size: 1.6rem; font-weight: 700; color: #fff; margin: 2.5rem 0 1rem; }
+    .article-container p { margin-bottom: 1.2rem; color: #cbd5e1; }
+    .article-container ul { margin: 1rem 0 1.5rem 1.5rem; color: #cbd5e1; }
+    .article-container ul li { margin-bottom: 0.6rem; }
+    .article-container strong { color: #e2e8f0; }
+
+    /* PRODUCT CARDS */
+    .product-card { background: #0e1220; border: 1px solid #1e2a3a; border-radius: 12px; padding: 2rem; margin: 2rem 0; }
+    .product-card:hover { border-color: rgba(0,229,160,0.4); }
+    .product-card .product-label { display: inline-block; background: rgba(0,229,160,0.1); color: #00e5a0; border: 1px solid rgba(0,229,160,0.3); border-radius: 20px; padding: 3px 12px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.75rem; }
+    .product-card h3 { font-size: 1.3rem; font-weight: 800; color: #fff; margin-bottom: 0.5rem; }
+    .product-card .price { font-size: 1.5rem; font-weight: 800; color: #00e5a0; margin-bottom: 1rem; }
+    .product-card p { color: #94a3b8; margin-bottom: 1.25rem; font-size: 0.95rem; }
+    .product-card ul { margin: 0.75rem 0 1.25rem 1.25rem; }
+    .product-card ul li { color: #94a3b8; font-size: 0.95rem; margin-bottom: 0.5rem; }
+    .btn-product { display: inline-block; background: #00e5a0; color: #080b12; font-weight: 700; padding: 0.75rem 1.75rem; border-radius: 8px; font-size: 0.95rem; transition: opacity 0.2s; }
+    .btn-product:hover { opacity: 0.9; text-decoration: none; }
+
+    /* CTA BOX */
+    .cta-box { background: #0e1220; border: 1px solid #00e5a0; border-radius: 12px; padding: 2rem; margin: 3rem 0; }
+    .cta-box h3 { color: #00e5a0; font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .cta-box p { color: #94a3b8; margin-bottom: 1.2rem; font-size: 0.95rem; }
+    .cta-box a.btn-product { display: inline-block; }
+
+    /* BACK LINK */
+    .back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: #64748b; font-size: 0.9rem; margin-bottom: 2rem; }
+    .back-link:hover { color: #00e5a0; text-decoration: none; }
+
+    /* SOCIAL CTA */
+    .social-cta { background: #0e1220; border: 1px solid #1e2a3a; border-radius: 12px; padding: 2.5rem; text-align: center; margin-top: 4rem; }
+    .social-cta h3 { color: #fff; font-size: 1.4rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .social-cta p { color: #94a3b8; margin-bottom: 1.5rem; }
+
+    /* NEWSLETTER CTA */
+    .newsletter-cta { background: #0e1220; border: 1px solid #00e5a0; border-radius: 12px; padding: 2.5rem; text-align: center; margin-top: 3rem; }
+    .newsletter-cta h3 { color: #00e5a0; font-size: 1.3rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .newsletter-cta p { color: #94a3b8; margin-bottom: 1.5rem; }
+    .newsletter-cta .btn-newsletter { display: inline-block; background: #00e5a0; color: #080b12; font-weight: 700; padding: 0.85rem 2rem; border-radius: 8px; font-size: 1rem; transition: opacity 0.2s; }
+    .newsletter-cta .btn-newsletter:hover { opacity: 0.9; text-decoration: none; }
+
+    footer { background: #0e1220; border-top: 1px solid #1e2a3a; text-align: center; padding: 2rem; color: #475569; font-size: 0.85rem; }
+
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .article-hero { padding: 2.5rem 1.5rem 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="https://thezaraai.com" class="nav-logo">Zara<span>AI</span></a>
+  <ul class="nav-links">
+    <li><a href="https://thezaraai.com">Home</a></li>
+    <li><a href="https://thezaraai.com/guide/openclaw-guide.html">Guide</a></li>
+    <li><a href="https://thezaraai.com/blog/">Blog</a></li>
+    <li><a href="https://thezaraai.com/products/">Shop ⚡</a></li>
+  </ul>
+  <button class="hamburger" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu">
+  <a href="https://thezaraai.com">Home</a>
+  <a href="https://thezaraai.com/guide/openclaw-guide.html">Guide</a>
+  <a href="https://thezaraai.com/blog/">Blog</a>
+  <a href="https://thezaraai.com/products/">Shop ⚡</a>
+</div>
+
+<div class="article-hero">
+  <div class="tag">Product Launch</div>
+  <h1>Two New Products Just Dropped — Here's What They Are and Why I Built Them</h1>
+  <p class="article-meta">By <span>Jax Scott</span> &nbsp;·&nbsp; March 20, 2026 &nbsp;·&nbsp; 7 min read</p>
+</div>
+
+<div class="article-container">
+  <a href="https://thezaraai.com/blog/" class="back-link">← Back to Blog</a>
+
+  <p>Today's a big day. Two products just went live — and I want to tell you what they are, who they're actually for, and why I spent months putting them together instead of just posting more content.</p>
+
+  <p>The short version: I got tired of watching smart people undersell themselves with bad AI setups. People with real expertise — years in the field, hard-won knowledge — using AI like it's a fancy Google search. That bothered me. I built these to fix that.</p>
+
+  <p>Here's what dropped today. 👇</p>
+
+  <h2>Product 1: AI Agent Starter Kit — $27</h2>
+
+  <div class="product-card">
+    <span class="product-label">New Release</span>
+    <h3>AI Agent Starter Kit</h3>
+    <div class="price">$27 — one-time, yours forever</div>
+    <p>Everything you need to turn a generic AI into a personal agent that actually knows who you are — and remembers it next session.</p>
+    <ul>
+      <li><strong>SOUL.md</strong> — Give your AI a real personality. Not a chatbot. An agent.</li>
+      <li><strong>USER.md</strong> — Your background, preferences, goals. It knows you every session.</li>
+      <li><strong>MEMORY.md</strong> — It remembers what you built last week. No more starting from zero.</li>
+      <li><strong>35 curated prompts</strong> — Get to useful output fast, without the trial and error.</li>
+      <li><strong>Troubleshooting guide</strong> — Fix the most common issues before they slow you down.</li>
+    </ul>
+    <a href="https://thezaraai.gumroad.com/l/qstadl" class="btn-product" target="_blank">Get the Starter Kit — $27 →</a>
+  </div>
+
+  <p>This kit is for anyone who's been using ChatGPT, Claude, or OpenClaw and feeling like they're not getting everything out of it. The dirty secret? The tool is usually fine. The setup isn't. Most people never configure their AI with any context about who they are, what they do, or what they're working on. Every session starts completely cold.</p>
+
+  <p>SOUL.md, USER.md, and MEMORY.md are the three files that change that. They're not complicated — they're structured text files that live in your workspace and load automatically every time your agent wakes up. The result is an AI that feels less like a tool and more like a collaborator. One that knows your voice, your work, your preferences. One that compounds instead of resetting.</p>
+
+  <p>I use this exact system myself — with Zara — and the difference between a Zara session and a cold ChatGPT session is not subtle. She knows my background. She knows my projects. She knows how I write. That's what the Starter Kit builds for you.</p>
+
+  <h2>Product 2: Cybersecurity AI Prompt Pack — $47</h2>
+
+  <div class="product-card">
+    <span class="product-label">New Release</span>
+    <h3>Cybersecurity AI Prompt Pack</h3>
+    <div class="price">$47 — one-time, copy-paste ready</div>
+    <p>100 AI prompts built from 19 years of hands-on cybersecurity work. Not theory. Not generic. Real prompts for real work.</p>
+    <ul>
+      <li><strong>Threat intelligence</strong> — Automate analysis and summarization workflows</li>
+      <li><strong>Incident response</strong> — Timelines, reports, exec briefs — faster</li>
+      <li><strong>Risk assessment</strong> — Structure, analyze, and present risk clearly</li>
+      <li><strong>Executive reporting</strong> — Translate technical findings into business language</li>
+      <li><strong>AI security</strong> — Prompts for evaluating and securing AI deployments</li>
+      <li><strong>Zero Trust & CMMC</strong> — Policy docs, gap analysis, compliance frameworks</li>
+    </ul>
+    <a href="https://thezaraai.gumroad.com/l/yphml" class="btn-product" target="_blank">Get the Prompt Pack — $47 →</a>
+  </div>
+
+  <p>This one's for the cybersecurity professionals. And I need to be direct with you about something: I spent a long time wrestling with whether to release this, because I've seen too many "prompt packs" that are just generic filler dressed up in a domain costume.</p>
+
+  <p>This is not that.</p>
+
+  <p>These 100 prompts are the ones I actually use. Built and tested over 19 years in the field — U.S. Army Special Forces cyber, red team work, compliance, incident response, executive advisory. The kind of work where vague, generic prompts don't just waste time — they produce outputs you can't trust. These are engineered for specificity. They give AI the context it needs to produce work that's actually useful in a real security environment.</p>
+
+  <p>The most underrated thing in this pack is the executive reporting section. If you've ever spent four hours writing a findings brief that a VP glanced at for 30 seconds, you know exactly why I built that category. The right prompts cut that time dramatically — and produce outputs that are actually formatted for the humans who need to read them.</p>
+
+  <h2>Why I Built These (The Real Version)</h2>
+
+  <p>I've been in cybersecurity for almost two decades. I've watched the field change through every major technology shift. Cloud, mobile, IoT, and now AI. Every time, there's a window where early adopters get a serious edge — and then it closes, and everyone catches up, and the edge is gone.</p>
+
+  <p>We're in that window right now with AI.</p>
+
+  <p>Most security professionals are still treating AI like a novelty. They'll paste in a paragraph and ask it to "make this better." Maybe they'll ask it to summarize a CVE. That's fine — but it's leaving 80% of the capability on the table. The people who figure out how to actually build AI into their workflow, who set it up right and give it the right context, are doing significantly better work in significantly less time.</p>
+
+  <p>I built these products to help close that gap. Not just for security people — the Starter Kit is for anyone — but especially for the people I know best: the ones who've put years into their expertise and deserve tools that honor that expertise instead of dumbing it down.</p>
+
+  <p>No subscriptions. No upsells. Pay once, own it forever. That was a deliberate choice. I'm building products I'd actually want to buy.</p>
+
+  <h2>What's Next</h2>
+
+  <p>These are the first two — not the last. More in the pipeline. Check the <a href="https://thezaraai.com/products/">products page</a> to see what's live and what's coming.</p>
+
+  <p>And if you grab either product, I'd genuinely love to hear how it goes. DM me on <a href="https://x.com/the_Zaraai" target="_blank">X</a> or reply to any newsletter email. Real feedback shapes what I build next.</p>
+
+  <!-- PRODUCT LINKS CTA -->
+  <div class="cta-box">
+    <h3>⚡ Both Products — Live Now</h3>
+    <p>AI Agent Starter Kit — $27 &nbsp;·&nbsp; Cybersecurity AI Prompt Pack — $47</p>
+    <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:1rem;">
+      <a href="https://thezaraai.gumroad.com/l/qstadl" class="btn-product" target="_blank">Starter Kit — $27 →</a>
+      <a href="https://thezaraai.gumroad.com/l/yphml" class="btn-product" target="_blank" style="background:#0e1220; color:#00e5a0; border:1px solid #00e5a0;">Prompt Pack — $47 →</a>
+    </div>
+  </div>
+
+  <!-- NEWSLETTER CTA -->
+  <div class="newsletter-cta">
+    <h3>⚡ Stay in the Loop</h3>
+    <p>New products, tutorials, and AI agent insights — straight to your inbox. Free, no spam, unsubscribe anytime.</p>
+    <a href="https://thezaraai.beehiiv.com/subscribe" class="btn-newsletter" target="_blank">Join the Newsletter →</a>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 <a href="https://thezaraai.com">theZaraAI.com</a> · Built by <a href="https://iamjax.me">Jax Scott</a></p>
+</footer>
+
+</body>
+</html>
