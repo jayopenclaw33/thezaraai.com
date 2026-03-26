@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zara ⚡ | TheZaraAI.com</title>
+  <meta name="description" content="AI education for people who actually do things. Personal AI agents, cybersecurity AI, and more from Jax Scott.">
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --card-bg: #111111;
+      --border: #1e2d1e;
+      --green: #00e676;
+      --green-dark: #00b35a;
+      --green-glow: rgba(0,230,118,0.15);
+      --text: #e8f5e9;
+      --muted: #7a9e7e;
+      --white: #ffffff;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 16px 60px;
+    }
+    .container { width: 100%; max-width: 480px; }
+
+    .profile {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    .avatar {
+      width: 80px; height: 80px;
+      background: linear-gradient(135deg, #00e676, #00b35a);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2rem;
+      margin: 0 auto 16px;
+      box-shadow: 0 0 30px var(--green-glow);
+    }
+    .profile h1 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.02em;
+    }
+    .profile p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-top: 6px;
+      line-height: 1.5;
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin: 24px 0 12px;
+    }
+
+    .link-card {
+      display: flex;
+      align-items: center;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px 18px;
+      margin-bottom: 10px;
+      text-decoration: none;
+      color: var(--text);
+      transition: all 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .link-card:hover {
+      border-color: var(--green);
+      background: #141f14;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 20px var(--green-glow);
+    }
+    .link-card:active { transform: translateY(0); }
+
+    .link-icon {
+      font-size: 1.3rem;
+      margin-right: 14px;
+      flex-shrink: 0;
+      width: 28px;
+      text-align: center;
+    }
+    .link-content { flex: 1; min-width: 0; }
+    .link-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--white);
+      display: block;
+    }
+    .link-sub {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 2px;
+      display: block;
+    }
+    .badge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--bg);
+      background: var(--green);
+      padding: 3px 8px;
+      border-radius: 20px;
+      flex-shrink: 0;
+      margin-left: 10px;
+    }
+    .badge.free { background: #4caf50; }
+    .link-arrow {
+      color: var(--green);
+      font-size: 1rem;
+      margin-left: 10px;
+      flex-shrink: 0;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 8px 0;
+    }
+
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+    footer a { color: var(--green); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <div class="profile">
+      <div class="avatar">⚡</div>
+      <h1>Zara ⚡ | TheZaraAI.com</h1>
+      <p>AI education for people who actually do things.<br>Built by Jax Scott — 19yr cyber, Special Forces, AI educator.</p>
+    </div>
+
+    <div class="section-label">🔐 Products</div>
+
+    <a href="https://thezaraai.gumroad.com/l/qstadl" target="_blank" class="link-card">
+      <span class="link-icon">🤖</span>
+      <div class="link-content">
+        <span class="link-title">AI Agent Starter Kit</span>
+        <span class="link-sub">Set up your first personal AI agent — templates + guide</span>
+      </div>
+      <span class="badge">$27</span>
+      <span class="link-arrow">›</span>
+    </a>
+
+    <a href="https://thezaraai.gumroad.com/l/yphml" target="_blank" class="link-card">
+      <span class="link-icon">🛡️</span>
+      <div class="link-content">
+        <span class="link-title">Cybersecurity AI Prompt Pack</span>
+        <span class="link-sub">100+ battle-tested AI prompts for security professionals</span>
+      </div>
+      <span class="badge">$47</span>
+      <span class="link-arrow">›</span>
+    </a>
+
+    <div class="section-label">📚 Free Resources</div>
+
+    <a href="https://thezaraai.com/guide/" target="_blank" class="link-card">
+      <span class="link-icon">📖</span>
+      <div class="link-content">
+        <span class="link-title">Free OpenClaw Beginner's Guide</span>
+        <span class="link-sub">Zero to personal AI agent in 30 days — no code required</span>
+      </div>
+      <span class="badge free">FREE</span>
+      <span class="link-arrow">›</span>
+    </a>
+
+    <a href="https://thezaraai.com" target="_blank" class="link-card">
+      <span class="link-icon">🌐</span>
+      <div class="link-content">
+        <span class="link-title">TheZaraAI.com</span>
+        <span class="link-sub">AI education hub — guides, blog, resources</span>
+      </div>
+      <span class="link-arrow">›</span>
+    </a>
+
+    <div class="section-label">📡 Follow & Connect</div>
+
+    <a href="https://x.com/the_Zaraai" target="_blank" class="link-card">
+      <span class="link-icon">𝕏</span>
+      <div class="link-content">
+        <span class="link-title">Follow on X</span>
+        <span class="link-sub">@the_Zaraai — daily AI insights & updates</span>
+      </div>
+      <span class="link-arrow">›</span>
+    </a>
+
+    <a href="https://thezaraai.substack.com" target="_blank" class="link-card">
+      <span class="link-icon">📬</span>
+      <div class="link-content">
+        <span class="link-title">Subscribe on Substack</span>
+        <span class="link-sub">Weekly AI education — no spam, unsubscribe anytime</span>
+      </div>
+      <span class="link-arrow">›</span>
+    </a>
+
+    <a href="https://2cyberchicks.simplecast.com/" target="_blank" class="link-card">
+      <span class="link-icon">🎙️</span>
+      <div class="link-content">
+        <span class="link-title">2CyberChicks Podcast</span>
+        <span class="link-sub">Cybersecurity + AI with Jax Scott & Erika McDuffie</span>
+      </div>
+      <span class="link-arrow">›</span>
+    </a>
+
+    <footer>
+      <p>© 2026 <a href="https://thezaraai.com">TheZaraAI.com</a> · Built by <a href="https://iamjax.me">Jax Scott</a></p>
+    </footer>
+
+  </div>
+</body>
+</html>
