@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fire Your To-Do List — Build an AI Agent That Works While You Sleep</title>
+  <meta name="description" content="Step-by-step video course: Build your own AI agent in one weekend. No coding, no tech background. From a 19-year cybersecurity veteran & SF operator."/>
+  <meta property="og:title" content="Fire Your To-Do List — AI Agent Course"/>
+  <meta property="og:description" content="Build an AI agent that handles your email, content & calendar automatically. No coding required."/>
+  <meta property="og:image" content="https://thezaraai.com/assets/zara-og-image.png"/>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{background:#0a0a0f;color:#e2e8f0;font-family:'Inter',-apple-system,sans-serif;line-height:1.6}
+    .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:80px 24px;background:radial-gradient(ellipse at top,#1a0a2e 0%,#0a0a0f 60%);position:relative;overflow:hidden}
+    .grid{position:absolute;inset:0;background-image:linear-gradient(rgba(167,139,250,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(167,139,250,0.04) 1px,transparent 1px);background-size:60px 60px}
+    .hero-inner{max-width:760px;text-align:center;position:relative;z-index:2}
+    .badge{display:inline-block;background:rgba(167,139,250,0.12);border:1px solid rgba(167,139,250,0.25);color:#a78bfa;padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-bottom:24px}
+    h1{font-size:clamp(2.4rem,6vw,4rem);font-weight:900;line-height:1.1;margin-bottom:20px;letter-spacing:-.02em}
+    h1 span{color:#a78bfa}
+    .sub{font-size:1.2rem;color:#94a3b8;margin-bottom:12px;line-height:1.6}
+    .price-bar{display:inline-flex;align-items:center;gap:16px;background:rgba(167,139,250,0.08);border:1px solid rgba(167,139,250,0.2);border-radius:12px;padding:12px 24px;margin:24px 0}
+    .price{font-size:2.5rem;font-weight:900;color:#a78bfa}
+    .price-note{font-size:.9rem;color:#64748b;text-align:left}
+    .cta-btn{display:inline-block;background:#a78bfa;color:#0a0a0f;padding:18px 40px;border-radius:12px;font-size:1.1rem;font-weight:800;text-decoration:none;margin:8px;transition:background .2s}
+    .cta-btn:hover{background:#c4b5fd}
+    .cta-secondary{display:inline-block;background:transparent;color:#a78bfa;border:1px solid rgba(167,139,250,0.3);padding:18px 40px;border-radius:12px;font-size:1rem;font-weight:600;text-decoration:none;margin:8px}
+    .guarantee{font-size:.9rem;color:#64748b;margin-top:16px}
+    .guarantee strong{color:#94a3b8}
+    section{padding:80px 24px}
+    .container{max-width:760px;margin:0 auto}
+    .section-label{font-size:.8rem;color:#a78bfa;text-transform:uppercase;letter-spacing:.1em;font-weight:600;margin-bottom:12px}
+    .section-title{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;margin-bottom:20px;line-height:1.2}
+    .section-sub{color:#94a3b8;font-size:1.05rem;margin-bottom:40px}
+    .modules{display:flex;flex-direction:column;gap:16px}
+    .module{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:24px;display:flex;gap:20px;align-items:flex-start}
+    .module-num{background:rgba(167,139,250,0.15);color:#a78bfa;width:40px;height:40px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1rem;flex-shrink:0}
+    .module-content h3{font-size:1.1rem;margin-bottom:6px}
+    .module-content p{color:#94a3b8;font-size:.9rem}
+    .what-you-get{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+    .get-item{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:24px}
+    .get-icon{font-size:1.8rem;margin-bottom:12px}
+    .get-item h3{margin-bottom:8px;font-size:1rem}
+    .get-item p{color:#94a3b8;font-size:.88rem}
+    .social-proof{background:rgba(167,139,250,0.06);border:1px solid rgba(167,139,250,0.15);border-radius:16px;padding:32px;text-align:center}
+    .author{display:flex;gap:20px;align-items:center;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:16px;padding:28px}
+    .author-text strong{display:block;margin-bottom:8px;font-size:1.05rem}
+    .author-text p{color:#94a3b8;font-size:.9rem;line-height:1.6}
+    .faq{display:flex;flex-direction:column;gap:16px}
+    .faq-item{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:24px}
+    .faq-item h3{margin-bottom:10px;font-size:1rem}
+    .faq-item p{color:#94a3b8;font-size:.9rem}
+    .final-cta{background:radial-gradient(ellipse at center,#1a0a2e 0%,#0a0a0f 70%);text-align:center;padding:80px 24px}
+    a{color:#a78bfa}
+    .divider{border:none;border-top:1px solid rgba(255,255,255,0.06);margin:0}
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="grid"></div>
+  <div class="hero-inner">
+    <div class="badge">⚡ Video Course — Instant Access</div>
+    <h1>Fire Your<br/><span>To-Do List</span></h1>
+    <p class="sub">How to Build an AI Agent That Works While You Sleep</p>
+    <p style="color:#64748b;font-size:.95rem;margin-bottom:24px">No coding. No tech background. No BS. Step-by-step video course from a 19-year cybersecurity veteran & Special Forces operator.</p>
+    <div class="price-bar">
+      <div class="price">$297</div>
+      <div class="price-note">One-time payment<br/>Lifetime access</div>
+    </div>
+    <br/>
+    <a href="https://thezaraai.gumroad.com/l/fire-your-todo-list" class="cta-btn">Get Instant Access →</a>
+    <a href="#what-youll-build" class="cta-secondary">See what's inside ↓</a>
+    <p class="guarantee">🔒 <strong>90-Day Money Back Guarantee.</strong> If it doesn't work for you, you don't pay.</p>
+  </div>
+</section>
+<hr class="divider"/>
+
+<!-- PAIN -->
+<section>
+  <div class="container">
+    <div class="section-label">The Problem</div>
+    <h2 class="section-title">Your to-do list is winning.<br/>You're losing.</h2>
+    <p class="section-sub">You're smart. You work hard. You've tried every productivity app.<br/>But the list never shrinks — it just grows.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px">
+      <div style="background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.15);border-radius:12px;padding:20px">
+        <div style="font-size:1.5rem;margin-bottom:8px">😩</div>
+        <p style="font-size:.9rem;color:#94a3b8">Drowning in emails you never have time to properly read or respond to</p>
+      </div>
+      <div style="background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.15);border-radius:12px;padding:20px">
+        <div style="font-size:1.5rem;margin-bottom:8px">🔁</div>
+        <p style="font-size:.9rem;color:#94a3b8">Doing the same repetitive tasks every single day that a machine could handle</p>
+      </div>
+      <div style="background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.15);border-radius:12px;padding:20px">
+        <div style="font-size:1.5rem;margin-bottom:8px">🤖</div>
+        <p style="font-size:.9rem;color:#94a3b8">Using ChatGPT like a search engine and wondering why it doesn't feel useful</p>
+      </div>
+      <div style="background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.15);border-radius:12px;padding:20px">
+        <div style="font-size:1.5rem;margin-bottom:8px">⏰</div>
+        <p style="font-size:.9rem;color:#94a3b8">Working more hours than ever while your competition is automating everything</p>
+      </div>
+    </div>
+  </div>
+</section>
+<hr class="divider"/>
+
+<!-- WHAT YOU'LL BUILD -->
+<section id="what-youll-build">
+  <div class="container">
+    <div class="section-label">The Solution</div>
+    <h2 class="section-title">Build an AI agent that<br/>handles all of it. Automatically.</h2>
+    <p class="section-sub">By the end of this course you'll have a real, working AI agent on your computer that:</p>
+    <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:40px">
+      <div style="display:flex;gap:12px;align-items:center"><span style="color:#a78bfa;font-size:1.2rem">✅</span><span>Reads and summarizes your inbox every morning</span></div>
+      <div style="display:flex;gap:12px;align-items:center"><span style="color:#a78bfa;font-size:1.2rem">✅</span><span>Drafts replies in your voice — you just review and send</span></div>
+      <div style="display:flex;gap:12px;align-items:center"><span style="color:#a78bfa;font-size:1.2rem">✅</span><span>Writes and schedules your social content automatically</span></div>
+      <div style="display:flex;gap:12px;align-items:center"><span style="color:#a78bfa;font-size:1.2rem">✅</span><span>Manages your calendar and reminds you what matters</span></div>
+      <div style="display:flex;gap:12px;align-items:center"><span style="color:#a78bfa;font-size:1.2rem">✅</span><span>Remembers your preferences, your business, your voice</span></div>
+      <div style="display:flex;gap:12px;align-items:center"><span style="color:#a78bfa;font-size:1.2rem">✅</span><span>Works 24/7 — even when you're asleep, on vacation, or off the clock</span></div>
+    </div>
+  </div>
+</section>
+<hr class="divider"/>
+
+<!-- MODULES -->
+<section>
+  <div class="container">
+    <div class="section-label">Inside the Course</div>
+    <h2 class="section-title">6 video modules.<br/>One working AI agent.</h2>
+    <p class="section-sub">Every module is step-by-step. Every step is beginner-friendly. No coding required at any point.</p>
+    <div class="modules">
+      <div class="module"><div class="module-num">1</div><div class="module-content"><h3>Why Your To-Do List Is Lying to You</h3><p>What an AI agent actually is (vs ChatGPT), why beginners have an advantage, and exactly what you'll build.</p></div></div>
+      <div class="module"><div class="module-num">2</div><div class="module-content"><h3>Your First 20 Minutes — Install & Launch</h3><p>Go from zero to a running AI agent on your computer. Any Mac or PC from 2017+. Takes under 20 minutes.</p></div></div>
+      <div class="module"><div class="module-num">3</div><div class="module-content"><h3>Give It a Brain — Memory & Personality Setup</h3><p>Make it know who you are, how you write, and what matters to you. This is what makes it actually useful.</p></div></div>
+      <div class="module"><div class="module-num">4</div><div class="module-content"><h3>Connect It to Your Email & Calendar</h3><p>Gmail, Outlook, and GoDaddy email (with the fix for the quirks that trip everyone up). Inbox zero, automated.</p></div></div>
+      <div class="module"><div class="module-num">5</div><div class="module-content"><h3>Automate Your First Revenue Task</h3><p>Set up your content pipeline. Your agent writes and schedules posts while you sleep. This module pays for the course.</p></div></div>
+      <div class="module"><div class="module-num">6</div><div class="module-content"><h3>You Are Now an AI Operator</h3><p>What to automate next, how to keep scaling, and how to join the community of operators building on AI.</p></div></div>
+      <div class="module" style="border-color:rgba(167,139,250,0.3)"><div class="module-num" style="background:rgba(167,139,250,0.2)">🎁</div><div class="module-content"><h3>BONUS: The GoDaddy Email Fix</h3><p>The exact workaround for connecting GoDaddy Workspace email to your AI agent. Step-by-step, 5 minutes.</p></div></div>
+    </div>
+  </div>
+</section>
+<hr class="divider"/>
+
+<!-- WHAT YOU GET -->
+<section>
+  <div class="container">
+    <div class="section-label">Everything Included</div>
+    <h2 class="section-title">One price. Everything you need.</h2>
+    <div class="what-you-get">
+      <div class="get-item"><div class="get-icon">🎬</div><h3>6 Step-by-Step Video Modules</h3><p>Clear, beginner-friendly walkthroughs. Pause, rewind, rewatch anytime.</p></div>
+      <div class="get-item"><div class="get-icon">📥</div><h3>Done-For-You Templates</h3><p>SOUL.md, USER.md, and MEMORY.md — pre-built, just fill in your details.</p></div>
+      <div class="get-item"><div class="get-icon">🔐</div><h3>GoDaddy Email Workaround</h3><p>The specific fix for connecting GoDaddy email — included as a bonus module.</p></div>
+      <div class="get-item"><div class="get-icon">📋</div><h3>Automation Checklists</h3><p>Step-by-step PDF guides for every module. Follow along or reference later.</p></div>
+      <div class="get-item"><div class="get-icon">⚡</div><h3>Content Pipeline Setup</h3><p>Templates and queue files to start automating your social content immediately.</p></div>
+      <div class="get-item"><div class="get-icon">♾️</div><h3>Lifetime Access + Updates</h3><p>Course updates included free. AI moves fast — your course keeps up.</p></div>
+    </div>
+  </div>
+</section>
+<hr class="divider"/>
+
+<!-- AUTHOR -->
+<section>
+  <div class="container">
+    <div class="author">
+      <div class="author-text">
+        <strong>Built by Jax Scott — TheZaraAI.com</strong>
+        <p>19 years in cybersecurity. 10 years U.S. Army Special Forces as a Cyber Electronic Warfare Warrant Officer. RSA Conference 2024 speaker. President of Outpost Gray. Author. Podcaster.<br/><br/>
+        I've spent my career making complex systems simple enough for non-technical people to use under pressure. AI agents are the most powerful tool I've found for getting time back — and this course is everything I wish existed when I started.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<hr class="divider"/>
+
+<!-- FAQ -->
+<section>
+  <div class="container">
+    <div class="section-label">FAQ</div>
+    <h2 class="section-title">Questions.</h2>
+    <div class="faq">
+      <div class="faq-item"><h3>Do I need to know how to code?</h3><p>Zero coding required. If you can install an app on your phone, you can complete this course.</p></div>
+      <div class="faq-item"><h3>What computer do I need?</h3><p>Any Mac or PC from 2017 or newer. That's it. No special hardware.</p></div>
+      <div class="faq-item"><h3>How long does it take?</h3><p>You can complete the full course in a weekend. Most people have their agent running within the first 2 hours.</p></div>
+      <div class="faq-item"><h3>What if it doesn't work for me?</h3><p>90-day money back guarantee. No questions asked. Email thezaraai@gmail.com and you'll get a full refund.</p></div>
+      <div class="faq-item"><h3>Will this work with GoDaddy email?</h3><p>Yes — there's a dedicated bonus module with the exact fix for GoDaddy Workspace email. It's included.</p></div>
+      <div class="faq-item"><h3>Is this for beginners?</h3><p>This course was built specifically for people with zero AI or tech background. Every step is explained clearly.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="container">
+    <h2 class="section-title">Ready to fire your to-do list?</h2>
+    <p class="section-sub">Join the people who stopped managing their work and started automating it.</p>
+    <div class="price-bar" style="display:inline-flex">
+      <div class="price">$297</div>
+      <div class="price-note">One-time payment<br/>Lifetime access + updates</div>
+    </div>
+    <br/><br/>
+    <a href="https://thezaraai.gumroad.com/l/fire-your-todo-list" class="cta-btn">Get Instant Access Now →</a>
+    <p class="guarantee" style="margin-top:20px">🔒 <strong>90-Day Money Back Guarantee.</strong> If it doesn't change how you work, you don't pay.</p>
+  </div>
+</section>
+
+</body>
+</html>
