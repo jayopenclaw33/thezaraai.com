@@ -4,334 +4,112 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Terms of Service — ZaraAI</title>
-  <meta name="description" content="Terms of Service for ZaraAI — AI education, digital products, and resources by Jax Scott / Outpost Gray." />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://thezaraai.com/legal/terms.html" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg: #080b12;
-      --bg2: #0e1220;
-      --bg3: #141928;
-      --green: #00e5a0;
-      --green-dim: #00c488;
-      --purple: #7c3aed;
-      --purple-light: #a78bfa;
-      --text: #f0f4ff;
-      --text-muted: #8892a4;
-      --border: rgba(255,255,255,0.07);
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.8;
-      overflow-x: hidden;
-    }
-
-    /* NAV */
-    nav {
-      position: sticky;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      background: rgba(8,11,18,0.95);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 18px 40px;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .nav-logo {
-      font-size: 1.3rem;
-      font-weight: 800;
-      color: var(--text);
-      text-decoration: none;
-    }
-    .nav-logo span { color: var(--green); }
-    .nav-home {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 500;
-      transition: color 0.2s;
-    }
-    .nav-home:hover { color: var(--green); }
-
-    /* HERO */
-    .legal-hero {
-      background: var(--bg2);
-      border-bottom: 1px solid var(--border);
-      padding: 60px 40px 50px;
-      text-align: center;
-    }
-    .legal-hero h1 {
-      font-size: 2.4rem;
-      font-weight: 800;
-      margin-bottom: 0.5rem;
-    }
-    .legal-hero h1 span { color: var(--green); }
-    .legal-hero .meta {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      margin-top: 0.5rem;
-    }
-
-    /* CONTENT */
-    .legal-body {
-      max-width: 820px;
-      margin: 0 auto;
-      padding: 60px 40px 80px;
-    }
-
-    .legal-body h2 {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--green);
-      margin: 2.5rem 0 0.75rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 1px solid var(--border);
-    }
-    .legal-body h3 {
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--text);
-      margin: 1.5rem 0 0.5rem;
-    }
-    .legal-body p {
-      color: var(--text-muted);
-      margin-bottom: 1rem;
-      font-size: 0.95rem;
-    }
-    .legal-body ul, .legal-body ol {
-      color: var(--text-muted);
-      padding-left: 1.5rem;
-      margin-bottom: 1rem;
-      font-size: 0.95rem;
-    }
-    .legal-body li { margin-bottom: 0.5rem; }
-    .legal-body a { color: var(--green); text-decoration: none; }
-    .legal-body a:hover { text-decoration: underline; }
-
-    .highlight-box {
-      background: rgba(0,229,160,0.07);
-      border: 1px solid rgba(0,229,160,0.25);
-      border-radius: 8px;
-      padding: 20px 24px;
-      margin: 1.5rem 0;
-    }
-    .highlight-box p { color: var(--text); margin-bottom: 0; }
-
-    .warning-box {
-      background: rgba(124,58,237,0.08);
-      border: 1px solid rgba(124,58,237,0.3);
-      border-radius: 8px;
-      padding: 20px 24px;
-      margin: 1.5rem 0;
-    }
-    .warning-box p { color: var(--text); margin-bottom: 0; }
-
-    /* LEGAL NAV FOOTER */
-    .legal-nav {
-      background: var(--bg2);
-      border-top: 1px solid var(--border);
-      padding: 30px 40px;
-      text-align: center;
-    }
-    .legal-nav p { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.75rem; }
-    .legal-nav a {
-      color: var(--green);
-      text-decoration: none;
-      font-size: 0.85rem;
-      margin: 0 10px;
-      white-space: nowrap;
-    }
-    .legal-nav a:hover { text-decoration: underline; }
-
-    /* SITE FOOTER */
-    .site-footer {
-      background: var(--bg);
-      border-top: 1px solid var(--border);
-      padding: 24px 40px;
-      text-align: center;
-    }
-    .site-footer p { color: var(--text-muted); font-size: 0.8rem; margin-bottom: 0.5rem; }
-    .site-footer a { color: var(--text-muted); text-decoration: none; }
-    .site-footer a:hover { color: var(--green); }
-
-    @media (max-width: 640px) {
-      .nav-inner { padding: 16px 20px; }
-      .legal-hero { padding: 40px 20px 36px; }
-      .legal-hero h1 { font-size: 1.8rem; }
-      .legal-body { padding: 40px 20px 60px; }
-      .legal-nav { padding: 24px 20px; }
-      .legal-nav a { display: inline-block; margin: 4px 8px; }
-      .site-footer { padding: 20px; }
-    }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 800px; margin: 0 auto; padding: 40px 20px; color: #1a1a1a; line-height: 1.7; }
+    h1 { font-size: 2em; margin-bottom: 0.2em; }
+    h2 { font-size: 1.2em; margin-top: 2em; border-bottom: 1px solid #eee; padding-bottom: 6px; }
+    .meta { color: #666; font-size: 0.9em; margin-bottom: 2em; }
+    a { color: #2563eb; }
+    ul { padding-left: 1.4em; }
+    li { margin-bottom: 0.4em; }
+    footer { margin-top: 3em; padding-top: 1em; border-top: 1px solid #eee; color: #888; font-size: 0.85em; }
   </style>
 </head>
 <body>
 
-<nav>
-  <div class="nav-inner">
-    <a href="/" class="nav-logo">Zara<span>AI</span></a>
-    <a href="/" class="nav-home">← Back to Home</a>
-  </div>
-</nav>
+<h1>Terms of Service</h1>
+<p class="meta">Effective Date: March 17, 2026 &nbsp;|&nbsp; Last Updated: March 17, 2026</p>
 
-<div class="legal-hero">
-  <h1>Terms of <span>Service</span></h1>
-  <p class="meta">Last Updated: March 19, 2026 &nbsp;|&nbsp; Effective Date: March 19, 2026</p>
-</div>
+<p>These Terms of Service ("Terms") govern your access to and use of ZaraAI's website, AI assistant, SMS communications, and related services (collectively, the "Services"), operated by ZaraAI ("we," "us," or "our"). Please read these Terms carefully before using our Services.</p>
 
-<div class="legal-body">
+<p>By accessing or using our Services, you agree to be bound by these Terms. If you do not agree, do not use our Services.</p>
 
-  <div class="highlight-box">
-    <p><strong>Plain-English Summary:</strong> This site provides AI education content and digital products for informational purposes only. It is NOT professional cybersecurity, legal, or financial advice. By using this site, you agree to these terms. Digital products are non-refundable.</p>
-  </div>
+<h2>1. Acceptance of Terms</h2>
+<p>By using ZaraAI's Services, you represent that you are at least 13 years of age, have the legal capacity to enter into a binding agreement, and agree to comply with these Terms and all applicable laws and regulations.</p>
 
-  <h2>1. Acceptance of Terms</h2>
-  <p>By accessing or using ZaraAI (thezaraai.com), operated by Jax Scott / Outpost Gray ("we," "us," or "our"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, please do not use this website or any of its content or products.</p>
-  <p>These Terms apply to all visitors, users, and anyone who accesses or uses the Services. By continuing to use this site after any changes to these Terms, you accept the updated Terms.</p>
+<h2>2. Description of Services</h2>
+<p>ZaraAI provides an AI-powered personal assistant platform, educational content about artificial intelligence, community resources, and related communications. Our Services may include:</p>
+<ul>
+  <li>AI assistant interactions via web, Telegram, SMS, or other channels</li>
+  <li>AI education content, guides, and tutorials</li>
+  <li>SMS and messaging notifications (with your explicit consent)</li>
+  <li>Community features and resources</li>
+</ul>
+<p>We reserve the right to modify, suspend, or discontinue any part of our Services at any time with or without notice.</p>
 
-  <h2>2. Description of Services</h2>
-  <p>ZaraAI provides AI education content, digital products, guides, tutorials, blog posts, and related resources created by Jax Scott. Our services include:</p>
-  <ul>
-    <li>AI education articles, blog posts, and written guides</li>
-    <li>Digital downloads (guides, templates, checklists, e-books)</li>
-    <li>Online courses and educational video content</li>
-    <li>Community resources and tools for learning about AI</li>
-    <li>Information about AI agents, AI tools, and related technology</li>
-    <li>Email communications and newsletters (with your consent)</li>
-  </ul>
-  <p>We reserve the right to modify, suspend, or discontinue any part of our services at any time, with or without notice, and without liability to you.</p>
+<h2>3. SMS Messaging Terms</h2>
+<p>By opting in to receive SMS messages from ZaraAI, you agree to the following:</p>
+<ul>
+  <li>You are providing express written consent to receive text messages from ZaraAI at the phone number you provide.</li>
+  <li>Messages may include notifications, reminders, AI assistant updates, and service communications.</li>
+  <li>Message frequency varies based on your use of the Services and your preferences.</li>
+  <li>Standard message and data rates may apply. ZaraAI is not responsible for any fees charged by your mobile carrier.</li>
+  <li>To opt out, reply <strong>STOP</strong> to any message at any time. You will receive one final confirmation and no further messages.</li>
+  <li>To request help, reply <strong>HELP</strong> or contact <a href="mailto:thezaraai@gmail.com">thezaraai@gmail.com</a>.</li>
+  <li>Consent to receive SMS messages is not a condition of purchasing any goods or services.</li>
+  <li>Supported carriers include but are not limited to: AT&T, Verizon, T-Mobile, Sprint, Boost, and MetroPCS. Carrier support may vary.</li>
+</ul>
 
-  <h2>3. Educational Purpose — NOT Professional Advice</h2>
+<h2>4. User Responsibilities</h2>
+<p>When using our Services, you agree to:</p>
+<ul>
+  <li>Provide accurate, current, and complete information.</li>
+  <li>Use the Services only for lawful purposes and in compliance with these Terms.</li>
+  <li>Not impersonate any person or entity or misrepresent your affiliation.</li>
+  <li>Not use the Services to send spam, unsolicited messages, or harass others.</li>
+  <li>Not attempt to reverse engineer, hack, disrupt, or gain unauthorized access to any part of our Services.</li>
+  <li>Not use the Services in any way that could harm ZaraAI, its users, or third parties.</li>
+  <li>Maintain the confidentiality of any account credentials and notify us immediately of any unauthorized access.</li>
+</ul>
 
-  <div class="warning-box">
-    <p><strong>IMPORTANT DISCLAIMER:</strong> All content on ZaraAI is provided for educational and informational purposes only. Nothing on this website constitutes professional cybersecurity advice, legal advice, financial advice, or any other form of professional advisory services.</p>
-  </div>
+<h2>5. Intellectual Property</h2>
+<p>All content, materials, branding, AI models, code, and other intellectual property associated with ZaraAI and its Services are owned by or licensed to ZaraAI and are protected by applicable intellectual property laws.</p>
+<p>You are granted a limited, non-exclusive, non-transferable license to access and use our Services for personal, non-commercial purposes. You may not copy, distribute, modify, create derivative works from, or exploit any part of our Services without prior written permission.</p>
 
-  <p>Specifically:</p>
-  <ul>
-    <li><strong>Not cybersecurity advice:</strong> Content discussing cybersecurity concepts is educational only. For your specific security needs, always consult a licensed cybersecurity professional.</li>
-    <li><strong>Not legal advice:</strong> No content on this site creates an attorney-client relationship or constitutes legal counsel.</li>
-    <li><strong>Not financial advice:</strong> No content constitutes investment, financial, or tax advice.</li>
-    <li><strong>No guarantee of outcomes:</strong> AI education content reflects general knowledge and experience. Your results will vary based on your unique circumstances, effort, and many other factors outside our control.</li>
-  </ul>
-  <p>Always exercise your own judgment and consult qualified professionals for decisions specific to your situation.</p>
+<h2>6. User-Generated Content</h2>
+<p>If you submit or share any content through our Services (messages, feedback, posts, etc.), you grant ZaraAI a non-exclusive, royalty-free, worldwide license to use, store, reproduce, and display that content solely for the purpose of providing and improving the Services. You represent that you own or have the rights to share any content you submit.</p>
 
-  <h2>4. Intellectual Property</h2>
-  <p>All content on ZaraAI — including but not limited to text, graphics, images, video, audio, blog posts, guides, course materials, the "Zara" AI persona and branding, and any other materials — is the exclusive intellectual property of Jax Scott and/or Outpost Gray, and is protected by United States and international copyright laws.</p>
-  <p>You may:</p>
-  <ul>
-    <li>View and read content for personal, non-commercial use</li>
-    <li>Share links to pages on this site</li>
-    <li>Quote brief excerpts with clear attribution to ZaraAI / Jax Scott</li>
-  </ul>
-  <p>You may NOT:</p>
-  <ul>
-    <li>Copy, reproduce, or republish any content without written permission</li>
-    <li>Sell, license, or commercially exploit any content</li>
-    <li>Remove copyright notices or attribution</li>
-    <li>Use any content to create derivative works without express written consent</li>
-    <li>Scrape or automate data collection from this site</li>
-  </ul>
-  <p>For permissions or licensing inquiries, contact <a href="mailto:jax@outpostgray.com">jax@outpostgray.com</a>.</p>
+<h2>7. Privacy</h2>
+<p>Your use of our Services is also governed by our <a href="./privacy-policy.html">Privacy Policy</a>, which is incorporated into these Terms by reference. Please review it carefully.</p>
 
-  <h2>5. Digital Products &amp; Purchases</h2>
-  <h3>5a. Access to Digital Products</h3>
-  <p>When you purchase a digital product (guides, e-books, templates, course access), you receive a limited, non-exclusive, non-transferable license to use that product for your personal use. You may not resell, share, redistribute, or make any digital product available to others.</p>
+<h2>8. Disclaimer of Warranties</h2>
+<p>OUR SERVICES ARE PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, ACCURACY, OR NON-INFRINGEMENT.</p>
+<p>We do not warrant that our Services will be uninterrupted, error-free, or free of viruses or other harmful components. AI-generated content is provided for informational purposes only and should not be relied upon as professional legal, financial, medical, or other advice.</p>
 
-  <h3>5b. No Refund Policy — Digital Downloads</h3>
-  <div class="warning-box">
-    <p><strong>ALL DIGITAL PRODUCT SALES ARE FINAL.</strong> Due to the nature of digital products (immediate access upon purchase), we do not offer refunds on downloadable files, e-books, templates, or guides. Please review all product descriptions carefully before purchasing.</p>
-  </div>
+<h2>9. Limitation of Liability</h2>
+<p>TO THE FULLEST EXTENT PERMITTED BY LAW, ZARAAI AND ITS OPERATORS SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS, DATA, GOODWILL, OR OTHER INTANGIBLE LOSSES, ARISING OUT OF OR IN CONNECTION WITH YOUR USE OF (OR INABILITY TO USE) OUR SERVICES, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.</p>
+<p>IN NO EVENT SHALL OUR TOTAL LIABILITY EXCEED THE GREATER OF (A) THE AMOUNT YOU PAID US IN THE TWELVE (12) MONTHS PRECEDING THE CLAIM, OR (B) ONE HUNDRED DOLLARS ($100).</p>
 
-  <h3>5c. Course Refund Policy</h3>
-  <p>For online courses, refund requests may be considered within 7 days of purchase, provided you have accessed less than 20% of the course content. After 7 days or 20% completion — whichever comes first — no refunds will be issued. See our full <a href="/legal/refund-policy.html">Refund Policy</a> for details.</p>
+<h2>10. Indemnification</h2>
+<p>You agree to indemnify, defend, and hold harmless ZaraAI and its operators from and against any claims, liabilities, damages, losses, and expenses (including reasonable legal fees) arising out of or related to your use of the Services, your violation of these Terms, or your violation of any rights of a third party.</p>
 
-  <h2>6. No Guarantee of Results</h2>
-  <p>Testimonials, case studies, or examples of results on this site represent individual experiences and are not guarantees of what you will achieve. Your results will depend on factors including but not limited to: your effort, experience, background, market conditions, and variables we cannot control. We make no representation that you will achieve the same or similar results.</p>
+<h2>11. Termination</h2>
+<p>We reserve the right to suspend or terminate your access to our Services at any time, with or without cause, and with or without notice. Upon termination, your right to use the Services ceases immediately. Provisions of these Terms that by their nature should survive termination shall survive.</p>
 
-  <h2>7. User Conduct</h2>
-  <p>When using ZaraAI, you agree to:</p>
-  <ul>
-    <li>Use the site only for lawful purposes and in accordance with these Terms</li>
-    <li>Not attempt to gain unauthorized access to any part of the site or its systems</li>
-    <li>Not upload or transmit any viruses, malware, or other harmful code</li>
-    <li>Not engage in any activity that could impair or disrupt the site's operation</li>
-    <li>Not use this site to harass, threaten, or harm any other person</li>
-    <li>Not impersonate any person or entity, including Jax Scott or ZaraAI</li>
-    <li>Not use automated tools to scrape, crawl, or extract data from this site</li>
-  </ul>
+<h2>12. Governing Law</h2>
+<p>These Terms shall be governed by and construed in accordance with the laws of the United States and the state in which ZaraAI operates, without regard to conflict of law principles. Any disputes arising under these Terms shall be subject to the exclusive jurisdiction of the applicable courts.</p>
 
-  <h2>8. Third-Party Links</h2>
-  <p>This site may contain links to third-party websites or services. These links are provided for convenience only. We do not endorse, control, or take responsibility for the content, privacy practices, or terms of any third-party sites. Access third-party sites at your own risk.</p>
+<h2>13. Dispute Resolution</h2>
+<p>In the event of any dispute arising out of or relating to these Terms or our Services, the parties agree to first attempt to resolve the dispute informally by contacting us at <a href="mailto:thezaraai@gmail.com">thezaraai@gmail.com</a>. If the dispute is not resolved within 30 days, either party may pursue formal legal remedies.</p>
 
-  <h2>9. Limitation of Liability</h2>
-  <div class="warning-box">
-    <p><strong>TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW:</strong> Jax Scott and Outpost Gray shall not be liable for any indirect, incidental, special, consequential, or punitive damages — including but not limited to loss of profits, data, business, or goodwill — arising from your use of or inability to use this site or its content, even if advised of the possibility of such damages.</p>
-  </div>
-  <p>In no event shall our total liability to you exceed the greater of: (a) the amount you paid us in the twelve (12) months prior to the claim, or (b) one hundred dollars ($100.00).</p>
-  <p>Some jurisdictions do not allow the exclusion of certain warranties or limitation of liability, so some of the above limitations may not apply to you.</p>
+<h2>14. Changes to Terms</h2>
+<p>We may update these Terms from time to time. Material changes will be indicated by an updated "Last Updated" date. Your continued use of our Services after changes are posted constitutes acceptance of the revised Terms.</p>
 
-  <h2>10. Disclaimer of Warranties</h2>
-  <p>This site and all content are provided on an "as is" and "as available" basis, without warranties of any kind, either express or implied. We do not warrant that the site will be uninterrupted, error-free, or free of viruses or other harmful components. We do not warrant the accuracy, completeness, or usefulness of any content.</p>
+<h2>15. Severability</h2>
+<p>If any provision of these Terms is found to be unenforceable or invalid, that provision will be limited or eliminated to the minimum extent necessary, and the remaining provisions will continue in full force and effect.</p>
 
-  <h2>11. Indemnification</h2>
-  <p>You agree to defend, indemnify, and hold harmless Jax Scott, Outpost Gray, and their respective officers, agents, and employees from and against any claims, liabilities, damages, losses, and expenses — including reasonable attorney's fees — arising out of or in any way connected with your access to or use of the site, your violation of these Terms, or your violation of any third party's rights.</p>
+<h2>16. Entire Agreement</h2>
+<p>These Terms, together with our Privacy Policy, constitute the entire agreement between you and ZaraAI regarding the use of our Services and supersede any prior agreements.</p>
 
-  <h2>12. Privacy</h2>
-  <p>Your use of this site is also governed by our <a href="/legal/privacy.html">Privacy Policy</a>, which is incorporated into these Terms by reference. Please review our Privacy Policy to understand our practices.</p>
+<h2>17. Contact Us</h2>
+<p>If you have questions about these Terms, please contact us:</p>
+<ul>
+  <li><strong>Email:</strong> <a href="mailto:thezaraai@gmail.com">thezaraai@gmail.com</a></li>
+  <li><strong>Website:</strong> <a href="https://thezaraai.com">thezaraai.com</a></li>
+</ul>
 
-  <h2>13. Governing Law &amp; Dispute Resolution</h2>
-  <p>These Terms shall be governed by and construed in accordance with the laws of the Commonwealth of Virginia, United States, without regard to its conflict of law provisions. Any legal action or proceeding arising under these Terms shall be brought exclusively in the state or federal courts located in Virginia, and you hereby consent to the personal jurisdiction of such courts.</p>
-  <p>Before initiating any formal legal action, you agree to first contact us at <a href="mailto:jax@outpostgray.com">jax@outpostgray.com</a> to attempt to resolve any dispute informally.</p>
-
-  <h2>14. Changes to Terms</h2>
-  <p>We reserve the right to update or modify these Terms at any time. Changes will be effective upon posting to this page with an updated "Last Updated" date. Your continued use of the site after any changes constitutes your acceptance of the new Terms. We encourage you to review these Terms periodically.</p>
-
-  <h2>15. Severability</h2>
-  <p>If any provision of these Terms is found to be unenforceable or invalid, that provision will be limited or eliminated to the minimum extent necessary, and the remaining provisions will continue in full force and effect.</p>
-
-  <h2>16. Contact Us</h2>
-  <p>Questions about these Terms? We're happy to help.</p>
-  <ul>
-    <li><strong>Email:</strong> <a href="mailto:jax@outpostgray.com">jax@outpostgray.com</a></li>
-    <li><strong>Website:</strong> <a href="https://thezaraai.com">thezaraai.com</a></li>
-    <li><strong>Business:</strong> Jax Scott / Outpost Gray</li>
-  </ul>
-
-</div>
-
-<div class="legal-nav">
-  <p>Legal Pages</p>
-  <a href="/legal/terms.html">Terms of Service</a> |
-  <a href="/legal/privacy.html">Privacy Policy</a> |
-  <a href="/legal/disclaimer.html">Disclaimer</a> |
-  <a href="/legal/refund-policy.html">Refund Policy</a>
-</div>
-
-<footer class="site-footer">
-  <p>© 2026 Jax Scott / Outpost Gray. All rights reserved.</p>
-  <p>
-    <a href="/legal/terms.html">Terms of Service</a> &nbsp;|&nbsp;
-    <a href="/legal/privacy.html">Privacy Policy</a> &nbsp;|&nbsp;
-    <a href="/legal/disclaimer.html">Disclaimer</a> &nbsp;|&nbsp;
-    <a href="/legal/refund-policy.html">Refund Policy</a>
-  </p>
+<footer>
+  &copy; 2026 ZaraAI. All rights reserved.
 </footer>
 
 </body>

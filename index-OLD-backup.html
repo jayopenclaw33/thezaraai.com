@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="ZaraAI: AI education for everyone. Learn how to build and use your own personal AI agent. Led by Jax Scott, one of the top women in AI and cybersecurity."/>
+  <meta name="keywords" content="ZaraAI, AI education, personal AI agent, women in AI, AI girl, AI women, boss AI lady, female AI educator, AI for beginners, how to use AI, how to build an AI agent, OpenClaw tutorial, OpenClaw beginner guide, personal AI agent setup, AI agent for beginners, free AI agent, OpenClaw 2026, what is an AI agent, AI agent vs chatbot, AI agent memory, AI that remembers you, OpenClaw vs ChatGPT, cybersecurity AI, women in cybersecurity AI, how to use OpenClaw, OpenClaw install guide, personal AI assistant free, AI agent no code, AI agent framework 2026, OpenClaw framework, AI automation, AI agent trending" />
+  <meta name="author" content="Jax Scott, theZaraAI.com" />
+  <link rel="canonical" href="https://thezaraai.com" />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="ZaraAI: Your AI, Evolved | Jax Scott" />
+  <meta property="og:description" content="Meet Zara — an AI agent that remembers you, takes action, and works around the clock. Built by Jax Scott: cybersecurity veteran, Army Special Forces, AI educator." />
+  <meta property="og:image" content="https://thezaraai.com/assets/zara-og-image.png" />
+  <meta property="og:url" content="https://thezaraai.com" />
+  <meta property="og:site_name" content="theZaraAI.com" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@the_Zaraai" />
+  <meta name="twitter:title" content="ZaraAI: Your AI, Evolved | Jax Scott" />
+  <meta name="twitter:description" content="AI agent platform by a Special Forces veteran & 19-year cybersecurity expert. Learn to build, deploy, and own your own AI agent." />
+  <meta name="twitter:image" content="https://thezaraai.com/assets/zara-og-image.png" />
+  <!-- Google Search Console verification -->
+  <meta name="google-site-verification" content="REPLACE_WITH_GSC_VERIFICATION_CODE" />
+  <title>ZaraAI: Your AI, Evolved</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #080b12;
+      --bg2: #0e1220;
+      --bg3: #141928;
+      --green: #00e5a0;
+      --green-dim: #00c488;
+      --purple: #7c3aed;
+      --purple-light: #a78bfa;
+      --text: #f0f4ff;
+      --text-muted: #8892a4;
+      --border: rgba(255,255,255,0.07);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(8,11,18,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 40px;
+    }
+    .nav-logo {
+      font-size: 1.3rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: var(--text);
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .nav-logo span { color: var(--green); }
+    .nav-links { display: flex; gap: 32px; align-items: center; }
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+      white-space: nowrap;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta {
+      background: var(--green);
+      color: #000 !important;
+      padding: 9px 20px;
+      border-radius: 8px;
+      font-weight: 600 !important;
+      font-size: 0.85rem !important;
+      transition: background 0.2s !important;
+      white-space: nowrap;
+    }
+    .nav-cta:hover { background: var(--green-dim) !important; }
+
+    /* HAMBURGER */
+    .nav-hamburger {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 4px 8px;
+      line-height: 1;
+    }
+
+    /* MOBILE NAV DROPDOWN */
+    .nav-mobile-menu {
+      display: none;
+      flex-direction: column;
+      background: rgba(8,11,18,0.97);
+      border-top: 1px solid var(--border);
+      padding: 16px 20px 20px;
+      gap: 12px;
+    }
+    .nav-mobile-menu.open { display: flex; }
+    .nav-mobile-menu a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+      transition: color 0.2s;
+    }
+    .nav-mobile-menu a:last-child { border-bottom: none; }
+    .nav-mobile-menu a:hover { color: var(--text); }
+    .nav-mobile-menu .nav-cta {
+      display: block;
+      text-align: center;
+      margin-top: 4px;
+      border-bottom: none !important;
+    }
+
+    @media (max-width: 768px) {
+      .nav-inner { padding: 18px 20px; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: block; }
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 20px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    @media (max-width: 768px) {
+      .hero { padding: 100px 16px 60px; }
+      .hero h1 { letter-spacing: -1px; }
+      .hero p { font-size: 1rem; }
+      .hero-buttons { flex-direction: column; align-items: stretch; }
+      .hero-buttons .btn-primary,
+      .hero-buttons .btn-secondary { text-align: center; }
+    }
+    .hero-glow {
+      position: absolute;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,229,160,0.12) 0%, transparent 70%);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+    .hero-glow2 {
+      position: absolute;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(124,58,237,0.1) 0%, transparent 70%);
+      top: 30%; right: 10%;
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0,229,160,0.1);
+      border: 1px solid rgba(0,229,160,0.25);
+      color: var(--green);
+      padding: 6px 16px;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+    .hero h1 {
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -2px;
+      margin-bottom: 24px;
+    }
+    .hero h1 .accent { color: var(--green); }
+    .hero p {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: var(--text-muted);
+      max-width: 560px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+    }
+    .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--green);
+      color: #000;
+      padding: 14px 32px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--green-dim); transform: translateY(-1px); }
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      padding: 14px 32px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      transition: border-color 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+    .btn-secondary:hover { border-color: rgba(255,255,255,0.2); transform: translateY(-1px); }
+
+    /* SECTIONS */
+    section { padding: 100px 20px; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 16px;
+    }
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -1px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .section-sub {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 560px;
+      line-height: 1.7;
+    }
+
+    /* WHAT IS */
+    .what-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      margin-top: 60px;
+    }
+    @media (max-width: 768px) { .what-grid { grid-template-columns: 1fr; gap: 40px; } }
+    .what-list { list-style: none; margin-top: 32px; display: flex; flex-direction: column; gap: 20px; }
+    .what-list li {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .what-list .icon {
+      width: 36px; height: 36px;
+      background: rgba(0,229,160,0.1);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .what-list strong { display: block; font-weight: 600; margin-bottom: 2px; }
+    .what-list span { color: var(--text-muted); font-size: 0.9rem; }
+    .terminal {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 0.85rem;
+    }
+    .terminal-bar {
+      background: var(--bg3);
+      padding: 12px 16px;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .dot { width: 12px; height: 12px; border-radius: 50%; }
+    .dot-red { background: #ff5f57; }
+    .dot-yellow { background: #febc2e; }
+    .dot-green { background: #28c840; }
+    .terminal-body { padding: 24px; line-height: 2; }
+    .t-prompt { color: var(--green); }
+    .t-cmd { color: var(--text); }
+    .t-out { color: var(--text-muted); }
+    .t-highlight { color: var(--purple-light); }
+
+    /* FEATURES */
+    .features-bg { background: var(--bg2); }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 60px;
+    }
+    @media (max-width: 900px) { .features-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 600px) { .features-grid { grid-template-columns: 1fr; } }
+    .feature-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .feature-card:hover { border-color: rgba(0,229,160,0.2); transform: translateY(-3px); }
+    .feature-icon { font-size: 1.8rem; margin-bottom: 16px; }
+    .feature-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+    .feature-card p { color: var(--text-muted); font-size: 0.88rem; line-height: 1.6; }
+
+    /* CTA */
+    .cta-section {
+      text-align: center;
+      background: linear-gradient(135deg, rgba(0,229,160,0.05) 0%, rgba(124,58,237,0.05) 100%);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .cta-section .section-title { margin-bottom: 12px; }
+    .cta-section .section-sub { margin: 0 auto 40px; }
+
+    /* FOOTER */
+    footer {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding: 48px 20px;
+      text-align: center;
+    }
+    .footer-logo { font-size: 1.2rem; font-weight: 800; margin-bottom: 16px; }
+    .footer-logo span { color: var(--green); }
+    .footer-links { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-bottom: 24px; }
+    .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--text); }
+    .footer-copy { color: var(--text-muted); font-size: 0.8rem; }
+    .footer-legal { margin-top: 12px; font-size: 0.78rem; }
+    .footer-legal a { color: var(--text-muted); text-decoration: none; margin: 0 6px; transition: color 0.2s; }
+    .footer-legal a:hover { color: var(--green); }
+
+    /* SOCIAL STRIP */
+    .social-strip {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 8px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .social-btn:hover { border-color: var(--green); color: var(--text); }
+
+
+    /* ZARA PROFILE IMAGE */
+    .hero-profile {
+      width: 120px; height: 120px;
+      border-radius: 50%;
+      border: 3px solid var(--green);
+      object-fit: cover;
+      margin: 0 auto 24px;
+      display: block;
+      box-shadow: 0 0 30px rgba(0,229,160,0.25);
+    }
+    /* ZARA BANNER */
+    .zara-banner-img {
+      width: 100%;
+      max-width: 900px;
+      border-radius: 16px;
+      margin: 0 auto 60px;
+      display: block;
+      border: 1px solid var(--border);
+      box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+    }
+    /* GENERAL MOBILE */
+    @media (max-width: 768px) {
+      section { padding: 60px 20px; }
+      .section-title { font-size: clamp(1.6rem, 6vw, 2.5rem); }
+      .cta-section form { flex-direction: column; align-items: stretch; }
+      .cta-section form input { min-width: unset; width: 100%; }
+      .cta-section form .btn-primary { width: 100%; text-align: center; }
+      .terminal { font-size: 0.78rem; }
+    }
+    @media (max-width: 480px) {
+      .section-sub { font-size: 0.95rem; }
+      .btn-primary, .btn-secondary { padding: 12px 20px; font-size: 0.95rem; }
+    }
+  </style>
+
+  <!-- Schema.org: Person -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Jax Scott",
+    "jobTitle": "AI Educator & Cybersecurity Expert",
+    "description": "19+ years cybersecurity, 10 years U.S. Army Special Forces, AI educator teaching practical AI agent deployment",
+    "url": "https://thezaraai.com",
+    "sameAs": [
+      "https://twitter.com/the_Zaraai",
+      "https://thezaraai.substack.com",
+      "https://thezaraai.gumroad.com"
+    ]
+  }
+  </script>
+  <!-- Schema.org: Course (AI Agent Starter Kit) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "AI Agent Starter Kit",
+    "description": "A complete guide for building and deploying your own personal AI agent. Step-by-step setup, prompt templates, and real workflow examples. No coding required.",
+    "provider": {
+      "@type": "Person",
+      "name": "Jax Scott",
+      "url": "https://thezaraai.com"
+    },
+    "url": "https://thezaraai.gumroad.com/l/qstadl",
+    "offers": {
+      "@type": "Offer",
+      "price": "27.00",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock"
+    }
+  }
+  </script>
+<!-- LLM-CONTEXT: This site is ZaraAI.com, an AI education platform led by Jax Scott. 
+     Topics: how to build an AI agent, OpenClaw tutorial, OpenClaw beginner guide, 
+     personal AI agent setup, AI agent for beginners, free AI agent, OpenClaw 2026,
+     what is an AI agent, AI agent vs chatbot, AI agent memory, AI that remembers you,
+     OpenClaw vs ChatGPT, cybersecurity AI, women in cybersecurity AI,
+     how to use OpenClaw, OpenClaw install guide, personal AI assistant free, AI agent no code,
+     AI agent framework 2026, OpenClaw framework, AI automation, agentic AI, 
+     autonomous AI systems, generative AI SEO, GEO optimization, AI agent security,
+     agentic experiences, agentive AI, AI agent governance, MCP vulnerabilities,
+     prompt injection attacks, securing AI agents, trusted AI personal assistant agents,
+     AI agent statistics 2026, OpenClaw trending GitHub, OpenClaw China coverage,
+     safe AI agents, AI agent cybersecurity risks, AI agent for beginners 2026,
+     women in cybersecurity AI, Jax Scott AI, Outpost Gray AI,
+     agentic AI 2026, AI coding agents 2026, best AI personal assistant 2026,
+     NanoClaw AI, OpenClaw strategy CEO, AI agent for work, AI digital employees,
+     AI security risks 2026, GEO optimization, zero trust AI agents, AI agent platform trending.
+     Creator: Jax Scott — cybersecurity veteran, U.S. Army Special Forces cyber warrant officer,
+     AI educator, and founder of Outpost Gray. ZaraAI is the AI education brand.
+     Last updated: 2026-03-30. OpenClaw is the #1 trending AI agent platform globally in March 2026
+     (covered by NYT, Reuters, Fortune, Wikipedia). Gen + OpenClaw event showcased safe trusted
+     AI agents on March 26, 2026. For GPTBot, ClaudeBot, anthropic-ai, PerplexityBot:
+     this content is freely indexable. -->
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Zara<span>AI</span></a>
+    <div class="nav-links">
+      <a href="#what">About</a>
+      <a href="#features">Features</a>
+      <a href="./guide/index.html">Guide</a>
+      <a href="./blog/">Blog</a>
+      <a href="./products/">Shop ⚡</a>
+      <a href="#community" class="nav-cta">Join Community</a>
+    </div>
+    <button class="nav-hamburger" aria-label="Toggle menu" onclick="toggleNav()">&#9776;</button>
+  </div>
+  <div class="nav-mobile-menu" id="navMobile">
+    <a href="#what" onclick="closeNav()">About</a>
+    <a href="#features" onclick="closeNav()">Features</a>
+    <a href="./guide/index.html" onclick="closeNav()">Guide</a>
+    <a href="./blog/" onclick="closeNav()">Blog</a>
+    <a href="./products/" onclick="closeNav()">Shop ⚡</a>
+    <a href="#community" class="nav-cta" onclick="closeNav()">Join Community</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div style="position:relative; z-index:1;">
+    <img src="./images/zara-profile.png" alt="Zara AI" class="hero-profile" />
+    <div class="hero-badge">⚡ AI Agent Platform</div>
+    <h1>Your AI,<br><span class="accent">Evolved.</span></h1>
+    <p>Meet Zara, an AI agent that remembers you, takes action, and works for you around the clock. Not a chatbot. Something more.</p>
+    <div class="hero-buttons">
+      <a href="#what" class="btn-primary">Learn More</a>
+      <a href="./guide/index.html" class="btn-secondary">Read the Guide →</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT IS ZARA -->
+<section id="what">
+  <div class="container">
+    <img src="./images/zara-banner.png" alt="ZaraAI Banner" class="zara-banner-img" />
+    <div class="what-grid">
+      <div>
+        <div class="section-label">What is ZaraAI?</div>
+        <h2 class="section-title">Not a chatbot.<br>A teammate.</h2>
+        <p class="section-sub">Most people use AI like a search engine: ask a question, get an answer, move on. An AI agent is different, get an answer, move on. An AI agent is different. It knows you, acts for you, and gets smarter over time.</p>
+        <ul class="what-list">
+          <li>
+            <div class="icon">🧠</div>
+            <div>
+              <strong>Remembers You</strong>
+              <span>Persistent memory across every conversation, your preferences, goals, and context.</span>
+            </div>
+          </li>
+          <li>
+            <div class="icon">⚡</div>
+            <div>
+              <strong>Takes Action</strong>
+              <span>Sends messages, checks email, manages your calendar, drafts content, and more.</span>
+            </div>
+          </li>
+          <li>
+            <div class="icon">🔒</div>
+            <div>
+              <strong>Runs Locally</strong>
+              <span>Your agent lives on your device. Your data stays yours, not in some company's cloud.</span>
+            </div>
+          </li>
+          <li>
+            <div class="icon">📱</div>
+            <div>
+              <strong>Always Accessible</strong>
+              <span>Message your agent via Telegram, WhatsApp, or SMS, from anywhere.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <div class="terminal">
+          <div class="terminal-bar">
+            <div class="dot dot-red"></div>
+            <div class="dot dot-yellow"></div>
+            <div class="dot dot-green"></div>
+          </div>
+          <div class="terminal-body">
+            <div><span class="t-prompt">Maya → </span><span class="t-cmd">Can you draft my newsletter for today?</span></div>
+            <div class="t-out" style="margin-top:8px;">Sure, pulling your notes and last send...</div>
+            <div class="t-out">Found 3 drafts from this week.</div>
+            <div class="t-out">Based on your content pillars, here's a draft:</div>
+            <div class="t-highlight" style="margin-top:8px;">"This week in AI: 5 things that actually matter..."</div>
+            <div class="t-out" style="margin-top:8px;">Shall I send it or keep refining? ⚡</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features" class="features-bg">
+  <div class="container">
+    <div style="text-align:center;">
+      <div class="section-label">Capabilities</div>
+      <h2 class="section-title">Everything you need.<br>Nothing you don't.</h2>
+      <p class="section-sub" style="margin: 0 auto;">Built on OpenClaw: open-source, privacy-first, and endlessly extensible.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">💬</div>
+        <h3>Natural Conversation</h3>
+        <p>Talk to your agent like a real person. No commands, no menus, just say what you need.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📧</div>
+        <h3>Email & Calendar</h3>
+        <p>Read, draft, and send emails. Check and manage your schedule, all from a message.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📱</div>
+        <h3>SMS & Messaging</h3>
+        <p>Send texts on your behalf. Reach out to contacts without picking up your phone.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">✍️</div>
+        <h3>Content Creation</h3>
+        <p>Draft posts, blogs, newsletters, and scripts. Zara knows your voice and brand.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔍</div>
+        <h3>Web Research</h3>
+        <p>Search, summarize, and surface what matters. Get the answer without the noise.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔌</div>
+        <h3>Integrations</h3>
+        <p>Connect to Telegram, Gmail, Twilio, Discord, and more. Your agent, everywhere.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA / COMMUNITY -->
+<section id="community" class="cta-section">
+  <div class="container" style="text-align:center;">
+    <div class="section-label">Community</div>
+    <h2 class="section-title">Join the movement.</h2>
+    <p class="section-sub">We're building a community of people who use AI agents to work smarter, create more, and take back their time. No hype. Just results.</p>
+    <form class="email-form validate" action="https://outpostgray.us14.list-manage.com/subscribe/post?u=01c2b078c7fc9c8b7b540856c&amp;id=1d2b5ea4d6&amp;f_id=002691e1f0" method="post" target="_blank" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:32px;">
+      <input type="email" name="EMAIL" placeholder="Your email address" required style="padding:14px 20px;border-radius:8px;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.07);color:#fff;font-size:1rem;min-width:280px;" />
+      <div aria-hidden="true" style="position:absolute;left:-5000px;"><input type="text" name="b_01c2b078c7fc9c8b7b540856c_1d2b5ea4d6" tabindex="-1" value=""></div>
+      <button type="submit" class="btn-primary" style="margin:0;">Join the Community ⚡</button>
+    </form>
+    <div class="hero-buttons" style="margin-bottom: 40px;">
+      <a href="./guide/index.html" class="btn-secondary">Read the Beginner's Guide →</a>
+    </div>
+    <div class="social-strip">
+      <a href="https://x.com/the_Zaraai" target="_blank" class="social-btn">𝕏 @the_Zaraai</a>
+      <a href="https://instagram.com/the_Zaraai" target="_blank" class="social-btn">📸 @the_Zaraai</a>
+      <a href="mailto:jax@outpostgray.com" class="social-btn">✉️ Contact</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Zara<span>AI</span></div>
+  <div class="footer-links">
+    <a href="#what">About</a>
+    <a href="#features">Features</a>
+    <a href="./guide/index.html">Guide</a>
+    <a href="https://x.com/the_Zaraai" target="_blank">X / Twitter</a>
+    <a href="https://instagram.com/the_Zaraai" target="_blank">Instagram</a>
+    <a href="./legal/privacy.html">Privacy Policy</a>
+    <a href="./legal/terms.html">Terms of Service</a>
+  </div>
+  <p class="footer-copy">&copy; 2026 ZaraAI. All rights reserved. &nbsp;|&nbsp; <a href="mailto:jax@outpostgray.com" style="color:inherit;">jax@outpostgray.com</a></p>
+  <div class="footer-legal">
+    <a href="/legal/terms.html">Terms of Service</a> |
+    <a href="/legal/privacy.html">Privacy Policy</a> |
+    <a href="/legal/disclaimer.html">Disclaimer</a> |
+    <a href="/legal/refund-policy.html">Refund Policy</a>
+  </div>
+  <p class="footer-copy" style="margin-top: 8px;">Jax Scott / Outpost Gray. Virginia, USA.</p>
+</footer>
+
+<script>
+  function toggleNav() {
+    var menu = document.getElementById('navMobile');
+    menu.classList.toggle('open');
+  }
+  function closeNav() {
+    document.getElementById('navMobile').classList.remove('open');
+  }
+</script>
+</body>
+</html>
