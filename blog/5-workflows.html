@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The 5 Workflows Every Business Should Automate First — ZaraAI ⚡</title>
+  <meta name="description" content="Most businesses automate the wrong things first and waste months. Here are the 5 workflows that actually move the needle — and the tools to build them fast." />
+  <meta name="author" content="Jax Scott — ZaraAI" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0b0f1a; --bg2: #0e1422; --surface: rgba(255,255,255,0.04);
+      --blue: #3B82F6; --blue-dim: #2563EB; --cyan: #06B6D4;
+      --text: #F1F5F9; --text-muted: #94A3B8; --text-dim: #4B5563;
+      --border: rgba(255,255,255,0.07); --border-accent: rgba(59,130,246,0.3);
+      --grad-hero: linear-gradient(135deg, var(--blue) 0%, var(--cyan) 100%);
+      --radius: 12px; --radius-lg: 20px; --radius-xl: 28px;
+      --font: 'Inter', system-ui, sans-serif; --font-head: 'Space Grotesk', system-ui, sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: var(--font); line-height: 1.65; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+    body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E"); pointer-events: none; z-index: 0; }
+    img { max-width: 100%; display: block; } a { text-decoration: none; } ul { list-style: none; }
+    .container { width: 100%; max-width: 1160px; margin: 0 auto; padding: 0 clamp(1.25rem, 5vw, 2.5rem); }
+    .gradient-text { background: var(--grad-hero); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; height: 66px; display: flex; align-items: center; background: rgba(11,15,26,0.80); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: 1160px; margin: 0 auto; padding: 0 clamp(1.25rem, 5vw, 2.5rem); }
+    .nav-logo { font-family: var(--font-head); font-size: 1.35rem; font-weight: 700; color: var(--text); letter-spacing: -0.02em; display: flex; align-items: center; gap: 0.3rem; }
+    .nav-logo .zap { color: var(--blue); font-style: normal; }
+    .nav-links { display: flex; align-items: center; gap: 0.25rem; }
+    .nav-links a { color: var(--text-muted); font-size: 0.9rem; font-weight: 500; padding: 0.4rem 0.875rem; border-radius: 8px; transition: color 0.2s, background 0.2s; }
+    .nav-links a:hover { color: var(--text); background: var(--surface); }
+    .nav-links a.active { color: var(--blue); }
+    .nav-cta { background: var(--blue); color: #fff !important; padding: 0.5rem 1.1rem; border-radius: 8px; font-weight: 600 !important; font-size: 0.875rem !important; transition: all 0.2s !important; }
+    .nav-cta:hover { background: var(--blue-dim) !important; transform: translateY(-1px); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 6px; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; }
+    .mobile-menu { display: none; position: fixed; top: 66px; left: 0; right: 0; background: var(--bg2); border-bottom: 1px solid var(--border); padding: 1rem 1.5rem 1.5rem; flex-direction: column; gap: 0.25rem; z-index: 999; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { color: var(--text-muted); font-size: 1rem; font-weight: 500; padding: 0.625rem 0.5rem; border-radius: 8px; }
+    .mobile-menu a:hover { color: var(--text); }
+    .mobile-menu .btn-primary { margin-top: 0.75rem; display: flex; justify-content: center; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; border-radius: var(--radius); background: var(--grad-hero); color: #fff; font-weight: 600; font-size: 0.95rem; }
+
+    /* BREADCRUMB */
+    .breadcrumb { padding: calc(66px + 1.5rem) 0 0; position: relative; z-index: 1; }
+    .breadcrumb-inner { display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; color: var(--text-dim); }
+    .breadcrumb-inner a { color: var(--text-muted); transition: color 0.2s; }
+    .breadcrumb-inner a:hover { color: var(--blue); }
+    .breadcrumb-inner span { color: var(--text-dim); }
+    .breadcrumb-inner .current { color: var(--text-muted); }
+
+    /* POST LAYOUT */
+    .post-wrapper { padding: 2rem 0 5rem; position: relative; z-index: 1; }
+    .post-header { max-width: 720px; margin: 0 auto 3rem; }
+    .post-meta { display: flex; align-items: center; gap: 0.75rem; font-size: 0.8rem; color: var(--text-dim); margin-bottom: 1.25rem; flex-wrap: wrap; }
+    .post-tag { background: rgba(59,130,246,0.1); color: var(--blue); border: 1px solid rgba(59,130,246,0.2); border-radius: 999px; padding: 0.2rem 0.7rem; font-weight: 600; font-size: 0.78rem; letter-spacing: 0.03em; }
+    .post-header h1 { font-family: var(--font-head); font-size: clamp(1.9rem, 4vw, 2.75rem); font-weight: 800; letter-spacing: -0.04em; line-height: 1.2; margin-bottom: 1rem; }
+    .post-header .lead { font-size: 1.1rem; color: var(--text-muted); line-height: 1.75; border-left: 3px solid var(--blue); padding-left: 1.25rem; margin-top: 1.25rem; }
+
+    /* POST CONTENT */
+    .post-content { max-width: 720px; margin: 0 auto; }
+    .post-content p { color: var(--text-muted); font-size: 1rem; line-height: 1.85; margin-bottom: 1.5rem; }
+    .post-content h2 { font-family: var(--font-head); font-size: 1.5rem; font-weight: 700; color: var(--text); letter-spacing: -0.02em; margin: 2.5rem 0 1rem; padding-top: 0.5rem; border-top: 1px solid var(--border); }
+    .post-content h3 { font-family: var(--font-head); font-size: 1.15rem; font-weight: 700; color: var(--text); margin: 1.75rem 0 0.625rem; }
+    .post-content strong { color: var(--text); font-weight: 600; }
+    .post-content a { color: var(--blue); border-bottom: 1px solid rgba(59,130,246,0.3); transition: border-color 0.2s; }
+    .post-content a:hover { border-color: var(--blue); }
+    .post-content ul { list-style: disc; padding-left: 1.5rem; margin-bottom: 1.5rem; }
+    .post-content ul li { color: var(--text-muted); font-size: 1rem; line-height: 1.8; margin-bottom: 0.4rem; }
+    .post-content ol { list-style: decimal; padding-left: 1.5rem; margin-bottom: 1.5rem; }
+    .post-content ol li { color: var(--text-muted); font-size: 1rem; line-height: 1.8; margin-bottom: 0.4rem; }
+    .post-content hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
+
+    .tip-box { background: rgba(59,130,246,0.07); border: 1px solid rgba(59,130,246,0.2); border-radius: var(--radius); padding: 1.25rem 1.5rem; margin: 1.75rem 0; }
+    .tip-box p { margin-bottom: 0; color: var(--text-muted); }
+    .tip-box strong { color: var(--blue); }
+
+    /* HASHTAGS */
+    .post-tags { max-width: 720px; margin: 2.5rem auto 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .post-tags a { color: var(--blue); font-size: 0.85rem; font-weight: 500; padding: 0.25rem 0.75rem; border-radius: 999px; background: rgba(59,130,246,0.08); border: 1px solid rgba(59,130,246,0.18); transition: background 0.2s; }
+    .post-tags a:hover { background: rgba(59,130,246,0.16); border-bottom: 1px solid rgba(59,130,246,0.18); }
+
+    /* CTA BOX */
+    .post-cta { max-width: 720px; margin: 3rem auto 0; background: linear-gradient(135deg, rgba(59,130,246,0.15) 0%, rgba(6,182,212,0.10) 100%); border: 1px solid rgba(59,130,246,0.25); border-radius: var(--radius-xl); padding: 2.5rem 2rem; text-align: center; position: relative; overflow: hidden; }
+    .post-cta::before { content: ''; position: absolute; top: -60px; left: 50%; transform: translateX(-50%); width: 300px; height: 160px; background: radial-gradient(ellipse, rgba(59,130,246,0.2) 0%, transparent 70%); pointer-events: none; }
+    .post-cta h2 { font-family: var(--font-head); font-size: 1.6rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 0.75rem; position: relative; }
+    .post-cta p { color: var(--text-muted); font-size: 0.975rem; margin-bottom: 1.5rem; position: relative; line-height: 1.7; }
+    .post-cta .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.75rem; border-radius: var(--radius); font-family: var(--font); font-size: 0.975rem; font-weight: 600; cursor: pointer; border: none; background: var(--grad-hero); color: #fff; box-shadow: 0 0 24px rgba(59,130,246,0.35); transition: all 0.2s; position: relative; }
+    .post-cta .btn:hover { transform: translateY(-2px); box-shadow: 0 0 36px rgba(59,130,246,0.5); }
+
+    /* BACK LINK */
+    .back-link { max-width: 720px; margin: 2rem auto 0; }
+    .back-link a { display: inline-flex; align-items: center; gap: 0.4rem; color: var(--text-muted); font-size: 0.875rem; font-weight: 500; transition: color 0.2s; }
+    .back-link a:hover { color: var(--blue); }
+
+    /* FOOTER */
+    footer { border-top: 1px solid var(--border); padding: 3rem 0 2rem; position: relative; z-index: 1; }
+    .footer-inner { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 2.5rem; }
+    .footer-brand .nav-logo { margin-bottom: 0.875rem; }
+    .footer-brand p { color: var(--text-muted); font-size: 0.875rem; line-height: 1.7; max-width: 220px; }
+    .footer-social { display: flex; gap: 0.625rem; margin-top: 1.25rem; }
+    .footer-social a { width: 36px; height: 36px; border-radius: 8px; background: var(--surface); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--text-muted); transition: all 0.2s; }
+    .footer-social a:hover { background: rgba(59,130,246,0.12); border-color: var(--border-accent); color: var(--blue); transform: translateY(-2px); }
+    .footer-col h4 { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 1rem; }
+    .footer-col ul { display: flex; flex-direction: column; gap: 0.5rem; }
+    .footer-col a { color: var(--text-muted); font-size: 0.875rem; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--text); }
+    .footer-bottom { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; }
+    .footer-bottom p { font-size: 0.8rem; color: var(--text-dim); }
+    .footer-bottom a { color: var(--text-muted); transition: color 0.2s; }
+    .footer-bottom a:hover { color: var(--blue); }
+
+    @media (max-width: 900px) { .nav-links { display: none; } .hamburger { display: flex; } .footer-inner { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 600px) { .footer-inner { grid-template-columns: 1fr; } .footer-bottom { flex-direction: column; text-align: center; } }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="../index-modern.html" class="nav-logo">ZaraAI <em class="zap">⚡</em></a>
+      <ul class="nav-links">
+        <li><a href="../index-modern.html#services">Services</a></li>
+        <li><a href="../index-modern.html#pricing">Pricing</a></li>
+        <li><a href="../index-modern.html#how-it-works">How It Works</a></li>
+        <li><a href="../index-modern.html#team">About</a></li>
+        <li><a href="index.html" class="active">Blog</a></li>
+        <li><a href="../index-modern.html#contact" class="nav-cta">Book a Call</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="../index-modern.html#services" class="mobile-link">Services</a>
+    <a href="../index-modern.html#pricing" class="mobile-link">Pricing</a>
+    <a href="../index-modern.html#how-it-works" class="mobile-link">How It Works</a>
+    <a href="../index-modern.html#team" class="mobile-link">About</a>
+    <a href="index.html" class="mobile-link">Blog</a>
+    <a href="../index-modern.html#contact" class="btn-primary mobile-link">Book a Call</a>
+  </div>
+
+  <main>
+    <div class="breadcrumb">
+      <div class="container">
+        <div class="breadcrumb-inner">
+          <a href="../index-modern.html">Home</a>
+          <span>›</span>
+          <a href="index.html">Blog</a>
+          <span>›</span>
+          <span class="current">The 5 Workflows Every Business Should Automate First</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="post-wrapper">
+      <div class="container">
+
+        <header class="post-header">
+          <div class="post-meta">
+            <span class="post-tag">Strategy</span>
+            <span>7 min read</span>
+            <span>· By Jax Scott</span>
+          </div>
+          <h1>The 5 Workflows Every Business Should Automate First <span class="gradient-text">(And Why Most Get It Backwards)</span></h1>
+          <p class="lead">Most businesses automate the wrong stuff first. They spend weeks on fancy Slack notifications while their sales pipeline bleeds leads and reporting stays a manual Excel nightmare every Friday afternoon.</p>
+        </header>
+
+        <article class="post-content">
+          <p>Here's the thing nobody tells you when you start down the automation path: most businesses automate the wrong stuff first.</p>
+          <p>They spend weeks building a fancy social media scheduling workflow or a Slack notification for when someone fills out a contact form. Meanwhile, their sales pipeline is bleeding leads, their team is buried in repetitive emails, and their reporting is still a manual Excel nightmare every Friday afternoon.</p>
+          <p>I've seen it happen at every level — small startups, mid-size companies, government contractors. The instinct is to automate what's <strong>visible</strong>, not what's <strong>expensive</strong>. That's backwards.</p>
+          <p>After years of building automation systems — and watching what actually changes a business's bottom line — here are the five workflows you should automate first. In this order.</p>
+
+          <hr />
+
+          <h2>1. Email Triage</h2>
+          <p>Your inbox is a warzone. Every day it fills up with a mix of customer inquiries, vendor updates, spam, newsletters, internal requests, and actual fires that need immediate attention. Most people deal with this by checking email constantly. That's not a strategy. That's a habit that destroys deep work.</p>
+          <h3>What to automate</h3>
+          <p>Categorization, routing, and initial response. Build a system that automatically labels and routes emails by type — customer support goes to one folder, billing issues get tagged, hot leads get flagged and forwarded. Layer in AI-powered draft responses for common inquiries so your team isn't writing the same answer 40 times a week.</p>
+          <h3>Tools</h3>
+          <p><a href="https://n8n.io" target="_blank" rel="noopener">n8n</a> with Gmail integration, Make (formerly Integromat) for more complex routing logic, or Zapier if you want fast and simple. Add an LLM layer (GPT-4, Claude) for intelligent classification and draft generation.</p>
+          <div class="tip-box"><p><strong>Real outcome:</strong> One client cut their email response time from 24 hours to under 2 hours — without hiring anyone. The automation handled initial triage and surfaced only what needed a human decision.</p></div>
+
+          <hr />
+
+          <h2>2. Document Generation</h2>
+          <p>How many times a week does your team create a document that's 80% identical to the last one? Proposals, contracts, onboarding packets, SOPs, reports — these are document factories masquerading as knowledge work.</p>
+          <h3>What to automate</h3>
+          <p>Template-based document generation triggered by a form fill, CRM entry, or approval event. When a deal moves to "Proposal Sent" in your CRM, the system should automatically pull client details, populate a proposal template, generate a PDF, and drop it in your cloud storage — ready to review and send in under a minute.</p>
+          <h3>Tools</h3>
+          <p>n8n or Make connected to Google Docs or Notion, with Pandoc or Carbone.io for PDF generation. DocuSign or HelloSign for the signature layer.</p>
+          <div class="tip-box"><p><strong>Real outcome:</strong> Proposal creation time goes from 45 minutes to 3 minutes. More importantly, nothing gets missed — every proposal has the right clauses, pricing, and terms because the template enforces it.</p></div>
+
+          <hr />
+
+          <h2>3. Lead Follow-Up</h2>
+          <p>The data on lead follow-up is brutal: 78% of customers buy from whoever responds first. Most businesses wait hours. Some wait days. A few never follow up at all. This is where automation pays for itself in weeks, not months.</p>
+          <h3>What to automate</h3>
+          <p>Immediate acknowledgment, qualification questions, and a multi-touch nurture sequence triggered by specific actions (form fill, demo request, content download). A lead fills out your contact form at 11 PM on a Sunday. Within two minutes, they get a personalized response that acknowledges their specific request, sets expectations, and asks one qualifying question. Monday morning, your sales team has a warm lead with context — instead of a cold contact form from the weekend.</p>
+          <h3>Tools</h3>
+          <p>n8n or Make + your CRM (HubSpot, Pipedrive, GoHighLevel) + an email tool (Mailchimp, ActiveCampaign, or direct SMTP). Add a GPT layer to personalize the outreach based on what the lead asked.</p>
+          <div class="tip-box"><p><strong>Real outcome:</strong> Lead response time drops from hours to minutes. Conversion rates on inbound leads typically increase 20-40% just from speed and consistency alone.</p></div>
+
+          <hr />
+
+          <h2>4. Reporting</h2>
+          <p>If someone on your team is manually compiling a report every week — pulling numbers from five different tools, formatting it in a spreadsheet, emailing it to leadership — that's a problem. Not because the report isn't valuable. Because the <strong>manual assembly</strong> of that report adds zero value and burns time your people should spend on actual work.</p>
+          <h3>What to automate</h3>
+          <p>Data aggregation, formatting, and distribution on a schedule. Pull revenue data from Stripe, pipeline data from your CRM, support ticket volume from Zendesk, and traffic from Google Analytics. Aggregate it, format it, and send it automatically every Monday morning at 8 AM.</p>
+          <h3>Tools</h3>
+          <p>n8n is excellent for this — it can pull from dozens of APIs, transform data, and push to email, Slack, or a dashboard. Google Looker Studio is free and can auto-refresh. For heavier analytics, Metabase with a scheduled report works well.</p>
+          <div class="tip-box"><p><strong>Real outcome:</strong> Two to four hours per week returned to every manager who was doing this manually. Decisions get made on current data, not last week's manual pull.</p></div>
+
+          <hr />
+
+          <h2>5. Onboarding</h2>
+          <p>Employee onboarding and client onboarding are both notorious time sinks. They're also highly repeatable — which makes them perfect automation candidates.</p>
+          <h3>What to automate</h3>
+          <p>Account provisioning, welcome communications, task assignment, document delivery, and check-in scheduling. When a new employee is added to your HRIS, the system should automatically provision their email account, send their equipment checklist, create their onboarding tasks in your project management tool, and schedule their 30-day check-in with their manager. No HR coordinator manually running down a checklist.</p>
+          <p>For clients, when a contract is signed, the system kicks off: welcome email, client questionnaire, Slack channel creation, kickoff meeting scheduling, and intake document delivery. Automatically.</p>
+          <h3>Tools</h3>
+          <p>n8n or Make + your HRIS (BambooHR, Gusto) or CRM + Slack + Google Workspace + Calendly.</p>
+          <div class="tip-box"><p><strong>Real outcome:</strong> Onboarding time for new hires drops 60-70%. Clients get a polished, professional experience from day one — and your team isn't scrambling to remember every step.</p></div>
+
+          <hr />
+
+          <h2>The Bottom Line</h2>
+          <p>These five workflows aren't glamorous. They're not the AI projects that get written up in TechCrunch. But they're where the money is — in time saved, revenue recovered, and errors eliminated.</p>
+          <p>Start here. Get these running well. Then build from there. If you want help mapping what these would look like in your specific business — what tools fit your stack, where the gaps are, what to build first — that's exactly what we do at ZaraAI.</p>
+        </article>
+
+        <div class="post-tags">
+          <a href="#">#AI</a>
+          <a href="#">#Cybersecurity</a>
+          <a href="#">#AIAutomation</a>
+          <a href="#">#AISecurity</a>
+          <a href="#">#AgenticAI</a>
+          <a href="#">#TheZaraAI</a>
+        </div>
+
+        <div class="post-cta">
+          <h2>Ready to automate your business? <span class="gradient-text">⚡</span></h2>
+          <p>Stop doing manually what AI can do for you. Start your free 10-day trial and see how ZaraAI transforms your operations.</p>
+          <a href="https://thezaraai.gumroad.com/l/qstadl" target="_blank" rel="noopener" class="btn">
+            <i data-lucide="rocket" width="16" height="16"></i>
+            Start Free Trial — $40/mo
+          </a>
+        </div>
+
+        <div class="back-link">
+          <a href="index.html">
+            <i data-lucide="arrow-left" width="14" height="14"></i>
+            Back to Blog
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="../index-modern.html" class="nav-logo">ZaraAI <em class="zap">⚡</em></a>
+          <p>AI automation consulting for businesses that want to move faster without burning out their team.</p>
+          <div class="footer-social">
+            <a href="https://x.com/the_ZaraAI" target="_blank" rel="noopener" aria-label="X"><i data-lucide="twitter" width="15" height="15"></i></a>
+            <a href="https://instagram.com/the_Zaraai" target="_blank" rel="noopener" aria-label="Instagram"><i data-lucide="instagram" width="15" height="15"></i></a>
+            <a href="https://thezaraai.substack.com" target="_blank" rel="noopener" aria-label="Substack"><i data-lucide="mail" width="15" height="15"></i></a>
+            <a href="https://thezaraai.gumroad.com" target="_blank" rel="noopener" aria-label="Gumroad"><i data-lucide="shopping-bag" width="15" height="15"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="../index-modern.html#services">AI Automation</a></li>
+            <li><a href="../index-modern.html#services">Virtual CISO</a></li>
+            <li><a href="../index-modern.html#services">AI Security</a></li>
+            <li><a href="../index-modern.html#contact">Book a Call</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="../index-modern.html#team">About</a></li>
+            <li><a href="../index-modern.html#pricing">Pricing</a></li>
+            <li><a href="index.html">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="https://x.com/the_ZaraAI" target="_blank" rel="noopener">@the_ZaraAI on X</a></li>
+            <li><a href="https://thezaraai.substack.com" target="_blank" rel="noopener">Substack Newsletter</a></li>
+            <li><a href="mailto:info@thezaraai.com">info@thezaraai.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 ZaraAI LLC. All rights reserved. · <a href="https://thezaraai.com">thezaraai.com</a> · Built with ⚡ by Zara</p>
+        <p><a href="/legal/privacy-policy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="/legal/terms-of-service.html">Terms of Service</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', isOpen);
+    });
+  </script>
+</body>
+</html>

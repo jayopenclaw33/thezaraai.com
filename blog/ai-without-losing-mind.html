@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to Build an AI-Powered Business Without Losing Your Mind — ZaraAI ⚡</title>
+  <meta name="description" content="Overwhelm kills AI adoption before it starts. Here's the 3-phase framework for building AI automation into your business without chaos, confusion, or data disasters." />
+  <meta name="author" content="Jax Scott — ZaraAI" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0b0f1a; --bg2: #0e1422; --surface: rgba(255,255,255,0.04);
+      --blue: #3B82F6; --blue-dim: #2563EB; --cyan: #06B6D4;
+      --text: #F1F5F9; --text-muted: #94A3B8; --text-dim: #4B5563;
+      --border: rgba(255,255,255,0.07); --border-accent: rgba(59,130,246,0.3);
+      --grad-hero: linear-gradient(135deg, var(--blue) 0%, var(--cyan) 100%);
+      --radius: 12px; --radius-lg: 20px; --radius-xl: 28px;
+      --font: 'Inter', system-ui, sans-serif; --font-head: 'Space Grotesk', system-ui, sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: var(--font); line-height: 1.65; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+    body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E"); pointer-events: none; z-index: 0; }
+    img { max-width: 100%; display: block; } a { text-decoration: none; } ul { list-style: none; }
+    .container { width: 100%; max-width: 1160px; margin: 0 auto; padding: 0 clamp(1.25rem, 5vw, 2.5rem); }
+    .gradient-text { background: var(--grad-hero); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; height: 66px; display: flex; align-items: center; background: rgba(11,15,26,0.80); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: 1160px; margin: 0 auto; padding: 0 clamp(1.25rem, 5vw, 2.5rem); }
+    .nav-logo { font-family: var(--font-head); font-size: 1.35rem; font-weight: 700; color: var(--text); letter-spacing: -0.02em; display: flex; align-items: center; gap: 0.3rem; }
+    .nav-logo .zap { color: var(--blue); font-style: normal; }
+    .nav-links { display: flex; align-items: center; gap: 0.25rem; }
+    .nav-links a { color: var(--text-muted); font-size: 0.9rem; font-weight: 500; padding: 0.4rem 0.875rem; border-radius: 8px; transition: color 0.2s, background 0.2s; }
+    .nav-links a:hover { color: var(--text); background: var(--surface); }
+    .nav-links a.active { color: var(--blue); }
+    .nav-cta { background: var(--blue); color: #fff !important; padding: 0.5rem 1.1rem; border-radius: 8px; font-weight: 600 !important; font-size: 0.875rem !important; transition: all 0.2s !important; }
+    .nav-cta:hover { background: var(--blue-dim) !important; transform: translateY(-1px); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 6px; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; }
+    .mobile-menu { display: none; position: fixed; top: 66px; left: 0; right: 0; background: var(--bg2); border-bottom: 1px solid var(--border); padding: 1rem 1.5rem 1.5rem; flex-direction: column; gap: 0.25rem; z-index: 999; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { color: var(--text-muted); font-size: 1rem; font-weight: 500; padding: 0.625rem 0.5rem; border-radius: 8px; }
+    .mobile-menu a:hover { color: var(--text); }
+    .mobile-menu .btn-primary { margin-top: 0.75rem; display: flex; justify-content: center; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; border-radius: var(--radius); background: var(--grad-hero); color: #fff; font-weight: 600; font-size: 0.95rem; }
+    .breadcrumb { padding: calc(66px + 1.5rem) 0 0; position: relative; z-index: 1; }
+    .breadcrumb-inner { display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; color: var(--text-dim); }
+    .breadcrumb-inner a { color: var(--text-muted); transition: color 0.2s; }
+    .breadcrumb-inner a:hover { color: var(--blue); }
+    .breadcrumb-inner span { color: var(--text-dim); }
+    .breadcrumb-inner .current { color: var(--text-muted); }
+    .post-wrapper { padding: 2rem 0 5rem; position: relative; z-index: 1; }
+    .post-header { max-width: 720px; margin: 0 auto 3rem; }
+    .post-meta { display: flex; align-items: center; gap: 0.75rem; font-size: 0.8rem; color: var(--text-dim); margin-bottom: 1.25rem; flex-wrap: wrap; }
+    .post-tag { background: rgba(59,130,246,0.1); color: var(--blue); border: 1px solid rgba(59,130,246,0.2); border-radius: 999px; padding: 0.2rem 0.7rem; font-weight: 600; font-size: 0.78rem; letter-spacing: 0.03em; }
+    .post-header h1 { font-family: var(--font-head); font-size: clamp(1.9rem, 4vw, 2.75rem); font-weight: 800; letter-spacing: -0.04em; line-height: 1.2; margin-bottom: 1rem; }
+    .post-header .lead { font-size: 1.1rem; color: var(--text-muted); line-height: 1.75; border-left: 3px solid var(--blue); padding-left: 1.25rem; margin-top: 1.25rem; }
+    .post-content { max-width: 720px; margin: 0 auto; }
+    .post-content p { color: var(--text-muted); font-size: 1rem; line-height: 1.85; margin-bottom: 1.5rem; }
+    .post-content h2 { font-family: var(--font-head); font-size: 1.5rem; font-weight: 700; color: var(--text); letter-spacing: -0.02em; margin: 2.5rem 0 1rem; padding-top: 0.5rem; border-top: 1px solid var(--border); }
+    .post-content h3 { font-family: var(--font-head); font-size: 1.15rem; font-weight: 700; color: var(--text); margin: 1.75rem 0 0.625rem; }
+    .post-content strong { color: var(--text); font-weight: 600; }
+    .post-content a { color: var(--blue); border-bottom: 1px solid rgba(59,130,246,0.3); transition: border-color 0.2s; }
+    .post-content a:hover { border-color: var(--blue); }
+    .post-content ul { list-style: disc; padding-left: 1.5rem; margin-bottom: 1.5rem; }
+    .post-content ul li { color: var(--text-muted); font-size: 1rem; line-height: 1.8; margin-bottom: 0.4rem; }
+    .post-content ol { list-style: decimal; padding-left: 1.5rem; margin-bottom: 1.5rem; }
+    .post-content ol li { color: var(--text-muted); font-size: 1rem; line-height: 1.8; margin-bottom: 0.4rem; }
+    .post-content hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
+    .tip-box { background: rgba(59,130,246,0.07); border: 1px solid rgba(59,130,246,0.2); border-radius: var(--radius); padding: 1.25rem 1.5rem; margin: 1.75rem 0; }
+    .tip-box p { margin-bottom: 0; color: var(--text-muted); }
+    .tip-box strong { color: var(--blue); }
+    .phase-card { background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.75rem; margin: 1.75rem 0; position: relative; padding-left: 2rem; border-left: 3px solid var(--blue); }
+    .phase-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue); margin-bottom: 0.5rem; }
+    .phase-card h3 { font-family: var(--font-head); font-size: 1.1rem; font-weight: 700; color: var(--text); margin-bottom: 0.75rem; }
+    .phase-card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.75; margin-bottom: 0; }
+    .post-tags { max-width: 720px; margin: 2.5rem auto 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .post-tags a { color: var(--blue); font-size: 0.85rem; font-weight: 500; padding: 0.25rem 0.75rem; border-radius: 999px; background: rgba(59,130,246,0.08); border: 1px solid rgba(59,130,246,0.18); transition: background 0.2s; }
+    .post-tags a:hover { background: rgba(59,130,246,0.16); border-bottom: 1px solid rgba(59,130,246,0.18); }
+    .post-cta { max-width: 720px; margin: 3rem auto 0; background: linear-gradient(135deg, rgba(59,130,246,0.15) 0%, rgba(6,182,212,0.10) 100%); border: 1px solid rgba(59,130,246,0.25); border-radius: var(--radius-xl); padding: 2.5rem 2rem; text-align: center; position: relative; overflow: hidden; }
+    .post-cta::before { content: ''; position: absolute; top: -60px; left: 50%; transform: translateX(-50%); width: 300px; height: 160px; background: radial-gradient(ellipse, rgba(59,130,246,0.2) 0%, transparent 70%); pointer-events: none; }
+    .post-cta h2 { font-family: var(--font-head); font-size: 1.6rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 0.75rem; position: relative; }
+    .post-cta p { color: var(--text-muted); font-size: 0.975rem; margin-bottom: 1.5rem; position: relative; line-height: 1.7; }
+    .post-cta .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.75rem; border-radius: var(--radius); font-family: var(--font); font-size: 0.975rem; font-weight: 600; cursor: pointer; border: none; background: var(--grad-hero); color: #fff; box-shadow: 0 0 24px rgba(59,130,246,0.35); transition: all 0.2s; position: relative; }
+    .post-cta .btn:hover { transform: translateY(-2px); box-shadow: 0 0 36px rgba(59,130,246,0.5); }
+    .back-link { max-width: 720px; margin: 2rem auto 0; }
+    .back-link a { display: inline-flex; align-items: center; gap: 0.4rem; color: var(--text-muted); font-size: 0.875rem; font-weight: 500; transition: color 0.2s; }
+    .back-link a:hover { color: var(--blue); }
+    footer { border-top: 1px solid var(--border); padding: 3rem 0 2rem; position: relative; z-index: 1; }
+    .footer-inner { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 2.5rem; }
+    .footer-brand .nav-logo { margin-bottom: 0.875rem; }
+    .footer-brand p { color: var(--text-muted); font-size: 0.875rem; line-height: 1.7; max-width: 220px; }
+    .footer-social { display: flex; gap: 0.625rem; margin-top: 1.25rem; }
+    .footer-social a { width: 36px; height: 36px; border-radius: 8px; background: var(--surface); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--text-muted); transition: all 0.2s; }
+    .footer-social a:hover { background: rgba(59,130,246,0.12); border-color: var(--border-accent); color: var(--blue); transform: translateY(-2px); }
+    .footer-col h4 { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 1rem; }
+    .footer-col ul { display: flex; flex-direction: column; gap: 0.5rem; }
+    .footer-col a { color: var(--text-muted); font-size: 0.875rem; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--text); }
+    .footer-bottom { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; }
+    .footer-bottom p { font-size: 0.8rem; color: var(--text-dim); }
+    .footer-bottom a { color: var(--text-muted); transition: color 0.2s; }
+    .footer-bottom a:hover { color: var(--blue); }
+    @media (max-width: 900px) { .nav-links { display: none; } .hamburger { display: flex; } .footer-inner { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 600px) { .footer-inner { grid-template-columns: 1fr; } .footer-bottom { flex-direction: column; text-align: center; } }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="../index-modern.html" class="nav-logo">ZaraAI <em class="zap">⚡</em></a>
+      <ul class="nav-links">
+        <li><a href="../index-modern.html#services">Services</a></li>
+        <li><a href="../index-modern.html#pricing">Pricing</a></li>
+        <li><a href="../index-modern.html#how-it-works">How It Works</a></li>
+        <li><a href="../index-modern.html#team">About</a></li>
+        <li><a href="index.html" class="active">Blog</a></li>
+        <li><a href="../index-modern.html#contact" class="nav-cta">Book a Call</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="../index-modern.html#services" class="mobile-link">Services</a>
+    <a href="../index-modern.html#pricing" class="mobile-link">Pricing</a>
+    <a href="../index-modern.html#how-it-works" class="mobile-link">How It Works</a>
+    <a href="../index-modern.html#team" class="mobile-link">About</a>
+    <a href="index.html" class="mobile-link">Blog</a>
+    <a href="../index-modern.html#contact" class="btn-primary mobile-link">Book a Call</a>
+  </div>
+
+  <main>
+    <div class="breadcrumb">
+      <div class="container">
+        <div class="breadcrumb-inner">
+          <a href="../index-modern.html">Home</a>
+          <span>›</span>
+          <a href="index.html">Blog</a>
+          <span>›</span>
+          <span class="current">How to Build an AI-Powered Business Without Losing Your Mind</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="post-wrapper">
+      <div class="container">
+
+        <header class="post-header">
+          <div class="post-meta">
+            <span class="post-tag">Automation</span>
+            <span>7 min read</span>
+            <span>· By Jax Scott</span>
+          </div>
+          <h1>How to Build an AI-Powered Business <span class="gradient-text">Without Losing Your Mind</span> (Or Your Data)</h1>
+          <p class="lead">Overwhelm is the number one reason AI adoption fails in small businesses. Not budget, not technical complexity — overwhelm. Here's the 3-phase framework that actually works.</p>
+        </header>
+
+        <article class="post-content">
+          <p>Overwhelm is the number one reason AI adoption fails in small businesses.</p>
+          <p>Not budget. Not technical complexity. Not lack of tools. Overwhelm.</p>
+          <p>The founder who listens to every podcast about AI, signs up for twelve tools, runs no automation consistently, and ends up more confused and busy than before they started. I've watched it happen more times than I can count.</p>
+          <p>Here's the truth: AI automation is not complicated. But it becomes complicated fast when you try to do everything at once, or when you start without knowing what problem you're actually trying to solve.</p>
+          <p>The businesses that succeed with AI are not the ones with the biggest tech budgets or the most ambitious roadmaps. They're the ones that start small, build confidence, and layer complexity deliberately. Every time.</p>
+          <p>This is how we teach clients to do it.</p>
+
+          <hr />
+
+          <h2>The 3-Phase Approach</h2>
+
+          <div class="phase-card">
+            <div class="phase-label">Phase 1 · Week 1–2</div>
+            <h3>Foundation</h3>
+            <p>The goal in Phase 1 is not automation. It's clarity. Before you automate anything, you need to know where your time actually goes — not where you think it goes.</p>
+          </div>
+
+          <p>Track your work for 5 business days. Every task, every interruption, every repeated action. You can use a time-tracking app, a simple spreadsheet, or even handwritten notes. The point is to create a real inventory of how your hours are spent.</p>
+          <p>At the end of the week, look for the patterns:</p>
+          <ul>
+            <li>What did you do more than twice?</li>
+            <li>What felt like a waste of your specific skills?</li>
+            <li>What was someone else doing that they had to pull you in for?</li>
+          </ul>
+
+          <h3>What to automate in Week 1</h3>
+          <p>One thing. Seriously, just one. Pick the task that came up most frequently, costs the most time, and has the clearest repeatable structure. For most businesses, this is email triage or a simple notification workflow. Build it, test it, run it for a week. Understand how it works before you add anything else.</p>
+          <p>The psychological win here matters. When you have one automation running reliably — saving you 30 minutes a day — you start to trust the process. That trust is what lets you scale.</p>
+          <div class="tip-box"><p><strong>Tools to start with:</strong> Zapier if you want the fastest path to running. n8n if you want more control and are comfortable with a bit more setup. Make (Integromat) if you're doing anything with complex data routing. Don't overthink the tool choice. Pick one and get something working.</p></div>
+
+          <hr />
+
+          <div class="phase-card">
+            <div class="phase-label">Phase 2 · Month 1–2</div>
+            <h3>Expansion</h3>
+            <p>You have one automation running. It's not perfect, but it's working. Now you build.</p>
+          </div>
+
+          <p>By the end of Month 1, you should have three to four automations running. Each one should be doing something that used to require a human to manually execute a task they'd done dozens of times before. Here's what to build next:</p>
+          <ol>
+            <li><strong>Lead capture and follow-up</strong> — If you're getting any inbound leads and not following up within minutes, you're losing money. A form fill triggers an immediate acknowledgment, a qualification question, and a task in your CRM for a human follow-up.</li>
+            <li><strong>Document generation</strong> — Proposals, contracts, SOPs. Whatever your team generates repeatedly. Connect your data sources to a template engine and stop copying and pasting.</li>
+            <li><strong>Internal reporting</strong> — Pull your core metrics automatically on a schedule. Stop compiling weekly reports by hand.</li>
+          </ol>
+          <div class="tip-box"><p><strong>A note on data:</strong> As you expand, pay attention to what data your automations are touching. Who has access to the workflow configurations? Are you passing sensitive customer information through any third-party tools? This is the time to audit — not after you have twenty automations running.</p></div>
+
+          <hr />
+
+          <div class="phase-card">
+            <div class="phase-label">Phase 3 · Month 3+</div>
+            <h3>Intelligence</h3>
+            <p>This is where AI moves from "automated tasks" to "AI-powered operations." Adding intelligence to your automation stack — not just triggering actions based on events, but using AI to classify, decide, generate, and improve.</p>
+          </div>
+
+          <p>What this looks like in practice:</p>
+          <ul>
+            <li>An AI layer that reads incoming support tickets, classifies by urgency and type, drafts a response, and routes to the right team member — all before a human touches it</li>
+            <li>A lead scoring system that analyzes CRM activity, email engagement, and website behavior to rank leads by likelihood to convert</li>
+            <li>A competitive intelligence workflow that monitors industry news, summarizes relevant developments, and delivers a weekly brief to your team</li>
+            <li>An AI assistant trained on your SOPs and documentation that your team can query — reducing "quick questions" to leadership by 50%</li>
+          </ul>
+          <p>None of these require a team of developers. They require clear thinking about what problem you're solving, the right tool combinations, and someone who knows how to connect the pieces.</p>
+
+          <hr />
+
+          <h2>The Mistakes That Derail People</h2>
+
+          <h3>Automating broken processes</h3>
+          <p>Automation amplifies what's already there. If your lead follow-up process is disorganized, automating it makes the chaos faster. Fix the process first, then automate it.</p>
+
+          <h3>Building for edge cases first</h3>
+          <p>Your automation doesn't need to handle every possible scenario on day one. Build for the 80% case. Handle exceptions manually until you understand their patterns. Then automate the exceptions.</p>
+
+          <h3>Skipping documentation</h3>
+          <p>Every automation you build should have a one-paragraph explanation of what it does, what triggers it, and what to do when it breaks. Future you — or whoever takes this over — will thank you.</p>
+
+          <h3>Treating AI like magic</h3>
+          <p>AI automation is powerful. It is not magic. It does exactly what you configure it to do, with all the edge cases you failed to anticipate and all the data quality issues in your source systems. Set accurate expectations.</p>
+
+          <hr />
+
+          <h2>Where to Start If You're Not Sure</h2>
+          <p>If you're reading this and you're not sure what your first automation should be — or if you've already tried to build something and it didn't stick — the answer is usually: you need a map before you need tools.</p>
+          <p>That's what our Starter plan is designed to do. We sit down with you, map your workflows, identify the highest-value automation candidates, and build the first two or three with you. Not <em>for</em> you — <em>with</em> you. Because the goal isn't dependency on us. The goal is a business that runs smarter.</p>
+        </article>
+
+        <div class="post-tags">
+          <a href="#">#AI</a>
+          <a href="#">#Cybersecurity</a>
+          <a href="#">#AIAutomation</a>
+          <a href="#">#AISecurity</a>
+          <a href="#">#AgenticAI</a>
+          <a href="#">#TheZaraAI</a>
+        </div>
+
+        <div class="post-cta">
+          <h2>Ready to automate your business? <span class="gradient-text">⚡</span></h2>
+          <p>Start with a free 10-day trial. We'll help you map your workflows, find the highest-impact automations, and build them right — from day one.</p>
+          <a href="https://thezaraai.gumroad.com/l/qstadl" target="_blank" rel="noopener" class="btn">
+            <i data-lucide="rocket" width="16" height="16"></i>
+            Start Free Trial — $40/mo
+          </a>
+        </div>
+
+        <div class="back-link">
+          <a href="index.html">
+            <i data-lucide="arrow-left" width="14" height="14"></i>
+            Back to Blog
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="../index-modern.html" class="nav-logo">ZaraAI <em class="zap">⚡</em></a>
+          <p>AI automation consulting for businesses that want to move faster without burning out their team.</p>
+          <div class="footer-social">
+            <a href="https://x.com/the_ZaraAI" target="_blank" rel="noopener" aria-label="X"><i data-lucide="twitter" width="15" height="15"></i></a>
+            <a href="https://instagram.com/the_Zaraai" target="_blank" rel="noopener" aria-label="Instagram"><i data-lucide="instagram" width="15" height="15"></i></a>
+            <a href="https://thezaraai.substack.com" target="_blank" rel="noopener" aria-label="Substack"><i data-lucide="mail" width="15" height="15"></i></a>
+            <a href="https://thezaraai.gumroad.com" target="_blank" rel="noopener" aria-label="Gumroad"><i data-lucide="shopping-bag" width="15" height="15"></i></a>
+          </div>
+        </div>
+        <div class="footer-col"><h4>Services</h4><ul><li><a href="../index-modern.html#services">AI Automation</a></li><li><a href="../index-modern.html#services">Virtual CISO</a></li><li><a href="../index-modern.html#services">AI Security</a></li><li><a href="../index-modern.html#contact">Book a Call</a></li></ul></div>
+        <div class="footer-col"><h4>Company</h4><ul><li><a href="../index-modern.html#team">About</a></li><li><a href="../index-modern.html#pricing">Pricing</a></li><li><a href="index.html">Blog</a></li></ul></div>
+        <div class="footer-col"><h4>Connect</h4><ul><li><a href="https://x.com/the_ZaraAI" target="_blank" rel="noopener">@the_ZaraAI on X</a></li><li><a href="https://thezaraai.substack.com" target="_blank" rel="noopener">Substack Newsletter</a></li><li><a href="mailto:info@thezaraai.com">info@thezaraai.com</a></li></ul></div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 ZaraAI LLC. All rights reserved. · <a href="https://thezaraai.com">thezaraai.com</a> · Built with ⚡ by Zara</p>
+        <p><a href="/legal/privacy-policy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="/legal/terms-of-service.html">Terms of Service</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    hamburger.addEventListener('click', () => { const isOpen = mobileMenu.classList.toggle('open'); hamburger.setAttribute('aria-expanded', isOpen); });
+  </script>
+</body>
+</html>
