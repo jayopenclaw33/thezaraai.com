@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Processing Addendum — TheZaraAI</title>
+<meta name="description" content="ZaraAI LLC Data Processing Addendum (DPA). A starter DPA designed for the procurement reviews of mid-market and enterprise buyers.">
+<meta name="author" content="Jax Scott, ZaraAI LLC">
+<link rel="canonical" href="https://thezaraai.com/legal/data-processing.html">
+
+<link rel="icon" type="image/png" href="../assets/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="icon" href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;path d=%22M50 8 L52 48 L50 50 L48 48 Z M50 92 L52 52 L50 50 L48 52 Z M8 50 L48 48 L50 50 L48 52 Z M92 50 L52 48 L50 50 L52 52 Z%22 fill=%22%23B87560%22/&gt;&lt;circle cx=%2250%22 cy=%2250%22 r=%222.5%22 fill=%22%239B5E4A%22/&gt;&lt;/svg&gt;">
+
+<meta property="og:title" content="Data Processing Addendum — TheZaraAI">
+<meta property="og:description" content="A starter DPA for mid-market and enterprise procurement.">
+<meta property="og:url" content="https://thezaraai.com/legal/data-processing.html">
+<meta property="og:type" content="article">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --cream: #F4EFE8;
+  --cream-deep: #EDE6DB;
+  --cream-soft: #F9F5EE;
+  --paper: #FBF8F3;
+
+  --navy: #1C2540;
+  --navy-deep: #131A2E;
+  --navy-soft: #2A3454;
+  --ink: #1C2540;
+  --ink-muted: #5C6480;
+  --ink-subtle: #8A91A6;
+
+  --rose: #B87560;
+  --rose-deep: #9B5E4A;
+  --rose-light: #D6A593;
+  --rose-glow: rgba(184, 117, 96, 0.08);
+
+  --rule: rgba(184, 117, 96, 0.35);
+  --rule-soft: rgba(28, 37, 64, 0.08);
+
+  --font-serif: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  --font-sans:  'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  --transition: 350ms cubic-bezier(0.22, 1, 0.36, 1);
+  --transition-slow: 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 1rem;
+  background: var(--navy);
+  color: var(--cream);
+  padding: 0.5rem 1rem;
+  z-index: 200;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: top 200ms ease;
+}
+.skip-link:focus { top: 0.75rem; }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+body {
+  font-family: var(--font-sans);
+  background: var(--cream);
+  color: var(--ink);
+  font-size: 17px;
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+
+.container { max-width: 1180px; margin: 0 auto; padding: 0 1.75rem; }
+.container-narrow { max-width: 880px; margin: 0 auto; padding: 0 1.75rem; }
+
+.serif { font-family: var(--font-serif); font-weight: 500; letter-spacing: -0.005em; }
+h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 500; color: var(--navy); letter-spacing: -0.01em; }
+
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  color: var(--rose-deep);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.eyebrow::before,
+.eyebrow::after {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: var(--rose-light);
+}
+.eyebrow.eyebrow-left::after { display: none; }
+
+.rule {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--rule) 20%, var(--rule) 80%, transparent 100%);
+  border: none;
+  margin: 0;
+}
+
+.mark {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+.mark svg { width: 100%; height: 100%; display: block; }
+
+/* ============ NAV ============ */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(244, 239, 232, 0.88);
+  backdrop-filter: saturate(160%) blur(18px);
+  -webkit-backdrop-filter: saturate(160%) blur(18px);
+  transition: border-color var(--transition), background var(--transition);
+  border-bottom: 1px solid transparent;
+}
+.nav.scrolled {
+  border-bottom-color: var(--rule-soft);
+  background: rgba(244, 239, 232, 0.95);
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 76px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.brand-text {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  color: var(--navy);
+  line-height: 1;
+}
+.brand-text .ai { color: var(--rose); }
+.brand-tag {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.55rem;
+  text-transform: uppercase;
+  letter-spacing: 0.32em;
+  color: var(--rose-deep);
+  margin-top: 0.3rem;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2.25rem;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--ink);
+  position: relative;
+  padding: 0.5rem 0;
+  letter-spacing: 0.01em;
+  transition: color var(--transition);
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--rose);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform var(--transition);
+}
+.nav-links a:hover { color: var(--rose-deep); }
+.nav-links a:hover::after { transform: scaleX(1); }
+
+.nav-cta-group { display: flex; gap: 0.6rem; align-items: center; }
+@media (max-width: 980px) { .nav-links { display: none; } }
+@media (max-width: 600px) { .nav-cta-group .btn-ghost { display: none; } }
+
+/* ============ BUTTONS ============ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transition: all var(--transition);
+  white-space: nowrap;
+  cursor: pointer;
+  border: 1px solid transparent;
+  position: relative;
+}
+.btn-primary {
+  background: var(--navy);
+  color: var(--cream);
+}
+.btn-primary:hover {
+  background: var(--navy-deep);
+  transform: translateY(-1px);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--navy);
+  border-color: var(--navy);
+}
+.btn-ghost:hover {
+  background: var(--navy);
+  color: var(--cream);
+}
+.btn-link {
+  padding: 0.5rem 0;
+  background: transparent;
+  color: var(--rose-deep);
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.78rem;
+  font-weight: 500;
+  position: relative;
+}
+.btn-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--rose);
+  transform-origin: left;
+  transition: transform var(--transition);
+}
+.btn-link:hover::after { transform: scaleX(1.05); }
+.btn-large { padding: 1.05rem 2rem; font-size: 0.82rem; }
+.btn-arrow { font-family: var(--font-serif); font-size: 1rem; transition: transform var(--transition); }
+.btn:hover .btn-arrow { transform: translateX(4px); }
+
+/* ============ LEGAL HERO ============ */
+.legal-hero {
+  padding: clamp(4rem, 9vw, 6.5rem) 0 clamp(2.5rem, 5vw, 4rem);
+  text-align: center;
+  border-bottom: 1px solid var(--rule-soft);
+  background: var(--paper);
+}
+.legal-hero .eyebrow { margin-bottom: 1.75rem; }
+.legal-hero h1 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: clamp(2.4rem, 5.5vw, 4rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+  max-width: 24ch;
+  margin: 0 auto 1.5rem;
+}
+.legal-meta {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-subtle);
+  margin-top: 1rem;
+}
+.legal-meta span + span::before {
+  content: '·';
+  margin: 0 0.65rem;
+  color: var(--rose-light);
+}
+
+/* ============ LEGAL CONTENT ============ */
+.legal-content {
+  padding: clamp(3.5rem, 7vw, 5.5rem) 0 clamp(4rem, 8vw, 6rem);
+}
+.legal-content > * + * { margin-top: 1.25rem; }
+.legal-content h2 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: clamp(1.65rem, 3vw, 2.25rem);
+  line-height: 1.15;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+  margin-top: 3rem;
+  margin-bottom: 1.25rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--rule);
+}
+.legal-content > section:first-of-type h2 { border-top: none; padding-top: 0; margin-top: 0; }
+.legal-content h3 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: 1.25rem;
+  color: var(--navy);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.005em;
+}
+.legal-content p {
+  line-height: 1.7;
+  color: var(--ink);
+  font-size: 1.02rem;
+}
+.legal-content p + p { margin-top: 1rem; }
+.legal-content ul, .legal-content ol {
+  padding-left: 1.5rem;
+  color: var(--ink);
+  margin: 1rem 0;
+}
+.legal-content li {
+  margin-bottom: 0.6rem;
+  line-height: 1.65;
+  font-size: 1rem;
+}
+.legal-content li::marker { color: var(--rose-deep); }
+.legal-content a {
+  color: var(--rose-deep);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition: color var(--transition);
+}
+.legal-content a:hover { color: var(--rose); }
+.legal-content strong { color: var(--navy); font-weight: 600; }
+.legal-content section { padding: 0; }
+.legal-content .lede {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--ink-muted);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--rule-soft);
+}
+.legal-content .callout {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  padding: 1.5rem 1.75rem;
+  margin: 2rem 0;
+  position: relative;
+}
+.legal-content .callout::before {
+  content: '';
+  position: absolute;
+  top: -1px; left: -1px; right: -1px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--rose) 0%, var(--rose-light) 100%);
+}
+.legal-content .callout p { font-size: 0.97rem; color: var(--ink); }
+.legal-content .callout-label {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  color: var(--rose-deep);
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+  display: block;
+}
+.legal-content dl {
+  margin: 1rem 0;
+  padding-left: 0;
+}
+.legal-content dt {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.05rem;
+  color: var(--navy);
+  margin-top: 1rem;
+}
+.legal-content dd {
+  margin: 0.25rem 0 0.75rem;
+  padding-left: 1.25rem;
+  color: var(--ink);
+  font-size: 0.98rem;
+  line-height: 1.65;
+}
+.legal-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+}
+.legal-content th, .legal-content td {
+  text-align: left;
+  padding: 0.85rem 0.75rem;
+  border-bottom: 1px solid var(--rule-soft);
+  vertical-align: top;
+}
+.legal-content th {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--ink-subtle);
+  font-weight: 600;
+  border-bottom: 1px solid var(--rule);
+}
+.legal-footnote {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.85rem;
+  color: var(--ink-subtle);
+  font-style: italic;
+  line-height: 1.65;
+}
+
+/* ============ FOOTER ============ */
+.footer {
+  background: var(--cream-deep);
+  border-top: 1px solid var(--rule-soft);
+  padding: 4.5rem 0 2rem;
+  margin-top: 0;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3.5rem;
+}
+.footer-brand { max-width: 320px; }
+.footer-brand .brand { margin-bottom: 1.25rem; }
+.footer-brand p {
+  color: var(--ink-muted);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.65;
+}
+.footer h4 {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 1.25rem;
+}
+.footer ul { list-style: none; }
+.footer ul li { margin-bottom: 0.7rem; font-size: 0.9rem; }
+.footer ul a {
+  color: var(--ink-muted);
+  transition: color var(--transition);
+}
+.footer ul a:hover { color: var(--rose-deep); }
+.footer-disclaimer {
+  padding: 2rem 0;
+  margin-bottom: 1rem;
+  border-top: 1px solid var(--rule-soft);
+}
+.footer-disclaimer p {
+  font-size: 0.78rem;
+  color: var(--ink-subtle);
+  line-height: 1.65;
+  max-width: 880px;
+}
+.footer-disclaimer a { color: var(--rose-deep); }
+.footer-disclaimer a:hover { color: var(--rose); }
+.footer-disclaimer strong { color: var(--ink-muted); font-weight: 600; }
+.footer-bottom {
+  padding-top: 2.25rem;
+  border-top: 1px solid var(--rule-soft);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.78rem;
+  color: var(--ink-subtle);
+  letter-spacing: 0.05em;
+}
+.contact-socials { display: flex; gap: 0.75rem; }
+.contact-social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--rule);
+  color: var(--rose-deep);
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  transition: all var(--transition);
+}
+.contact-social:hover { background: var(--rose); color: var(--cream); border-color: var(--rose); }
+@media (max-width: 900px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+  .footer-bottom { flex-direction: column; gap: 0.75rem; text-align: center; }
+}
+
+/* ============ COOKIE BANNER ============ */
+.cookie-banner {
+  position: fixed;
+  bottom: 1.25rem;
+  left: 50%;
+  transform: translate(-50%, 200%);
+  z-index: 1000;
+  width: calc(100% - 2.5rem);
+  max-width: 720px;
+  background: var(--navy);
+  color: var(--cream);
+  border: 1px solid var(--rule-soft);
+  box-shadow: 0 20px 60px rgba(15, 20, 25, 0.35);
+  transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.cookie-banner.visible { transform: translate(-50%, 0); }
+.cookie-banner-inner {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem 1.5rem;
+  flex-wrap: wrap;
+}
+.cookie-banner-text {
+  flex: 1;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: rgba(244, 239, 232, 0.85);
+  min-width: 240px;
+  margin: 0;
+}
+.cookie-banner-text a {
+  color: var(--rose-light);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.cookie-banner-text a:hover { color: var(--cream); }
+.cookie-banner-actions { display: flex; gap: 0.5rem; align-items: center; }
+.cookie-banner .btn-link { color: rgba(244, 239, 232, 0.7); padding: 0.5rem 0.75rem; }
+.cookie-banner .btn-link:hover { color: var(--cream); }
+.cookie-banner .btn-link::after { background: var(--cream); }
+.cookie-banner .btn-primary {
+  background: var(--cream);
+  color: var(--navy);
+  padding: 0.65rem 1.25rem;
+  font-size: 0.7rem;
+}
+.cookie-banner .btn-primary:hover { background: white; }
+@media (max-width: 600px) {
+  .cookie-banner-inner { flex-direction: column; align-items: stretch; gap: 1rem; }
+  .cookie-banner-actions { justify-content: space-between; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- ============ INLINE COMPASS-STAR MARK ============ -->
+<svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+  <defs>
+    <linearGradient id="rose-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D6A593"/>
+      <stop offset="100%" stop-color="#9B5E4A"/>
+    </linearGradient>
+    <symbol id="zara-mark" viewBox="0 0 100 100">
+      <path d="M50 8 L52 48 L50 50 L48 48 Z" fill="url(#rose-grad)"/>
+      <path d="M50 92 L52 52 L50 50 L48 52 Z" fill="url(#rose-grad)"/>
+      <path d="M8 50 L48 48 L50 50 L48 52 Z" fill="url(#rose-grad)"/>
+      <path d="M92 50 L52 48 L50 50 L52 52 Z" fill="url(#rose-grad)"/>
+      <circle cx="50" cy="50" r="2.2" fill="#9B5E4A"/>
+      <line x1="20" y1="42" x2="42" y2="42" stroke="url(#rose-grad)" stroke-width="1.2" stroke-linecap="round"/>
+      <line x1="20" y1="58" x2="42" y2="58" stroke="url(#rose-grad)" stroke-width="1.2" stroke-linecap="round"/>
+      <circle cx="20" cy="42" r="1.6" fill="none" stroke="url(#rose-grad)" stroke-width="1.2"/>
+      <circle cx="20" cy="58" r="1.6" fill="none" stroke="url(#rose-grad)" stroke-width="1.2"/>
+      <line x1="58" y1="42" x2="80" y2="42" stroke="url(#rose-grad)" stroke-width="1.2" stroke-linecap="round"/>
+      <line x1="58" y1="58" x2="80" y2="58" stroke="url(#rose-grad)" stroke-width="1.2" stroke-linecap="round"/>
+      <circle cx="80" cy="42" r="1.6" fill="none" stroke="url(#rose-grad)" stroke-width="1.2"/>
+      <circle cx="80" cy="58" r="1.6" fill="none" stroke="url(#rose-grad)" stroke-width="1.2"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ============ NAV ============ -->
+<nav class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="../index.html" class="brand" aria-label="TheZaraAI">
+      <span class="mark"><svg><use href="#zara-mark"/></svg></span>
+      <span>
+        <span class="brand-text">TheZara<span class="ai">AI</span></span>
+        <span class="brand-tag">AI · Cybersecurity · Automation</span>
+      </span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="../index.html#services">Services</a></li>
+      <li><a href="../index.html#process">Process</a></li>
+      <li><a href="../index.html#engagement">Engagement</a></li>
+      <li><a href="../index.html#team">Team</a></li>
+      <li><a href="../blog/index.html">Journal</a></li>
+    </ul>
+    <div class="nav-cta-group">
+      <a href="../index.html#handbook" class="btn btn-link">Free field manual</a>
+      <a href="../index.html#contact" class="btn btn-ghost">Book a call</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="legal-hero">
+  <div class="container-narrow">
+    <span class="eyebrow">Legal</span>
+    <h1>Data Processing Addendum.</h1>
+    <div class="legal-meta">
+      <span>Last updated: May 2026</span>
+      <span>Version 1.0</span>
+      <span>ZaraAI LLC</span>
+    </div>
+  </div>
+</header>
+
+<!-- ============ MAIN CONTENT ============ -->
+<main id="main" class="legal-content">
+  <div class="container-narrow">
+
+    <div class="callout">
+      <span class="callout-label">For Procurement &amp; Legal Teams</span>
+      <p>This is a starter Data Processing Addendum (DPA) designed to satisfy the typical procurement reviews of mid-market and enterprise buyers. It is incorporated by reference into the master services agreement or statement of work between ZaraAI LLC and the Client. For a wet-signed copy or to negotiate specific terms, contact <a href="mailto:info@thezaraai.com?subject=DPA%20Request">info@thezaraai.com</a>.</p>
+    </div>
+
+    <p class="lede">This Data Processing Addendum reflects how ZaraAI LLC handles personal data on behalf of its clients — under GDPR Article 28, applicable U.S. state privacy laws, and the standards reasonable enterprise buyers expect.</p>
+
+    <section>
+      <h2>1. Preamble</h2>
+      <p>This Data Processing Addendum (the <strong>"DPA"</strong>) forms part of, and is incorporated by reference into, the master services agreement, statement of work, or other written engagement document (the <strong>"Agreement"</strong>) entered into between:</p>
+      <ul>
+        <li><strong>ZaraAI LLC</strong>, a limited liability company organized in the United States, acting as the <strong>"Processor"</strong>; and</li>
+        <li>the customer or client identified in the Agreement, acting as the <strong>"Controller"</strong>.</li>
+      </ul>
+      <p>Each is a <strong>"Party"</strong> and together the <strong>"Parties"</strong>. This DPA reflects the Parties' agreement on the Processing of Personal Data in connection with the services described in the Agreement. In the event of a conflict between this DPA and the Agreement on a matter related to data protection, this DPA controls.</p>
+    </section>
+
+    <section>
+      <h2>2. Definitions</h2>
+      <p>Capitalized terms used but not otherwise defined in this DPA have the meanings given to them in Article 4 of Regulation (EU) 2016/679 (the <strong>"GDPR"</strong>) or, where context requires, the analogous definitions under applicable U.S. state privacy laws. For convenience:</p>
+      <dl>
+        <dt>Personal Data</dt>
+        <dd>Any information relating to an identified or identifiable natural person (the Data Subject) that is Processed by the Processor on behalf of the Controller under the Agreement.</dd>
+        <dt>Processing</dt>
+        <dd>Any operation or set of operations performed on Personal Data, including collection, recording, organization, structuring, storage, retrieval, use, disclosure, transmission, alignment, restriction, erasure, or destruction.</dd>
+        <dt>Data Subject</dt>
+        <dd>The identified or identifiable natural person to whom Personal Data relates.</dd>
+        <dt>Controller</dt>
+        <dd>The Party that determines the purposes and means of the Processing of Personal Data.</dd>
+        <dt>Processor</dt>
+        <dd>The Party that Processes Personal Data on behalf of the Controller.</dd>
+        <dt>Subprocessor</dt>
+        <dd>Any third party engaged by the Processor to Process Personal Data on the Controller's behalf in connection with the Agreement.</dd>
+        <dt>Personal Data Breach</dt>
+        <dd>A breach of security leading to the accidental or unlawful destruction, loss, alteration, unauthorized disclosure of, or access to, Personal Data.</dd>
+        <dt>Standard Contractual Clauses</dt>
+        <dd>The standard contractual clauses for the transfer of Personal Data to third countries adopted by the European Commission in Implementing Decision (EU) 2021/914 (the <strong>"SCCs"</strong>), as updated from time to time.</dd>
+        <dt>Applicable Data Protection Law</dt>
+        <dd>All laws and regulations relating to the Processing of Personal Data that apply to a Party in its role under the Agreement, including the GDPR, the UK GDPR, the California Consumer Privacy Act as amended by the California Privacy Rights Act (<strong>"CCPA/CPRA"</strong>), and analogous U.S. state privacy laws.</dd>
+      </dl>
+    </section>
+
+    <section>
+      <h2>3. Scope and Purpose of Processing</h2>
+      <p>The Processor will Process Personal Data solely for the purpose of providing the services described in the Agreement and only in accordance with the Controller's documented instructions. Documented instructions include the Agreement, this DPA, configuration choices made by the Controller within the services, and any subsequent written instructions reasonably issued by the Controller.</p>
+      <p>The Processor will not Process Personal Data for its own commercial purposes, will not sell or share Personal Data within the meaning of the CCPA/CPRA, and will not combine Personal Data received from the Controller with personal data the Processor receives from, or collects on behalf of, any other party, except as strictly necessary to provide the services.</p>
+    </section>
+
+    <section>
+      <h2>4. Roles of the Parties</h2>
+      <p>The Parties acknowledge that, with respect to the Processing of Personal Data under the Agreement:</p>
+      <ul>
+        <li>the <strong>Controller</strong> is the controller of the Personal Data and determines the purposes and means of Processing;</li>
+        <li>the <strong>Processor</strong> is a processor acting on behalf of the Controller and Processes Personal Data only on documented instructions;</li>
+        <li>where the Controller is itself a processor for an upstream controller, the Processor is a Subprocessor, and the obligations of this DPA flow accordingly.</li>
+      </ul>
+      <p>This Section is intended to satisfy the requirements of GDPR Article 28 and the equivalent provisions of Applicable Data Protection Law.</p>
+    </section>
+
+    <section>
+      <h2>5. Subject Matter and Duration of Processing</h2>
+      <p><strong>Subject matter.</strong> The subject matter of Processing is the provision of advisory, automation, and security services described in the Agreement.</p>
+      <p><strong>Duration.</strong> Processing will continue for the term of the Agreement and any post-termination period required to return or delete Personal Data as set out in Section 14 of this DPA.</p>
+      <p><strong>Nature of Processing.</strong> Collection, storage, retrieval, organization, transmission, analysis, and deletion of Personal Data as required to deliver the services.</p>
+      <p><strong>Purpose.</strong> To enable the Controller to receive the services described in the Agreement, and for no other purpose.</p>
+    </section>
+
+    <section>
+      <h2>6. Categories of Personal Data and Data Subjects</h2>
+      <p>The Processor will Process the following categories of Personal Data, where applicable to the services:</p>
+      <ul>
+        <li>Identification and contact data (name, email address, phone number, business address);</li>
+        <li>Professional data (job title, employer, role, working hours, calendar entries);</li>
+        <li>Account and authentication data (usernames, hashed credentials, multi-factor tokens);</li>
+        <li>Technical and log data (IP addresses, device identifiers, audit logs, telemetry);</li>
+        <li>Content data shared with the services in the course of an engagement (documents, communications, prompts, model outputs);</li>
+        <li>Other categories of Personal Data the Controller chooses to provide to the Processor in the course of receiving the services.</li>
+      </ul>
+      <p>Categories of Data Subjects may include the Controller's employees, contractors, customers, prospects, partners, and other individuals whose Personal Data the Controller chooses to share with the Processor.</p>
+      <p>The Parties do not anticipate the Processing of special categories of Personal Data within the meaning of GDPR Article 9 unless expressly agreed in the Agreement. The Controller is responsible for ensuring that the Personal Data it provides is appropriate for the services.</p>
+    </section>
+
+    <section>
+      <h2>7. Processor Obligations</h2>
+      <p>The Processor will:</p>
+      <ul>
+        <li><strong>Process on documented instructions.</strong> Process Personal Data only on the Controller's documented instructions, including with regard to transfers of Personal Data to a third country, unless required to do so by Applicable Data Protection Law; in that case, the Processor will inform the Controller of the legal requirement before Processing, unless that law prohibits such information on important grounds of public interest.</li>
+        <li><strong>Ensure confidentiality.</strong> Ensure that personnel authorized to Process Personal Data are bound by appropriate confidentiality obligations, whether contractual or statutory.</li>
+        <li><strong>Implement security measures.</strong> Implement and maintain the technical and organizational measures described in Section 11 of this DPA, in compliance with GDPR Article 32.</li>
+        <li><strong>Assist with Data Subject requests.</strong> Taking into account the nature of the Processing, assist the Controller by appropriate technical and organizational measures, insofar as possible, in responding to requests from Data Subjects exercising their rights under Applicable Data Protection Law.</li>
+        <li><strong>Assist with compliance.</strong> Assist the Controller in ensuring compliance with its obligations under GDPR Articles 32 to 36 (security, breach notification, data protection impact assessments, and prior consultation), taking into account the nature of Processing and the information available to the Processor.</li>
+        <li><strong>Notify of unlawful instructions.</strong> Inform the Controller without undue delay if, in the Processor's opinion, an instruction from the Controller infringes Applicable Data Protection Law.</li>
+        <li><strong>Provide information.</strong> Make available to the Controller information reasonably necessary to demonstrate compliance with the obligations of this DPA.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>8. Subprocessors</h2>
+      <p>The Controller grants the Processor general written authorization to engage Subprocessors for the Processing of Personal Data, subject to the conditions in this Section.</p>
+      <p>Before engaging any Subprocessor, the Processor will:</p>
+      <ul>
+        <li>conduct reasonable due diligence to confirm the Subprocessor can provide a level of protection consistent with this DPA;</li>
+        <li>impose contractual obligations on the Subprocessor that are no less protective than those set out in this DPA, including obligations of confidentiality, security, and assistance with Data Subject rights; and</li>
+        <li>remain fully liable to the Controller for the performance of the Subprocessor's obligations.</li>
+      </ul>
+      <p>A current list of Subprocessors is maintained by the Processor and made available to the Controller on request. The Processor will give the Controller at least <strong>thirty (30) days' prior written notice</strong> of the addition or replacement of any Subprocessor that materially affects the Processing of Personal Data. The Controller may object to such a change on reasonable data protection grounds within that notice period, in which case the Parties will work in good faith to resolve the objection. If the objection cannot be resolved, the Controller may terminate the affected portion of the services without penalty, with refund of any prepaid fees attributable to the unused portion of the term.</p>
+    </section>
+
+    <section>
+      <h2>9. International Transfers</h2>
+      <p>The Processor is based in the United States and may Process Personal Data in the United States and in other jurisdictions where it or its Subprocessors operate.</p>
+      <p>Where Personal Data originating from the European Economic Area, the United Kingdom, or Switzerland is transferred to a country that has not been recognized as providing an adequate level of protection, the Parties agree that the <strong>Standard Contractual Clauses</strong> (Module 2: Controller to Processor, or Module 3: Processor to Processor, as applicable) are incorporated into this DPA by reference and apply to such transfers. The UK Addendum to the SCCs and the Swiss equivalent apply, as applicable, to transfers from the United Kingdom and Switzerland respectively.</p>
+      <p>The Processor will assist the Controller in performing transfer impact assessments where reasonably required by Applicable Data Protection Law.</p>
+    </section>
+
+    <section>
+      <h2>10. Data Subject Rights</h2>
+      <p>The Processor will, taking into account the nature of the Processing, assist the Controller by appropriate technical and organizational measures, insofar as possible, in fulfilling the Controller's obligation to respond to requests from Data Subjects to exercise their rights under Applicable Data Protection Law, including rights of access, rectification, erasure, restriction of Processing, data portability, and objection.</p>
+      <p>If the Processor receives a request directly from a Data Subject regarding Personal Data Processed under the Agreement, the Processor will, unless legally prohibited, promptly forward the request to the Controller and will not respond to the Data Subject directly, except to confirm receipt and to direct the Data Subject to the Controller.</p>
+      <p>The Parties will cooperate in good faith to respond to Data Subject requests within the timelines required by Applicable Data Protection Law.</p>
+    </section>
+
+    <section>
+      <h2>11. Security Measures</h2>
+      <p>The Processor implements and maintains appropriate technical and organizational measures designed to ensure a level of security appropriate to the risk, including, where appropriate:</p>
+      <ul>
+        <li><strong>Encryption</strong> of Personal Data in transit (TLS 1.2 or higher) and at rest (industry-standard algorithms);</li>
+        <li><strong>Access controls</strong> based on the principle of least privilege, with role-based access provisioning and timely deprovisioning;</li>
+        <li><strong>Multi-factor authentication</strong> for administrative and remote access to systems Processing Personal Data;</li>
+        <li><strong>Network and endpoint protection</strong>, including firewalls, anti-malware, and patch management;</li>
+        <li><strong>Logging and monitoring</strong> of access to systems Processing Personal Data, with retention of audit logs sufficient to investigate security events;</li>
+        <li><strong>Secure software development lifecycle practices</strong>, including code review, dependency scanning, and separation of development, test, and production environments;</li>
+        <li><strong>Personnel measures</strong>, including background checks where permitted by law, confidentiality obligations, and regular security and privacy training;</li>
+        <li><strong>Vendor risk management</strong> for Subprocessors and other third parties with access to Personal Data;</li>
+        <li><strong>Incident response and business continuity</strong> plans, tested on a periodic basis;</li>
+        <li><strong>Backup and recovery</strong> procedures designed to restore the availability of and access to Personal Data in a timely manner.</li>
+      </ul>
+      <p>These measures are reviewed periodically and updated as appropriate to reflect changes in risk, technology, and the services provided. The Processor will not materially decrease the overall security of the services during the term of the Agreement.</p>
+    </section>
+
+    <section>
+      <h2>12. Audit Rights</h2>
+      <p>The Controller may audit the Processor's compliance with this DPA <strong>once per twelve-month period</strong>, on at least thirty (30) days' prior written notice, during normal business hours, and in a manner that does not unreasonably interfere with the Processor's business operations. The Controller is responsible for the costs of any audit it requests, except where the audit reveals a material breach of this DPA.</p>
+      <p>The Parties acknowledge that, where applicable, current third-party assurance reports (such as a SOC 2 Type II report, ISO/IEC 27001 certification, or equivalent), as well as written responses to a reasonable security questionnaire, will satisfy the Controller's audit rights under this DPA, except where Applicable Data Protection Law or a regulator requires otherwise.</p>
+      <p>An audit must not require the Processor to disclose information about other clients, trade secrets, or information whose disclosure would violate the Processor's obligations to third parties or Applicable Data Protection Law.</p>
+    </section>
+
+    <section>
+      <h2>13. Personal Data Breach Notification</h2>
+      <p>The Processor will notify the Controller without undue delay, and in any event no later than <strong>seventy-two (72) hours</strong>, after becoming aware of a Personal Data Breach affecting Personal Data Processed on behalf of the Controller. The notification will include, to the extent then known:</p>
+      <ul>
+        <li>a description of the nature of the Personal Data Breach, including the categories and approximate number of Data Subjects and records concerned;</li>
+        <li>the name and contact details of a point of contact for further information;</li>
+        <li>a description of the likely consequences of the Personal Data Breach;</li>
+        <li>a description of the measures taken or proposed to address the Personal Data Breach and to mitigate its possible adverse effects.</li>
+      </ul>
+      <p>Where the information cannot be provided at the same time, it will be provided in phases without undue further delay. The Processor will reasonably cooperate with the Controller in investigating, mitigating, and remediating the Personal Data Breach. Notification of, or response to, a Personal Data Breach is not, by itself, an admission of fault or liability.</p>
+    </section>
+
+    <section>
+      <h2>14. Data Return and Deletion</h2>
+      <p>On termination or expiry of the Agreement, the Processor will, at the choice of the Controller, return all Personal Data to the Controller or delete all Personal Data within <strong>thirty (30) days</strong>, and will delete existing copies, unless retention is required by Applicable Data Protection Law. Where the Controller does not specify a choice within thirty (30) days of termination, the Processor will delete the Personal Data.</p>
+      <p>Backup copies and data retained for compliance with legal obligations will be deleted in the ordinary course of the Processor's documented retention schedules and will continue to be protected by the security and confidentiality obligations of this DPA until deleted.</p>
+    </section>
+
+    <section>
+      <h2>15. Liability and Indemnification</h2>
+      <p>The liability of each Party arising out of or in connection with this DPA is governed by, and subject to, the limitations and exclusions of liability set out in the Agreement. This DPA does not create separate or additional financial obligations between the Parties beyond those set out in the Agreement.</p>
+      <p>Nothing in this DPA limits or excludes a Party's liability where such limitation or exclusion is prohibited by Applicable Data Protection Law, including liability to Data Subjects for material or non-material damage.</p>
+    </section>
+
+    <section>
+      <h2>16. Governing Law</h2>
+      <p>This DPA is governed by the laws of the United States and, unless otherwise agreed in writing in the Agreement, the laws of the state specified in the Agreement, without regard to conflict of laws principles. Where Applicable Data Protection Law requires the application of the laws of an EEA member state, the United Kingdom, or another jurisdiction in respect of specific provisions (including the SCCs), those laws apply to the extent required.</p>
+    </section>
+
+    <section>
+      <h2>17. Effective Date and Execution</h2>
+      <p>This DPA is effective on the date the Agreement is executed by the Parties, or, where this DPA is countersigned separately, on the date of last signature.</p>
+      <p>This DPA is incorporated by reference into the Agreement. Acceptance of the Agreement constitutes acceptance of this DPA. Where the Controller requires a wet-signed or separately executed copy for procurement purposes, the Controller may request one from the Processor.</p>
+      <div class="callout">
+        <span class="callout-label">How to execute</span>
+        <p>For a wet-signed copy of this DPA, to negotiate specific terms, or to request the current Subprocessor list, contact <a href="mailto:info@thezaraai.com?subject=DPA%20Execution%20Request">info@thezaraai.com</a> with the subject line <strong>"DPA Execution Request"</strong>. Please include the legal name of the Controller entity, the engagement reference (if any), and any specific terms your procurement team requires.</p>
+      </div>
+    </section>
+
+    <p class="legal-footnote">This document was drafted as a template and should be reviewed by qualified legal counsel before being relied upon for specific legal compliance.</p>
+
+  </div>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../index.html" class="brand">
+          <span class="mark"><svg><use href="#zara-mark"/></svg></span>
+          <span>
+            <span class="brand-text">TheZara<span class="ai">AI</span></span>
+            <span class="brand-tag">AI · Cybersecurity · Automation</span>
+          </span>
+        </a>
+        <p>A boutique AI &amp; cybersecurity advisory for businesses tired of doing manually what AI can do for them.</p>
+        <div class="contact-socials">
+          <a href="https://x.com/the_ZaraAI" class="contact-social" aria-label="X">𝕏</a>
+          <a href="https://instagram.com/the_Zaraai" class="contact-social" aria-label="Instagram">IG</a>
+          <a href="https://thezaraai.substack.com" class="contact-social" aria-label="Substack">SS</a>
+        </div>
+      </div>
+      <div>
+        <h4>Practice</h4>
+        <ul>
+          <li><a href="../index.html#services">AI Automation</a></li>
+          <li><a href="../index.html#services">vCISO</a></li>
+          <li><a href="../index.html#services">Security for AI</a></li>
+          <li><a href="../index.html#engagement">Engagement Model</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Studio</h4>
+        <ul>
+          <li><a href="../index.html#team">Team</a></li>
+          <li><a href="../blog/index.html">Journal</a></li>
+          <li><a href="../index.html#handbook">Free Field Manual</a></li>
+          <li><a href="../index.html#faq">FAQ</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal &amp; Trust</h4>
+        <ul>
+          <li><a href="../legal/privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="../legal/terms-of-service.html">Terms of Service</a></li>
+          <li><a href="../legal/cookie-policy.html">Cookie Policy</a></li>
+          <li><a href="../legal/accessibility.html">Accessibility</a></li>
+          <li><a href="../legal/disclaimer.html">Disclaimer</a></li>
+          <li><a href="../legal/data-processing.html">Data Processing (DPA)</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-disclaimer">
+      <p>
+        <strong>ZaraAI LLC</strong> — A veteran-owned small business · Registered in the United States ·
+        <a href="mailto:info@thezaraai.com">info@thezaraai.com</a>
+        <br>
+        TheZaraAI provides advisory and consulting services. Information on this site is for general purposes only and does not constitute legal, financial, or compliance advice. Each client engagement is governed by a written scope of work. We comply with the CAN-SPAM Act and honor unsubscribe requests promptly.
+      </p>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 ZaraAI LLC. All rights reserved.</span>
+      <span style="font-family: var(--font-serif); font-style: italic;">Built by Jax &amp; Zara</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 8) nav.classList.add('scrolled');
+  else nav.classList.remove('scrolled');
+}, { passive: true });
+
+// ============================================================
+// COOKIE CONSENT BANNER (GDPR / CCPA / CPRA-friendly)
+// ============================================================
+(function() {
+  const KEY = 'tza_cookie_consent_v1';
+  if (localStorage.getItem(KEY)) return;
+
+  const banner = document.createElement('div');
+  banner.className = 'cookie-banner';
+  banner.innerHTML = ''
+    + '<div class="cookie-banner-inner">'
+    + '  <p class="cookie-banner-text">We use minimal cookies to keep this site running and to learn what helps visitors. Read our '
+    + '    <a href="../legal/cookie-policy.html">Cookie Policy</a> &middot; '
+    + '    <a href="../legal/privacy-policy.html">Privacy Policy</a>.'
+    + '  </p>'
+    + '  <div class="cookie-banner-actions">'
+    + '    <button type="button" class="btn btn-link" data-cookie="decline">Decline</button>'
+    + '    <button type="button" class="btn btn-primary" data-cookie="accept">Accept</button>'
+    + '  </div>'
+    + '</div>';
+  document.body.appendChild(banner);
+  setTimeout(() => banner.classList.add('visible'), 100);
+
+  banner.querySelectorAll('button[data-cookie]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      localStorage.setItem(KEY, btn.dataset.cookie);
+      banner.classList.remove('visible');
+      setTimeout(() => banner.remove(), 400);
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
