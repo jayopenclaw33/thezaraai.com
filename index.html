@@ -15,14 +15,16 @@
 
 <meta property="og:title" content="TheZaraAI — AI · Cybersecurity · Automation">
 <meta property="og:description" content="Stop doing manually what AI can do for you.">
-<meta property="og:image" content="https://thezaraai.com/assets/zara-og-image.png?v=20260510">
+<meta property="og:image" content="https://thezaraai.com/assets/og-image-v2.png?v=20260510b">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:url" content="https://thezaraai.com">
 <meta property="og:type" content="website">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="TheZaraAI — AI · Cybersecurity · Automation">
 <meta name="twitter:description" content="Stop doing manually what AI can do for you.">
-<meta name="twitter:image" content="https://thezaraai.com/assets/zara-og-image.png?v=20260510">
+<meta name="twitter:image" content="https://thezaraai.com/assets/og-image-v2.png?v=20260510b">
 
 <!-- ============ JSON-LD STRUCTURED DATA ============ -->
 <!-- Helps Google show rich results: organization knowledge panel, FAQ snippets, service listings -->
@@ -1674,7 +1676,7 @@ section.section { padding: clamp(5rem, 10vw, 7.5rem) 0; }
       <li><a href="https://thezaraai.com/blog/index.html">Journal</a></li>
     </ul>
     <div class="nav-cta-group">
-      <a href="#handbook" class="btn btn-link">Free field manual</a>
+      <a href="#handbook" class="btn btn-link">Free AI Field Manual</a>
       <a href="#contact" class="btn btn-ghost">Book a call</a>
     </div>
   </div>
@@ -1694,7 +1696,7 @@ section.section { padding: clamp(5rem, 10vw, 7.5rem) 0; }
 
     <div class="hero-ctas">
       <a href="#contact" class="btn btn-primary btn-large">Book a discovery call <span class="btn-arrow">→</span></a>
-      <a href="#handbook" class="btn btn-ghost btn-large">Get the free field manual</a>
+      <a href="#handbook" class="btn btn-ghost btn-large">Get the AI Field Manual</a>
     </div>
     <p class="hero-microcopy">No commitment · We scope first, sign second</p>
 
@@ -2033,8 +2035,8 @@ section.section { padding: clamp(5rem, 10vw, 7.5rem) 0; }
     <div class="lead-magnet-wrap reveal">
       <div class="lead-magnet">
         <div class="lead-magnet-content">
-          <span class="eyebrow eyebrow-left">Free Field Manual</span>
-          <h2>Building &amp; Securing AI Agents: A Field Manual.</h2>
+          <span class="eyebrow eyebrow-left">Free AI Field Manual</span>
+          <h2>Building &amp; Securing AI Agents: The AI Field Manual.</h2>
           <p>The 30-page guide we wish existed when we started building. How to architect, deploy, and secure an AI agent without exposing your business — written for operators, not researchers.</p>
           <ul class="feature-list">
             <li>The 7 most common prompt injection vectors (and how to harden against each)</li>
@@ -2047,9 +2049,9 @@ section.section { padding: clamp(5rem, 10vw, 7.5rem) 0; }
           <div class="field-manual-cover">
             <div class="field-manual-book">
               <div class="mark"><svg><use href="#zara-mark"/></svg></div>
-              <div class="fm-title">Building &amp; Securing AI Agents</div>
+              <div class="fm-title">The AI Field Manual</div>
               <div class="fm-rule"></div>
-              <div class="fm-sub">A Field Manual</div>
+              <div class="fm-sub">Building &amp; Securing AI Agents</div>
             </div>
           </div>
           <form id="handbook-form">
@@ -2061,9 +2063,9 @@ section.section { padding: clamp(5rem, 10vw, 7.5rem) 0; }
               <label class="form-label" for="handbook-email">Email</label>
               <input class="form-input" id="handbook-email" name="email" type="email" required placeholder="you@company.com">
             </div>
-            <button type="submit" class="btn btn-primary" style="width: 100%;">Send me the field manual <span class="btn-arrow">→</span></button>
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Send me the AI Field Manual <span class="btn-arrow">→</span></button>
             <p class="form-microcopy">Delivered instantly · No spam · Unsubscribe anytime</p>
-            <p class="form-consent">By submitting, you agree to receive the Field Manual and occasional related emails from TheZaraAI. We never share your email. See our <a href="https://thezaraai.com/legal/privacy-policy.html">Privacy Policy</a>.</p>
+            <p class="form-consent">By submitting, you agree to receive the AI Field Manual and occasional related emails from TheZaraAI. We never share your email. See our <a href="https://thezaraai.com/legal/privacy-policy.html">Privacy Policy</a>.</p>
           </form>
         </div>
       </div>
@@ -2152,7 +2154,7 @@ section.section { padding: clamp(5rem, 10vw, 7.5rem) 0; }
       <p>Book a free 30-minute discovery call. We'll map your automation opportunities together — no commitment, no pitch, just a conversation.</p>
       <div class="hero-ctas">
         <a href="#contact" class="btn btn-primary btn-large">Book a discovery call <span class="btn-arrow">→</span></a>
-        <a href="#handbook" class="btn btn-ghost btn-large">Get the field manual</a>
+        <a href="#handbook" class="btn btn-ghost btn-large">Get the AI Field Manual</a>
       </div>
     </div>
   </div>
@@ -2249,7 +2251,7 @@ section.section { padding: clamp(5rem, 10vw, 7.5rem) 0; }
         <ul>
           <li><a href="#team">Team</a></li>
           <li><a href="https://thezaraai.com/blog/index.html">Journal</a></li>
-          <li><a href="#handbook">Free Field Manual</a></li>
+          <li><a href="#handbook">Free AI Field Manual</a></li>
           <li><a href="#faq">FAQ</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -2407,10 +2409,10 @@ document.getElementById('handbook-form').addEventListener('submit', async (e) =>
 
   const data = new FormData(form);
   const result = await submitToHandler({
-    subject: 'Field Manual request — ' + data.get('name'),
+    subject: 'AI Field Manual request — ' + data.get('name'),
     name: data.get('name'),
     email: data.get('email'),
-    request: 'Field Manual download',
+    request: 'AI Field Manual download',
     note: 'Send the AI Agent Field Manual PDF to this lead.'
   });
 
