@@ -2332,32 +2332,24 @@ document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 // ALTERNATIVE: Replace with Formspree, Beehiiv, ConvertKit, or
 // Substack endpoints by editing submitToHandler() below.
 // ============================================================
-const WEB3FORMS_KEY = ''; // ← paste your Web3Forms access key here
+// Form endpoints live on the proposal-uploader Vercel project (already configured
+// with the Resend API key + the TheZaraAI Newsletter audience).
+const FIELD_MANUAL_ENDPOINT = 'https://proposal-uploader.vercel.app/api/field-manual';
+const SCHEDULE_CALL_ENDPOINT = 'https://proposal-uploader.vercel.app/api/schedule-call';
 
-async function submitToHandler(payload) {
-  if (!WEB3FORMS_KEY) {
-    // Fallback: mailto
-    const subject = encodeURIComponent(payload.subject || 'TheZaraAI website inquiry');
-    const body = encodeURIComponent(
-      Object.entries(payload)
-        .filter(([k]) => k !== 'subject')
-        .map(([k, v]) => k.charAt(0).toUpperCase() + k.slice(1) + ': ' + v)
-        .join('\n')
-    );
-    window.location.href = 'mailto:info@thezaraai.com?subject=' + subject + '&body=' + body;
-    return { success: true };
+async function postToBackend(endpoint, payload) {
+  try {
+    const res = await fetch(endpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    const data = await res.json().catch(() => ({}));
+    return { success: res.ok && data.ok !== false, data };
+  } catch (err) {
+    console.error('Backend POST failed:', err);
+    return { success: false, error: err };
   }
-
-  const res = await fetch('https://api.web3forms.com/submit', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-    body: JSON.stringify({
-      access_key: WEB3FORMS_KEY,
-      from_name: 'TheZaraAI website',
-      ...payload
-    })
-  });
-  return res.json();
 }
 
 // --- Contact form ---
@@ -2370,8 +2362,7 @@ document.getElementById('contact-form').addEventListener('submit', async (e) => 
   submitBtn.innerHTML = 'Sending…';
 
   const data = new FormData(form);
-  const result = await submitToHandler({
-    subject: 'TheZaraAI inquiry — ' + (data.get('service') || 'General'),
+  const result = await postToBackend(SCHEDULE_CALL_ENDPOINT, {
     name: data.get('name'),
     email: data.get('email'),
     service: data.get('service'),
@@ -2408,12 +2399,9 @@ document.getElementById('handbook-form').addEventListener('submit', async (e) =>
   submitBtn.innerHTML = 'Sending…';
 
   const data = new FormData(form);
-  const result = await submitToHandler({
-    subject: 'AI Field Manual request — ' + data.get('name'),
+  const result = await postToBackend(FIELD_MANUAL_ENDPOINT, {
     name: data.get('name'),
-    email: data.get('email'),
-    request: 'AI Field Manual download',
-    note: 'Send the AI Agent Field Manual PDF to this lead.'
+    email: data.get('email')
   });
 
   if (result.success !== false) {
