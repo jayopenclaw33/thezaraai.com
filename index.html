@@ -2405,10 +2405,19 @@ document.getElementById('handbook-form').addEventListener('submit', async (e) =>
   });
 
   if (result.success !== false) {
+    // Trigger direct download so visitor gets the file immediately — independent of email delivery.
+    const dl = document.createElement('a');
+    dl.href = 'https://thezaraai.com/assets/AI-Agent-Field-Manual.pdf';
+    dl.download = 'AI-Agent-Field-Manual.pdf';
+    document.body.appendChild(dl);
+    dl.click();
+    document.body.removeChild(dl);
+
     form.innerHTML = '<div style="text-align:center; padding:2rem 1rem;">' +
       '<div class="mark" style="margin: 0 auto 1rem; width:48px; height:48px;"><svg><use href="#zara-mark"/></svg></div>' +
-      '<h3 style="font-family: var(--font-serif); font-size: 1.4rem; color: var(--navy); margin-bottom: 0.75rem;">On its way.</h3>' +
-      '<p style="color: var(--ink-muted); font-size: 0.95rem; line-height: 1.55;">Check your inbox in the next few minutes — and your spam folder, just in case.</p>' +
+      '<h3 style="font-family: var(--font-serif); font-size: 1.4rem; color: var(--navy); margin-bottom: 0.75rem;">Your Field Manual is downloading.</h3>' +
+      '<p style="color: var(--ink-muted); font-size: 0.95rem; line-height: 1.55; margin-bottom: 1rem;">A copy is also on its way to your inbox. If the download didn\'t start, ' +
+      '<a href="https://thezaraai.com/assets/AI-Agent-Field-Manual.pdf" target="_blank" style="color: var(--rose-deep); text-decoration: underline;">click here to grab it</a>.</p>' +
       '</div>';
   } else {
     submitBtn.disabled = false;
