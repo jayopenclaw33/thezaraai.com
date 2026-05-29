@@ -1695,7 +1695,11 @@ section.section { padding: clamp(5rem, 10vw, 7.5rem) 0; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .reveal { opacity: 1; transform: none; }
 }
+/* Honeypot field — invisible to humans, irresistible to bots. Don't unhide. */
+.hp-honey { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
 </style>
+<!-- Cloudflare Turnstile (bot challenge). Async so it doesn't block the rest of the page. -->
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
 
@@ -2165,6 +2169,10 @@ section.section { padding: clamp(5rem, 10vw, 7.5rem) 0; }
               <label class="form-label" for="handbook-email">Email</label>
               <input class="form-input" id="handbook-email" name="email" type="email" required placeholder="you@company.com">
             </div>
+            <!-- Honeypot: real visitors leave this empty; bots fill every field. -->
+            <input class="hp-honey" name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <!-- Cloudflare Turnstile challenge widget. Renders invisibly in normal cases. -->
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAADYpApsWgjxZo3_L" data-size="flexible" style="margin: 0.75rem 0;"></div>
             <button type="submit" class="btn btn-primary" style="width: 100%;">Send me the AI Field Manual <span class="btn-arrow">→</span></button>
             <p class="form-microcopy">Delivered instantly · No spam · Unsubscribe anytime</p>
             <p class="form-consent">By submitting, you agree to receive the AI Field Manual and occasional related emails from TheZaraAI. We never share your email. See our <a href="https://thezaraai.com/legal/privacy-policy.html">Privacy Policy</a>.</p>
@@ -2313,6 +2321,10 @@ section.section { padding: clamp(5rem, 10vw, 7.5rem) 0; }
           <label class="form-label" for="message">Message</label>
           <textarea class="form-textarea" id="message" name="message" placeholder="Tell us a bit about your team and what you're looking to automate…"></textarea>
         </div>
+        <!-- Honeypot: real visitors leave this empty; bots fill every field. -->
+        <input class="hp-honey" name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <!-- Cloudflare Turnstile challenge widget. Renders invisibly in normal cases. -->
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAADYpApsWgjxZo3_L" data-size="flexible" style="margin: 0.75rem 0;"></div>
         <button type="submit" class="btn btn-primary" style="width: 100%;">Send message <span class="btn-arrow">→</span></button>
         <p class="form-consent">By submitting, you agree to be contacted by TheZaraAI in response to this inquiry. Your information is never shared with third parties. See our <a href="https://thezaraai.com/legal/privacy-policy.html">Privacy Policy</a> &middot; <a href="https://thezaraai.com/legal/terms-of-service.html">Terms</a>.</p>
       </form>
@@ -2434,10 +2446,12 @@ document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 // ALTERNATIVE: Replace with Formspree, Beehiiv, ConvertKit, or
 // Substack endpoints by editing submitToHandler() below.
 // ============================================================
-// Form endpoints live on the proposal-uploader Vercel project (already configured
-// with the Resend API key + the TheZaraAI Newsletter audience).
-const FIELD_MANUAL_ENDPOINT = 'https://proposal-uploader.vercel.app/api/field-manual';
-const SCHEDULE_CALL_ENDPOINT = 'https://proposal-uploader.vercel.app/api/schedule-call';
+// Form endpoints live on the forms-api Vercel project (TheZaraAI/forms-api),
+// which wraps Resend with Cloudflare Turnstile verification + honeypot + rate
+// limiting. The legacy proposal-uploader project is kept around only for
+// signed-proposal uploads (/api/upload-signed) — not for these form submits.
+const FIELD_MANUAL_ENDPOINT = 'https://forms-api-jax-1509s-projects.vercel.app/api/field-manual';
+const SCHEDULE_CALL_ENDPOINT = 'https://forms-api-jax-1509s-projects.vercel.app/api/schedule-call';
 
 async function postToBackend(endpoint, payload) {
   try {
@@ -2468,7 +2482,9 @@ document.getElementById('contact-form').addEventListener('submit', async (e) => 
     name: data.get('name'),
     email: data.get('email'),
     service: data.get('service'),
-    message: data.get('message')
+    message: data.get('message'),
+    website: data.get('website') || '',           // honeypot field — bots fill it
+    turnstileToken: data.get('cf-turnstile-response') || ''
   });
 
   if (result.success !== false) {
@@ -2503,7 +2519,9 @@ document.getElementById('handbook-form').addEventListener('submit', async (e) =>
   const data = new FormData(form);
   const result = await postToBackend(FIELD_MANUAL_ENDPOINT, {
     name: data.get('name'),
-    email: data.get('email')
+    email: data.get('email'),
+    website: data.get('website') || '',           // honeypot field — bots fill it
+    turnstileToken: data.get('cf-turnstile-response') || ''
   });
 
   if (result.success !== false) {
