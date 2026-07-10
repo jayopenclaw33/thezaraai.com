@@ -57,7 +57,7 @@
       ],
       "contactPoint": {
         "@type": "ContactPoint",
-        "email": "info@thezaraai.com",
+        "email": "jax@thezaraai.com",
         "contactType": "Customer Service",
         "areaServed": "Worldwide",
         "availableLanguage": "English"
@@ -121,7 +121,7 @@
         {
           "@type": "Question",
           "name": "How much does it cost to have you build an agent?",
-          "acceptedAnswer": { "@type": "Answer", "text": "A basic agent build starts at $750 one-time, plus an optional $197/month care plan. That covers three integrations — typically your file storage, email, and calendar — with inbox triage, automated calendar invites, and basic automations, delivered with a written handoff and a 30-day support window. Larger builds with more integrations or custom logic are scoped and quoted individually, and can be rolled into a monthly engagement." }
+          "acceptedAnswer": { "@type": "Answer", "text": "One-time agent builds start at $325 for the Starter Agent — a lean assistant that answers your email and organizes your files, built in under 30 days with a month of light support. The Integrated Agent is $789 and adds your calendar plus up to five additional integrations (Calendly, Slack or Teams, Notion, CRM, custom skills and templates), delivered in roughly six weeks with an optional $197/month care plan. Larger builds with more integrations or custom logic are scoped and quoted individually, and can be rolled into a monthly engagement." }
         },
         {
           "@type": "Question",
@@ -1139,6 +1139,31 @@ section.section { padding: clamp(5rem, 10vw, 7.5rem) 0; }
   margin-bottom: 1.75rem;
 }
 .build-tier-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+.build-tier-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 3.5rem;
+}
+.build-card {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  padding: 3rem 2.5rem 2.5rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.build-card--featured { border-color: var(--rose); }
+.build-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  line-height: 1.2;
+  margin-bottom: 0.85rem;
+}
+.build-card h3 em { font-style: italic; color: var(--rose); white-space: nowrap; }
+.build-card .build-tier-label { left: 2.5rem; }
+.build-card .build-includes { padding: 1.5rem; margin-bottom: 1.75rem; }
+.build-card .build-tier-actions { margin-top: auto; }
 .build-includes {
   background: var(--cream);
   border: 1px solid var(--rule-soft);
@@ -1171,6 +1196,10 @@ section.section { padding: clamp(5rem, 10vw, 7.5rem) 0; }
 }
 @media (max-width: 900px) {
   .build-tier { grid-template-columns: 1fr; gap: 2rem; padding: 2.5rem 1.5rem; }
+  .build-tier-grid { grid-template-columns: 1fr; }
+  .build-card { padding: 2.5rem 1.5rem 2rem; }
+  .build-card .build-tier-label { left: 1.5rem; }
+  .build-card h3 { font-size: 1.5rem; }
   .build-tier-label { left: 1.5rem; }
   .build-tier h3 { font-size: 1.6rem; }
   .build-price-amount { font-size: 2.5rem; }
@@ -2229,34 +2258,57 @@ section.section { padding: clamp(5rem, 10vw, 7.5rem) 0; }
 
     <p class="engagement-tier-intro reveal">Start with a single agent built for you, or bring us on monthly. Pricing scales with depth of involvement, build complexity, and hosting needs.</p>
 
-    <!-- One-time entry tier: a single agent, built and wired into your workflow -->
-    <div class="build-tier reveal">
-      <span class="build-tier-label">Start Here · One-Time Build</span>
-      <div class="build-tier-content">
-        <h3>Have us build your agent — <em>starting at $750</em></h3>
-        <p class="build-tier-blurb">Not ready for a monthly engagement? We'll build you one agent, wired into the tools you already use, and hand it over working. Most clients start here.</p>
+    <!-- One-time entry tiers: two fixed-scope builds, side by side -->
+    <div class="build-tier-grid reveal">
+      <div class="build-card">
+        <span class="build-tier-label">Start Here · One-Time Build</span>
+        <h3>The Starter Agent — <em>$325</em></h3>
+        <p class="build-tier-blurb">The simplest way to put an agent to work. We build a lean assistant that answers your email and organizes your files, hand it over working in under 30 days — then the training wheels come off and you finish the build with light support from us.</p>
         <div class="build-price">
-          <span class="build-price-amount">$750</span>
+          <span class="build-price-amount">$325</span>
+          <span class="build-price-unit">one-time build</span>
+        </div>
+        <p class="build-price-note">Fixed scope · Email + file storage · Built in under 30 days · One month of light support</p>
+        <div class="build-includes">
+          <div class="build-includes-title">What's included</div>
+          <ul>
+            <li>Your email — Gmail or equivalent, triaged and answered</li>
+            <li>Your file storage — Google Drive or equivalent</li>
+            <li>Core automations configured and running</li>
+            <li>Written handoff so you know how it works</li>
+            <li>Light-touch support while you take the reins</li>
+          </ul>
+        </div>
+        <div class="build-tier-actions">
+          <a href="https://onboarding.thezaraai.com" class="btn btn-primary">Start your build <span class="btn-arrow">→</span></a>
+        </div>
+      </div>
+
+      <div class="build-card build-card--featured">
+        <span class="build-tier-label">Most Capable · One-Time Build</span>
+        <h3>The Integrated Agent — <em>$789</em></h3>
+        <p class="build-tier-blurb">Everything in the Starter, plus your calendar and up to five additional integrations — Calendly, Slack or Teams, Notion, your CRM, custom skills and templates. Scoped with you up front so you know exactly what ships, in roughly six weeks.</p>
+        <div class="build-price">
+          <span class="build-price-amount">$789</span>
           <span class="build-price-unit">one-time build</span>
           <span class="build-price-plus">+ $197 / month care plan</span>
         </div>
-        <p class="build-price-note">Fixed scope · Three integrations · 30-day support window · Care plan keeps it running as your tools change</p>
+        <p class="build-price-note">Fixed scope · Email, files &amp; calendar + up to 5 more integrations · Roughly six weeks · Care plan keeps it running as your tools change</p>
+        <div class="build-includes">
+          <div class="build-includes-title">What's included</div>
+          <ul>
+            <li>Everything in the Starter Agent</li>
+            <li>Your calendar — invites drafted and sent for you</li>
+            <li>Up to 5 more integrations — Calendly, Slack or Teams, Notion, CRM</li>
+            <li>Custom skills &amp; templates built for your workflows</li>
+            <li>Streamlined day-to-day communications</li>
+            <li>Written handoff + 30-day support window</li>
+          </ul>
+        </div>
         <div class="build-tier-actions">
           <a href="https://onboarding.thezaraai.com" class="btn btn-primary">Start your agent build <span class="btn-arrow">→</span></a>
           <a href="#contact" class="btn btn-ghost">Book a call</a>
         </div>
-      </div>
-      <div class="build-includes">
-        <div class="build-includes-title">What's included</div>
-        <ul>
-          <li>Your file storage — Google Drive or equivalent</li>
-          <li>Your email — Gmail or equivalent</li>
-          <li>Your calendar — Google Calendar or equivalent</li>
-          <li>Inbox triage &amp; cleanup that runs on its own</li>
-          <li>Calendar invites drafted and sent for you</li>
-          <li>Streamlined day-to-day communications</li>
-          <li>Written handoff so you know how it works</li>
-        </ul>
       </div>
     </div>
 
@@ -2321,7 +2373,7 @@ section.section { padding: clamp(5rem, 10vw, 7.5rem) 0; }
       </div>
     </div>
 
-    <p class="engagement-footnote reveal">All engagements include hosting strategy and recommendations. The $750 build covers a fixed scope of three integrations; additional integrations, larger builds, audits, and one-off projects are quoted separately and may be combined with a monthly engagement.</p>
+    <p class="engagement-footnote reveal">All engagements include hosting strategy and recommendations. The one-time builds cover a fixed scope — email + file storage for the Starter Agent, and email, files &amp; calendar plus up to five additional integrations for the Integrated Agent. They are not open-ended: anything beyond that scope, larger builds, audits, and one-off projects are quoted separately and may be combined with a monthly engagement.</p>
   </div>
 </section>
 
@@ -2365,7 +2417,7 @@ section.section { padding: clamp(5rem, 10vw, 7.5rem) 0; }
             <div class="cf-turnstile" data-sitekey="0x4AAAAAADYpApsWgjxZo3_L" data-size="flexible" style="margin: 0.75rem 0;"></div>
             <button type="submit" class="btn btn-primary" style="width: 100%;">Send me the AI Field Manual <span class="btn-arrow">→</span></button>
             <p class="form-microcopy">Delivered instantly · No spam · Unsubscribe anytime</p>
-            <p class="form-consent">By submitting, you agree to receive the AI Field Manual and occasional related emails from TheZaraAI. We never share your email. See our <a href="https://thezaraai.com/legal/privacy-policy.html">Privacy Policy</a>.</p>
+            <p class="form-consent">By submitting, you agree to receive the AI Field Manual and a subscription to The ZaraAI Weekly newsletter. We never share your email — unsubscribe anytime. See our <a href="https://thezaraai.com/legal/privacy-policy.html">Privacy Policy</a>.</p>
           </form>
         </div>
       </div>
@@ -2427,7 +2479,7 @@ section.section { padding: clamp(5rem, 10vw, 7.5rem) 0; }
       </div>
       <div class="faq-item">
         <button class="faq-question" aria-expanded="false">How much does it cost to have you build an agent?<span class="faq-icon">+</span></button>
-        <div class="faq-answer"><p>A basic agent build starts at <strong>$750 one-time</strong>, plus an optional <strong>$197/month</strong> care plan. That covers three integrations — typically your file storage, email, and calendar — with inbox triage, automated calendar invites, and basic automations, delivered with a written handoff and a 30-day support window. The care plan keeps the agent running as your tools and their APIs change. Larger builds with more integrations or custom logic are scoped and quoted individually, and can be rolled into a monthly engagement.</p></div>
+        <div class="faq-answer"><p>One-time builds start at <strong>$325</strong> for the Starter Agent — a lean assistant that answers your email and organizes your files, built in under 30 days with a month of light support while you take over. The Integrated Agent is <strong>$789</strong> and adds your calendar plus up to five additional integrations — Calendly, Slack or Teams, Notion, CRM, custom skills and templates — delivered in roughly six weeks, with an optional <strong>$197/month</strong> care plan that keeps the agent running as your tools and their APIs change. Larger builds are scoped and quoted individually, and can be rolled into a monthly engagement.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-question" aria-expanded="false">Can we adjust scope mid-engagement?<span class="faq-icon">+</span></button>
@@ -2478,7 +2530,7 @@ section.section { padding: clamp(5rem, 10vw, 7.5rem) 0; }
         <p>Drop a note, book a call, or follow along. We typically reply within one business day.</p>
         <div class="contact-method">
           <span class="contact-icon">✦</span>
-          <a href="mailto:info@thezaraai.com" class="contact-link">info@thezaraai.com</a>
+          <a href="mailto:jax@thezaraai.com" class="contact-link">jax@thezaraai.com</a>
         </div>
         <!-- TODO: Replace with a Cal.com or Calendly embed -->
         <div class="contact-method">
@@ -2579,7 +2631,7 @@ section.section { padding: clamp(5rem, 10vw, 7.5rem) 0; }
     <div class="footer-disclaimer">
       <p>
         <strong>ZaraAI LLC</strong> — A veteran-owned small business · Registered in the United States ·
-        <a href="mailto:info@thezaraai.com">info@thezaraai.com</a>
+        <a href="mailto:jax@thezaraai.com">jax@thezaraai.com</a>
         <br>
         TheZaraAI provides advisory and consulting services. Information on this site is for general purposes only and does not constitute legal, financial, or compliance advice. Each client engagement is governed by a written scope of work. We comply with the CAN-SPAM Act and honor unsubscribe requests promptly.
       </p>
@@ -2629,7 +2681,7 @@ document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 // address tied to the access key.
 //
 // SETUP (1 minute):
-//   1. Visit https://web3forms.com/ and enter info@thezaraai.com
+//   1. Visit https://web3forms.com/ and enter jax@thezaraai.com
 //   2. They email you an access key (UUID format)
 //   3. Paste it below in WEB3FORMS_KEY
 //   4. Done — both forms work
@@ -2690,7 +2742,7 @@ document.getElementById('contact-form').addEventListener('submit', async (e) => 
   } else {
     submitBtn.disabled = false;
     submitBtn.innerHTML = originalLabel;
-    alert('Sorry — something went wrong. Please email info@thezaraai.com directly.');
+    alert('Sorry — something went wrong. Please email jax@thezaraai.com directly.');
   }
 });
 
@@ -2736,7 +2788,7 @@ document.getElementById('handbook-form').addEventListener('submit', async (e) =>
   } else {
     submitBtn.disabled = false;
     submitBtn.innerHTML = originalLabel;
-    alert('Sorry — something went wrong. Please email info@thezaraai.com directly.');
+    alert('Sorry — something went wrong. Please email jax@thezaraai.com directly.');
   }
 });
 
