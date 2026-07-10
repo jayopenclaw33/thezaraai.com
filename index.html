@@ -583,7 +583,7 @@ h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 500; color: var(--
 
 /* ============ CREDENTIALS STRIP ============ */
 .credentials {
-  padding: 3.5rem 0;
+  padding: 2.25rem 0;
   background: var(--cream-deep);
   border-top: 1px solid var(--rule-soft);
   border-bottom: 1px solid var(--rule-soft);
@@ -682,11 +682,39 @@ h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 500; color: var(--
 }
 
 /* ============ SECTION ============ */
-section.section { padding: clamp(5rem, 10vw, 7.5rem) 0; }
+section.section { padding: clamp(3rem, 6vw, 4.5rem) 0; }
+
+/* ============ DYNAMIC LAYER ============ */
+.scroll-progress {
+  position: fixed; top: 0; left: 0; height: 2px; width: 0;
+  background: linear-gradient(90deg, var(--rose), var(--rose-deep));
+  z-index: 300;
+}
+.panel-console {
+  display: flex; align-items: center; gap: 0.55rem;
+  padding: 0.8rem 1.5rem;
+  border-bottom: 1px solid var(--rule-soft);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.78rem; color: var(--ink-muted);
+  min-height: 2.5rem; text-align: left;
+}
+.console-prompt { color: var(--rose-deep); flex-shrink: 0; }
+.console-caret {
+  display: inline-block; width: 7px; height: 1em;
+  background: var(--rose); flex-shrink: 0;
+  animation: caret-blink 1s steps(1) infinite;
+}
+@keyframes caret-blink { 50% { opacity: 0; } }
+.tilt { will-change: transform; transition: transform 0.18s ease-out; }
+@media (prefers-reduced-motion: reduce) {
+  .console-caret { animation: none; }
+  .tilt { transition: none; }
+}
+
 .section-header {
   text-align: center;
   max-width: 700px;
-  margin: 0 auto clamp(3.5rem, 6vw, 5rem);
+  margin: 0 auto clamp(2rem, 4vw, 3rem);
 }
 .section-header h2 {
   font-size: clamp(2.25rem, 5vw, 3.5rem);
@@ -1925,7 +1953,7 @@ section.section { padding: clamp(5rem, 10vw, 7.5rem) 0; }
     <p class="lede">A boutique advisory for businesses scaling with AI. We build the automations, harden the infrastructure, and put your AI to work — without the enterprise price tag.</p>
 
     <div class="hero-ctas">
-      <a href="#contact" class="btn btn-primary btn-large">Book a discovery call <span class="btn-arrow">→</span></a>
+      <a href="https://calendly.com/thezaraai/discovery-call" target="_blank" rel="noopener" class="btn btn-primary btn-large">Book a free 15-min call <span class="btn-arrow">→</span></a>
       <a href="#handbook" class="btn btn-ghost btn-large">Get the AI Field Manual</a>
     </div>
     <p class="hero-microcopy">No commitment · We scope first, sign second</p>
@@ -1935,6 +1963,11 @@ section.section { padding: clamp(5rem, 10vw, 7.5rem) 0; }
       <div class="panel-header">
         <span><span class="dot"></span>Live operations</span>
         <span>This morning</span>
+      </div>
+      <div class="panel-console" aria-hidden="true">
+        <span class="console-prompt">agent ▸</span>
+        <span id="console-line"></span>
+        <span class="console-caret"></span>
       </div>
       <div class="panel-grid">
         <div class="panel-cell">
@@ -2510,9 +2543,9 @@ section.section { padding: clamp(5rem, 10vw, 7.5rem) 0; }
     <div class="final-cta reveal">
       <div class="mark final-cta-mark"><svg><use href="#zara-mark"/></svg></div>
       <h2>Ready to stop doing <em>work that can be automated?</em></h2>
-      <p>Book a free 30-minute discovery call. We'll map your automation opportunities together — no commitment, no pitch, just a conversation.</p>
+      <p>Book a free 15-minute discovery call. We'll map your automation opportunities together — no commitment, no pitch, just a conversation.</p>
       <div class="hero-ctas">
-        <a href="#contact" class="btn btn-primary btn-large">Book a discovery call <span class="btn-arrow">→</span></a>
+        <a href="https://calendly.com/thezaraai/discovery-call" target="_blank" rel="noopener" class="btn btn-primary btn-large">Book a discovery call <span class="btn-arrow">→</span></a>
         <a href="#handbook" class="btn btn-ghost btn-large">Get the AI Field Manual</a>
       </div>
     </div>
@@ -2537,7 +2570,7 @@ section.section { padding: clamp(5rem, 10vw, 7.5rem) 0; }
         </div>
         <div class="contact-method">
           <span class="contact-icon">✦</span>
-          <a href="https://calendly.com/ragnarstack/discovery-call" target="_blank" rel="noopener" id="book-call-link" class="contact-link">Book a free 15-minute discovery call</a>
+          <a href="https://calendly.com/thezaraai/discovery-call" target="_blank" rel="noopener" id="book-call-link" class="contact-link">Book a free 15-minute discovery call</a>
         </div>
         <div class="contact-socials">
           <a href="https://x.com/the_ZaraAI" class="contact-social" aria-label="X / Twitter">𝕏</a>
@@ -2674,6 +2707,79 @@ const revealObserver = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// ============================================================
+// DYNAMIC LAYER — scroll progress, live agent console, counters, tilt
+// ============================================================
+const scrollBar = document.createElement('div');
+scrollBar.className = 'scroll-progress';
+document.body.appendChild(scrollBar);
+addEventListener('scroll', () => {
+  const h = document.documentElement;
+  scrollBar.style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight) * 100) + '%';
+}, { passive: true });
+
+// Live agent console — types through a real morning of agent work
+const consoleLines = [
+  'triaging inbox — 147 processed, 3 escalated for your eyes',
+  'drafting client follow-ups — 22 queued for approval',
+  'filing signed contracts — matched to the right client folders',
+  'holding calendar slots for this week’s discovery calls',
+  'security sweep — 0 prompt-injection attempts got through',
+  'compiling the morning report — 4.2 hrs returned to the team'
+];
+const consoleEl = document.getElementById('console-line');
+const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (consoleEl && !reducedMotion) {
+  let li = 0, ci = 0, deleting = false;
+  (function tick() {
+    const s = consoleLines[li];
+    if (!deleting) {
+      ci++;
+      consoleEl.textContent = s.slice(0, ci);
+      if (ci >= s.length) { deleting = true; return setTimeout(tick, 2600); }
+      return setTimeout(tick, 26);
+    }
+    ci = Math.max(0, ci - 3);
+    consoleEl.textContent = s.slice(0, ci);
+    if (ci === 0) { deleting = false; li = (li + 1) % consoleLines.length; }
+    setTimeout(tick, 12);
+  })();
+} else if (consoleEl) {
+  consoleEl.textContent = consoleLines[0];
+}
+
+// Count-up animation on the hero panel stats
+const animateNum = el => {
+  const m = el.textContent.trim().match(/^([\d.]+)(.*)$/);
+  if (!m) return;
+  const target = parseFloat(m[1]), suffix = m[2];
+  const dec = (m[1].split('.')[1] || '').length;
+  const t0 = performance.now(), dur = 1400;
+  (function step(t) {
+    const p = Math.min((t - t0) / dur, 1);
+    el.textContent = (target * (1 - Math.pow(1 - p, 3))).toFixed(dec) + suffix;
+    if (p < 1) requestAnimationFrame(step);
+  })(t0);
+};
+const numObserver = new IntersectionObserver(entries => entries.forEach(e => {
+  if (e.isIntersecting) { animateNum(e.target); numObserver.unobserve(e.target); }
+}), { threshold: 0.6 });
+if (!reducedMotion) document.querySelectorAll('.panel-cell-value').forEach(n => numObserver.observe(n));
+
+// Subtle 3D tilt on cards
+if (!reducedMotion && matchMedia('(pointer: fine)').matches) {
+  document.querySelectorAll('.build-card, .plan, .service').forEach(card => {
+    card.classList.add('tilt');
+    card.addEventListener('pointermove', e => {
+      const r = card.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - 0.5;
+      const y = (e.clientY - r.top) / r.height - 0.5;
+      card.style.transform = 'perspective(900px) rotateX(' + (-y * 4).toFixed(2) + 'deg) rotateY(' + (x * 4).toFixed(2) + 'deg) translateY(-2px)';
+    });
+    card.addEventListener('pointerleave', () => { card.style.transform = ''; });
+  });
+}
 
 // ============================================================
 // FORM HANDLER CONFIG
