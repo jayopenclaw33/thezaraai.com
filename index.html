@@ -87,13 +87,13 @@
           {
             "@type": "Offer",
             "name": "Reconnaissance",
-            "description": "8 hours per month — focused automation or ongoing maintenance",
+            "description": "8 hours per month — focused automation or ongoing maintenance. Bi-weekly strategy calls. Add $325/month hosting & security (managed hosting, uptime monitoring, software updates and security patching).",
             "priceSpecification": { "@type": "PriceSpecification", "price": "1424", "priceCurrency": "USD", "unitText": "MONTH" }
           },
           {
             "@type": "Offer",
             "name": "Operations",
-            "description": "17 hours per month — multi-process automation and ongoing optimization",
+            "description": "17 hours per month — multi-process automation and ongoing optimization. Weekly strategy calls. Add $325/month hosting & security (managed hosting, uptime monitoring, software updates and security patching).",
             "priceSpecification": { "@type": "PriceSpecification", "price": "3026", "priceCurrency": "USD", "unitText": "MONTH" }
           },
           {
@@ -1067,6 +1067,21 @@ section.section { padding: clamp(3rem, 6vw, 4.5rem) 0; }
   min-height: 3em;
   line-height: 1.55;
 }
+/* Hosting + security line. Sits directly under the price on purpose: an added
+   monthly fee has to be visible at the moment the price is read, not buried in
+   a footnote. */
+.plan-hosting {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--ink-muted);
+  margin: -0.35rem 0 1.1rem;
+  padding-left: 0.85rem;
+  border-left: 2px solid var(--rose-deep);
+}
+.plan-hosting strong { color: var(--navy); font-weight: 600; }
+.plan-popular .plan-hosting { color: rgba(255,255,255,0.78); border-left-color: rgba(255,255,255,0.45); }
+.plan-popular .plan-hosting strong { color: #fff; }
 .plan-divider { height: 1px; background: var(--rule-soft); margin-bottom: 1.5rem; }
 .plan-features {
   list-style: none;
@@ -2358,13 +2373,14 @@ section.section { padding: clamp(3rem, 6vw, 4.5rem) 0; }
           <span class="plan-price-period">starting / month</span>
         </div>
         <p class="plan-blurb">8 hours per month. For teams with a focused automation need or ongoing maintenance.</p>
+        <p class="plan-hosting"><strong>+ $325 / month hosting &amp; security.</strong> Managed hosting, uptime monitoring, software updates and security patching, handled for you.</p>
         <div class="plan-divider"></div>
         <ul class="plan-features">
           <li>8 hours of advisory + build per month</li>
           <li>Single-process automation focus</li>
+          <li>Bi-weekly strategy calls</li>
           <li>Monthly check-in &amp; reporting</li>
           <li>Email support</li>
-          <li>Hosting recommendations included</li>
         </ul>
         <a href="#contact" class="btn btn-ghost">Inquire <span class="btn-arrow">→</span></a>
       </div>
@@ -2377,14 +2393,14 @@ section.section { padding: clamp(3rem, 6vw, 4.5rem) 0; }
           <span class="plan-price-period">starting / month</span>
         </div>
         <p class="plan-blurb">17 hours per month. For teams running multiple processes and needing ongoing optimization.</p>
+        <p class="plan-hosting"><strong>+ $325 / month hosting &amp; security.</strong> Managed hosting, uptime monitoring, software updates and security patching, handled for you.</p>
         <div class="plan-divider"></div>
         <ul class="plan-features">
           <li>17 hours of advisory + build per month</li>
           <li>Multi-process automation</li>
           <li>Tooling integration &amp; documentation</li>
-          <li>Bi-weekly strategy calls</li>
+          <li>Weekly strategy calls</li>
           <li>Priority response</li>
-          <li>Hosting setup &amp; management</li>
         </ul>
         <a href="#contact" class="btn btn-ghost">Inquire <span class="btn-arrow">→</span></a>
       </div>
@@ -2396,6 +2412,7 @@ section.section { padding: clamp(3rem, 6vw, 4.5rem) 0; }
           <span class="plan-price-period">starting / month</span>
         </div>
         <p class="plan-blurb">Customized engagement starting at 45 hours per month. For teams ready for a fully embedded AI operations partner.</p>
+        <p class="plan-hosting"><strong>Hosting &amp; security included.</strong> Managed hosting, monitoring, updates, patching and governance are covered within the engagement.</p>
         <div class="plan-divider"></div>
         <ul class="plan-features">
           <li>Custom-scoped hours &amp; capacity</li>
@@ -2409,7 +2426,7 @@ section.section { padding: clamp(3rem, 6vw, 4.5rem) 0; }
       </div>
     </div>
 
-    <p class="engagement-footnote reveal">All engagements include hosting strategy and recommendations. The one-time builds cover a fixed scope — email + file storage for the Starter Agent, and email, files &amp; calendar plus up to five additional integrations for the Integrated Agent. They are not open-ended: anything beyond that scope, larger builds, audits, and one-off projects are quoted separately and may be combined with a monthly engagement.</p>
+    <p class="engagement-footnote reveal">Reconnaissance and Operations add a $325 / month hosting &amp; security fee covering managed hosting, uptime monitoring, software updates and security patching; hosting is already covered inside a Command engagement. Routine maintenance is part of that fee — new build work and larger changes draw on your monthly hours or are quoted separately. The one-time builds cover a fixed scope — email + file storage for the Starter Agent, and email, files &amp; calendar plus up to five additional integrations for the Integrated Agent. They are not open-ended: anything beyond that scope, larger builds, audits, and one-off projects are quoted separately and may be combined with a monthly engagement.</p>
   </div>
 </section>
 
