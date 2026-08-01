@@ -743,6 +743,24 @@ em { font-style: italic; color: var(--rose-deep); }
 .rv { opacity: 0; transform: translateY(22px); transition: opacity 780ms cubic-bezier(0.22,1,0.36,1), transform 780ms cubic-bezier(0.22,1,0.36,1); }
 .rv.in { opacity: 1; transform: none; }
 
+/* ═══ MOBILE STICKY ACTION BAR ════════════════════════════════
+   The nav CTA collapses into the hamburger below 880px, so the two
+   primary actions get a persistent thumb-reachable home instead. */
+.mobile-cta {
+  display: none;
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 80;
+  gap: 0.5rem; padding: 0.6rem 0.9rem calc(0.6rem + env(safe-area-inset-bottom, 0px));
+  background: rgba(251,248,243,0.94);
+  backdrop-filter: saturate(150%) blur(12px);
+  -webkit-backdrop-filter: saturate(150%) blur(12px);
+  border-top: 1px solid var(--rule-soft);
+  transform: translateY(110%); transition: transform var(--transition);
+}
+.mobile-cta.up { transform: none; }
+.mobile-cta .btn { flex: 1; padding: 0.8rem 0.6rem; font-size: 0.63rem; letter-spacing: 0.11em; min-height: 46px; }
+@media (max-width: 880px) { .mobile-cta { display: flex; } body { padding-bottom: 0; } }
+@media (prefers-reduced-motion: reduce) { .mobile-cta { transition: none; } }
+
 /* ═══ COOKIE BANNER ═══════════════════════════════════════════ */
 .cookie {
   position: fixed; left: 0; right: 0; bottom: 0; z-index: 200;
@@ -886,7 +904,7 @@ em { font-style: italic; color: var(--rose-deep); }
       </span>
     </a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#demonstration">Demonstration</a></li>
+      <li><a href="#demo">Demo</a></li>
       <li><a href="#practices">Practices</a></li>
       <li><a href="#process">Process</a></li>
       <li><a href="#engagement">Engagement</a></li>
@@ -903,11 +921,11 @@ em { font-style: italic; color: var(--rose-deep); }
 </nav>
 
 <div class="drawer" id="drawer">
-  <a href="#demonstration"><span class="n">01</span>Demonstration</a>
+  <a href="#demo"><span class="n">01</span>Demo</a>
   <a href="#practices"><span class="n">02</span>Practices</a>
   <a href="#evidence"><span class="n">03</span>Evidence</a>
   <a href="#process"><span class="n">04</span>Process</a>
-  <a href="#work"><span class="n">05</span>Demonstrations</a>
+  <a href="#work"><span class="n">05</span>Patterns</a>
   <a href="#engagement"><span class="n">06</span>Engagement</a>
   <a href="#handbook"><span class="n">07</span>Field Manual</a>
   <a href="#practice-team"><span class="n">08</span>Founder &amp; Zara</a>
@@ -922,11 +940,11 @@ em { font-style: italic; color: var(--rose-deep); }
 
 <!-- ══ CHAPTER RAIL ══ -->
 <nav class="rail" id="rail" aria-label="Chapter navigation">
-  <a href="#demonstration"><span class="nm">Demonstration</span><span class="dash"></span></a>
+  <a href="#demo"><span class="nm">Demo</span><span class="dash"></span></a>
   <a href="#practices"><span class="nm">Practices</span><span class="dash"></span></a>
   <a href="#evidence"><span class="nm">Evidence</span><span class="dash"></span></a>
   <a href="#process"><span class="nm">Process</span><span class="dash"></span></a>
-  <a href="#work"><span class="nm">Demonstrations</span><span class="dash"></span></a>
+  <a href="#work"><span class="nm">Patterns</span><span class="dash"></span></a>
   <a href="#engagement"><span class="nm">Engagement</span><span class="dash"></span></a>
   <a href="#handbook"><span class="nm">Field Manual</span><span class="dash"></span></a>
   <a href="#practice-team"><span class="nm">Founder</span><span class="dash"></span></a>
@@ -952,7 +970,7 @@ em { font-style: italic; color: var(--rose-deep); }
         <a class="btn btn-primary" data-book="hero" id="heroBook"
            href="https://calendly.com/thezaraai/discovery-call?utm_source=thezaraai&amp;utm_medium=website&amp;utm_campaign=hero_book_call"
            target="_blank" rel="noopener">Book a free 15-minute workflow call <span class="btn-arrow">→</span></a>
-        <a class="btn btn-ghost" href="#demonstration" id="heroDemo">See the system work</a>
+        <a class="btn btn-ghost" href="#demo" id="heroDemo">See the system work</a>
       </div>
       <div class="hero-credentials">
         <span class="cred">U.S. Army Special Forces veteran</span>
@@ -965,7 +983,7 @@ em { font-style: italic; color: var(--rose-deep); }
       <div class="console" id="heroConsole">
         <div class="console-bar" aria-hidden="true">
           <span class="cdot"></span><span class="cdot"></span><span class="cdot"></span>
-          <span class="console-tag">Interactive demonstration</span>
+          <span class="console-tag">Interactive demo</span>
         </div>
         <div class="console-body">
           <div class="console-h"><span>Operations · today</span><span>Example workflow</span></div>
@@ -1001,10 +1019,10 @@ em { font-style: italic; color: var(--rose-deep); }
 </header>
 
 <!-- ══════════ 2 · SIGNATURE DEMONSTRATION ══════════ -->
-<section class="chapter dark" id="demonstration">
+<section class="chapter dark" id="demo">
   <div class="shell">
     <div class="chapter-head rv">
-      <span class="demo-chip">Interactive demonstration</span>
+      <span class="demo-chip">Interactive demo</span>
       <h2>Watch one urgent request become a booked job.</h2>
       <p class="lede">Seven steps, start to finish. Advance it yourself, or jump to any stage. This is a fictional home-services scenario built to show how the workflow behaves — every name, address, and timestamp is invented.</p>
     </div>
@@ -1191,7 +1209,7 @@ em { font-style: italic; color: var(--rose-deep); }
       <b>A homeowner submits an urgent request at 7:42 PM.</b> Nobody is at a desk. In most shops this sits until morning, by which time the homeowner has called someone else.
     </p>
 
-    <p class="demo-note rv">Interactive demonstration. The interface, names, addresses, phone numbers, and timestamps are fictional and exist to illustrate how the workflow behaves. Nothing here represents a real customer, a live system, or a claimed result.</p>
+    <p class="demo-note rv">Interactive demo. The interface, names, addresses, phone numbers, and timestamps are fictional and exist to illustrate how the workflow behaves. Nothing here represents a real customer, a live system, or a claimed result.</p>
   </div>
 </section>
 
@@ -1507,7 +1525,7 @@ em { font-style: italic; color: var(--rose-deep); }
 <section class="chapter" id="work">
   <div class="shell">
     <div class="chapter-head rv">
-      <p class="label">Selected demonstrations</p>
+      <p class="label">Selected patterns</p>
       <h2>Systems of this shape, built before.</h2>
       <p class="lede">Each panel below is a working prototype or an illustrative reconstruction of a system pattern we build. Client identities and data are not shown. Open one to see how it is put together.</p>
     </div>
@@ -1515,7 +1533,7 @@ em { font-style: italic; color: var(--rose-deep); }
     <div class="work-grid rv">
       <button class="work" aria-expanded="false" data-case="lead-response">
         <div class="work-vis">
-          <span class="work-tag">Interactive demonstration</span>
+          <span class="work-tag">Interactive demo</span>
           <svg viewBox="0 0 320 180" aria-hidden="true">
             <rect x="18" y="30" width="62" height="18" rx="2" fill="none" stroke="#D6A593" stroke-width="0.8" opacity="0.6"/>
             <rect x="18" y="56" width="62" height="18" rx="2" fill="none" stroke="#D6A593" stroke-width="0.8" opacity="0.6"/>
@@ -1548,7 +1566,7 @@ em { font-style: italic; color: var(--rose-deep); }
 
       <button class="work" aria-expanded="false" data-case="comms">
         <div class="work-vis">
-          <span class="work-tag">Interactive demonstration</span>
+          <span class="work-tag">Interactive demo</span>
           <svg viewBox="0 0 320 180" aria-hidden="true">
             <rect x="128" y="24" width="70" height="26" rx="2" fill="rgba(184,117,96,0.22)" stroke="#B87560" stroke-width="1"/>
             <path d="M163 50 L163 74" stroke="#B87560" stroke-width="1" fill="none"/>
@@ -1759,9 +1777,9 @@ em { font-style: italic; color: var(--rose-deep); }
       </div>
     </div>
     <div class="rv">
-      <p class="label">Free · no pitch</p>
-      <h2>Start with the field manual.</h2>
-      <p class="lede">The practical guide we wrote for people who want to build and secure agents themselves. If it saves you hiring us, that is a perfectly good outcome.</p>
+      <p class="label">Free download · two questions</p>
+      <h2>Download the AI Agent Field Manual.</h2>
+      <p class="lede">The practical guide we wrote for people who want to build and secure their own agents. Answer the two questions below and it downloads straight away, with a copy to your inbox. If it saves you hiring us, that is a perfectly good outcome.</p>
       <form id="handbook-form">
         <div class="form-group">
           <label class="form-label" for="handbook-name">First name</label>
@@ -1885,9 +1903,9 @@ em { font-style: italic; color: var(--rose-deep); }
 <section class="chapter dark final" id="contact">
   <div class="shell final-grid">
     <div class="rv">
-      <p class="label on-dark">Start here</p>
+      <p class="label on-dark">15-minute discovery call</p>
       <h2>Fifteen minutes, and you will know where the work is going.</h2>
-      <p class="lede">A short working call, not a sales sequence. We walk your current setup and name the specific places manual effort and unmanaged risk are costing you.</p>
+      <p class="lede">A short working call, not a sales sequence. We walk your current setup and name the specific places manual effort and unmanaged risk are costing you. Free, and it books straight into the calendar.</p>
       <div class="hero-ctas">
         <a class="btn btn-on-dark" data-book="final" id="finalBook"
            href="https://calendly.com/thezaraai/discovery-call?utm_source=thezaraai&amp;utm_medium=website&amp;utm_campaign=final_book_call"
@@ -1941,6 +1959,14 @@ em { font-style: italic; color: var(--rose-deep); }
 
 </main>
 
+<!-- ══ MOBILE STICKY ACTIONS ══ -->
+<div class="mobile-cta" id="mobileCta">
+  <a class="btn btn-primary" data-book="mobile_bar"
+     href="https://calendly.com/thezaraai/discovery-call?utm_source=thezaraai&amp;utm_medium=website&amp;utm_campaign=mobile_bar_book_call"
+     target="_blank" rel="noopener">Book 15-min call</a>
+  <a class="btn btn-ghost" href="#handbook" id="mobileManual">Get the manual</a>
+</div>
+
 <!-- ══ FOOTER ══ -->
 <footer class="footer">
   <div class="shell">
@@ -1972,7 +1998,7 @@ em { font-style: italic; color: var(--rose-deep); }
       <div>
         <h4>Studio</h4>
         <ul>
-          <li><a href="#demonstration">Demonstration</a></li>
+          <li><a href="#demo">Demo</a></li>
           <li><a href="#practice-team">Founder &amp; Zara</a></li>
           <li><a href="/blog/">Journal</a></li>
           <li><a href="#handbook">Free AI Field Manual</a></li>
@@ -2282,12 +2308,27 @@ em { font-style: italic; color: var(--rose-deep); }
     }, { rootMargin: '-45% 0px -45%' });
     sections.forEach(function (s) { if (s) co.observe(s); });
   }
+  /* rail + mobile action bar appear once the hero is behind you. The bar
+     stands down while the cookie banner or the drawer owns the screen. */
+  var mobileCta = document.getElementById('mobileCta');
+  var pastHero = false;
+  function syncMobileCta() {
+    if (!mobileCta) return;
+    var blocked = !!document.querySelector('.cookie') || drawer.classList.contains('open');
+    mobileCta.classList.toggle('up', pastHero && !blocked);
+  }
+  window.__syncMobileCta = syncMobileCta;
+
   var heroEl = document.querySelector('.hero');
-  if (rail && heroEl && 'IntersectionObserver' in window) {
+  if (heroEl && 'IntersectionObserver' in window) {
     new IntersectionObserver(function (es) {
-      rail.classList.toggle('visible', !es[0].isIntersecting);
+      pastHero = !es[0].isIntersecting;
+      if (rail) rail.classList.toggle('visible', pastHero);
+      syncMobileCta();
     }, { threshold: 0 }).observe(heroEl);
   }
+  toggle.addEventListener('click', syncMobileCta);
+  drawer.addEventListener('click', function () { setTimeout(syncMobileCta, 10); });
 
   document.getElementById('yr').textContent = new Date().getFullYear();
   go(0);
@@ -2434,7 +2475,7 @@ document.getElementById('handbook-form').addEventListener('submit', async (e) =>
     btn.addEventListener('click', () => {
       localStorage.setItem(KEY, btn.dataset.cookie);
       banner.classList.remove('visible');
-      setTimeout(() => banner.remove(), 400);
+      setTimeout(() => { banner.remove(); if (window.__syncMobileCta) window.__syncMobileCta(); }, 400);
     });
   });
 })();

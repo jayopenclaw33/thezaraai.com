@@ -192,6 +192,25 @@ reads as more confident than unverifiable statistics.
 
 ---
 
+## 8b · Revision 2 (approved changes)
+
+- **"Demonstration" → "Demo"** across nav, drawer, chapter rail, and footer. The anchor moved
+  from `#demonstration` to `#demo`. Disclosure chips shortened to "Interactive demo" — still an
+  explicit disclosure, just less of a mouthful.
+- **Chapter 6 relabelled "Selected patterns"** (rail: "Patterns"). Two chapters both called
+  some form of "demonstrations" was confusing; the per-card tags still read "Interactive demo"
+  and "Example workflow", so the disclosure is unchanged.
+- **Field Manual chapter sharpened** — now headed "Download the AI Agent Field Manual", and the
+  copy states plainly that two questions produce an immediate download plus an inbox copy.
+- **Discovery-call area labelled explicitly** — eyebrow now reads "15-minute discovery call",
+  and the copy notes it is free and books straight into the calendar.
+- **Mobile sticky action bar added.** Below 880px the nav CTA collapses into the hamburger, so
+  the two primary actions now have a persistent thumb-reachable home: "Book 15-min call" and
+  "Get the manual". It stands down while the cookie banner or the drawer owns the screen, and
+  only appears once the hero is behind you. Verified: 46px tap targets, correct suppression and
+  restoration in all four states.
+- **Testimonials confirmed removed; founder portrait confirmed unchanged**, per your approval.
+
 ## 9 · Open items
 
 1. **Founder portrait.** `assets/jax-headshot.jpg` is a bright pink-to-yellow gradient
