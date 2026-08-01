@@ -1,6 +1,6 @@
 # The Intelligence Atelier — redesign handoff
 
-Branch: **`feat/atelier-redesign`** · commit `8d8b49e`
+Branch: **`feat/atelier-redesign`** · commit `1a74af0`
 Status: **not published.** `main` and the live site are untouched.
 
 ---
@@ -9,7 +9,7 @@ Status: **not published.** `main` and the live site are untouched.
 
 | File | Change |
 |---|---|
-| `index.html` | Rebuilt. 2,949 → 2,444 lines. |
+| `index.html` | Rebuilt. 2,949 → 2,480 lines. |
 | `assets/og-atelier.png` | New. 1200×630 Open Graph image, 159 KB. |
 | `REDESIGN-HANDOFF.md` | New. This document. |
 
@@ -27,11 +27,11 @@ services grid, and again in process). The rebuild is 11 chapters, each with one 
 | # | Chapter | Anchor | Why it exists |
 |---|---|---|---|
 | 1 | Hero — operational promise | `#top` | State the offer and show a live-feeling artifact |
-| 2 | Signature demonstration | `#demonstration` | Prove the workflow before asking for anything |
+| 2 | Signature demo | `#demo` | Prove the workflow before asking for anything |
 | 3 | Three practices | `#practices` | What we do, as working exhibits |
 | 4 | Outcomes & evidence | `#evidence` | What you hold at the end |
 | 5 | Process | `#process` | Five stages, decision gate at each |
-| 6 | Selected demonstrations | `#work` | System patterns, labeled as demonstrations |
+| 6 | Selected patterns | `#work` | System patterns, each labeled as a demo or example |
 | 7 | Engagement & pricing | `#engagement` | Selector → recommendation, then tiers |
 | 8 | Field Manual | `#handbook` | Low-intent capture |
 | 9 | Founder & Zara | `#practice-team` | Who and what you are working with |
@@ -53,7 +53,7 @@ Verified present and byte-identical in behaviour:
 - **`postToBackend()`** — unchanged, including the `data.ok !== false` contract
 - **Field Manual PDF** — same direct-download trigger on success
 - **Cookie consent** — same `tza_cookie_consent_v1` key, so existing visitors are not re-prompted
-- **Calendly** — `https://calendly.com/thezaraai/discovery-call`, 5 links, all with UTMs
+- **Calendly** — `https://calendly.com/thezaraai/discovery-call`, 6 links, all with UTMs
 - **Reduced-motion** — expanded, not just preserved
 
 Two improvements to the forms: `autocomplete` attributes were added, and the failure path
@@ -125,7 +125,7 @@ Headless Chrome, scripted, run at 1440×900, 1280×800, 768×1024, 390×844, 375
 | Console errors | 0 (excluding expected Turnstile 110200 — see §9) |
 | Failed network requests | 0 |
 | Horizontal overflow | none at any of the 5 widths |
-| Calendly links correct + UTM'd | 5 / 5 |
+| Calendly links correct + UTM'd | 6 / 6 |
 | Turnstile widgets / honeypots | 2 / 2 |
 | Form labels | all present |
 | Demonstration | 7 steps, panel + tab + rail + caption stay in sync |
@@ -236,7 +236,7 @@ reads as more confident than unverifiable statistics.
 ## 10 · Preview
 
 ```
-https://thezaraai-atelier-preview-l0vb4vv5v-jax-1509s-projects.vercel.app
+https://thezaraai-atelier-preview-i4un76iaf-jax-1509s-projects.vercel.app
 ```
 
 Or run it locally, which avoids the Turnstile domain issue entirely only for layout review:
