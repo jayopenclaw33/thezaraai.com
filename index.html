@@ -550,7 +550,7 @@ em { font-style: italic; color: var(--rose-deep); }
 .path-line, .path-draw { fill: none; vector-effect: non-scaling-stroke; }
 .path-line { stroke: var(--rule-soft); stroke-width: 1.5; }
 .path-draw { stroke: var(--rose); stroke-width: 1.5; stroke-linecap: round; }
-.stages { position: relative; z-index: 1; display: grid; gap: 2.6rem; }
+.stages { position: relative; z-index: 1; display: grid; gap: 2.1rem; }
 .stage {
   display: grid; grid-template-columns: 92px 1fr; gap: 2rem; align-items: start;
   opacity: 0.42; transition: opacity var(--transition-slow);
@@ -561,26 +561,29 @@ em { font-style: italic; color: var(--rose-deep); }
   position: relative; padding-top: 0.4rem;
 }
 /* the drawn SVG path provides the connector; no CSS duplicate */
-.stage h3 { font-size: 1.5rem; margin-bottom: 0.4rem; }
-.stage-lede { font-size: 0.96rem; color: var(--ink-muted); margin-bottom: 1.1rem; }
-.stage-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
-.stage-col .h { font-size: 0.6rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--rose-deep); margin-bottom: 0.35rem; }
-.stage-col p { font-size: 0.85rem; color: var(--ink-muted); margin: 0; }
-.stage-gate {
-  margin-top: 1.1rem; font-size: 0.83rem; color: var(--navy);
-  border: 1px solid var(--rule); border-radius: 2px; padding: 0.7rem 0.95rem; background: var(--rose-glow);
+.stage h3 { font-size: 1.45rem; margin-bottom: 0.3rem; }
+.stage-lede { font-size: 0.95rem; color: var(--ink-muted); margin-bottom: 0.85rem; max-width: 62ch; }
+/* compact label/value rows — scannable in one pass, no 3-column wall of text */
+.stage-facts { display: grid; grid-template-columns: 104px 1fr; gap: 0.3rem 1.1rem; margin: 0; }
+.stage-facts dt {
+  font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--rose-deep); padding-top: 0.22em;
 }
-.stage-gate b { font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--rose-deep); display: block; margin-bottom: 0.2rem; }
+.stage-facts dd { margin: 0; font-size: 0.87rem; color: var(--ink-muted); }
+.stage-facts dd.gate { color: var(--navy); }
 
 /* ═══ 6 · DEMONSTRATIONS ══════════════════════════════════════ */
 .work-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.4rem; }
+/* An <article> wrapper with a real <button> toggle inside. The card used to be
+   one giant <button> containing headings and lists — invalid HTML, and it
+   flattened the whole card into a single accessible name. */
 .work {
   border: 1px solid var(--rule-soft); border-radius: 3px; background: var(--paper);
-  overflow: hidden; text-align: left; cursor: pointer; padding: 0;
-  transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
-  display: flex; flex-direction: column;
+  overflow: hidden; display: flex; flex-direction: column;
+  transition: border-color var(--transition), box-shadow var(--transition);
 }
-.work:hover { border-color: var(--rule); transform: translateY(-3px); box-shadow: 0 20px 44px -30px rgba(28,37,64,0.4); }
+.work:hover { border-color: var(--rule); box-shadow: 0 20px 44px -30px rgba(28,37,64,0.28); }
+.work:focus-within { border-color: var(--rose); }
 .work-vis { aspect-ratio: 16 / 9; background: var(--navy); position: relative; overflow: hidden; }
 .work-vis svg { width: 100%; height: 100%; display: block; }
 .work-tag {
@@ -593,11 +596,21 @@ em { font-style: italic; color: var(--rose-deep); }
 .work-b .k { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.13em; text-transform: uppercase; color: var(--rose-deep); display: block; margin-bottom: 0.6rem; }
 .work-b h3 { font-size: 1.28rem; margin-bottom: 0.4rem; }
 .work-b p { font-size: 0.89rem; color: var(--ink-muted); margin: 0 0 0.9rem; }
-.work-more { font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--rose-deep); display: inline-flex; align-items: center; gap: 0.4rem; }
-.work-detail { max-height: 0; overflow: hidden; transition: max-height 520ms cubic-bezier(0.22,1,0.36,1); border-top: 0 solid var(--rule-soft); }
-.work[aria-expanded="true"] .work-detail { max-height: 460px; border-top-width: 1px; }
-.work-detail-in { padding: 1.3rem 1.6rem 1.6rem; }
-.work-detail ul { margin: 0; padding-left: 1.05rem; }
+.work-more {
+  font-family: var(--font-sans); font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--rose-deep); background: none; border: 0; padding: 0.5rem 0; min-height: 44px;
+  cursor: pointer; display: inline-flex; align-items: center; gap: 0.5rem;
+}
+.work-more:hover { color: var(--navy); }
+.work-more .chev { transition: transform var(--transition); display: inline-block; }
+.work-more[aria-expanded="true"] .chev { transform: rotate(90deg); }
+.work-detail { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 460ms cubic-bezier(0.22,1,0.36,1); border-top: 0 solid var(--rule-soft); }
+/* The collapsing grid item must carry NO padding of its own: min-height:0
+   removes the content minimum, but padding is always added on top and would
+   leave the row stuck open by exactly that amount. Padding goes on the list. */
+.work-detail > .work-detail-in { overflow: hidden; min-height: 0; padding: 0; }
+.work-detail[data-open="true"] { grid-template-rows: 1fr; border-top-width: 1px; }
+.work-detail ul { margin: 0; padding: 1.3rem 1.6rem 1.6rem 2.7rem; }
 .work-detail li { font-size: 0.86rem; color: var(--ink-muted); margin-bottom: 0.4rem; }
 
 /* ═══ 7 · PRICING ═════════════════════════════════════════════ */
@@ -615,16 +628,33 @@ em { font-style: italic; color: var(--rose-deep); }
 .sel-opt[aria-pressed="true"] { background: var(--rose); border-color: var(--rose); color: #fff; }
 .sel-out { margin-top: 1.6rem; padding-top: 1.5rem; border-top: 1px solid rgba(244,239,232,0.14); }
 .sel-out .h { font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--rose-light); display: block; margin-bottom: 0.5rem; }
-.sel-name { font-family: var(--font-serif); font-size: 1.9rem; color: var(--cream); margin: 0 0 0.4rem; }
+.sel-name { font-family: var(--font-serif); font-size: 1.9rem; color: var(--cream); margin: 0 0 0.15rem; }
+.sel-price { font-family: var(--font-serif); font-size: 1.35rem; color: var(--rose-light); margin: 0 0 0.6rem; }
+.sel-price small { font-family: var(--font-sans); font-size: 0.62rem; letter-spacing: 0.13em; text-transform: uppercase; color: rgba(244,239,232,0.5); }
 .sel-why { font-size: 0.89rem; color: rgba(244,239,232,0.68); margin: 0 0 1.1rem; }
 .sel-disclaim { font-size: 0.74rem; color: rgba(244,239,232,0.45); margin: 1rem 0 0; }
 
-.tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(244,239,232,0.14); border: 1px solid rgba(244,239,232,0.14); margin-top: 3rem; }
-.tier { background: var(--navy); padding: 1.9rem 1.6rem; }
+.price-group { margin-top: 3rem; }
+.price-group-h {
+  display: flex; align-items: baseline; gap: 1rem; flex-wrap: wrap;
+  padding-bottom: 0.8rem; margin-bottom: 0; border-bottom: 1px solid rgba(244,239,232,0.18);
+}
+.price-group-h h3 { font-size: 1.5rem; margin: 0; }
+.price-group-h span { font-size: 0.83rem; color: rgba(244,239,232,0.58); }
+.tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(244,239,232,0.14); border: 1px solid rgba(244,239,232,0.14); border-top: 0; }
+.tiers.two { grid-template-columns: repeat(2, 1fr); }
+.tier { background: var(--navy); padding: 1.7rem 1.5rem; position: relative; }
 .tier.on { background: var(--navy-soft); }
+.tier-flag {
+  position: absolute; top: 0; right: 0; font-family: var(--font-mono); font-size: 0.55rem;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--navy);
+  background: var(--rose-light); padding: 0.2rem 0.5rem;
+}
+.tier .what { font-size: 0.83rem; color: rgba(244,239,232,0.62); margin: 0 0 0.9rem; min-height: 2.6em; }
 .tier .k { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--rose-light); display: block; margin-bottom: 0.7rem; }
 .tier h3 { font-size: 1.3rem; margin-bottom: 0.2rem; }
-.tier .amt { font-family: var(--font-serif); font-size: 1.7rem; color: var(--rose-light); display: block; margin-bottom: 0.9rem; }
+.tier .amt { font-family: var(--font-serif); font-size: 1.85rem; color: var(--rose-light); display: block; margin-bottom: 0.15rem; line-height: 1.1; }
+.tier .amt small { font-family: var(--font-sans); font-size: 0.62rem; letter-spacing: 0.13em; text-transform: uppercase; color: rgba(244,239,232,0.5); }
 .tier ul { margin: 0; padding: 0; list-style: none; }
 .tier li { font-size: 0.83rem; color: rgba(244,239,232,0.68); padding: 0.32rem 0 0.32rem 1.1rem; position: relative; }
 .tier li::before { content: ''; position: absolute; left: 0; top: 0.85em; width: 6px; height: 1px; background: var(--rose-light); }
@@ -782,6 +812,8 @@ em { font-style: italic; color: var(--rose-deep); }
 }
 @media (max-width: 1000px) {
   .hero-grid, .fm-grid, .final-grid { grid-template-columns: 1fr; gap: 2.6rem; }
+  .tiers, .tiers.two { grid-template-columns: 1fr; }
+  .stage-facts { grid-template-columns: 92px 1fr; }
   .ev-grid { grid-template-columns: repeat(2, 1fr); }
   .work-grid { grid-template-columns: 1fr; }
   .tiers { grid-template-columns: 1fr; }
@@ -1451,13 +1483,12 @@ em { font-style: italic; color: var(--rose-deep); }
           <div class="stage-num">01</div>
           <div>
             <h3>Discover</h3>
-            <p class="stage-lede">A free 15-minute workflow call, then a short working session. We map where manual effort and unmanaged risk actually sit — usually not where people expect.</p>
-            <div class="stage-cols">
-              <div class="stage-col"><p class="h">What happens</p><p>Systems walked, lead sources traced, response times measured against reality rather than intention.</p></div>
-              <div class="stage-col"><p class="h">What you receive</p><p>A written map of current state with the friction points ranked by cost.</p></div>
-              <div class="stage-col"><p class="h">Risk control</p><p>Read-only access. Nothing is changed, connected, or granted in this stage.</p></div>
-            </div>
-            <p class="stage-gate"><b>Decision to continue</b>Do you agree with the diagnosis, and is the top item worth fixing?</p>
+            <p class="stage-lede">A free 15-minute call, then a short working session. We map where manual effort and unmanaged risk actually sit — usually not where people expect.</p>
+            <dl class="stage-facts">
+              <dt>You receive</dt><dd>A written map of current state, friction ranked by cost.</dd>
+              <dt>Risk control</dt><dd>Read-only access. Nothing is changed, connected, or granted.</dd>
+              <dt>Your call</dt><dd class="gate">Do you agree with the diagnosis, and is the top item worth fixing?</dd>
+            </dl>
           </div>
         </article>
 
@@ -1465,13 +1496,12 @@ em { font-style: italic; color: var(--rose-deep); }
           <div class="stage-num">02</div>
           <div>
             <h3>Design</h3>
-            <p class="stage-lede">We specify the workflow before building it: triggers, rules, exceptions, and the explicit boundary of what the system is never allowed to decide alone.</p>
-            <div class="stage-cols">
-              <div class="stage-col"><p class="h">What happens</p><p>Qualification rules written down in your language, then tested against real past cases.</p></div>
-              <div class="stage-col"><p class="h">What you receive</p><p>A workflow specification and a data-flow diagram you could hand to any competent engineer.</p></div>
-              <div class="stage-col"><p class="h">Risk control</p><p>Data classes identified up front. Anything sensitive is scoped out or explicitly protected.</p></div>
-            </div>
-            <p class="stage-gate"><b>Decision to continue</b>Does the specification match how you would want a good employee to behave?</p>
+            <p class="stage-lede">We specify the workflow before building it — triggers, rules, exceptions, and the explicit boundary of what the system may never decide alone.</p>
+            <dl class="stage-facts">
+              <dt>You receive</dt><dd>A workflow spec and data-flow diagram any competent engineer could build from.</dd>
+              <dt>Risk control</dt><dd>Data classes identified up front; sensitive material scoped out or protected.</dd>
+              <dt>Your call</dt><dd class="gate">Does the spec match how you would want a good employee to behave?</dd>
+            </dl>
           </div>
         </article>
 
@@ -1479,13 +1509,12 @@ em { font-style: italic; color: var(--rose-deep); }
           <div class="stage-num">03</div>
           <div>
             <h3>Build</h3>
-            <p class="stage-lede">Implementation against the spec, in test mode, with your real tools but not your real customers until you say so.</p>
-            <div class="stage-cols">
-              <div class="stage-col"><p class="h">What happens</p><p>Integrations wired, rules encoded, everything exercised end to end against seeded test data.</p></div>
-              <div class="stage-col"><p class="h">What you receive</p><p>A working system you can drive yourself, plus the test evidence behind it.</p></div>
-              <div class="stage-col"><p class="h">Risk control</p><p>Outbound is gated. Nothing reaches a customer while the system is still being proven.</p></div>
-            </div>
-            <p class="stage-gate"><b>Decision to continue</b>Having watched it run on your own data, do you trust it to talk to a customer?</p>
+            <p class="stage-lede">Implementation against the spec, in test mode — your real tools, but not your real customers until you say so.</p>
+            <dl class="stage-facts">
+              <dt>You receive</dt><dd>A working system you can drive yourself, plus the test evidence behind it.</dd>
+              <dt>Risk control</dt><dd>Outbound is gated. Nothing reaches a customer while it is still being proven.</dd>
+              <dt>Your call</dt><dd class="gate">Having watched it run on your data, do you trust it to talk to a customer?</dd>
+            </dl>
           </div>
         </article>
 
@@ -1493,13 +1522,12 @@ em { font-style: italic; color: var(--rose-deep); }
           <div class="stage-num">04</div>
           <div>
             <h3>Secure</h3>
-            <p class="stage-lede">The stage most automation work skips entirely. Access is narrowed, credentials are moved into managed storage, and the audit trail is switched on before go-live.</p>
-            <div class="stage-cols">
-              <div class="stage-col"><p class="h">What happens</p><p>Least-privilege applied per integration, secrets rotated into a managed store, logging verified.</p></div>
-              <div class="stage-col"><p class="h">What you receive</p><p>An access inventory and an audit configuration you can show to a client or an auditor.</p></div>
-              <div class="stage-col"><p class="h">Risk control</p><p>The blast radius of any single compromised credential is established and written down.</p></div>
-            </div>
-            <p class="stage-gate"><b>Decision to continue</b>Are you comfortable with what each system can reach if it were compromised tomorrow?</p>
+            <p class="stage-lede">The stage most automation work skips. Access is narrowed, credentials move into managed storage, and the audit trail goes on before go-live.</p>
+            <dl class="stage-facts">
+              <dt>You receive</dt><dd>An access inventory and audit configuration you could show an auditor.</dd>
+              <dt>Risk control</dt><dd>The blast radius of any single compromised credential is established in writing.</dd>
+              <dt>Your call</dt><dd class="gate">Are you comfortable with what each system could reach if compromised tomorrow?</dd>
+            </dl>
           </div>
         </article>
 
@@ -1507,13 +1535,12 @@ em { font-style: italic; color: var(--rose-deep); }
           <div class="stage-num">05</div>
           <div>
             <h3>Operate</h3>
-            <p class="stage-lede">Go-live, then the unglamorous part: watching it, tuning the rules as your season changes, and keeping it working as vendor APIs shift underneath it.</p>
-            <div class="stage-cols">
-              <div class="stage-col"><p class="h">What happens</p><p>Monitoring, rule tuning, and a regular review of what escalated to a human and why.</p></div>
-              <div class="stage-col"><p class="h">What you receive</p><p>Ongoing operation, or a clean handoff to your team — your choice, stated up front.</p></div>
-              <div class="stage-col"><p class="h">Risk control</p><p>Patching and dependency review continue. An unmaintained automation becomes a liability.</p></div>
-            </div>
-            <p class="stage-gate"><b>Decision to continue</b>Do you want us operating this, or do you want the keys?</p>
+            <p class="stage-lede">Go-live, then the unglamorous part: watching it, tuning rules as your season shifts, and keeping it working as vendor APIs move underneath it.</p>
+            <dl class="stage-facts">
+              <dt>You receive</dt><dd>Ongoing operation, or a clean handoff to your team — your choice, stated up front.</dd>
+              <dt>Risk control</dt><dd>Patching and dependency review continue. An unmaintained automation is a liability.</dd>
+              <dt>Your call</dt><dd class="gate">Do you want us operating this, or do you want the keys?</dd>
+            </dl>
           </div>
         </article>
       </div>
@@ -1531,7 +1558,7 @@ em { font-style: italic; color: var(--rose-deep); }
     </div>
 
     <div class="work-grid rv">
-      <button class="work" aria-expanded="false" data-case="lead-response">
+      <article class="work" data-case="lead-response">
         <div class="work-vis">
           <span class="work-tag">Interactive demo</span>
           <svg viewBox="0 0 320 180" aria-hidden="true">
@@ -1551,9 +1578,9 @@ em { font-style: italic; color: var(--rose-deep); }
           <span class="k">Home services · lead response</span>
           <h3>Inquiry to booked estimate</h3>
           <p>Unified inbox across phone, web, and social. Qualification against service area and urgency rules, then scheduling into real calendar capacity.</p>
-          <span class="work-more">Open pattern <span aria-hidden="true">→</span></span>
+          <button class="work-more" type="button" aria-expanded="false" aria-controls="wd-lead-response"><span class="lbl">Open pattern</span> <span class="chev" aria-hidden="true">&rsaquo;</span></button>
         </div>
-        <div class="work-detail"><div class="work-detail-in">
+        <div class="work-detail" id="wd-lead-response" data-open="false"><div class="work-detail-in">
           <ul>
             <li>Missed calls trigger an immediate text-back and continue by message</li>
             <li>Rules validate service area, urgency, and decision authority before booking</li>
@@ -1562,9 +1589,9 @@ em { font-style: italic; color: var(--rose-deep); }
             <li>Every automated action written to an attributable audit trail</li>
           </ul>
         </div></div>
-      </button>
+      </article>
 
-      <button class="work" aria-expanded="false" data-case="comms">
+      <article class="work" data-case="comms">
         <div class="work-vis">
           <span class="work-tag">Interactive demo</span>
           <svg viewBox="0 0 320 180" aria-hidden="true">
@@ -1583,9 +1610,9 @@ em { font-style: italic; color: var(--rose-deep); }
           <span class="k">Multi-location · internal comms</span>
           <h3>One brief, every channel</h3>
           <p>A single message published to email, SMS, and social at once, with per-recipient link tracking flowing back into one engagement view.</p>
-          <span class="work-more">Open pattern <span aria-hidden="true">→</span></span>
+          <button class="work-more" type="button" aria-expanded="false" aria-controls="wd-comms"><span class="lbl">Open pattern</span> <span class="chev" aria-hidden="true">&rsaquo;</span></button>
         </div>
-        <div class="work-detail"><div class="work-detail-in">
+        <div class="work-detail" id="wd-comms" data-open="false"><div class="work-detail-in">
           <ul>
             <li>One authored brief fans out to email, SMS, and social channels</li>
             <li>Per-recipient tracked links attribute every open and click back to a send</li>
@@ -1594,9 +1621,9 @@ em { font-style: italic; color: var(--rose-deep); }
             <li>Test mode gates all outbound until go-live is explicitly authorised</li>
           </ul>
         </div></div>
-      </button>
+      </article>
 
-      <button class="work" aria-expanded="false" data-case="security">
+      <article class="work" data-case="security">
         <div class="work-vis">
           <span class="work-tag">Example workflow</span>
           <svg viewBox="0 0 320 180" aria-hidden="true">
@@ -1614,9 +1641,9 @@ em { font-style: italic; color: var(--rose-deep); }
           <span class="k">Security for AI</span>
           <h3>Boundaries around a model</h3>
           <p>An access and monitoring architecture: what the model may reach, what it retains, who authorised each action, and how misbehaviour surfaces.</p>
-          <span class="work-more">Open pattern <span aria-hidden="true">→</span></span>
+          <button class="work-more" type="button" aria-expanded="false" aria-controls="wd-security"><span class="lbl">Open pattern</span> <span class="chev" aria-hidden="true">&rsaquo;</span></button>
         </div>
-        <div class="work-detail"><div class="work-detail-in">
+        <div class="work-detail" id="wd-security" data-open="false"><div class="work-detail-in">
           <ul>
             <li>Data classification determines what may enter a prompt at all</li>
             <li>Per-integration credentials scoped to least privilege and rotated into managed storage</li>
@@ -1625,9 +1652,9 @@ em { font-style: italic; color: var(--rose-deep); }
             <li>Audit log designed to answer "what acted, on what basis, and when"</li>
           </ul>
         </div></div>
-      </button>
+      </article>
 
-      <button class="work" aria-expanded="false" data-case="ops">
+      <article class="work" data-case="ops">
         <div class="work-vis">
           <span class="work-tag">Example workflow</span>
           <svg viewBox="0 0 320 180" aria-hidden="true">
@@ -1649,9 +1676,9 @@ em { font-style: italic; color: var(--rose-deep); }
           <span class="k">Back office · document operations</span>
           <h3>Intake to structured record</h3>
           <p>Unstructured inbound — email, attachments, forms — read, classified, and turned into a structured record with the exceptions surfaced rather than silently guessed.</p>
-          <span class="work-more">Open pattern <span aria-hidden="true">→</span></span>
+          <button class="work-more" type="button" aria-expanded="false" aria-controls="wd-ops"><span class="lbl">Open pattern</span> <span class="chev" aria-hidden="true">&rsaquo;</span></button>
         </div>
-        <div class="work-detail"><div class="work-detail-in">
+        <div class="work-detail" id="wd-ops" data-open="false"><div class="work-detail-in">
           <ul>
             <li>Inbound documents classified by type before any extraction is attempted</li>
             <li>Extracted fields carry a confidence signal; low confidence routes to review</li>
@@ -1660,7 +1687,7 @@ em { font-style: italic; color: var(--rose-deep); }
             <li>Original document retained and linked to the resulting record for audit</li>
           </ul>
         </div></div>
-      </button>
+      </article>
     </div>
   </div>
 </section>
@@ -1671,7 +1698,7 @@ em { font-style: italic; color: var(--rose-deep); }
     <div class="chapter-head rv">
       <p class="label on-dark">Engagement</p>
       <h2>Find the shape that fits, then we scope it properly.</h2>
-      <p class="lede">Four questions, an immediate recommendation, and no pretence that a webpage can quote your project. The real number comes from the call.</p>
+      <p class="lede">Four questions, and you get the engagement that fits with its actual price. Published rates, below and in the recommendation — the call confirms which one you need, it is not where the number appears for the first time.</p>
     </div>
 
     <div class="selector rv" id="selector">
@@ -1714,54 +1741,97 @@ em { font-style: italic; color: var(--rose-deep); }
       <div class="sel-out" id="selOut" role="status" aria-live="polite">
         <span class="h">Recommendation</span>
         <p class="sel-name" id="selName">Answer the four questions above</p>
+        <p class="sel-price" id="selPrice" hidden></p>
         <p class="sel-why" id="selWhy">You will get a suggested engagement shape and where to start. It takes about ten seconds.</p>
         <a class="btn btn-on-dark" data-book="selector" id="selCta"
            href="https://calendly.com/thezaraai/discovery-call?utm_source=thezaraai&amp;utm_medium=website&amp;utm_campaign=pricing_selector"
            target="_blank" rel="noopener" hidden>Book a free 15-minute workflow call <span class="btn-arrow">→</span></a>
-        <p class="sel-disclaim">This is a starting point, not a quote. Scope, integrations, and security requirements set the real number, and those come out of the workflow call.</p>
+        <p class="sel-disclaim">A starting point, not a quote. These are the published rates for each engagement; what changes on the call is which one you actually need, and whether the scope shifts it.</p>
       </div>
     </div>
 
-    <div class="tiers rv">
-      <article class="tier" data-tier="build">
-        <span class="k">One-time build</span>
-        <h3>Starter Agent</h3>
-        <span class="amt">$325</span>
-        <ul>
-          <li>Email triaged and answered</li>
-          <li>File storage organised</li>
-          <li>Core automations configured</li>
-          <li>Written handoff</li>
-          <li>Under 30 days, month of light support</li>
-        </ul>
-      </article>
-      <article class="tier" data-tier="integrated">
-        <span class="k">One-time build</span>
-        <h3>Integrated Agent</h3>
-        <span class="amt">$789</span>
-        <ul>
-          <li>Everything in the Starter Agent</li>
-          <li>Calendar — invites drafted and sent</li>
-          <li>Up to 5 more integrations</li>
-          <li>Custom skills &amp; templates</li>
-          <li>~6 weeks · optional $197/mo care plan</li>
-        </ul>
-      </article>
-      <article class="tier" data-tier="monthly">
-        <span class="k">Monthly engagement</span>
-        <h3>Reconnaissance &middot; Operations &middot; Command</h3>
-        <span class="amt">8h &middot; 17h &middot; custom</span>
-        <ul>
-          <li>Advisory + build hours each month</li>
-          <li>Bi-weekly or weekly strategy calls</li>
-          <li>Multi-process automation &amp; documentation</li>
-          <li>Command adds AI security audit &amp; governance</li>
-          <li>+$325/mo hosting &amp; security on the first two</li>
-        </ul>
-      </article>
+    <div class="price-group rv">
+      <div class="price-group-h">
+        <h3>Build an agent</h3>
+        <span>One-time project. Fixed scope, fixed price, yours to keep.</span>
+      </div>
+      <div class="tiers two">
+        <article class="tier" data-tier="starter">
+          <span class="k">One-time build</span>
+          <h3>Starter Agent</h3>
+          <span class="amt">$325</span>
+          <p class="what">A lean assistant that answers your email and organises your files. Built in under 30 days.</p>
+          <ul>
+            <li>Email triaged and answered</li>
+            <li>File storage organised</li>
+            <li>Core automations configured</li>
+            <li>Written handoff + a month of light support</li>
+          </ul>
+        </article>
+        <article class="tier" data-tier="integrated">
+          <span class="k">One-time build</span>
+          <h3>Integrated Agent</h3>
+          <span class="amt">$789</span>
+          <p class="what">Everything above, plus your calendar and the tools your day actually runs on. Roughly six weeks.</p>
+          <ul>
+            <li>Everything in the Starter Agent</li>
+            <li>Calendar — invites drafted and sent</li>
+            <li>Up to 5 more integrations (Slack, Notion, CRM&hellip;)</li>
+            <li>Custom skills &amp; templates</li>
+            <li>Optional $197/mo care plan</li>
+          </ul>
+        </article>
+      </div>
     </div>
 
-    <p class="price-foot rv">Reconnaissance and Operations add a $325/month hosting &amp; security fee covering managed hosting, uptime monitoring, software updates, and security patching; hosting is already included inside a Command engagement. One-time builds cover a fixed scope — anything beyond it is quoted separately and can be rolled into a monthly engagement.</p>
+    <div class="price-group rv">
+      <div class="price-group-h">
+        <h3>Work with us monthly</h3>
+        <span>Ongoing advisory and build capacity. Cancel or change tier as your season shifts.</span>
+      </div>
+      <div class="tiers">
+        <article class="tier" data-tier="recon">
+          <span class="k">Monthly</span>
+          <h3>Reconnaissance</h3>
+          <span class="amt">$1,424<small> / month</small></span>
+          <p class="what">One process at a time, done properly. The usual entry point.</p>
+          <ul>
+            <li>8 hours advisory + build</li>
+            <li>Single-process automation focus</li>
+            <li>Bi-weekly strategy calls</li>
+            <li>Monthly reporting &middot; email support</li>
+          </ul>
+        </article>
+        <article class="tier on" data-tier="ops">
+          <span class="tier-flag">Most common</span>
+          <span class="k">Monthly</span>
+          <h3>Operations</h3>
+          <span class="amt">$3,026<small> / month</small></span>
+          <p class="what">Enough capacity to build and to keep tuning what is already live.</p>
+          <ul>
+            <li>17 hours advisory + build</li>
+            <li>Multi-process automation</li>
+            <li>Tooling integration &amp; documentation</li>
+            <li>Weekly calls &middot; priority response</li>
+          </ul>
+        </article>
+        <article class="tier" data-tier="command">
+          <span class="k">Monthly</span>
+          <h3>Command</h3>
+          <span class="amt">$8,010<small> / month</small></span>
+          <p class="what">Embedded partner. Security leadership included, hosting covered.</p>
+          <ul>
+            <li>Custom-scoped hours &amp; capacity</li>
+            <li>Full AI workspace architecture</li>
+            <li>AI security audit included</li>
+            <li>Dedicated lead &middot; embedded weekly cadence</li>
+            <li>Hosting, monitoring &amp; governance included</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+
+    <p class="price-foot rv">Reconnaissance and Operations add <strong>$325/month</strong> for hosting &amp; security — managed hosting, uptime monitoring, updates, and patching. That is already inside Command. One-time builds cover a fixed scope; anything beyond it is quoted separately and can roll into a monthly engagement.</p>
   </div>
 </section>
 
@@ -2225,17 +2295,24 @@ em { font-style: italic; color: var(--rose-deep); }
   }
 
   /* ── case-study panels ────────────────────────────────────────── */
-  document.querySelectorAll('.work').forEach(function (w) {
-    w.addEventListener('click', function () {
-      var open = w.getAttribute('aria-expanded') === 'true';
-      w.setAttribute('aria-expanded', String(!open));
-      if (!open) track('case_study_open', { study: w.dataset.case });
+  document.querySelectorAll('.work-more').forEach(function (btn) {
+    var panel = document.getElementById(btn.getAttribute('aria-controls'));
+    var card = btn.closest('.work');
+    var lbl = btn.querySelector('.lbl');
+    if (!panel) return;
+    btn.addEventListener('click', function () {
+      var open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!open));
+      panel.setAttribute('data-open', String(!open));
+      if (lbl) lbl.textContent = open ? 'Open pattern' : 'Close pattern';
+      if (!open) track('case_study_open', { study: card ? card.dataset.case : '' });
     });
   });
 
   /* ── engagement selector ──────────────────────────────────────── */
   var answers = {};
   var selName = document.getElementById('selName');
+  var selPrice = document.getElementById('selPrice');
   var selWhy = document.getElementById('selWhy');
   var selCta = document.getElementById('selCta');
   var recFired = false;
@@ -2243,33 +2320,35 @@ em { font-style: italic; color: var(--rose-deep); }
   function recommend() {
     var a = answers;
     if (!a.need || !a.size || !a.systems || !a.time) return;
-    var name, why;
+    var name, price, sub, why;
     var wantsSecurity = a.need === 'vciso' || a.need === 'aisec';
     var big = a.size === 'mid' || a.size === 'large' || a.systems === '6';
 
     if (a.need === 'automation' && (a.size === 'solo' || a.size === 'small') && a.systems === '1') {
-      name = 'Starter or Integrated Agent';
-      why = 'A one-time build fits: a contained scope, few systems, and no ongoing advisory needed yet. Start at $325, or $789 if calendar and several integrations are in play.';
+      name = 'Integrated Agent'; price = '$789'; sub = 'one-time';
+      why = 'A one-time build fits — contained scope, few systems, no ongoing advisory needed yet. If it is only email and files, the Starter Agent at $325 covers it.';
     } else if (wantsSecurity && big) {
-      name = 'Command engagement';
-      why = 'Security leadership at this size needs standing capacity, not hours snatched from a build budget. Command includes the AI security audit, governance, and an embedded weekly cadence.';
+      name = 'Command'; price = '$8,010'; sub = 'per month';
+      why = 'Security leadership at this size needs standing capacity, not hours borrowed from a build budget. Includes the AI security audit, governance, and hosting.';
     } else if (wantsSecurity) {
-      name = 'Operations, security-weighted';
-      why = 'Enough monthly capacity to run a real governance cadence alongside automation work, without the cost of a full Command engagement.';
+      name = 'Operations'; price = '$3,026'; sub = 'per month + $325 hosting';
+      why = 'Enough monthly capacity to run a real governance cadence alongside the automation work, without the cost of a full Command engagement.';
     } else if (big || a.need === 'mixed') {
-      name = 'Operations engagement';
-      why = 'Multiple processes and systems benefit from 17 hours a month with weekly calls — enough to build and to keep tuning what is already live.';
+      name = 'Operations'; price = '$3,026'; sub = 'per month + $325 hosting';
+      why = 'Multiple processes and systems want 17 hours a month and weekly calls — enough to build, and to keep tuning what is already live.';
     } else {
-      name = 'Reconnaissance engagement';
-      why = 'Eight hours a month with bi-weekly calls is the right entry point: single-process focus, room to prove the value before scaling commitment.';
+      name = 'Reconnaissance'; price = '$1,424'; sub = 'per month + $325 hosting';
+      why = 'Eight hours a month with bi-weekly calls is the usual entry point: one process at a time, room to prove the value before scaling commitment.';
     }
-    if (a.time === 'explore') why += ' Since you are still exploring, the field manual below is a reasonable first step before any of this.';
-    if (a.time === 'now') why += ' Flagging the urgent timeline on the call means we scope for the fastest safe path to live.';
+    if (a.time === 'explore') why += ' Since you are still exploring, the Field Manual below is a sensible first step before any of this.';
+    if (a.time === 'now') why += ' Flag the urgent timeline on the call and we scope the fastest safe path to live.';
 
     selName.textContent = name;
+    selPrice.innerHTML = price + ' <small>' + sub + '</small>';
+    selPrice.hidden = false;
     selWhy.textContent = why;
     selCta.hidden = false;
-    if (!recFired) { recFired = true; track('pricing_recommendation_complete', { recommendation: name, need: a.need, size: a.size }); }
+    if (!recFired) { recFired = true; track('pricing_recommendation_complete', { recommendation: name, price: price, need: a.need, size: a.size }); }
   }
 
   document.querySelectorAll('.sel-opt').forEach(function (b) {
