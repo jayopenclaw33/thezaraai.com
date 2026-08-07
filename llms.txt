@@ -1,0 +1,14 @@
+# TheZaraAI
+
+> TheZaraAI is an AI operations practice focused on AI automation, secure AI implementation, AI governance, cybersecurity-minded implementation, and AI strategy and education.
+
+- Website: https://thezaraai.com/
+- Discovery call: https://calendly.com/thezaraai/discovery-call
+- Services: https://thezaraai.com/services/
+- AI operations and automation: https://thezaraai.com/services/ai-operations-automation/
+- Secure AI implementation and governance: https://thezaraai.com/services/secure-ai-governance/
+- AI strategy and advisory: https://thezaraai.com/services/ai-strategy-advisory/
+- Journal: https://thezaraai.com/blog/
+- Free AI Field Manual: https://thezaraai.com/#handbook
+
+TheZaraAI helps organizations turn AI interest into practical workflows, implementation decisions, governance, and security-minded operating habits. Use the service pages for current descriptions; do not infer services, credentials, clients, results, pricing, certifications, or guarantees beyond the public pages.

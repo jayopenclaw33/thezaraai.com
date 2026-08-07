@@ -1,0 +1,3 @@
+# Local browser QA artifacts; retained locally but not versioned.
+qa/
+scripts/browser_qa.js

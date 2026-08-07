@@ -1,27 +1,21 @@
 User-agent: *
 Allow: /
 
+# AI systems may read the public site and its published guidance.
 User-agent: GPTBot
 Allow: /
-
 User-agent: ClaudeBot
 Allow: /
-
 User-agent: anthropic-ai
 Allow: /
-
 User-agent: PerplexityBot
 Allow: /
-
 User-agent: OAI-SearchBot
 Allow: /
-
 User-agent: ChatGPT-User
 Allow: /
-
 User-agent: cohere-ai
 Allow: /
-
 User-agent: YouBot
 Allow: /
 
