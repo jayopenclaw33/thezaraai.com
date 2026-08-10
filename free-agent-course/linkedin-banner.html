@@ -1,194 +1,278 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinkedIn Banner — Free AI Agent Course | TheZaraAI</title>
+<meta name="description" content="Render source for the 1584×396 LinkedIn banner promoting TheZaraAI free AI agent course.">
+<meta name="robots" content="noindex, nofollow">
+
+<link rel="icon" type="image/png" href="../assets/favicon-32.png" sizes="32x32">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { width: 1584px; height: 396px; overflow: hidden; background: #0a0a0f; }
-  .banner {
-    width: 1584px;
-    height: 396px;
-    background: linear-gradient(135deg, #0a0a0f 0%, #1a0a2e 50%, #0d1117 100%);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 80px;
-    position: relative;
-    overflow: hidden;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  }
+/* ============================================================
+   LinkedIn profile banner — render source, not a site page.
+   Fixed 1584 x 396 canvas (LinkedIn personal profile background).
+   Screenshot the .banner element at 1x for the final image.
 
-  /* Background glow effects */
-  .glow-1 {
-    position: absolute;
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, rgba(167,139,250,0.12) 0%, transparent 70%);
-    top: -150px;
-    left: 200px;
-    pointer-events: none;
-  }
-  .glow-2 {
-    position: absolute;
-    width: 400px;
-    height: 400px;
-    background: radial-gradient(circle, rgba(99,102,241,0.10) 0%, transparent 70%);
-    bottom: -100px;
-    right: 300px;
-    pointer-events: none;
-  }
+   This file has no links, buttons, or form controls by design, so
+   there is no focus order and nothing for a skip link to skip. It
+   carries one h1, a <main> landmark, and a lang attribute.
+   ============================================================ */
+:root {
+  --cream: #F4EFE8;
+  --cream-deep: #EDE6DB;
+  --paper: #FBF8F3;
 
-  /* Grid lines */
-  .grid {
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(167,139,250,0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(167,139,250,0.04) 1px, transparent 1px);
-    background-size: 60px 60px;
-  }
+  --navy: #1C2540;
+  --ink: #1C2540;
+  --ink-muted: #5C6480;
+  --ink-subtle: #8A91A6;
 
-  .left {
-    position: relative;
-    z-index: 2;
-    max-width: 820px;
-  }
+  --rose: #B87560;
+  --rose-deep: #9B5E4A;
+  --rose-light: #D6A593;
 
-  .badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(167,139,250,0.12);
-    border: 1px solid rgba(167,139,250,0.25);
-    color: #a78bfa;
-    padding: 6px 16px;
-    border-radius: 20px;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-  }
+  --rule: rgba(184, 117, 96, 0.35);
+  --rule-soft: rgba(28, 37, 64, 0.08);
 
-  h1 {
-    font-size: 52px;
-    font-weight: 900;
-    line-height: 1.1;
-    color: #f1f5f9;
-    margin-bottom: 16px;
-    letter-spacing: -0.02em;
-  }
+  --font-serif: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  --font-sans:  'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
 
-  h1 span {
-    color: #a78bfa;
-  }
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-  .sub {
-    font-size: 18px;
-    color: #94a3b8;
-    line-height: 1.5;
-    margin-bottom: 28px;
-  }
+body {
+  background: var(--cream-deep);
+  font-family: var(--font-sans);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-  .cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: #a78bfa;
-    color: #0a0a0f;
-    padding: 14px 28px;
-    border-radius: 10px;
-    font-size: 16px;
-    font-weight: 800;
-    letter-spacing: 0.01em;
-  }
+.banner {
+  width: 1584px;
+  height: 396px;
+  background: var(--cream);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 72px;
+  /* Left inset clears the profile photo, which LinkedIn overlays on the
+     lower-left corner of the banner. */
+  padding: 0 88px 0 104px;
+}
 
-  .right {
-    position: relative;
-    z-index: 2;
-    text-align: right;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 16px;
-  }
+/* Terracotta hairline across the top — the same accent rule the site
+   uses on cards and callouts. Flat colour, no glow. */
+.banner::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: var(--rose);
+}
 
-  .url-box {
-    background: rgba(167,139,250,0.08);
-    border: 1px solid rgba(167,139,250,0.2);
-    border-radius: 12px;
-    padding: 16px 24px;
-    text-align: center;
-  }
+/* Quiet paper panel on the right third, so the URL block reads as a
+   separate editorial column rather than floating on the ground. */
+.banner::after {
+  content: '';
+  position: absolute;
+  top: 4px; bottom: 0; right: 0;
+  width: 520px;
+  background: var(--paper);
+  border-left: 1px solid var(--rule-soft);
+}
 
-  .url-label {
-    font-size: 11px;
-    color: #64748b;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 6px;
-  }
+/* The left column is pinned near the top so the headline finishes above the
+   profile-photo band; the right column stays optically centred. */
+.left  { position: relative; z-index: 2; max-width: 860px; align-self: flex-start; margin-top: 34px; }
+.right { position: relative; z-index: 2; width: 388px; flex: none; align-self: center; }
 
-  .url-text {
-    font-size: 22px;
-    font-weight: 800;
-    color: #a78bfa;
-    letter-spacing: -0.01em;
-  }
+/* ---------- brand lockup ---------- */
+.brand { display: flex; align-items: center; gap: 14px; margin-bottom: 26px; }
+.mark { width: 34px; height: 34px; flex-shrink: 0; }
+.mark svg { width: 100%; height: 100%; display: block; }
+.brand-text {
+  font-family: var(--font-serif);
+  font-size: 27px;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  color: var(--navy);
+  line-height: 1;
+}
+.brand-text .ai { color: var(--rose); }
+.brand-tag {
+  display: block;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.32em;
+  color: var(--rose-deep);
+  margin-top: 6px;
+}
 
-  .pills {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-  }
+/* ---------- eyebrow ---------- */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  color: var(--rose-deep);
+  margin-bottom: 18px;
+}
+.eyebrow::before {
+  content: '';
+  width: 28px;
+  height: 1px;
+  background: var(--rose-light);
+}
 
-  .pill {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.08);
-    color: #cbd5e1;
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 500;
-  }
+/* ---------- headline ---------- */
+h1 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: 62px;
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+  margin-bottom: 18px;
+}
+h1 em { color: var(--rose-deep); font-style: normal; }
 
-  .name-bar {
-    font-size: 13px;
-    color: #475569;
-    letter-spacing: 0.05em;
-  }
+/* Indented on purpose. LinkedIn drops the circular profile photo over the
+   banner's lower-left corner (roughly x 34-250, y 268-396 in these
+   coordinates), so the one line that sits in that band starts clear of it. */
+.sub {
+  margin-left: 160px;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--ink-muted);
+  max-width: 700px;
+}
+.sub strong { color: var(--navy); font-weight: 600; }
 
-  .name-bar strong {
-    color: #94a3b8;
-  }
+/* ---------- right column ---------- */
+.url-block {
+  border: 1px solid var(--rule);
+  background: var(--cream);
+  padding: 26px 28px;
+  position: relative;
+}
+.url-block::before {
+  content: '';
+  position: absolute;
+  top: -1px; left: -1px; right: -1px;
+  height: 3px;
+  background: var(--rose);
+}
+.url-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  color: var(--rose-deep);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.url-text {
+  font-family: var(--font-serif);
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--navy);
+}
+
+.credentials {
+  margin-top: 22px;
+  padding-top: 20px;
+  border-top: 1px solid var(--rule-soft);
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--ink-subtle);
+  letter-spacing: 0.02em;
+}
+.credentials strong {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
 </style>
 </head>
 <body>
-<div class="banner">
-  <div class="grid"></div>
-  <div class="glow-1"></div>
-  <div class="glow-2"></div>
+
+<!-- ============ INLINE COMPASS-STAR MARK ============ -->
+<svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+  <defs>
+    <linearGradient id="rose-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D6A593"/>
+      <stop offset="100%" stop-color="#9B5E4A"/>
+    </linearGradient>
+    <symbol id="zara-mark" viewBox="0 0 100 100">
+      <path d="M50 8 L52 48 L50 50 L48 48 Z" fill="url(#rose-grad)"/>
+      <path d="M50 92 L52 52 L50 50 L48 52 Z" fill="url(#rose-grad)"/>
+      <path d="M8 50 L48 48 L50 50 L48 52 Z" fill="url(#rose-grad)"/>
+      <path d="M92 50 L52 48 L50 50 L52 52 Z" fill="url(#rose-grad)"/>
+      <circle cx="50" cy="50" r="2.2" fill="#9B5E4A"/>
+      <line x1="20" y1="42" x2="42" y2="42" stroke="url(#rose-grad)" stroke-width="1.2" stroke-linecap="round"/>
+      <line x1="20" y1="58" x2="42" y2="58" stroke="url(#rose-grad)" stroke-width="1.2" stroke-linecap="round"/>
+      <circle cx="20" cy="42" r="1.6" fill="none" stroke="url(#rose-grad)" stroke-width="1.2"/>
+      <circle cx="20" cy="58" r="1.6" fill="none" stroke="url(#rose-grad)" stroke-width="1.2"/>
+      <line x1="58" y1="42" x2="80" y2="42" stroke="url(#rose-grad)" stroke-width="1.2" stroke-linecap="round"/>
+      <line x1="58" y1="58" x2="80" y2="58" stroke="url(#rose-grad)" stroke-width="1.2" stroke-linecap="round"/>
+      <circle cx="80" cy="42" r="1.6" fill="none" stroke="url(#rose-grad)" stroke-width="1.2"/>
+      <circle cx="80" cy="58" r="1.6" fill="none" stroke="url(#rose-grad)" stroke-width="1.2"/>
+    </symbol>
+  </defs>
+</svg>
+
+<main class="banner">
 
   <div class="left">
-    <div class="badge">⚡ Free Course Inside</div>
-    <h1>Build Your Own<br/><span>AI Agent</span> in 20 Min</h1>
-    <p class="sub">No coding. No hype. Just results.<br/>From a 19-year cybersecurity veteran & SF operator.</p>
-    <div class="cta">Get Free Access → thezaraai.com/free-agent-course</div>
+    <div class="brand">
+      <span class="mark"><svg><use href="#zara-mark"/></svg></span>
+      <span>
+        <span class="brand-text">TheZara<span class="ai">AI</span></span>
+        <span class="brand-tag">AI &middot; Cybersecurity &middot; Automation</span>
+      </span>
+    </div>
+
+    <p class="eyebrow">Free course &middot; No credit card</p>
+
+    <h1>Build your own <em>personal AI agent</em> in 20 minutes.</h1>
+
+    <p class="sub"><strong>No coding required.</strong> The framework I use as a 19-year cybersecurity veteran and former Special Forces operator.</p>
   </div>
 
   <div class="right">
-    <div class="url-box">
-      <div class="url-label">Free Course</div>
-      <div class="url-text">thezaraai.com/<br/>free-agent-course</div>
+    <div class="url-block">
+      <p class="url-label">Start here</p>
+      <p class="url-text">thezaraai.com/<br>free-agent-course</p>
     </div>
-    <div class="pills">
-      <div class="pill">🤖 AI Agents</div>
-      <div class="pill">🔐 Cybersecurity</div>
-      <div class="pill">⚡ Weekly Tips</div>
-    </div>
-    <div class="name-bar"><strong>Jax Scott</strong> · Outpost Gray · RSA 2024 Speaker</div>
+    <p class="credentials">
+      <strong>Jax Scott</strong>
+      RSA Conference speaker<br>
+      U.S. Army Special Forces &middot; Cyber EW Warrant Officer
+    </p>
   </div>
-</div>
+
+</main>
+
 </body>
 </html>
