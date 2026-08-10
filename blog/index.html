@@ -54,6 +54,20 @@
   --transition-slow: 700ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 1rem;
+  background: var(--navy);
+  color: var(--cream);
+  padding: 0.5rem 1rem;
+  z-index: 200;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: top 200ms ease;
+}
+.skip-link:focus { top: 0.75rem; }
+
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 body {
@@ -256,6 +270,9 @@ h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 500; color: var(--
 .btn-large { padding: 1.05rem 2rem; font-size: 0.82rem; }
 .btn-arrow { font-family: var(--font-serif); font-size: 1rem; transition: transform var(--transition); }
 .btn:hover .btn-arrow { transform: translateX(4px); }
+@media (max-width: 600px) {
+  .btn { white-space: normal; text-align: center; }
+}
 
 /* ============ HERO (Journal) ============ */
 .journal-hero {
@@ -572,6 +589,59 @@ h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 500; color: var(--
   .footer-bottom { flex-direction: column; gap: 0.75rem; text-align: center; }
 }
 
+/* ============ COOKIE BANNER ============ */
+.cookie-banner {
+  position: fixed;
+  bottom: 1.25rem;
+  left: 50%;
+  transform: translate(-50%, 200%);
+  z-index: 1000;
+  width: calc(100% - 2.5rem);
+  max-width: 720px;
+  background: var(--navy);
+  color: var(--cream);
+  border: 1px solid var(--rule-soft);
+  box-shadow: 0 20px 60px rgba(15, 20, 25, 0.35);
+  transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.cookie-banner.visible { transform: translate(-50%, 0); }
+.cookie-banner-inner {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem 1.5rem;
+  flex-wrap: wrap;
+}
+.cookie-banner-text {
+  flex: 1;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: rgba(244, 239, 232, 0.85);
+  min-width: 240px;
+  margin: 0;
+}
+.cookie-banner-text a {
+  color: var(--rose-light);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.cookie-banner-text a:hover { color: var(--cream); }
+.cookie-banner-actions { display: flex; gap: 0.5rem; align-items: center; }
+.cookie-banner .btn-link { color: rgba(244, 239, 232, 0.7); padding: 0.5rem 0.75rem; }
+.cookie-banner .btn-link:hover { color: var(--cream); }
+.cookie-banner .btn-link::after { background: var(--cream); }
+.cookie-banner .btn-primary {
+  background: var(--cream);
+  color: var(--navy);
+  padding: 0.65rem 1.25rem;
+  font-size: 0.7rem;
+}
+.cookie-banner .btn-primary:hover { background: white; }
+@media (max-width: 600px) {
+  .cookie-banner-inner { flex-direction: column; align-items: stretch; gap: 1rem; }
+  .cookie-banner-actions { justify-content: space-between; }
+}
+
 /* ============ ANIMATIONS ============ */
 .reveal {
   opacity: 0;
@@ -587,6 +657,8 @@ h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 500; color: var(--
 </style>
 </head>
 <body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
 
 <!-- ============ INLINE COMPASS-STAR MARK (recreated from logo) ============ -->
 <svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
@@ -621,7 +693,7 @@ h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 500; color: var(--
 <!-- ============ NAV ============ -->
 <nav class="nav" id="nav">
   <div class="container nav-inner">
-    <a href="../index.html" class="brand" aria-label="TheZaraAI">
+    <a href="/" class="brand" aria-label="TheZaraAI">
       <span class="mark"><svg><use href="#zara-mark"/></svg></span>
       <span>
         <span class="brand-text">TheZara<span class="ai">AI</span></span>
@@ -629,18 +701,21 @@ h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 500; color: var(--
       </span>
     </a>
     <ul class="nav-links">
-      <li><a href="../index.html#services">Services</a></li>
-      <li><a href="../index.html#process">Process</a></li>
-      <li><a href="../index.html#engagement">Engagement</a></li>
-      <li><a href="../index.html#team">Team</a></li>
-      <li><a href="index.html" class="active" aria-current="page">Journal</a></li>
+      <li><a href="/#services">Services</a></li>
+      <li><a href="/#assessment">Assessment</a></li>
+      <li><a href="/#process">Process</a></li>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/#team">Team</a></li>
+      <li><a href="/blog/" class="active" aria-current="page">Journal</a></li>
     </ul>
     <div class="nav-cta-group">
-      <a href="../index.html#handbook" class="btn btn-link">Free field manual</a>
-      <a href="../index.html#contact" class="btn btn-ghost">Book a call</a>
+      <a href="/#handbook" class="btn btn-link">Field Manual</a>
+      <a href="/#contact" class="btn btn-ghost">Book a Call</a>
     </div>
   </div>
 </nav>
+
+<main id="main">
 
 <!-- ============ HERO ============ -->
 <header class="journal-hero">
@@ -679,15 +754,15 @@ h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 500; color: var(--
       <article class="entry reveal">
         <span class="entry-num">i.</span>
         <div class="entry-meta">
-          <span class="entry-category">AI Automation</span>
+          <span class="entry-category">Strategy</span>
           <span class="entry-meta-dot"></span>
-          <span>5 min read</span>
+          <span>7 min read</span>
           <span class="entry-meta-dot"></span>
-          <span>2026</span>
+          <span>Apr 2026</span>
         </div>
-        <h3><a href="#">5 Workflows Every Business Should Automate This Year</a></h3>
-        <p class="blurb">Most teams automate the wrong things first and waste months. Here are the five workflows that actually move the needle — ranked by time saved, implementation difficulty, and downstream impact.</p>
-        <a href="#" class="entry-link">Read essay <span class="arrow">→</span></a>
+        <h3><a href="/blog/5-workflows.html">The 5 Workflows Every Business Should Automate First</a></h3>
+        <p class="blurb">Most businesses automate the wrong things first and waste months. The five workflows that actually move the bottom line — email triage, documents, lead follow-up, reporting, and onboarding — in the order to build them.</p>
+        <a href="/blog/5-workflows.html" class="entry-link">Read essay <span class="arrow">→</span></a>
       </article>
 
       <article class="entry reveal">
@@ -695,39 +770,195 @@ h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 500; color: var(--
         <div class="entry-meta">
           <span class="entry-category">AI Security</span>
           <span class="entry-meta-dot"></span>
-          <span>7 min read</span>
+          <span>8 min read</span>
           <span class="entry-meta-dot"></span>
-          <span>2026</span>
+          <span>Apr 2026</span>
         </div>
-        <h3><a href="#">Shadow AI: The Hidden Risk in Your Organization</a></h3>
-        <p class="blurb">Your team is already using AI tools you've never approved. From browser extensions to side-channel ChatGPT use, shadow AI is the new shadow IT — and it's quietly leaking your data. Here's how to find it and what to do about it.</p>
-        <a href="#" class="entry-link">Read essay <span class="arrow">→</span></a>
+        <h3><a href="/blog/security-first-ai.html">Why Security-First AI Is the Only Kind Worth Building</a></h3>
+        <p class="blurb">AI automation without security awareness is a liability engine. Data exposure, prompt injection, shadow AI, and access control — what to watch for, and what building it right actually looks like.</p>
+        <a href="/blog/security-first-ai.html" class="entry-link">Read essay <span class="arrow">→</span></a>
       </article>
 
       <article class="entry reveal">
         <span class="entry-num">iii.</span>
         <div class="entry-meta">
-          <span class="entry-category">vCISO</span>
+          <span class="entry-category">Automation</span>
+          <span class="entry-meta-dot"></span>
+          <span>7 min read</span>
+          <span class="entry-meta-dot"></span>
+          <span>Apr 2026</span>
+        </div>
+        <h3><a href="/blog/ai-without-losing-mind.html">How to Build an AI-Powered Business Without Losing Your Mind</a></h3>
+        <p class="blurb">Overwhelm — not budget or technical complexity — is the number one reason AI adoption fails in small businesses. A three-phase framework for adopting AI deliberately: foundation, expansion, intelligence.</p>
+        <a href="/blog/ai-without-losing-mind.html" class="entry-link">Read essay <span class="arrow">→</span></a>
+      </article>
+
+      <article class="entry reveal">
+        <span class="entry-num">iv.</span>
+        <div class="entry-meta">
+          <span class="entry-category">Leadership</span>
+          <span class="entry-meta-dot"></span>
+          <span>9 min read</span>
+          <span class="entry-meta-dot"></span>
+          <span>Apr 2026</span>
+        </div>
+        <h3><a href="/blog/sf-to-ai.html">From Army Special Forces to AI Automation</a></h3>
+        <p class="blurb">What military planning taught me about building AI systems. METT-TC — the Army's mission analysis framework — translated directly to automation projects, from mission definition to human factors.</p>
+        <a href="/blog/sf-to-ai.html" class="entry-link">Read essay <span class="arrow">→</span></a>
+      </article>
+
+      <article class="entry reveal">
+        <span class="entry-num">v.</span>
+        <div class="entry-meta">
+          <span class="entry-category">Tutorial</span>
+          <span class="entry-meta-dot"></span>
+          <span>7 min read</span>
+          <span class="entry-meta-dot"></span>
+          <span>Mar 2026</span>
+        </div>
+        <h3><a href="/blog/how-to-build-ai-agent-beginners.html">How to Build Your Own AI Agent (Complete Beginner's Guide)</a></h3>
+        <p class="blurb">A no-fluff, step-by-step walkthrough to a working personal AI agent on your own machine — workspace, personality, memory, and email integration. No coding background required.</p>
+        <a href="/blog/how-to-build-ai-agent-beginners.html" class="entry-link">Read essay <span class="arrow">→</span></a>
+      </article>
+
+      <article class="entry reveal">
+        <span class="entry-num">vi.</span>
+        <div class="entry-meta">
+          <span class="entry-category">AI Productivity</span>
+          <span class="entry-meta-dot"></span>
+          <span>7 min read</span>
+          <span class="entry-meta-dot"></span>
+          <span>Mar 2026</span>
+        </div>
+        <h3><a href="/blog/ai-agent-email-management.html">How to Use an AI Agent to Manage Your Email</a></h3>
+        <p class="blurb">An agent that reads your email, understands context, prioritizes what matters, and drafts replies in your voice — and what inbox zero actually looks like when the agent handles the volume.</p>
+        <a href="/blog/ai-agent-email-management.html" class="entry-link">Read essay <span class="arrow">→</span></a>
+      </article>
+
+      <article class="entry reveal">
+        <span class="entry-num">vii.</span>
+        <div class="entry-meta">
+          <span class="entry-category">Career</span>
+          <span class="entry-meta-dot"></span>
+          <span>7 min read</span>
+          <span class="entry-meta-dot"></span>
+          <span>Mar 2026</span>
+        </div>
+        <h3><a href="/blog/women-in-ai-cybersecurity.html">Women in AI and Cybersecurity: Breaking In, Moving Up</a></h3>
+        <p class="blurb">Breaking into cybersecurity and AI, growing sustainably, and building your own path — practical, first-hand advice from 19 years in the field, plus how AI agents level the playing field.</p>
+        <a href="/blog/women-in-ai-cybersecurity.html" class="entry-link">Read essay <span class="arrow">→</span></a>
+      </article>
+
+      <article class="entry reveal">
+        <span class="entry-num">viii.</span>
+        <div class="entry-meta">
+          <span class="entry-category">AI Tools</span>
+          <span class="entry-meta-dot"></span>
+          <span>10 min read</span>
+          <span class="entry-meta-dot"></span>
+          <span>Mar 2026</span>
+        </div>
+        <h3><a href="/blog/best-ai-tools-for-beginners-2026.html">The 7 Best AI Tools for Beginners in 2026 (Ranked and Reviewed)</a></h3>
+        <p class="blurb">ChatGPT, Claude, Gemini, Perplexity, OpenClaw, Notion AI, and Midjourney — an honest ranking from sustained real-world use: who each tool is for, and the tradeoffs nobody mentions.</p>
+        <a href="/blog/best-ai-tools-for-beginners-2026.html" class="entry-link">Read essay <span class="arrow">→</span></a>
+      </article>
+
+      <article class="entry reveal">
+        <span class="entry-num">ix.</span>
+        <div class="entry-meta">
+          <span class="entry-category">Cybersecurity</span>
+          <span class="entry-meta-dot"></span>
+          <span>11 min read</span>
+          <span class="entry-meta-dot"></span>
+          <span>Mar 2026</span>
+        </div>
+        <h3><a href="/blog/how-to-use-ai-for-cybersecurity.html">How to Use AI for Cybersecurity (Without Getting Burned)</a></h3>
+        <p class="blurb">Threat intel automation, incident response, red team prompting — and the three risks that actually burn practitioners: data leakage, hallucinations, and skill atrophy. From 19 years in the field.</p>
+        <a href="/blog/how-to-use-ai-for-cybersecurity.html" class="entry-link">Read essay <span class="arrow">→</span></a>
+      </article>
+
+      <article class="entry reveal">
+        <span class="entry-num">x.</span>
+        <div class="entry-meta">
+          <span class="entry-category">Products</span>
+          <span class="entry-meta-dot"></span>
+          <span>7 min read</span>
+          <span class="entry-meta-dot"></span>
+          <span>Mar 2026</span>
+        </div>
+        <h3><a href="/blog/products-launch.html">Two New Products Just Dropped — What They Are and Why I Built Them</a></h3>
+        <p class="blurb">The AI Agent Starter Kit ($27) and the Cybersecurity AI Prompt Pack ($47): who they're for, what's inside, and the thinking behind building them as one-time purchases.</p>
+        <a href="/blog/products-launch.html" class="entry-link">Read essay <span class="arrow">→</span></a>
+      </article>
+
+      <article class="entry reveal">
+        <span class="entry-num">xi.</span>
+        <div class="entry-meta">
+          <span class="entry-category">Profile</span>
+          <span class="entry-meta-dot"></span>
+          <span>10 min read</span>
+          <span class="entry-meta-dot"></span>
+          <span>Mar 2026</span>
+        </div>
+        <h3><a href="/blog/jax-scott-women-in-ai.html">Jax Scott: Army Veteran, Cybersecurity Expert, Women in AI</a></h3>
+        <p class="blurb">The founder's story — a decade in Army Special Forces cyber operations, 19 years in cybersecurity, Outpost Gray, the 2CyberChicks podcast, and why that background shapes how TheZaraAI builds.</p>
+        <a href="/blog/jax-scott-women-in-ai.html" class="entry-link">Read essay <span class="arrow">→</span></a>
+      </article>
+
+      <article class="entry reveal">
+        <span class="entry-num">xii.</span>
+        <div class="entry-meta">
+          <span class="entry-category">AI Education</span>
           <span class="entry-meta-dot"></span>
           <span>6 min read</span>
           <span class="entry-meta-dot"></span>
-          <span>2026</span>
+          <span>Mar 2026</span>
         </div>
-        <h3><a href="#">What a vCISO Actually Does (and Why You Might Need One)</a></h3>
-        <p class="blurb">A virtual CISO is more than a fractional title. It's executive-level security leadership scoped to the size of your business — strategy, governance, and board-ready risk reporting, on demand. Here's the honest version of the role.</p>
-        <a href="#" class="entry-link">Read essay <span class="arrow">→</span></a>
+        <h3><a href="/blog/what-is-an-ai-agent.html">What Is an AI Agent? (And Why You Need One in 2026)</a></h3>
+        <p class="blurb">The difference between a chatbot and a true AI agent — memory, actions, autonomy — with concrete examples of what an agent running on your own machine can actually do for you.</p>
+        <a href="/blog/what-is-an-ai-agent.html" class="entry-link">Read essay <span class="arrow">→</span></a>
+      </article>
+
+      <article class="entry reveal">
+        <span class="entry-num">xiii.</span>
+        <div class="entry-meta">
+          <span class="entry-category">Tutorial</span>
+          <span class="entry-meta-dot"></span>
+          <span>8 min read</span>
+          <span class="entry-meta-dot"></span>
+          <span>Mar 2026</span>
+        </div>
+        <h3><a href="/blog/how-to-give-ai-agent-memory.html">How to Give Your AI Agent a Real Memory (Step-by-Step)</a></h3>
+        <p class="blurb">Most AI forgets you the moment a chat ends. How persistent memory actually works — MEMORY.md, SOUL.md, and daily memory files — with templates you can copy today.</p>
+        <a href="/blog/how-to-give-ai-agent-memory.html" class="entry-link">Read essay <span class="arrow">→</span></a>
+      </article>
+
+      <article class="entry reveal">
+        <span class="entry-num">xiv.</span>
+        <div class="entry-meta">
+          <span class="entry-category">Comparison</span>
+          <span class="entry-meta-dot"></span>
+          <span>7 min read</span>
+          <span class="entry-meta-dot"></span>
+          <span>Mar 2026</span>
+        </div>
+        <h3><a href="/blog/openclaw-vs-chatgpt.html">OpenClaw vs ChatGPT: Why I Stopped Paying $20/Month</a></h3>
+        <p class="blurb">An honest comparison — what ChatGPT does well, where it falls short on memory, actions, and privacy, and why a local AI agent replaced my ChatGPT Plus subscription.</p>
+        <a href="/blog/openclaw-vs-chatgpt.html" class="entry-link">Read essay <span class="arrow">→</span></a>
       </article>
 
     </div>
   </div>
 </section>
 
+</main>
+
 <!-- ============ FOOTER ============ -->
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="../index.html" class="brand">
+        <a href="/" class="brand">
           <span class="mark"><svg><use href="#zara-mark"/></svg></span>
           <span>
             <span class="brand-text">TheZara<span class="ai">AI</span></span>
@@ -744,28 +975,29 @@ h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 500; color: var(--
       <div>
         <h4>Practice</h4>
         <ul>
-          <li><a href="../index.html#services">AI Automation</a></li>
-          <li><a href="../index.html#services">vCISO</a></li>
-          <li><a href="../index.html#services">Security for AI</a></li>
-          <li><a href="../index.html#engagement">Engagement Model</a></li>
+          <li><a href="/#services">AI Automation</a></li>
+          <li><a href="/#services">vCISO</a></li>
+          <li><a href="/#services">Security for AI</a></li>
+          <li><a href="/#pricing">Pricing</a></li>
         </ul>
       </div>
       <div>
         <h4>Studio</h4>
         <ul>
-          <li><a href="../index.html#team">Team</a></li>
-          <li><a href="index.html">Journal</a></li>
-          <li><a href="../index.html#handbook">Free Field Manual</a></li>
-          <li><a href="../index.html#faq">FAQ</a></li>
-          <li><a href="../index.html#contact">Contact</a></li>
+          <li><a href="/#team">Team</a></li>
+          <li><a href="/blog/">Journal</a></li>
+          <li><a href="/#handbook">Free Field Manual</a></li>
+          <li><a href="/#faq">FAQ</a></li>
+          <li><a href="/#contact">Contact</a></li>
         </ul>
       </div>
       <div>
         <h4>Legal</h4>
         <ul>
-          <li><a href="../legal/privacy-policy.html">Privacy</a></li>
-          <li><a href="../legal/terms-of-service.html">Terms</a></li>
-          <li><a href="../legal/cookie-policy.html">Cookies</a></li>
+          <li><a href="/legal/privacy-policy.html">Privacy</a></li>
+          <li><a href="/legal/terms-of-service.html">Terms</a></li>
+          <li><a href="/legal/cookie-policy.html">Cookies</a></li>
+          <li><a href="/legal/accessibility.html">Accessibility</a></li>
         </ul>
       </div>
     </div>
@@ -792,6 +1024,38 @@ const revealObserver = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// ============================================================
+// COOKIE CONSENT BANNER (GDPR / CCPA / CPRA-friendly)
+// ============================================================
+(function() {
+  const KEY = 'tza_cookie_consent_v1';
+  if (localStorage.getItem(KEY)) return;
+
+  const banner = document.createElement('div');
+  banner.className = 'cookie-banner';
+  banner.innerHTML = ''
+    + '<div class="cookie-banner-inner">'
+    + '  <p class="cookie-banner-text">We use minimal cookies to keep this site running and to learn what helps visitors. Read our '
+    + '    <a href="/legal/cookie-policy.html">Cookie Policy</a> &middot; '
+    + '    <a href="/legal/privacy-policy.html">Privacy Policy</a>.'
+    + '  </p>'
+    + '  <div class="cookie-banner-actions">'
+    + '    <button type="button" class="btn btn-link" data-cookie="decline">Decline</button>'
+    + '    <button type="button" class="btn btn-primary" data-cookie="accept">Accept</button>'
+    + '  </div>'
+    + '</div>';
+  document.body.appendChild(banner);
+  setTimeout(() => banner.classList.add('visible'), 100);
+
+  banner.querySelectorAll('button[data-cookie]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      localStorage.setItem(KEY, btn.dataset.cookie);
+      banner.classList.remove('visible');
+      setTimeout(() => banner.remove(), 400);
+    });
+  });
+})();
 </script>
 
 </body>

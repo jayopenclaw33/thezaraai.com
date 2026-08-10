@@ -1,295 +1,1083 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Women in AI and Cybersecurity: Breaking In, Moving Up, and Building Your Own Path | theZaraAI.com</title>
-  <meta name="description" content="19-year cyber veteran and RSA speaker Jax Scott shares real advice for women entering AI and cybersecurity — how to break in, move up, and use AI tools to level the playing field.">
-  <meta name="keywords" content="women in AI cybersecurity, women in cybersecurity, women in tech, AI career advice women, breaking into cybersecurity, Jax Scott, women in STEM">
-  <meta name="author" content="Jax Scott">
-  <link rel="canonical" href="https://thezaraai.com/blog/women-in-ai-cybersecurity.html">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Women in AI and Cybersecurity: Breaking In, Moving Up — TheZaraAI</title>
+<meta name="description" content="Breaking into cybersecurity and AI, growing sustainably, and building your own path — practical advice from 19 years in the field.">
+<meta name="author" content="Jax Scott, ZaraAI LLC">
+<link rel="canonical" href="https://thezaraai.com/blog/women-in-ai-cybersecurity.html">
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="article">
-  <meta property="og:title" content="Women in AI and Cybersecurity: Breaking In, Moving Up, and Building Your Own Path">
-  <meta property="og:description" content="19-year cyber veteran and RSA speaker Jax Scott on what it actually takes for women to break into AI and cybersecurity — and why 2026 might be the best time ever to do it.">
-  <meta property="og:url" content="https://thezaraai.com/blog/women-in-ai-cybersecurity.html">
-  <meta property="og:site_name" content="theZaraAI.com">
-  <meta property="og:image" content="https://thezaraai.com/assets/zara-og.png">
-  <meta property="article:author" content="Jax Scott">
-  <meta property="article:published_time" content="2026-03-29">
-  <meta property="article:section" content="Career & Community">
-  <meta property="article:tag" content="women in AI, women in cybersecurity, career advice, AI tools, diversity in tech">
+<link rel="icon" type="image/png" href="/assets/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@the_Zaraai">
-  <meta name="twitter:title" content="Women in AI and Cybersecurity: Breaking In, Moving Up, and Building Your Own Path">
-  <meta name="twitter:description" content="Jax Scott — 19yr cyber vet, Army Special Forces, RSA speaker — on what it actually takes for women to build a career in AI and cyber.">
-  <meta name="twitter:image" content="https://thezaraai.com/assets/zara-og.png">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Women in AI and Cybersecurity: Breaking In, Moving Up — TheZaraAI">
+<meta property="og:description" content="Breaking into cybersecurity and AI, growing sustainably, and building your own path — practical advice from 19 years in the field.">
+<meta property="og:url" content="https://thezaraai.com/blog/women-in-ai-cybersecurity.html">
+<meta property="og:site_name" content="TheZaraAI">
+<meta property="og:image" content="https://thezaraai.com/assets/zara-og-image.png">
 
-  <!-- JSON-LD Article Schema -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "Women in AI and Cybersecurity: Breaking In, Moving Up, and Building Your Own Path",
-    "description": "19-year cyber veteran and RSA speaker Jax Scott shares real advice for women entering AI and cybersecurity — how to break in, move up, and use AI tools to level the playing field.",
-    "author": {
-      "@type": "Person",
-      "name": "Jax Scott",
-      "url": "https://iamjax.me",
-      "sameAs": ["https://twitter.com/the_Zaraai", "https://instagram.com/the_Zaraai"]
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "theZaraAI.com",
-      "url": "https://thezaraai.com",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://thezaraai.com/assets/zara-og.png"
-      }
-    },
-    "datePublished": "2026-03-29",
-    "dateModified": "2026-03-29",
-    "url": "https://thezaraai.com/blog/women-in-ai-cybersecurity.html",
-    "mainEntityOfPage": "https://thezaraai.com/blog/women-in-ai-cybersecurity.html",
-    "image": "https://thezaraai.com/assets/zara-og.png",
-    "keywords": "women in AI cybersecurity, women in cybersecurity, AI career advice, women in STEM, Jax Scott"
-  }
-  </script>
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@the_Zaraai">
+<meta name="twitter:title" content="Women in AI and Cybersecurity: Breaking In, Moving Up — TheZaraAI">
+<meta name="twitter:description" content="Breaking into cybersecurity and AI, growing sustainably, and building your own path — practical advice from 19 years in the field.">
+<meta name="twitter:image" content="https://thezaraai.com/assets/zara-og-image.png">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background: #0a0a0f; color: #e2e8f0; font-family: 'Inter', sans-serif; line-height: 1.7; }
-    a { color: #a78bfa; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    /* NAV */
-    nav { background: #0e0e18; border-bottom: 1px solid #1e1e30; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 64px; position: sticky; top: 0; z-index: 100; }
-    .nav-logo { font-size: 1.4rem; font-weight: 800; color: #fff; }
-    .nav-logo span { color: #a78bfa; }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a { color: #94a3b8; font-weight: 500; transition: color 0.2s; }
-    .nav-links a:hover { color: #a78bfa; text-decoration: none; }
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
-    .hamburger span { display: block; width: 24px; height: 2px; background: #94a3b8; border-radius: 2px; }
-    .mobile-menu { display: none; flex-direction: column; background: #0e0e18; border-top: 1px solid #1e1e30; padding: 1rem 2rem; gap: 1rem; }
-    .mobile-menu a { color: #94a3b8; font-weight: 500; }
-    .mobile-menu.open { display: flex; }
-
-    /* ARTICLE HERO */
-    .article-hero { background: linear-gradient(135deg, #0e0e18 0%, #13101f 100%); padding: 4rem 2rem 3rem; text-align: center; border-bottom: 1px solid #1e1e30; }
-    .article-hero .tag { display: inline-block; background: rgba(167,139,250,0.1); color: #a78bfa; border: 1px solid rgba(167,139,250,0.3); border-radius: 20px; padding: 4px 14px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; }
-    .article-hero h1 { font-size: clamp(1.8rem, 5vw, 3rem); font-weight: 800; color: #fff; max-width: 820px; margin: 0 auto 1rem; }
-    .article-meta { color: #64748b; font-size: 0.9rem; }
-    .article-meta span { color: #94a3b8; }
-
-    /* AUTHOR BIO */
-    .author-bio { background: #0e0e18; border: 1px solid #2a2a40; border-radius: 12px; padding: 1.5rem; margin-bottom: 2.5rem; display: flex; gap: 1rem; align-items: flex-start; }
-    .author-bio .author-text h4 { color: #e2e8f0; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.3rem; }
-    .author-bio .author-text p { color: #64748b; font-size: 0.85rem; margin: 0; line-height: 1.5; }
-    .author-tag { background: rgba(167,139,250,0.15); color: #a78bfa; font-size: 0.75rem; font-weight: 600; padding: 2px 8px; border-radius: 10px; display: inline-block; margin-bottom: 0.4rem; }
-
-    /* ARTICLE BODY */
-    .article-container { max-width: 780px; margin: 0 auto; padding: 3rem 2rem 5rem; }
-    .article-container h2 { font-size: 1.6rem; font-weight: 700; color: #fff; margin: 2.5rem 0 1rem; border-left: 3px solid #a78bfa; padding-left: 0.75rem; }
-    .article-container h3 { font-size: 1.2rem; font-weight: 600; color: #c4b5fd; margin: 1.8rem 0 0.7rem; }
-    .article-container p { margin-bottom: 1.2rem; color: #cbd5e1; }
-    .article-container ul, .article-container ol { margin: 1rem 0 1.5rem 1.5rem; color: #cbd5e1; }
-    .article-container li { margin-bottom: 0.7rem; }
-    .article-container strong { color: #e2e8f0; }
-
-    /* PULL QUOTE */
-    .pull-quote { border-left: 4px solid #a78bfa; padding: 1.2rem 1.5rem; margin: 2.5rem 0; background: #0e0e18; border-radius: 0 10px 10px 0; }
-    .pull-quote p { color: #c4b5fd; font-size: 1.1rem; font-style: italic; margin: 0; font-weight: 500; line-height: 1.6; }
-
-    /* CTA BOX FREE */
-    .cta-box { background: #0e0e18; border: 1px solid #a78bfa; border-radius: 12px; padding: 2rem; margin: 3rem 0; }
-    .cta-box h3 { color: #a78bfa; font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; }
-    .cta-box p { color: #94a3b8; margin-bottom: 1.2rem; font-size: 0.95rem; }
-
-    /* PAID CTA */
-    .cta-paid { background: linear-gradient(135deg, #13101f, #1a0f2e); border: 1px solid #7c3aed; border-radius: 14px; padding: 2rem; margin: 3rem 0; text-align: center; }
-    .cta-paid h3 { color: #c4b5fd; font-size: 1.3rem; font-weight: 700; margin-bottom: 0.75rem; }
-    .cta-paid p { color: #a3a3c0; margin-bottom: 1.5rem; }
-    .btn-primary { display: inline-block; background: #a78bfa; color: #0a0a0f; font-weight: 700; padding: 0.9rem 2rem; border-radius: 8px; font-size: 1rem; transition: opacity 0.2s; }
-    .btn-primary:hover { opacity: 0.9; text-decoration: none; }
-    .btn-secondary { display: inline-block; background: transparent; color: #a78bfa; border: 1px solid #a78bfa; font-weight: 700; padding: 0.85rem 1.8rem; border-radius: 8px; font-size: 0.95rem; transition: all 0.2s; }
-    .btn-secondary:hover { background: rgba(167,139,250,0.1); text-decoration: none; }
-
-    /* BACK LINK */
-    .back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: #64748b; font-size: 0.9rem; margin-bottom: 2rem; }
-    .back-link:hover { color: #a78bfa; text-decoration: none; }
-
-    /* FOOTER */
-    footer { background: #0e0e18; border-top: 1px solid #1e1e30; text-align: center; padding: 2rem; color: #475569; font-size: 0.85rem; }
-
-    @media (max-width: 640px) {
-      .nav-links { display: none; }
-      .hamburger { display: flex; }
-      .article-hero { padding: 2.5rem 1.5rem 2rem; }
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Women in AI and Cybersecurity: Breaking In, Moving Up, and Building Your Own Path",
+  "description": "Breaking into cybersecurity and AI, growing sustainably, and building your own path \u2014 practical advice from 19 years in the field.",
+  "author": {
+    "@type": "Person",
+    "name": "Jax Scott",
+    "url": "https://thezaraai.com/#team"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "ZaraAI LLC",
+    "url": "https://thezaraai.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://thezaraai.com/assets/apple-touch-icon.png"
     }
-  </style>
+  },
+  "image": "https://thezaraai.com/assets/zara-og-image.png",
+  "datePublished": "2026-03-29",
+  "dateModified": "2026-08-10",
+  "url": "https://thezaraai.com/blog/women-in-ai-cybersecurity.html",
+  "mainEntityOfPage": "https://thezaraai.com/blog/women-in-ai-cybersecurity.html",
+  "inLanguage": "en"
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --cream: #F4EFE8;
+  --cream-deep: #EDE6DB;
+  --cream-soft: #F9F5EE;
+  --paper: #FBF8F3;
+
+  --navy: #1C2540;
+  --navy-deep: #131A2E;
+  --navy-soft: #2A3454;
+  --ink: #1C2540;
+  --ink-muted: #5C6480;
+  --ink-subtle: #8A91A6;
+
+  --rose: #B87560;
+  --rose-deep: #9B5E4A;
+  --rose-light: #D6A593;
+  --rose-glow: rgba(184, 117, 96, 0.08);
+
+  --rule: rgba(184, 117, 96, 0.35);
+  --rule-soft: rgba(28, 37, 64, 0.08);
+
+  --font-serif: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  --font-sans:  'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
+
+  --transition: 350ms cubic-bezier(0.22, 1, 0.36, 1);
+  --transition-slow: 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 1rem;
+  background: var(--navy);
+  color: var(--cream);
+  padding: 0.5rem 1rem;
+  z-index: 200;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: top 200ms ease;
+}
+.skip-link:focus { top: 0.75rem; }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+body {
+  font-family: var(--font-sans);
+  background: var(--cream);
+  color: var(--ink);
+  font-size: 17px;
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+
+.container { max-width: 1180px; margin: 0 auto; padding: 0 1.75rem; }
+.container-narrow { max-width: 760px; margin: 0 auto; padding: 0 1.75rem; }
+
+.serif { font-family: var(--font-serif); font-weight: 500; letter-spacing: -0.005em; }
+h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 500; color: var(--navy); letter-spacing: -0.01em; }
+
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  color: var(--rose-deep);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.eyebrow::before,
+.eyebrow::after {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: var(--rose-light);
+}
+
+.mark {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+.mark svg { width: 100%; height: 100%; display: block; }
+
+/* ============ NAV ============ */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(244, 239, 232, 0.88);
+  backdrop-filter: saturate(160%) blur(18px);
+  -webkit-backdrop-filter: saturate(160%) blur(18px);
+  transition: border-color var(--transition), background var(--transition);
+  border-bottom: 1px solid transparent;
+}
+.nav.scrolled {
+  border-bottom-color: var(--rule-soft);
+  background: rgba(244, 239, 232, 0.95);
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 76px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.brand-text {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  color: var(--navy);
+  line-height: 1;
+}
+.brand-text .ai { color: var(--rose); }
+.brand-tag {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.55rem;
+  text-transform: uppercase;
+  letter-spacing: 0.32em;
+  color: var(--rose-deep);
+  margin-top: 0.3rem;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--ink);
+  position: relative;
+  padding: 0.5rem 0;
+  letter-spacing: 0.01em;
+  transition: color var(--transition);
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--rose);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform var(--transition);
+}
+.nav-links a:hover { color: var(--rose-deep); }
+.nav-links a:hover::after { transform: scaleX(1); }
+.nav-links a.active { color: var(--rose-deep); }
+.nav-links a.active::after { transform: scaleX(1); }
+
+.nav-cta-group { display: flex; gap: 0.6rem; align-items: center; }
+@media (max-width: 1080px) { .nav-links { display: none; } }
+@media (max-width: 600px) { .nav-cta-group .btn-ghost { display: none; } }
+
+/* ============ BUTTONS ============ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transition: all var(--transition);
+  white-space: nowrap;
+  cursor: pointer;
+  border: 1px solid transparent;
+  position: relative;
+}
+.btn-primary {
+  background: var(--navy);
+  color: var(--cream);
+}
+.btn-primary:hover {
+  background: var(--navy-deep);
+  transform: translateY(-1px);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--navy);
+  border-color: var(--navy);
+}
+.btn-ghost:hover {
+  background: var(--navy);
+  color: var(--cream);
+}
+.btn-link {
+  padding: 0.5rem 0;
+  background: transparent;
+  color: var(--rose-deep);
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.78rem;
+  font-weight: 500;
+  position: relative;
+}
+.btn-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--rose);
+  transform-origin: left;
+  transition: transform var(--transition);
+}
+.btn-link:hover::after { transform: scaleX(1.05); }
+.btn-arrow { font-family: var(--font-serif); font-size: 1rem; transition: transform var(--transition); }
+.btn:hover .btn-arrow { transform: translateX(4px); }
+@media (max-width: 600px) {
+  .btn { white-space: normal; text-align: center; }
+}
+
+/* ============ ARTICLE HERO ============ */
+.article-hero {
+  padding: clamp(3.5rem, 8vw, 5.5rem) 0 clamp(2.25rem, 4.5vw, 3.5rem);
+  text-align: center;
+  border-bottom: 1px solid var(--rule-soft);
+  background: var(--paper);
+}
+.article-hero .eyebrow { margin-bottom: 1.6rem; }
+.article-hero h1 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: clamp(2.1rem, 4.8vw, 3.4rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+  max-width: 24ch;
+  margin: 0 auto 1.4rem;
+}
+.article-hero h1 em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--rose-deep);
+}
+.article-meta {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-subtle);
+  margin-top: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  row-gap: 0.35rem;
+}
+.article-meta span + span::before {
+  content: '·';
+  margin: 0 0.65rem;
+  color: var(--rose-light);
+}
+.byline-link {
+  color: var(--rose-deep);
+  border-bottom: 1px solid var(--rule);
+  transition: color var(--transition);
+}
+.byline-link:hover { color: var(--rose); }
+
+/* ============ ARTICLE CONTENT ============ */
+.article-body {
+  padding: clamp(3rem, 6.5vw, 5rem) 0 clamp(4rem, 8vw, 6rem);
+}
+.article-content > * + * { margin-top: 1.25rem; }
+.article-content .lede {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.28rem;
+  color: var(--ink-muted);
+  line-height: 1.55;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--rule-soft);
+}
+.article-content h2 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  line-height: 1.15;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+  margin-top: 3rem;
+  margin-bottom: 1.1rem;
+  padding-top: 2.4rem;
+  border-top: 1px solid var(--rule);
+}
+.article-content h3 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: 1.32rem;
+  color: var(--navy);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.005em;
+}
+.article-content p {
+  line-height: 1.75;
+  color: var(--ink);
+  font-size: 1.02rem;
+}
+.article-content ul, .article-content ol {
+  padding-left: 1.5rem;
+  color: var(--ink);
+  margin: 1rem 0;
+}
+.article-content li {
+  margin-bottom: 0.6rem;
+  line-height: 1.68;
+  font-size: 1rem;
+}
+.article-content li::marker { color: var(--rose-deep); }
+.article-content a {
+  color: var(--rose-deep);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition: color var(--transition);
+}
+.article-content a:hover { color: var(--rose); }
+.article-content strong { color: var(--navy); font-weight: 600; }
+.article-content em { font-style: italic; }
+.article-content code {
+  font-family: var(--font-mono);
+  font-size: 0.86em;
+  background: var(--cream-deep);
+  color: var(--navy);
+  padding: 0.1em 0.4em;
+  border: 1px solid var(--rule-soft);
+}
+
+.callout {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  padding: 1.5rem 1.75rem;
+  margin: 2rem 0;
+  position: relative;
+}
+.callout::before {
+  content: '';
+  position: absolute;
+  top: -1px; left: -1px; right: -1px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--rose) 0%, var(--rose-light) 100%);
+}
+.callout p { font-size: 0.97rem; color: var(--ink); }
+.callout p + p { margin-top: 0.75rem; }
+.callout ul { margin: 0.75rem 0 0; }
+.callout li { font-size: 0.95rem; }
+.callout-label {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  color: var(--rose-deep);
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+  display: block;
+}
+
+.pull-quote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.4rem;
+  line-height: 1.45;
+  color: var(--navy);
+  border-left: 2px solid var(--rose);
+  padding: 0.35rem 0 0.35rem 1.6rem;
+  margin: 2.5rem 0;
+}
+
+pre.code-block {
+  background: var(--navy);
+  color: var(--cream);
+  font-family: var(--font-mono);
+  font-size: 0.83rem;
+  line-height: 1.6;
+  padding: 1.4rem 1.6rem;
+  margin: 1.5rem 0;
+  overflow-x: auto;
+  white-space: pre;
+}
+
+.prompt-label {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  color: var(--rose-deep);
+  font-weight: 600;
+  margin: 1.25rem 0 0.4rem;
+  display: block;
+}
+
+.table-scroll { overflow-x: auto; margin: 2rem 0; border: 1px solid var(--rule-soft); }
+table.article-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.93rem;
+  background: var(--paper);
+}
+table.article-table th {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--ink-muted);
+  text-align: left;
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid var(--rule);
+  background: var(--cream-soft);
+}
+table.article-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--rule-soft);
+  color: var(--ink);
+  vertical-align: top;
+}
+table.article-table tr:last-child td { border-bottom: none; }
+table.article-table td.rank {
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--rose-deep);
+}
+
+.step {
+  background: var(--paper);
+  border: 1px solid var(--rule-soft);
+  border-left: 2px solid var(--rose);
+  padding: 1.4rem 1.6rem;
+  margin: 1.5rem 0;
+}
+.step-num {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--rose-deep);
+  display: block;
+  margin-bottom: 0.4rem;
+}
+.step h3 { margin-top: 0; }
+.step p { font-size: 0.97rem; }
+
+.phase-label {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  color: var(--rose-deep);
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.procon {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.75rem;
+  margin: 1.25rem 0 1.5rem;
+}
+.procon h4 {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 0.6rem;
+}
+.procon ul { margin: 0; padding-left: 1.25rem; }
+.procon li { font-size: 0.93rem; margin-bottom: 0.45rem; }
+@media (max-width: 640px) { .procon { grid-template-columns: 1fr; gap: 1.25rem; } }
+
+.tool-card {
+  border-top: 2px solid var(--rose);
+  padding-top: 1.75rem;
+  margin-top: 2.75rem;
+}
+.tool-rank {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--rose-deep);
+  display: block;
+  margin-bottom: 0.35rem;
+}
+.tool-card h3 { margin-top: 0; font-size: 1.55rem; }
+.tool-best {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--ink-muted);
+  margin: 0.5rem 0 1rem;
+  display: block;
+}
+
+.mett-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--rule-soft);
+  border: 1px solid var(--rule-soft);
+  margin: 2rem 0;
+}
+.mett-item { background: var(--paper); padding: 1.4rem 1.5rem; }
+.mett-letter {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.9rem;
+  line-height: 1;
+  color: var(--rose-deep);
+  display: block;
+  margin-bottom: 0.4rem;
+}
+.mett-word { font-family: var(--font-serif); font-size: 1.15rem; color: var(--navy); margin-bottom: 0.3rem; }
+.mett-desc { font-size: 0.9rem; color: var(--ink-muted); line-height: 1.55; }
+@media (max-width: 640px) { .mett-grid { grid-template-columns: 1fr; } }
+
+/* ============ FURTHER READING ============ */
+.further {
+  margin-top: 3.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--rule);
+}
+.further-title {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  color: var(--rose-deep);
+  margin-bottom: 1rem;
+}
+.further ul { list-style: none; }
+.further li { margin-bottom: 0.65rem; }
+.further a {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  color: var(--navy);
+  border-bottom: 1px solid var(--rule);
+  transition: color var(--transition), border-color var(--transition);
+}
+.further a:hover { color: var(--rose-deep); border-color: var(--rose); }
+
+/* ============ CTA PANEL ============ */
+.cta-panel {
+  margin: 3rem 0 0;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  padding: clamp(1.5rem, 3vw, 2.25rem) clamp(1.5rem, 3vw, 2.5rem);
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+.cta-panel::before {
+  content: '';
+  position: absolute;
+  top: -1px; left: -1px; right: -1px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--rose) 0%, var(--rose-light) 100%);
+}
+.cta-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  color: var(--rose-deep);
+  margin-bottom: 0.6rem;
+  display: block;
+}
+.cta-panel h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.4rem, 2.4vw, 1.75rem);
+  line-height: 1.2;
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+}
+.cta-panel p {
+  color: var(--ink-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+.cta-action { display: flex; justify-content: flex-end; }
+@media (max-width: 720px) {
+  .cta-panel { grid-template-columns: 1fr; gap: 1.25rem; }
+  .cta-action { justify-content: flex-start; }
+}
+
+/* ============ FOOTER ============ */
+.footer {
+  background: var(--cream-deep);
+  border-top: 1px solid var(--rule-soft);
+  padding: 4.5rem 0 2rem;
+  margin-top: 0;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3.5rem;
+}
+.footer-brand { max-width: 320px; }
+.footer-brand .brand { margin-bottom: 1.25rem; }
+.footer-brand p {
+  color: var(--ink-muted);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.65;
+}
+.footer h4 {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 1.25rem;
+}
+.footer ul { list-style: none; }
+.footer ul li { margin-bottom: 0.7rem; font-size: 0.9rem; }
+.footer ul a {
+  color: var(--ink-muted);
+  transition: color var(--transition);
+}
+.footer ul a:hover { color: var(--rose-deep); }
+.footer-disclaimer {
+  padding: 2rem 0;
+  margin-bottom: 1rem;
+  border-top: 1px solid var(--rule-soft);
+}
+.footer-disclaimer p {
+  font-size: 0.78rem;
+  color: var(--ink-subtle);
+  line-height: 1.65;
+  max-width: 880px;
+}
+.footer-disclaimer a { color: var(--rose-deep); }
+.footer-disclaimer a:hover { color: var(--rose); }
+.footer-disclaimer strong { color: var(--ink-muted); font-weight: 600; }
+.footer-bottom {
+  padding-top: 2.25rem;
+  border-top: 1px solid var(--rule-soft);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.78rem;
+  color: var(--ink-subtle);
+  letter-spacing: 0.05em;
+}
+.contact-socials { display: flex; gap: 0.75rem; }
+.contact-social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--rule);
+  color: var(--rose-deep);
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  transition: all var(--transition);
+}
+.contact-social:hover { background: var(--rose); color: var(--cream); border-color: var(--rose); }
+@media (max-width: 900px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+  .footer-bottom { flex-direction: column; gap: 0.75rem; text-align: center; }
+}
+
+/* ============ COOKIE BANNER ============ */
+.cookie-banner {
+  position: fixed;
+  bottom: 1.25rem;
+  left: 50%;
+  transform: translate(-50%, 200%);
+  z-index: 1000;
+  width: calc(100% - 2.5rem);
+  max-width: 720px;
+  background: var(--navy);
+  color: var(--cream);
+  border: 1px solid var(--rule-soft);
+  box-shadow: 0 20px 60px rgba(15, 20, 25, 0.35);
+  transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.cookie-banner.visible { transform: translate(-50%, 0); }
+.cookie-banner-inner {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem 1.5rem;
+  flex-wrap: wrap;
+}
+.cookie-banner-text {
+  flex: 1;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: rgba(244, 239, 232, 0.85);
+  min-width: 240px;
+  margin: 0;
+}
+.cookie-banner-text a {
+  color: var(--rose-light);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.cookie-banner-text a:hover { color: var(--cream); }
+.cookie-banner-actions { display: flex; gap: 0.5rem; align-items: center; }
+.cookie-banner .btn-link { color: rgba(244, 239, 232, 0.7); padding: 0.5rem 0.75rem; }
+.cookie-banner .btn-link:hover { color: var(--cream); }
+.cookie-banner .btn-link::after { background: var(--cream); }
+.cookie-banner .btn-primary {
+  background: var(--cream);
+  color: var(--navy);
+  padding: 0.65rem 1.25rem;
+  font-size: 0.7rem;
+}
+.cookie-banner .btn-primary:hover { background: white; }
+@media (max-width: 600px) {
+  .cookie-banner-inner { flex-direction: column; align-items: stretch; gap: 1rem; }
+  .cookie-banner-actions { justify-content: space-between; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+</style>
 </head>
 <body>
 
-<nav>
-  <a href="https://thezaraai.com" class="nav-logo">Zara<span>AI</span></a>
-  <ul class="nav-links">
-    <li><a href="https://thezaraai.com">Home</a></li>
-    <li><a href="https://thezaraai.com/guide/">Free Guide</a></li>
-    <li><a href="https://thezaraai.com/blog/">Blog</a></li>
-    <li><a href="https://thezaraai.com/fire-your-todo-list/">Course</a></li>
-  </ul>
-  <button class="hamburger" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- ============ INLINE COMPASS-STAR MARK ============ -->
+<svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+  <defs>
+    <linearGradient id="rose-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D6A593"/>
+      <stop offset="100%" stop-color="#9B5E4A"/>
+    </linearGradient>
+    <symbol id="zara-mark" viewBox="0 0 100 100">
+      <path d="M50 8 L52 48 L50 50 L48 48 Z" fill="url(#rose-grad)"/>
+      <path d="M50 92 L52 52 L50 50 L48 52 Z" fill="url(#rose-grad)"/>
+      <path d="M8 50 L48 48 L50 50 L48 52 Z" fill="url(#rose-grad)"/>
+      <path d="M92 50 L52 48 L50 50 L52 52 Z" fill="url(#rose-grad)"/>
+      <circle cx="50" cy="50" r="2.2" fill="#9B5E4A"/>
+      <line x1="20" y1="42" x2="42" y2="42" stroke="url(#rose-grad)" stroke-width="1.2" stroke-linecap="round"/>
+      <line x1="20" y1="58" x2="42" y2="58" stroke="url(#rose-grad)" stroke-width="1.2" stroke-linecap="round"/>
+      <circle cx="20" cy="42" r="1.6" fill="none" stroke="url(#rose-grad)" stroke-width="1.2"/>
+      <circle cx="20" cy="58" r="1.6" fill="none" stroke="url(#rose-grad)" stroke-width="1.2"/>
+      <line x1="58" y1="42" x2="80" y2="42" stroke="url(#rose-grad)" stroke-width="1.2" stroke-linecap="round"/>
+      <line x1="58" y1="58" x2="80" y2="58" stroke="url(#rose-grad)" stroke-width="1.2" stroke-linecap="round"/>
+      <circle cx="80" cy="42" r="1.6" fill="none" stroke="url(#rose-grad)" stroke-width="1.2"/>
+      <circle cx="80" cy="58" r="1.6" fill="none" stroke="url(#rose-grad)" stroke-width="1.2"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ============ NAV ============ -->
+<nav class="nav" id="nav" aria-label="Main">
+  <div class="container nav-inner">
+    <a href="/" class="brand" aria-label="TheZaraAI home">
+      <span class="mark"><svg><use href="#zara-mark"/></svg></span>
+      <span>
+        <span class="brand-text">TheZara<span class="ai">AI</span></span>
+        <span class="brand-tag">AI · Cybersecurity · Automation</span>
+      </span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/#services">Services</a></li>
+      <li><a href="/#assessment">Assessment</a></li>
+      <li><a href="/#process">Process</a></li>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/#team">Team</a></li>
+      <li><a href="/blog/" class="active">Journal</a></li>
+    </ul>
+    <div class="nav-cta-group">
+      <a href="/#handbook" class="btn btn-link">Field Manual</a>
+      <a href="/#contact" class="btn btn-ghost">Book a Call</a>
+    </div>
+  </div>
 </nav>
-<div class="mobile-menu">
-  <a href="https://thezaraai.com">Home</a>
-  <a href="https://thezaraai.com/guide/">Free Guide</a>
-  <a href="https://thezaraai.com/blog/">Blog</a>
-  <a href="https://thezaraai.com/fire-your-todo-list/">Course</a>
+
+<!-- ============ HERO ============ -->
+<header class="article-hero">
+  <div class="container-narrow">
+    <span class="eyebrow">Career &amp; Community</span>
+    <h1>Women in AI and Cybersecurity: <em>Breaking In, Moving Up, and Building Your Own Path</em></h1>
+    <div class="article-meta"><span>By <a href="/#team" class="byline-link" rel="author">Jax Scott</a></span><span>Published March 29, 2026</span><span>Updated August 10, 2026</span><span>7 min read</span></div>
+  </div>
+</header>
+
+<!-- ============ ARTICLE ============ -->
+<main id="main" class="article-body">
+  <div class="container-narrow">
+
+    <article class="article-content">
+<p class="lede">This post is for every woman standing at the edge of cybersecurity or AI and wondering: Is there a place for me here? How do I get in? How do I stay in? And how do I build something that's actually mine?</p>
+
+<div class="callout">
+  <span class="callout-label">Written by Jax</span>
+  <p><strong>Jaclyn "Jax" Scott — Cyber &amp; AI Strategist.</strong> 19 years in cybersecurity · U.S. Army Special Forces Cyber Warrant Officer · RSA Conference speaker · Founder of Outpost Gray · Host of the 2CyberChicks podcast.</p>
 </div>
 
-<div class="article-hero">
-  <div class="tag">Career & Community</div>
-  <h1>Women in AI and Cybersecurity: Breaking In, Moving Up, and Building Your Own Path</h1>
-  <p class="article-meta">By <span>Jax Scott</span> &nbsp;·&nbsp; March 29, 2026 &nbsp;·&nbsp; 7 min read</p>
-</div>
+<p>I want to talk about something real for a minute.</p>
+<p>When I started in cybersecurity — 19 years ago, fresh out of a world where being a woman in Special Forces Cyber meant you had to be twice as prepared, twice as precise, and ready to prove yourself in rooms that weren't built with you in mind — nobody handed me a roadmap. There was no "Women in AI Cybersecurity" blog post waiting for me. There was just the mission, and the question of whether I was going to get it done or not.</p>
+<p>I got it done. And I kept getting it done — through 10+ years of Army Special Forces Cyber Electronic Warfare, through building Outpost Gray from scratch, through speaking at RSA in front of thousands, through launching this AI education brand and <a href="/#services">the advisory practice behind it</a>. Not because the industry made it easy. Because I figured out how to move through spaces that weren't designed for me and build something worth having on the other side.</p>
+<p>This post is for every woman who's standing at the edge of cybersecurity or AI and wondering: <em>Is there a place for me here? How do I get in? How do I stay in? And how do I build something that's actually mine?</em></p>
+<p>Here's what I know.</p>
 
-<div class="article-container">
-  <a href="https://thezaraai.com/blog/" class="back-link">← Back to Blog</a>
+<h2>The Honest State of Women in AI and Cybersecurity</h2>
+<p>Let's not sugarcoat it. Per <a href="https://www.isc2.org/Insights/2025/03/Women-Comprise-22-percent-of-the-Cybersecurity-Workforce" target="_blank" rel="noopener">(ISC)²'s Cybersecurity Workforce Study</a>, women make up about 22% of the global cybersecurity workforce. In AI the picture is no better — the <a href="https://www.weforum.org/stories/2018/12/artificial-intelligence-ai-gender-gap-workplace/" target="_blank" rel="noopener">World Economic Forum's Global Gender Gap research, built with LinkedIn data</a>, put women at 22% of AI professionals. Leadership positions? Worse. These aren't numbers I'm happy about. They're numbers I think about constantly.</p>
+<p>At the same time, I've watched the conversation shift in the last five years in ways that actually matter. Not just "diversity initiative" noise — actual change in who's getting hired, who's getting promoted, and who's getting funded. It's happening unevenly and not fast enough, but it's happening.</p>
+<p>More importantly: I've watched individual women with the right skills and the right strategy build extraordinary careers in this space regardless of what the aggregate numbers look like. The industry is imperfect. Your career doesn't have to be.</p>
 
-  <div class="author-bio">
-    <div class="author-text">
-      <span class="author-tag">Written by Jax</span>
-      <h4>Jaclyn "Jax" Scott — Cyber & AI Strategist</h4>
-      <p>19 years in cybersecurity · U.S. Army Special Forces Cyber Warrant Officer · RSA Conference Speaker · Founder of Outpost Gray · Host of 2CyberChicks podcast</p>
+<h2>How to Break In: What Actually Works</h2>
+<p>I get asked this constantly, and I want to give you the answer I wish I'd had earlier rather than the generic "get certified and network" advice you've already heard.</p>
+
+<h3>1. Stop waiting to feel ready and start building proof</h3>
+<p>The biggest mistake I see women make in tech careers — and I've made this mistake myself — is spending enormous energy on credentials and preparation before putting work out in the world. Certifications matter. Degrees matter. But what gets you the job, the contract, the speaking slot, the opportunity is <em>visible proof of what you can do.</em></p>
+<p>Build a GitHub repository. Write a Medium post about something you figured out. Set up a personal lab. Document your projects. The people who move fastest in this industry aren't the most credentialed — they're the most visible about the work they're doing.</p>
+
+<h3>2. Be specific about your corner of the space</h3>
+<p>Cybersecurity is enormous. AI is enormous. "I want to work in cybersecurity" or "I'm interested in AI" is not a career plan — it's a starting point. The women I know who built real careers in this space found a specific intersection and went deep. Cloud security. AI red-teaming. Threat intelligence for critical infrastructure. AI-powered fraud detection in financial services. Pick something that genuinely interests you and become the most credible person in that corner.</p>
+<p>Niches have less competition than broad categories. And in a field that's growing as fast as AI+cyber, being the specialist is almost always more valuable than being a generalist.</p>
+
+<h3>3. Find your people and stop apologizing for existing in the room</h3>
+<p>I've been in rooms where I was the only woman. I've been in briefings where someone assumed I was the administrative support. I've had my technical contributions talked over and then repeated back by someone else five minutes later as if they originated them. Every woman in tech has a version of this story.</p>
+<p>Here's what I've learned: the energy you spend shrinking yourself to make others comfortable is energy you don't have for the work. Stop spending it. Be precise. Be confident. Repeat yourself if you have to. The people who can't handle that aren't your people — and your time is too valuable to spend performing smallness for them.</p>
+
+<blockquote class="pull-quote">"The energy you spend shrinking yourself to make others comfortable is energy you don't have for the work. Stop spending it."</blockquote>
+
+<h2>Moving Up: Career Growth That's Actually Sustainable</h2>
+<p>Breaking in is one challenge. Staying in — and advancing — is a different one. I've watched brilliant women leave cybersecurity not because they couldn't do the work, but because the culture made the cost of doing the work too high.</p>
+<p>Sustainable career growth in this space requires three things that nobody tells you upfront:</p>
+<ul>
+  <li><strong>Sponsors, not just mentors.</strong> Mentors give advice. Sponsors put their name behind you in rooms you're not in. Find people — men and women — who will advocate for you when you're not present. That relationship requires you to do excellent work and make it visible, not just ask for guidance.</li>
+  <li><strong>Boundaries that you enforce.</strong> Cybersecurity especially has a "24/7 on-call" culture that burns people out indiscriminately. Set limits early, enforce them consistently, and don't apologize for having a life. The people who build 20-year careers in this field are the ones who figured out pacing.</li>
+  <li><strong>Owning your narrative.</strong> Don't let other people define your expertise. Write about your work. Speak at conferences. Build a public presence that represents your actual knowledge and perspective. If you're not telling your own story, someone else is — and they'll probably get it wrong.</li>
+</ul>
+
+<h2>How AI Tools Level the Playing Field</h2>
+<p>This is the part that genuinely excites me about 2026, and why I built an entire brand around AI education for professionals.</p>
+<p>AI tools — specifically <a href="/blog/what-is-an-ai-agent.html">AI agents</a> — are creating a capability equalizer that didn't exist five years ago. Here's what I mean by that.</p>
+<p>In every organization I've worked in, informal power came partly from access: access to information, access to senior leaders, access to resources that let you move faster and do more. That access wasn't evenly distributed — it followed existing networks, which in tech and security skewed heavily toward men who'd been in the industry longer.</p>
+<p>An AI agent doesn't care about those dynamics. It gives you research capabilities that used to require a team. It helps you produce at a volume and quality that used to require years of institutional support. It handles administrative overhead that used to eat your time while colleagues with more support got to focus on high-visibility work. It levels the output gap that informal inequality creates.</p>
+<p>I'm not naive enough to think AI tools solve structural problems. They don't. But they do give individual women a lever they didn't have before. And I've seen it work in practice — women in my community who used to feel perpetually behind, drowning in operational tasks, who learned to use AI agents and suddenly had capacity to do strategic work, write, speak, build. That's real.</p>
+
+<h3>Specific ways AI agents are helping women in cyber and AI right now</h3>
+<ul>
+  <li><strong>Research velocity:</strong> An agent can grind through the aggregation work — threat intelligence, research papers, competitive analysis — that used to swallow half a day, leaving more time for the work that requires your specific expertise.</li>
+  <li><strong>Content and visibility:</strong> Building a professional presence online requires consistent content creation. AI agents help you draft, edit, and publish faster — lowering the barrier to the kind of visible thought leadership that opens doors.</li>
+  <li><strong>Email and communications:</strong> One of the most insidious time taxes on professionals is inbox management. An <a href="/blog/ai-agent-email-management.html">AI agent handling your email triage</a> means more of your day goes to actual work rather than administrative overhead.</li>
+  <li><strong>Continuous learning:</strong> The AI and security landscape moves fast. An AI agent that monitors key sources, summarizes new developments, and keeps you briefed means you stay current without it consuming your whole morning.</li>
+</ul>
+<p>If you want to get started, <a href="/blog/how-to-build-ai-agent-beginners.html">the complete beginner's guide to building your own AI agent</a> walks you through it — built specifically for professionals who aren't engineers but want the same capabilities. No coding required.</p>
+
+<h2>Building Your Own Path</h2>
+<p>The title of this post includes "building your own path" — and I want to end there, because it's the thing I feel most strongly about.</p>
+<p>The traditional model of career advancement in cybersecurity and AI was built by people who aren't you, optimized for people who aren't you, and evaluated by criteria that often undervalue what you bring. You can work within that model — and sometimes you have to — but don't mistake it for the only model.</p>
+<p>Some of the most impressive women I know in this space built their credibility outside traditional institutions. They started podcasts. They built consulting practices. They published research independently. They grew communities. They spoke at conferences before they had permission to. They created the visibility first and let the opportunities follow.</p>
+<p>I did that. It worked. Not immediately — nothing in this industry works immediately — but it compounded. The audience I built, the reputation I built, the relationships I built outside formal institutional channels became more valuable than anything I had inside them.</p>
+<p>You don't have to wait for someone to give you a platform. Build one. You don't have to wait for a company to recognize your expertise. Document it publicly. You don't have to wait for the industry to become what it should be before you start having the career you want. Start now, with the tools you have, and iterate.</p>
+<p>AI tools are part of that toolkit now. Use them. The leverage is real and it's available to everyone — but the people who move first get the most out of it.</p>
+<p>That's why I'm here. That's why Zara exists. That's why I spent 19 years in this industry and I'm not done yet.</p>
+<p>If you're a woman standing at the edge of this space wondering if there's room for you — there is. Make the room if you have to. And reach out. I built this community for exactly this reason. (For the fully guided system — email, calendar, research, workflows — there's also the <a href="/fire-your-todo-list/">Fire Your To-Do List course ($297, one-time)</a>.)</p>
+    </article>
+
+    <aside class="further">
+      <h2 class="further-title">Further reading</h2>
+      <ul>
+      <li><a href="/blog/jax-scott-women-in-ai.html">Jax Scott: Army Veteran, Cybersecurity Expert, Women in AI</a></li>
+      <li><a href="/blog/how-to-build-ai-agent-beginners.html">How to Build Your Own AI Agent (Complete Beginner's Guide)</a></li>
+      <li><a href="/blog/ai-agent-email-management.html">How to Use an AI Agent to Manage Your Email</a></li>
+      </ul>
+    </aside>
+
+    <aside class="cta-panel">
+      <div>
+        <span class="cta-eyebrow">Free download</span>
+        <h2>The AI Agent Field Manual.</h2>
+        <p>The free operating guide to putting an AI agent to work in your business — what to automate first, how to keep it secure, and what to skip. Two questions, immediate download.</p>
+      </div>
+      <div class="cta-action">
+        <a href="/#handbook" class="btn btn-primary">Get the Field Manual <span class="btn-arrow">&rarr;</span></a>
+      </div>
+    </aside>
+
+  </div>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="brand">
+          <span class="mark"><svg><use href="#zara-mark"/></svg></span>
+          <span>
+            <span class="brand-text">TheZara<span class="ai">AI</span></span>
+            <span class="brand-tag">AI · Cybersecurity · Automation</span>
+          </span>
+        </a>
+        <p>A boutique AI &amp; cybersecurity advisory for businesses tired of doing manually what AI can do for them.</p>
+        <div class="contact-socials">
+          <a href="https://x.com/the_ZaraAI" class="contact-social" aria-label="X">&#120143;</a>
+          <a href="https://instagram.com/the_Zaraai" class="contact-social" aria-label="Instagram">IG</a>
+          <a href="https://thezaraai.substack.com" class="contact-social" aria-label="Substack">SS</a>
+        </div>
+      </div>
+      <div>
+        <h4>Practice</h4>
+        <ul>
+          <li><a href="/#services">AI Automation</a></li>
+          <li><a href="/#services">vCISO</a></li>
+          <li><a href="/#services">Security for AI</a></li>
+          <li><a href="/#pricing">Pricing</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Studio</h4>
+        <ul>
+          <li><a href="/#team">Team</a></li>
+          <li><a href="/blog/">Journal</a></li>
+          <li><a href="/#handbook">Free Field Manual</a></li>
+          <li><a href="/#faq">FAQ</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal &amp; Trust</h4>
+        <ul>
+          <li><a href="/legal/privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="/legal/terms-of-service.html">Terms of Service</a></li>
+          <li><a href="/legal/cookie-policy.html">Cookie Policy</a></li>
+          <li><a href="/legal/accessibility.html">Accessibility</a></li>
+          <li><a href="/legal/disclaimer.html">Disclaimer</a></li>
+          <li><a href="/legal/data-processing.html">Data Processing (DPA)</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-disclaimer">
+      <p>
+        <strong>ZaraAI LLC</strong> — A veteran-owned small business · Registered in the United States ·
+        <a href="mailto:jax@thezaraai.com">jax@thezaraai.com</a>
+        <br>
+        TheZaraAI provides advisory and consulting services. Information on this site is for general purposes only and does not constitute legal, financial, or compliance advice. Each client engagement is governed by a written scope of work. We comply with the CAN-SPAM Act and honor unsubscribe requests promptly.
+      </p>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 ZaraAI LLC. All rights reserved.</span>
+      <span style="font-family: var(--font-serif); font-style: italic;">Built by Jax &amp; Zara</span>
     </div>
   </div>
-
-  <p>I want to talk about something real for a minute.</p>
-
-  <p>When I started in cybersecurity — 19 years ago, fresh out of a world where being a woman in Special Forces Cyber meant you had to be twice as prepared, twice as precise, and ready to prove yourself in rooms that weren't built with you in mind — nobody handed me a roadmap. There was no "Women in AI Cybersecurity" blog post waiting for me. There was just the mission, and the question of whether I was going to get it done or not.</p>
-
-  <p>I got it done. And I kept getting it done — through 10+ years of Army Special Forces Cyber Electronic Warfare, through building Outpost Gray from scratch, through speaking at RSA in front of thousands, through launching this entire AI education brand. Not because the industry made it easy. Because I figured out how to move through spaces that weren't designed for me and build something worth having on the other side.</p>
-
-  <p>This post is for every woman who's standing at the edge of cybersecurity or AI and wondering: <em>Is there a place for me here? How do I get in? How do I stay in? And how do I build something that's actually mine?</em></p>
-
-  <p>Here's what I know.</p>
-
-  <h2>The Honest State of Women in AI and Cybersecurity</h2>
-
-  <p>Let's not sugarcoat it. Women make up roughly 24% of the cybersecurity workforce globally. In AI research and engineering, the numbers are even more stark — somewhere around 22% by most estimates. Leadership positions? Worse. These aren't numbers I'm happy about. They're numbers I think about constantly.</p>
-
-  <p>At the same time, I've watched the conversation shift in the last five years in ways that actually matter. Not just "diversity initiative" noise — actual change in who's getting hired, who's getting promoted, and who's getting funded. It's happening unevenly and not fast enough, but it's happening.</p>
-
-  <p>More importantly: I've watched individual women with the right skills and the right strategy build extraordinary careers in this space regardless of what the aggregate numbers look like. The industry is imperfect. Your career doesn't have to be.</p>
-
-  <h2>How to Break In: What Actually Works</h2>
-
-  <p>I get asked this constantly, and I want to give you the answer I wish I'd had earlier rather than the generic "get certified and network" advice you've already heard.</p>
-
-  <h3>1. Stop waiting to feel ready and start building proof</h3>
-  <p>The biggest mistake I see women make in tech careers — and I've made this mistake myself — is spending enormous energy on credentials and preparation before putting work out in the world. Certifications matter. Degrees matter. But what gets you the job, the contract, the speaking slot, the opportunity is <em>visible proof of what you can do.</em></p>
-  <p>Build a GitHub repository. Write a Medium post about something you figured out. Set up a personal lab. Document your projects. The people who move fastest in this industry aren't the most credentialed — they're the most visible about the work they're doing.</p>
-
-  <h3>2. Be specific about your corner of the space</h3>
-  <p>Cybersecurity is enormous. AI is enormous. "I want to work in cybersecurity" or "I'm interested in AI" is not a career plan — it's a starting point. The women I know who built real careers in this space found a specific intersection and went deep. Cloud security. AI red-teaming. Threat intelligence for critical infrastructure. AI-powered fraud detection in financial services. Pick something that genuinely interests you and become the most credible person in that corner.</p>
-  <p>Niches have less competition than broad categories. And in a field that's growing as fast as AI+cyber, being the specialist is almost always more valuable than being a generalist.</p>
-
-  <h3>3. Find your people and stop apologizing for existing in the room</h3>
-  <p>I've been in rooms where I was the only woman. I've been in briefings where someone assumed I was the administrative support. I've had my technical contributions talked over and then repeated back by someone else five minutes later as if they originated them. Every woman in tech has a version of this story.</p>
-  <p>Here's what I've learned: the energy you spend shrinking yourself to make others comfortable is energy you don't have for the work. Stop spending it. Be precise. Be confident. Repeat yourself if you have to. The people who can't handle that aren't your people — and your time is too valuable to spend performing smallness for them.</p>
-
-  <div class="pull-quote">
-    <p>"The energy you spend shrinking yourself to make others comfortable is energy you don't have for the work. Stop spending it."</p>
-  </div>
-
-  <h2>Moving Up: Career Growth That's Actually Sustainable</h2>
-
-  <p>Breaking in is one challenge. Staying in — and advancing — is a different one. I've watched brilliant women leave cybersecurity not because they couldn't do the work, but because the culture made the cost of doing the work too high.</p>
-
-  <p>Sustainable career growth in this space requires three things that nobody tells you upfront:</p>
-
-  <ul>
-    <li><strong>Sponsors, not just mentors.</strong> Mentors give advice. Sponsors put their name behind you in rooms you're not in. Find people — men and women — who will advocate for you when you're not present. That relationship requires you to do excellent work and make it visible, not just ask for guidance.</li>
-    <li><strong>Boundaries that you enforce.</strong> Cybersecurity especially has a "24/7 on-call" culture that burns people out indiscriminately. Set limits early, enforce them consistently, and don't apologize for having a life. The people who build 20-year careers in this field are the ones who figured out pacing.</li>
-    <li><strong>Owning your narrative.</strong> Don't let other people define your expertise. Write about your work. Speak at conferences. Build a public presence that represents your actual knowledge and perspective. If you're not telling your own story, someone else is — and they'll probably get it wrong.</li>
-  </ul>
-
-  <h2>How AI Tools Level the Playing Field</h2>
-
-  <p>This is the part that genuinely excites me about 2026, and why I built an entire brand around AI education for professionals.</p>
-
-  <p>AI tools — specifically AI agents — are creating a capability equalizer that didn't exist five years ago. Here's what I mean by that.</p>
-
-  <p>In every organization I've worked in, informal power came partly from access: access to information, access to senior leaders, access to resources that let you move faster and do more. That access wasn't evenly distributed — it followed existing networks, which in tech and security skewed heavily toward men who'd been in the industry longer.</p>
-
-  <p>An AI agent doesn't care about those dynamics. It gives you research capabilities that used to require a team. It helps you produce at a volume and quality that used to require years of institutional support. It handles administrative overhead that used to eat your time while colleagues with more support got to focus on high-visibility work. It levels the output gap that informal inequality creates.</p>
-
-  <p>I'm not naive enough to think AI tools solve structural problems. They don't. But they do give individual women a lever they didn't have before. And I've seen it work in practice — women in my community who used to feel perpetually behind, drowning in operational tasks, who learned to use AI agents and suddenly had capacity to do strategic work, write, speak, build. That's real.</p>
-
-  <h3>Specific ways AI agents are helping women in cyber and AI right now:</h3>
-  <ul>
-    <li><strong>Research velocity:</strong> AI agents can do in 20 minutes what used to take half a day — aggregating threat intelligence, summarizing research papers, compiling competitive analysis. More time for the work that requires your specific expertise.</li>
-    <li><strong>Content and visibility:</strong> Building a professional presence online requires consistent content creation. AI agents help you draft, edit, and publish faster — lowering the barrier to the kind of visible thought leadership that opens doors.</li>
-    <li><strong>Email and communications:</strong> One of the most insidious time taxes on professionals is inbox management. An AI agent handling your email triage means more of your day goes to actual work rather than administrative overhead.</li>
-    <li><strong>Continuous learning:</strong> The AI and security landscape moves fast. An AI agent that monitors key sources, summarizes new developments, and keeps you briefed means you stay current without it consuming your whole morning.</li>
-  </ul>
-
-  <!-- FREE GUIDE CTA -->
-  <div class="cta-box">
-    <h3>⚡ Free Guide: Set Up Your AI Agent</h3>
-    <p>I put together a complete free guide to getting your first AI agent up and running — built specifically for professionals who aren't engineers but want the same capabilities. No coding required.</p>
-    <p style="margin:0;">
-      <a href="https://thezaraai.com/guide/" class="btn-primary">Get the Free Guide at theZaraAI.com →</a>
-    </p>
-  </div>
-
-  <h2>Building Your Own Path</h2>
-
-  <p>The title of this post includes "building your own path" — and I want to end there, because it's the thing I feel most strongly about.</p>
-
-  <p>The traditional model of career advancement in cybersecurity and AI was built by people who aren't you, optimized for people who aren't you, and evaluated by criteria that often undervalue what you bring. You can work within that model — and sometimes you have to — but don't mistake it for the only model.</p>
-
-  <p>Some of the most impressive women I know in this space built their credibility outside traditional institutions. They started podcasts. They built consulting practices. They published research independently. They grew communities. They spoke at conferences before they had permission to. They created the visibility first and let the opportunities follow.</p>
-
-  <p>I did that. It worked. Not immediately — nothing in this industry works immediately — but it compounded. The audience I built, the reputation I built, the relationships I built outside formal institutional channels became more valuable than anything I had inside them.</p>
-
-  <p>You don't have to wait for someone to give you a platform. Build one. You don't have to wait for a company to recognize your expertise. Document it publicly. You don't have to wait for the industry to become what it should be before you start having the career you want. Start now, with the tools you have, and iterate.</p>
-
-  <p>AI tools are part of that toolkit now. Use them. The leverage is real and it's available to everyone — but the people who move first get the most out of it.</p>
-
-  <p>That's why I'm here. That's why Zara exists. That's why I spent 19 years in this industry and I'm not done yet.</p>
-
-  <p>If you're a woman standing at the edge of this space wondering if there's room for you — there is. Make the room if you have to. And reach out. I built this community for exactly this reason.</p>
-
-  <!-- PAID COURSE CTA -->
-  <div class="cta-paid">
-    <h3>🔥 Build the AI Advantage Others Don't Have</h3>
-    <p>The <strong>Fire Your To-Do List</strong> course is for professionals — especially women building careers in cyber and AI — who want to use AI agents to operate at a level that used to require a full team. Built from real-world experience, not theory.</p>
-    <p style="color: #7c6fa0; font-size: 0.9rem; margin-bottom: 1.5rem;">One-time investment · No subscription · Built by someone doing the work</p>
-    <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
-      <a href="https://thezaraai.com/fire-your-todo-list/" class="btn-primary">Get Fire Your To-Do List — $297 →</a>
-      <a href="https://thezaraai.com/guide/" class="btn-secondary">Start Free First</a>
-    </div>
-  </div>
-
-</div>
-
-<footer>
-  <p>© 2026 <a href="https://thezaraai.com">theZaraAI.com</a> · Built by Jax Scott · <a href="https://thezaraai.com/legal/">Privacy & Terms</a></p>
 </footer>
 
 <script>
-  document.querySelector('.hamburger').addEventListener('click', function() {
-    document.querySelector('.mobile-menu').classList.toggle('open');
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 8) nav.classList.add('scrolled');
+  else nav.classList.remove('scrolled');
+}, { passive: true });
+
+// ============================================================
+// COOKIE CONSENT BANNER (GDPR / CCPA / CPRA-friendly)
+// ============================================================
+(function() {
+  const KEY = 'tza_cookie_consent_v1';
+  if (localStorage.getItem(KEY)) return;
+
+  const banner = document.createElement('div');
+  banner.className = 'cookie-banner';
+  banner.innerHTML = ''
+    + '<div class="cookie-banner-inner">'
+    + '  <p class="cookie-banner-text">We use minimal cookies to keep this site running and to learn what helps visitors. Read our '
+    + '    <a href="/legal/cookie-policy.html">Cookie Policy</a> &middot; '
+    + '    <a href="/legal/privacy-policy.html">Privacy Policy</a>.'
+    + '  </p>'
+    + '  <div class="cookie-banner-actions">'
+    + '    <button type="button" class="btn btn-link" data-cookie="decline">Decline</button>'
+    + '    <button type="button" class="btn btn-primary" data-cookie="accept">Accept</button>'
+    + '  </div>'
+    + '</div>';
+  document.body.appendChild(banner);
+  setTimeout(() => banner.classList.add('visible'), 100);
+
+  banner.querySelectorAll('button[data-cookie]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      localStorage.setItem(KEY, btn.dataset.cookie);
+      banner.classList.remove('visible');
+      setTimeout(() => banner.remove(), 400);
+    });
   });
+})();
 </script>
 
 </body>

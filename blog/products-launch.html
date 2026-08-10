@@ -1,258 +1,1075 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Two New Products Just Dropped — Here's What They Are and Why I Built Them | theZaraAI.com</title>
-  <meta name="description" content="The AI Agent Starter Kit and the Cybersecurity AI Prompt Pack are live. Here's what they are, who they're for, and the real story behind why I built them.">
-  <meta name="keywords" content="AI agent starter kit, cybersecurity AI prompts, AI prompt pack, personal AI agent, Jax Scott products, theZaraAI">
-  <meta name="author" content="Jax Scott">
-  <link rel="canonical" href="https://thezaraai.com/blog/products-launch.html">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Two New Products Just Dropped — TheZaraAI</title>
+<meta name="description" content="The AI Agent Starter Kit ($27) and the Cybersecurity AI Prompt Pack ($47) — what they are, who they're for, and why I built them.">
+<meta name="author" content="Jax Scott, ZaraAI LLC">
+<link rel="canonical" href="https://thezaraai.com/blog/products-launch.html">
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="article">
-  <meta property="og:title" content="Two New Products Just Dropped — Here's What They Are and Why I Built Them">
-  <meta property="og:description" content="The AI Agent Starter Kit ($27) and Cybersecurity AI Prompt Pack ($47) are live. Here's the story behind both.">
-  <meta property="og:url" content="https://thezaraai.com/blog/products-launch.html">
-  <meta property="og:site_name" content="theZaraAI.com">
-  <meta property="og:image" content="https://thezaraai.com/assets/zara-og.png">
-  <meta property="article:author" content="Jax Scott">
-  <meta property="article:published_time" content="2026-03-20">
+<link rel="icon" type="image/png" href="/assets/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@the_Zaraai">
-  <meta name="twitter:title" content="Two New Products Just Dropped — Here's What They Are and Why I Built Them">
-  <meta name="twitter:description" content="The AI Agent Starter Kit and Cybersecurity AI Prompt Pack are live. Here's what's inside and why I built them.">
-  <meta name="twitter:image" content="https://thezaraai.com/assets/zara-og.png">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Two New Products Just Dropped — TheZaraAI">
+<meta property="og:description" content="The AI Agent Starter Kit ($27) and the Cybersecurity AI Prompt Pack ($47) — what they are, who they're for, and why I built them.">
+<meta property="og:url" content="https://thezaraai.com/blog/products-launch.html">
+<meta property="og:site_name" content="TheZaraAI">
+<meta property="og:image" content="https://thezaraai.com/assets/zara-og-image.png">
 
-  <!-- JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "Two New Products Just Dropped — Here's What They Are and Why I Built Them",
-    "description": "The AI Agent Starter Kit and the Cybersecurity AI Prompt Pack are live. Here's what they are, who they're for, and the real story behind why I built them.",
-    "author": {
-      "@type": "Person",
-      "name": "Jax Scott",
-      "url": "https://iamjax.me"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "theZaraAI.com",
-      "url": "https://thezaraai.com"
-    },
-    "datePublished": "2026-03-20",
-    "dateModified": "2026-03-20",
-    "url": "https://thezaraai.com/blog/products-launch.html",
-    "mainEntityOfPage": "https://thezaraai.com/blog/products-launch.html"
-  }
-  </script>
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@the_Zaraai">
+<meta name="twitter:title" content="Two New Products Just Dropped — TheZaraAI">
+<meta name="twitter:description" content="The AI Agent Starter Kit ($27) and the Cybersecurity AI Prompt Pack ($47) — what they are, who they're for, and why I built them.">
+<meta name="twitter:image" content="https://thezaraai.com/assets/zara-og-image.png">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background: #080b12; color: #e2e8f0; font-family: 'Inter', sans-serif; line-height: 1.7; }
-    a { color: #00e5a0; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    /* NAV */
-    nav { background: #0e1220; border-bottom: 1px solid #1e2a3a; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 64px; position: sticky; top: 0; z-index: 100; }
-    .nav-logo { font-size: 1.4rem; font-weight: 800; color: #fff; }
-    .nav-logo span { color: #00e5a0; }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a { color: #94a3b8; font-weight: 500; transition: color 0.2s; }
-    .nav-links a:hover { color: #00e5a0; text-decoration: none; }
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
-    .hamburger span { display: block; width: 24px; height: 2px; background: #94a3b8; border-radius: 2px; }
-    .mobile-menu { display: none; flex-direction: column; background: #0e1220; border-top: 1px solid #1e2a3a; padding: 1rem 2rem; gap: 1rem; }
-    .mobile-menu a { color: #94a3b8; font-weight: 500; }
-    .mobile-menu.open { display: flex; }
-
-    /* ARTICLE */
-    .article-hero { background: linear-gradient(135deg, #0e1220 0%, #0d1a2e 100%); padding: 4rem 2rem 3rem; text-align: center; border-bottom: 1px solid #1e2a3a; }
-    .article-hero .tag { display: inline-block; background: rgba(0,229,160,0.1); color: #00e5a0; border: 1px solid rgba(0,229,160,0.3); border-radius: 20px; padding: 4px 14px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; }
-    .article-hero h1 { font-size: clamp(1.8rem, 5vw, 3rem); font-weight: 800; color: #fff; max-width: 800px; margin: 0 auto 1rem; }
-    .article-meta { color: #64748b; font-size: 0.9rem; }
-    .article-meta span { color: #94a3b8; }
-
-    .article-container { max-width: 780px; margin: 0 auto; padding: 3rem 2rem 5rem; }
-    .article-container h2 { font-size: 1.6rem; font-weight: 700; color: #fff; margin: 2.5rem 0 1rem; }
-    .article-container p { margin-bottom: 1.2rem; color: #cbd5e1; }
-    .article-container ul { margin: 1rem 0 1.5rem 1.5rem; color: #cbd5e1; }
-    .article-container ul li { margin-bottom: 0.6rem; }
-    .article-container strong { color: #e2e8f0; }
-
-    /* PRODUCT CARDS */
-    .product-card { background: #0e1220; border: 1px solid #1e2a3a; border-radius: 12px; padding: 2rem; margin: 2rem 0; }
-    .product-card:hover { border-color: rgba(0,229,160,0.4); }
-    .product-card .product-label { display: inline-block; background: rgba(0,229,160,0.1); color: #00e5a0; border: 1px solid rgba(0,229,160,0.3); border-radius: 20px; padding: 3px 12px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.75rem; }
-    .product-card h3 { font-size: 1.3rem; font-weight: 800; color: #fff; margin-bottom: 0.5rem; }
-    .product-card .price { font-size: 1.5rem; font-weight: 800; color: #00e5a0; margin-bottom: 1rem; }
-    .product-card p { color: #94a3b8; margin-bottom: 1.25rem; font-size: 0.95rem; }
-    .product-card ul { margin: 0.75rem 0 1.25rem 1.25rem; }
-    .product-card ul li { color: #94a3b8; font-size: 0.95rem; margin-bottom: 0.5rem; }
-    .btn-product { display: inline-block; background: #00e5a0; color: #080b12; font-weight: 700; padding: 0.75rem 1.75rem; border-radius: 8px; font-size: 0.95rem; transition: opacity 0.2s; }
-    .btn-product:hover { opacity: 0.9; text-decoration: none; }
-
-    /* CTA BOX */
-    .cta-box { background: #0e1220; border: 1px solid #00e5a0; border-radius: 12px; padding: 2rem; margin: 3rem 0; }
-    .cta-box h3 { color: #00e5a0; font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; }
-    .cta-box p { color: #94a3b8; margin-bottom: 1.2rem; font-size: 0.95rem; }
-    .cta-box a.btn-product { display: inline-block; }
-
-    /* BACK LINK */
-    .back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: #64748b; font-size: 0.9rem; margin-bottom: 2rem; }
-    .back-link:hover { color: #00e5a0; text-decoration: none; }
-
-    /* SOCIAL CTA */
-    .social-cta { background: #0e1220; border: 1px solid #1e2a3a; border-radius: 12px; padding: 2.5rem; text-align: center; margin-top: 4rem; }
-    .social-cta h3 { color: #fff; font-size: 1.4rem; font-weight: 700; margin-bottom: 0.5rem; }
-    .social-cta p { color: #94a3b8; margin-bottom: 1.5rem; }
-
-    /* NEWSLETTER CTA */
-    .newsletter-cta { background: #0e1220; border: 1px solid #00e5a0; border-radius: 12px; padding: 2.5rem; text-align: center; margin-top: 3rem; }
-    .newsletter-cta h3 { color: #00e5a0; font-size: 1.3rem; font-weight: 700; margin-bottom: 0.5rem; }
-    .newsletter-cta p { color: #94a3b8; margin-bottom: 1.5rem; }
-    .newsletter-cta .btn-newsletter { display: inline-block; background: #00e5a0; color: #080b12; font-weight: 700; padding: 0.85rem 2rem; border-radius: 8px; font-size: 1rem; transition: opacity 0.2s; }
-    .newsletter-cta .btn-newsletter:hover { opacity: 0.9; text-decoration: none; }
-
-    footer { background: #0e1220; border-top: 1px solid #1e2a3a; text-align: center; padding: 2rem; color: #475569; font-size: 0.85rem; }
-
-    @media (max-width: 640px) {
-      .nav-links { display: none; }
-      .hamburger { display: flex; }
-      .article-hero { padding: 2.5rem 1.5rem 2rem; }
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Two New Products Just Dropped \u2014 Here's What They Are and Why I Built Them",
+  "description": "The AI Agent Starter Kit ($27) and the Cybersecurity AI Prompt Pack ($47) \u2014 what they are, who they're for, and why I built them.",
+  "author": {
+    "@type": "Person",
+    "name": "Jax Scott",
+    "url": "https://thezaraai.com/#team"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "ZaraAI LLC",
+    "url": "https://thezaraai.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://thezaraai.com/assets/apple-touch-icon.png"
     }
-  </style>
+  },
+  "image": "https://thezaraai.com/assets/zara-og-image.png",
+  "datePublished": "2026-03-20",
+  "dateModified": "2026-08-10",
+  "url": "https://thezaraai.com/blog/products-launch.html",
+  "mainEntityOfPage": "https://thezaraai.com/blog/products-launch.html",
+  "inLanguage": "en"
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --cream: #F4EFE8;
+  --cream-deep: #EDE6DB;
+  --cream-soft: #F9F5EE;
+  --paper: #FBF8F3;
+
+  --navy: #1C2540;
+  --navy-deep: #131A2E;
+  --navy-soft: #2A3454;
+  --ink: #1C2540;
+  --ink-muted: #5C6480;
+  --ink-subtle: #8A91A6;
+
+  --rose: #B87560;
+  --rose-deep: #9B5E4A;
+  --rose-light: #D6A593;
+  --rose-glow: rgba(184, 117, 96, 0.08);
+
+  --rule: rgba(184, 117, 96, 0.35);
+  --rule-soft: rgba(28, 37, 64, 0.08);
+
+  --font-serif: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  --font-sans:  'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
+
+  --transition: 350ms cubic-bezier(0.22, 1, 0.36, 1);
+  --transition-slow: 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 1rem;
+  background: var(--navy);
+  color: var(--cream);
+  padding: 0.5rem 1rem;
+  z-index: 200;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: top 200ms ease;
+}
+.skip-link:focus { top: 0.75rem; }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+body {
+  font-family: var(--font-sans);
+  background: var(--cream);
+  color: var(--ink);
+  font-size: 17px;
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+
+.container { max-width: 1180px; margin: 0 auto; padding: 0 1.75rem; }
+.container-narrow { max-width: 760px; margin: 0 auto; padding: 0 1.75rem; }
+
+.serif { font-family: var(--font-serif); font-weight: 500; letter-spacing: -0.005em; }
+h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 500; color: var(--navy); letter-spacing: -0.01em; }
+
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  color: var(--rose-deep);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.eyebrow::before,
+.eyebrow::after {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: var(--rose-light);
+}
+
+.mark {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+.mark svg { width: 100%; height: 100%; display: block; }
+
+/* ============ NAV ============ */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(244, 239, 232, 0.88);
+  backdrop-filter: saturate(160%) blur(18px);
+  -webkit-backdrop-filter: saturate(160%) blur(18px);
+  transition: border-color var(--transition), background var(--transition);
+  border-bottom: 1px solid transparent;
+}
+.nav.scrolled {
+  border-bottom-color: var(--rule-soft);
+  background: rgba(244, 239, 232, 0.95);
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 76px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.brand-text {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  color: var(--navy);
+  line-height: 1;
+}
+.brand-text .ai { color: var(--rose); }
+.brand-tag {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.55rem;
+  text-transform: uppercase;
+  letter-spacing: 0.32em;
+  color: var(--rose-deep);
+  margin-top: 0.3rem;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--ink);
+  position: relative;
+  padding: 0.5rem 0;
+  letter-spacing: 0.01em;
+  transition: color var(--transition);
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--rose);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform var(--transition);
+}
+.nav-links a:hover { color: var(--rose-deep); }
+.nav-links a:hover::after { transform: scaleX(1); }
+.nav-links a.active { color: var(--rose-deep); }
+.nav-links a.active::after { transform: scaleX(1); }
+
+.nav-cta-group { display: flex; gap: 0.6rem; align-items: center; }
+@media (max-width: 1080px) { .nav-links { display: none; } }
+@media (max-width: 600px) { .nav-cta-group .btn-ghost { display: none; } }
+
+/* ============ BUTTONS ============ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transition: all var(--transition);
+  white-space: nowrap;
+  cursor: pointer;
+  border: 1px solid transparent;
+  position: relative;
+}
+.btn-primary {
+  background: var(--navy);
+  color: var(--cream);
+}
+.btn-primary:hover {
+  background: var(--navy-deep);
+  transform: translateY(-1px);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--navy);
+  border-color: var(--navy);
+}
+.btn-ghost:hover {
+  background: var(--navy);
+  color: var(--cream);
+}
+.btn-link {
+  padding: 0.5rem 0;
+  background: transparent;
+  color: var(--rose-deep);
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.78rem;
+  font-weight: 500;
+  position: relative;
+}
+.btn-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--rose);
+  transform-origin: left;
+  transition: transform var(--transition);
+}
+.btn-link:hover::after { transform: scaleX(1.05); }
+.btn-arrow { font-family: var(--font-serif); font-size: 1rem; transition: transform var(--transition); }
+.btn:hover .btn-arrow { transform: translateX(4px); }
+@media (max-width: 600px) {
+  .btn { white-space: normal; text-align: center; }
+}
+
+/* ============ ARTICLE HERO ============ */
+.article-hero {
+  padding: clamp(3.5rem, 8vw, 5.5rem) 0 clamp(2.25rem, 4.5vw, 3.5rem);
+  text-align: center;
+  border-bottom: 1px solid var(--rule-soft);
+  background: var(--paper);
+}
+.article-hero .eyebrow { margin-bottom: 1.6rem; }
+.article-hero h1 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: clamp(2.1rem, 4.8vw, 3.4rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+  max-width: 24ch;
+  margin: 0 auto 1.4rem;
+}
+.article-hero h1 em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--rose-deep);
+}
+.article-meta {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-subtle);
+  margin-top: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  row-gap: 0.35rem;
+}
+.article-meta span + span::before {
+  content: '·';
+  margin: 0 0.65rem;
+  color: var(--rose-light);
+}
+.byline-link {
+  color: var(--rose-deep);
+  border-bottom: 1px solid var(--rule);
+  transition: color var(--transition);
+}
+.byline-link:hover { color: var(--rose); }
+
+/* ============ ARTICLE CONTENT ============ */
+.article-body {
+  padding: clamp(3rem, 6.5vw, 5rem) 0 clamp(4rem, 8vw, 6rem);
+}
+.article-content > * + * { margin-top: 1.25rem; }
+.article-content .lede {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.28rem;
+  color: var(--ink-muted);
+  line-height: 1.55;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--rule-soft);
+}
+.article-content h2 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  line-height: 1.15;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+  margin-top: 3rem;
+  margin-bottom: 1.1rem;
+  padding-top: 2.4rem;
+  border-top: 1px solid var(--rule);
+}
+.article-content h3 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: 1.32rem;
+  color: var(--navy);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.005em;
+}
+.article-content p {
+  line-height: 1.75;
+  color: var(--ink);
+  font-size: 1.02rem;
+}
+.article-content ul, .article-content ol {
+  padding-left: 1.5rem;
+  color: var(--ink);
+  margin: 1rem 0;
+}
+.article-content li {
+  margin-bottom: 0.6rem;
+  line-height: 1.68;
+  font-size: 1rem;
+}
+.article-content li::marker { color: var(--rose-deep); }
+.article-content a {
+  color: var(--rose-deep);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition: color var(--transition);
+}
+.article-content a:hover { color: var(--rose); }
+.article-content strong { color: var(--navy); font-weight: 600; }
+.article-content em { font-style: italic; }
+.article-content code {
+  font-family: var(--font-mono);
+  font-size: 0.86em;
+  background: var(--cream-deep);
+  color: var(--navy);
+  padding: 0.1em 0.4em;
+  border: 1px solid var(--rule-soft);
+}
+
+.callout {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  padding: 1.5rem 1.75rem;
+  margin: 2rem 0;
+  position: relative;
+}
+.callout::before {
+  content: '';
+  position: absolute;
+  top: -1px; left: -1px; right: -1px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--rose) 0%, var(--rose-light) 100%);
+}
+.callout p { font-size: 0.97rem; color: var(--ink); }
+.callout p + p { margin-top: 0.75rem; }
+.callout ul { margin: 0.75rem 0 0; }
+.callout li { font-size: 0.95rem; }
+.callout-label {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  color: var(--rose-deep);
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+  display: block;
+}
+
+.pull-quote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.4rem;
+  line-height: 1.45;
+  color: var(--navy);
+  border-left: 2px solid var(--rose);
+  padding: 0.35rem 0 0.35rem 1.6rem;
+  margin: 2.5rem 0;
+}
+
+pre.code-block {
+  background: var(--navy);
+  color: var(--cream);
+  font-family: var(--font-mono);
+  font-size: 0.83rem;
+  line-height: 1.6;
+  padding: 1.4rem 1.6rem;
+  margin: 1.5rem 0;
+  overflow-x: auto;
+  white-space: pre;
+}
+
+.prompt-label {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  color: var(--rose-deep);
+  font-weight: 600;
+  margin: 1.25rem 0 0.4rem;
+  display: block;
+}
+
+.table-scroll { overflow-x: auto; margin: 2rem 0; border: 1px solid var(--rule-soft); }
+table.article-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.93rem;
+  background: var(--paper);
+}
+table.article-table th {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--ink-muted);
+  text-align: left;
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid var(--rule);
+  background: var(--cream-soft);
+}
+table.article-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--rule-soft);
+  color: var(--ink);
+  vertical-align: top;
+}
+table.article-table tr:last-child td { border-bottom: none; }
+table.article-table td.rank {
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--rose-deep);
+}
+
+.step {
+  background: var(--paper);
+  border: 1px solid var(--rule-soft);
+  border-left: 2px solid var(--rose);
+  padding: 1.4rem 1.6rem;
+  margin: 1.5rem 0;
+}
+.step-num {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--rose-deep);
+  display: block;
+  margin-bottom: 0.4rem;
+}
+.step h3 { margin-top: 0; }
+.step p { font-size: 0.97rem; }
+
+.phase-label {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  color: var(--rose-deep);
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.procon {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.75rem;
+  margin: 1.25rem 0 1.5rem;
+}
+.procon h4 {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 0.6rem;
+}
+.procon ul { margin: 0; padding-left: 1.25rem; }
+.procon li { font-size: 0.93rem; margin-bottom: 0.45rem; }
+@media (max-width: 640px) { .procon { grid-template-columns: 1fr; gap: 1.25rem; } }
+
+.tool-card {
+  border-top: 2px solid var(--rose);
+  padding-top: 1.75rem;
+  margin-top: 2.75rem;
+}
+.tool-rank {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--rose-deep);
+  display: block;
+  margin-bottom: 0.35rem;
+}
+.tool-card h3 { margin-top: 0; font-size: 1.55rem; }
+.tool-best {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--ink-muted);
+  margin: 0.5rem 0 1rem;
+  display: block;
+}
+
+.mett-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--rule-soft);
+  border: 1px solid var(--rule-soft);
+  margin: 2rem 0;
+}
+.mett-item { background: var(--paper); padding: 1.4rem 1.5rem; }
+.mett-letter {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.9rem;
+  line-height: 1;
+  color: var(--rose-deep);
+  display: block;
+  margin-bottom: 0.4rem;
+}
+.mett-word { font-family: var(--font-serif); font-size: 1.15rem; color: var(--navy); margin-bottom: 0.3rem; }
+.mett-desc { font-size: 0.9rem; color: var(--ink-muted); line-height: 1.55; }
+@media (max-width: 640px) { .mett-grid { grid-template-columns: 1fr; } }
+
+/* ============ FURTHER READING ============ */
+.further {
+  margin-top: 3.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--rule);
+}
+.further-title {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  color: var(--rose-deep);
+  margin-bottom: 1rem;
+}
+.further ul { list-style: none; }
+.further li { margin-bottom: 0.65rem; }
+.further a {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  color: var(--navy);
+  border-bottom: 1px solid var(--rule);
+  transition: color var(--transition), border-color var(--transition);
+}
+.further a:hover { color: var(--rose-deep); border-color: var(--rose); }
+
+/* ============ CTA PANEL ============ */
+.cta-panel {
+  margin: 3rem 0 0;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  padding: clamp(1.5rem, 3vw, 2.25rem) clamp(1.5rem, 3vw, 2.5rem);
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+.cta-panel::before {
+  content: '';
+  position: absolute;
+  top: -1px; left: -1px; right: -1px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--rose) 0%, var(--rose-light) 100%);
+}
+.cta-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  color: var(--rose-deep);
+  margin-bottom: 0.6rem;
+  display: block;
+}
+.cta-panel h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.4rem, 2.4vw, 1.75rem);
+  line-height: 1.2;
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+}
+.cta-panel p {
+  color: var(--ink-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+.cta-action { display: flex; justify-content: flex-end; }
+@media (max-width: 720px) {
+  .cta-panel { grid-template-columns: 1fr; gap: 1.25rem; }
+  .cta-action { justify-content: flex-start; }
+}
+
+/* ============ FOOTER ============ */
+.footer {
+  background: var(--cream-deep);
+  border-top: 1px solid var(--rule-soft);
+  padding: 4.5rem 0 2rem;
+  margin-top: 0;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3.5rem;
+}
+.footer-brand { max-width: 320px; }
+.footer-brand .brand { margin-bottom: 1.25rem; }
+.footer-brand p {
+  color: var(--ink-muted);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.65;
+}
+.footer h4 {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 1.25rem;
+}
+.footer ul { list-style: none; }
+.footer ul li { margin-bottom: 0.7rem; font-size: 0.9rem; }
+.footer ul a {
+  color: var(--ink-muted);
+  transition: color var(--transition);
+}
+.footer ul a:hover { color: var(--rose-deep); }
+.footer-disclaimer {
+  padding: 2rem 0;
+  margin-bottom: 1rem;
+  border-top: 1px solid var(--rule-soft);
+}
+.footer-disclaimer p {
+  font-size: 0.78rem;
+  color: var(--ink-subtle);
+  line-height: 1.65;
+  max-width: 880px;
+}
+.footer-disclaimer a { color: var(--rose-deep); }
+.footer-disclaimer a:hover { color: var(--rose); }
+.footer-disclaimer strong { color: var(--ink-muted); font-weight: 600; }
+.footer-bottom {
+  padding-top: 2.25rem;
+  border-top: 1px solid var(--rule-soft);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.78rem;
+  color: var(--ink-subtle);
+  letter-spacing: 0.05em;
+}
+.contact-socials { display: flex; gap: 0.75rem; }
+.contact-social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--rule);
+  color: var(--rose-deep);
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  transition: all var(--transition);
+}
+.contact-social:hover { background: var(--rose); color: var(--cream); border-color: var(--rose); }
+@media (max-width: 900px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+  .footer-bottom { flex-direction: column; gap: 0.75rem; text-align: center; }
+}
+
+/* ============ COOKIE BANNER ============ */
+.cookie-banner {
+  position: fixed;
+  bottom: 1.25rem;
+  left: 50%;
+  transform: translate(-50%, 200%);
+  z-index: 1000;
+  width: calc(100% - 2.5rem);
+  max-width: 720px;
+  background: var(--navy);
+  color: var(--cream);
+  border: 1px solid var(--rule-soft);
+  box-shadow: 0 20px 60px rgba(15, 20, 25, 0.35);
+  transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.cookie-banner.visible { transform: translate(-50%, 0); }
+.cookie-banner-inner {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem 1.5rem;
+  flex-wrap: wrap;
+}
+.cookie-banner-text {
+  flex: 1;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: rgba(244, 239, 232, 0.85);
+  min-width: 240px;
+  margin: 0;
+}
+.cookie-banner-text a {
+  color: var(--rose-light);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.cookie-banner-text a:hover { color: var(--cream); }
+.cookie-banner-actions { display: flex; gap: 0.5rem; align-items: center; }
+.cookie-banner .btn-link { color: rgba(244, 239, 232, 0.7); padding: 0.5rem 0.75rem; }
+.cookie-banner .btn-link:hover { color: var(--cream); }
+.cookie-banner .btn-link::after { background: var(--cream); }
+.cookie-banner .btn-primary {
+  background: var(--cream);
+  color: var(--navy);
+  padding: 0.65rem 1.25rem;
+  font-size: 0.7rem;
+}
+.cookie-banner .btn-primary:hover { background: white; }
+@media (max-width: 600px) {
+  .cookie-banner-inner { flex-direction: column; align-items: stretch; gap: 1rem; }
+  .cookie-banner-actions { justify-content: space-between; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+</style>
 </head>
 <body>
 
-<nav>
-  <a href="https://thezaraai.com" class="nav-logo">Zara<span>AI</span></a>
-  <ul class="nav-links">
-    <li><a href="https://thezaraai.com">Home</a></li>
-    <li><a href="https://thezaraai.com/guide/openclaw-guide.html">Guide</a></li>
-    <li><a href="https://thezaraai.com/blog/">Blog</a></li>
-    <li><a href="https://thezaraai.com/products/">Shop ⚡</a></li>
-  </ul>
-  <button class="hamburger" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-<div class="mobile-menu">
-  <a href="https://thezaraai.com">Home</a>
-  <a href="https://thezaraai.com/guide/openclaw-guide.html">Guide</a>
-  <a href="https://thezaraai.com/blog/">Blog</a>
-  <a href="https://thezaraai.com/products/">Shop ⚡</a>
-</div>
+<a href="#main" class="skip-link">Skip to main content</a>
 
-<div class="article-hero">
-  <div class="tag">Product Launch</div>
-  <h1>Two New Products Just Dropped — Here's What They Are and Why I Built Them</h1>
-  <p class="article-meta">By <span>Jax Scott</span> &nbsp;·&nbsp; March 20, 2026 &nbsp;·&nbsp; 7 min read</p>
-</div>
+<!-- ============ INLINE COMPASS-STAR MARK ============ -->
+<svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+  <defs>
+    <linearGradient id="rose-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D6A593"/>
+      <stop offset="100%" stop-color="#9B5E4A"/>
+    </linearGradient>
+    <symbol id="zara-mark" viewBox="0 0 100 100">
+      <path d="M50 8 L52 48 L50 50 L48 48 Z" fill="url(#rose-grad)"/>
+      <path d="M50 92 L52 52 L50 50 L48 52 Z" fill="url(#rose-grad)"/>
+      <path d="M8 50 L48 48 L50 50 L48 52 Z" fill="url(#rose-grad)"/>
+      <path d="M92 50 L52 48 L50 50 L52 52 Z" fill="url(#rose-grad)"/>
+      <circle cx="50" cy="50" r="2.2" fill="#9B5E4A"/>
+      <line x1="20" y1="42" x2="42" y2="42" stroke="url(#rose-grad)" stroke-width="1.2" stroke-linecap="round"/>
+      <line x1="20" y1="58" x2="42" y2="58" stroke="url(#rose-grad)" stroke-width="1.2" stroke-linecap="round"/>
+      <circle cx="20" cy="42" r="1.6" fill="none" stroke="url(#rose-grad)" stroke-width="1.2"/>
+      <circle cx="20" cy="58" r="1.6" fill="none" stroke="url(#rose-grad)" stroke-width="1.2"/>
+      <line x1="58" y1="42" x2="80" y2="42" stroke="url(#rose-grad)" stroke-width="1.2" stroke-linecap="round"/>
+      <line x1="58" y1="58" x2="80" y2="58" stroke="url(#rose-grad)" stroke-width="1.2" stroke-linecap="round"/>
+      <circle cx="80" cy="42" r="1.6" fill="none" stroke="url(#rose-grad)" stroke-width="1.2"/>
+      <circle cx="80" cy="58" r="1.6" fill="none" stroke="url(#rose-grad)" stroke-width="1.2"/>
+    </symbol>
+  </defs>
+</svg>
 
-<div class="article-container">
-  <a href="https://thezaraai.com/blog/" class="back-link">← Back to Blog</a>
-
-  <p>Today's a big day. Two products just went live — and I want to tell you what they are, who they're actually for, and why I spent months putting them together instead of just posting more content.</p>
-
-  <p>The short version: I got tired of watching smart people undersell themselves with bad AI setups. People with real expertise — years in the field, hard-won knowledge — using AI like it's a fancy Google search. That bothered me. I built these to fix that.</p>
-
-  <p>Here's what dropped today. 👇</p>
-
-  <h2>Product 1: AI Agent Starter Kit — $27</h2>
-
-  <div class="product-card">
-    <span class="product-label">New Release</span>
-    <h3>AI Agent Starter Kit</h3>
-    <div class="price">$27 — one-time, yours forever</div>
-    <p>Everything you need to turn a generic AI into a personal agent that actually knows who you are — and remembers it next session.</p>
-    <ul>
-      <li><strong>SOUL.md</strong> — Give your AI a real personality. Not a chatbot. An agent.</li>
-      <li><strong>USER.md</strong> — Your background, preferences, goals. It knows you every session.</li>
-      <li><strong>MEMORY.md</strong> — It remembers what you built last week. No more starting from zero.</li>
-      <li><strong>35 curated prompts</strong> — Get to useful output fast, without the trial and error.</li>
-      <li><strong>Troubleshooting guide</strong> — Fix the most common issues before they slow you down.</li>
+<!-- ============ NAV ============ -->
+<nav class="nav" id="nav" aria-label="Main">
+  <div class="container nav-inner">
+    <a href="/" class="brand" aria-label="TheZaraAI home">
+      <span class="mark"><svg><use href="#zara-mark"/></svg></span>
+      <span>
+        <span class="brand-text">TheZara<span class="ai">AI</span></span>
+        <span class="brand-tag">AI · Cybersecurity · Automation</span>
+      </span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/#services">Services</a></li>
+      <li><a href="/#assessment">Assessment</a></li>
+      <li><a href="/#process">Process</a></li>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/#team">Team</a></li>
+      <li><a href="/blog/" class="active">Journal</a></li>
     </ul>
-    <a href="https://thezaraai.gumroad.com/l/qstadl" class="btn-product" target="_blank">Get the Starter Kit — $27 →</a>
-  </div>
-
-  <p>This kit is for anyone who's been using ChatGPT, Claude, or OpenClaw and feeling like they're not getting everything out of it. The dirty secret? The tool is usually fine. The setup isn't. Most people never configure their AI with any context about who they are, what they do, or what they're working on. Every session starts completely cold.</p>
-
-  <p>SOUL.md, USER.md, and MEMORY.md are the three files that change that. They're not complicated — they're structured text files that live in your workspace and load automatically every time your agent wakes up. The result is an AI that feels less like a tool and more like a collaborator. One that knows your voice, your work, your preferences. One that compounds instead of resetting.</p>
-
-  <p>I use this exact system myself — with Zara — and the difference between a Zara session and a cold ChatGPT session is not subtle. She knows my background. She knows my projects. She knows how I write. That's what the Starter Kit builds for you.</p>
-
-  <h2>Product 2: Cybersecurity AI Prompt Pack — $47</h2>
-
-  <div class="product-card">
-    <span class="product-label">New Release</span>
-    <h3>Cybersecurity AI Prompt Pack</h3>
-    <div class="price">$47 — one-time, copy-paste ready</div>
-    <p>100 AI prompts built from 19 years of hands-on cybersecurity work. Not theory. Not generic. Real prompts for real work.</p>
-    <ul>
-      <li><strong>Threat intelligence</strong> — Automate analysis and summarization workflows</li>
-      <li><strong>Incident response</strong> — Timelines, reports, exec briefs — faster</li>
-      <li><strong>Risk assessment</strong> — Structure, analyze, and present risk clearly</li>
-      <li><strong>Executive reporting</strong> — Translate technical findings into business language</li>
-      <li><strong>AI security</strong> — Prompts for evaluating and securing AI deployments</li>
-      <li><strong>Zero Trust & CMMC</strong> — Policy docs, gap analysis, compliance frameworks</li>
-    </ul>
-    <a href="https://thezaraai.gumroad.com/l/yphml" class="btn-product" target="_blank">Get the Prompt Pack — $47 →</a>
-  </div>
-
-  <p>This one's for the cybersecurity professionals. And I need to be direct with you about something: I spent a long time wrestling with whether to release this, because I've seen too many "prompt packs" that are just generic filler dressed up in a domain costume.</p>
-
-  <p>This is not that.</p>
-
-  <p>These 100 prompts are the ones I actually use. Built and tested over 19 years in the field — U.S. Army Special Forces cyber, red team work, compliance, incident response, executive advisory. The kind of work where vague, generic prompts don't just waste time — they produce outputs you can't trust. These are engineered for specificity. They give AI the context it needs to produce work that's actually useful in a real security environment.</p>
-
-  <p>The most underrated thing in this pack is the executive reporting section. If you've ever spent four hours writing a findings brief that a VP glanced at for 30 seconds, you know exactly why I built that category. The right prompts cut that time dramatically — and produce outputs that are actually formatted for the humans who need to read them.</p>
-
-  <h2>Why I Built These (The Real Version)</h2>
-
-  <p>I've been in cybersecurity for almost two decades. I've watched the field change through every major technology shift. Cloud, mobile, IoT, and now AI. Every time, there's a window where early adopters get a serious edge — and then it closes, and everyone catches up, and the edge is gone.</p>
-
-  <p>We're in that window right now with AI.</p>
-
-  <p>Most security professionals are still treating AI like a novelty. They'll paste in a paragraph and ask it to "make this better." Maybe they'll ask it to summarize a CVE. That's fine — but it's leaving 80% of the capability on the table. The people who figure out how to actually build AI into their workflow, who set it up right and give it the right context, are doing significantly better work in significantly less time.</p>
-
-  <p>I built these products to help close that gap. Not just for security people — the Starter Kit is for anyone — but especially for the people I know best: the ones who've put years into their expertise and deserve tools that honor that expertise instead of dumbing it down.</p>
-
-  <p>No subscriptions. No upsells. Pay once, own it forever. That was a deliberate choice. I'm building products I'd actually want to buy.</p>
-
-  <h2>What's Next</h2>
-
-  <p>These are the first two — not the last. More in the pipeline. Check the <a href="https://thezaraai.com/products/">products page</a> to see what's live and what's coming.</p>
-
-  <p>And if you grab either product, I'd genuinely love to hear how it goes. DM me on <a href="https://x.com/the_Zaraai" target="_blank">X</a> or reply to any newsletter email. Real feedback shapes what I build next.</p>
-
-  <!-- PRODUCT LINKS CTA -->
-  <div class="cta-box">
-    <h3>⚡ Both Products — Live Now</h3>
-    <p>AI Agent Starter Kit — $27 &nbsp;·&nbsp; Cybersecurity AI Prompt Pack — $47</p>
-    <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:1rem;">
-      <a href="https://thezaraai.gumroad.com/l/qstadl" class="btn-product" target="_blank">Starter Kit — $27 →</a>
-      <a href="https://thezaraai.gumroad.com/l/yphml" class="btn-product" target="_blank" style="background:#0e1220; color:#00e5a0; border:1px solid #00e5a0;">Prompt Pack — $47 →</a>
+    <div class="nav-cta-group">
+      <a href="/#handbook" class="btn btn-link">Field Manual</a>
+      <a href="/#contact" class="btn btn-ghost">Book a Call</a>
     </div>
   </div>
+</nav>
 
-  <!-- NEWSLETTER CTA -->
-  <div class="newsletter-cta">
-    <h3>⚡ Stay in the Loop</h3>
-    <p>New products, tutorials, and AI agent insights — straight to your inbox. Free, no spam, unsubscribe anytime.</p>
-    <a href="https://thezaraai.beehiiv.com/subscribe" class="btn-newsletter" target="_blank">Join the Newsletter →</a>
+<!-- ============ HERO ============ -->
+<header class="article-hero">
+  <div class="container-narrow">
+    <span class="eyebrow">Products</span>
+    <h1>Two New Products Just Dropped — <em>Here's What They Are and Why I Built Them</em></h1>
+    <div class="article-meta"><span>By <a href="/#team" class="byline-link" rel="author">Jax Scott</a></span><span>Published March 20, 2026</span><span>Updated August 10, 2026</span><span>7 min read</span></div>
   </div>
+</header>
 
+<!-- ============ ARTICLE ============ -->
+<main id="main" class="article-body">
+  <div class="container-narrow">
+
+    <article class="article-content">
+<p class="lede">Two products just went live — and I want to tell you what they are, who they're actually for, and why I spent months putting them together instead of just posting more content.</p>
+
+<p>Today's a big day. Two products just went live — and I want to tell you what they are, who they're actually for, and why I spent months putting them together instead of just posting more content.</p>
+<p>The short version: I got tired of watching smart people undersell themselves with bad AI setups. People with real expertise — years in the field, hard-won knowledge — using AI like it's a fancy Google search. That bothered me. I built these to fix it. It's the same gap <a href="/#services">our client work</a> closes at the business level; these are the self-serve version.</p>
+<p>Here's what dropped today.</p>
+
+<h2>Product 1: AI Agent Starter Kit — $27</h2>
+
+<div class="tool-card">
+  <span class="tool-rank">New release</span>
+  <h3>AI Agent Starter Kit</h3>
+  <span class="tool-best">$27 — one-time, yours forever</span>
+  <p>Everything you need to turn a generic AI into a personal agent that actually knows who you are — and remembers it next session.</p>
+  <ul>
+    <li><strong>SOUL.md</strong> — Give your AI a real personality. Not a chatbot. An agent.</li>
+    <li><strong>USER.md</strong> — Your background, preferences, goals. It knows you every session.</li>
+    <li><strong>MEMORY.md</strong> — It remembers what you built last week. No more starting from zero.</li>
+    <li><strong>35 curated prompts</strong> — Get to useful output fast, without the trial and error.</li>
+    <li><strong>Troubleshooting guide</strong> — Fix the most common issues before they slow you down.</li>
+  </ul>
+  <p><a href="https://thezaraai.gumroad.com/l/qstadl" target="_blank" rel="noopener">Get the Starter Kit — $27 →</a></p>
 </div>
 
-<footer>
-  <p>© 2026 <a href="https://thezaraai.com">theZaraAI.com</a> · Built by <a href="https://iamjax.me">Jax Scott</a></p>
+<p>This kit is for anyone who's been using ChatGPT, Claude, or OpenClaw and feeling like they're not getting everything out of it. The dirty secret? The tool is usually fine. The setup isn't. Most people never configure their AI with any context about who they are, what they do, or what they're working on. Every session starts completely cold.</p>
+<p>SOUL.md, USER.md, and MEMORY.md are the three files that change that. They're not complicated — they're structured text files that live in your workspace and load automatically every time your agent wakes up. (I walk through the free version of this setup in <a href="/blog/how-to-give-ai-agent-memory.html">how to give your AI agent a real memory</a>.) The result is an AI that feels less like a tool and more like a collaborator. One that knows your voice, your work, your preferences. One that compounds instead of resetting.</p>
+<p>I use this exact system myself — with Zara — and the difference between a Zara session and a cold ChatGPT session is not subtle. She knows my background. She knows my projects. She knows how I write. That's what the Starter Kit builds for you.</p>
+
+<h2>Product 2: Cybersecurity AI Prompt Pack — $47</h2>
+
+<div class="tool-card">
+  <span class="tool-rank">New release</span>
+  <h3>Cybersecurity AI Prompt Pack</h3>
+  <span class="tool-best">$47 — one-time, copy-paste ready</span>
+  <p>100 AI prompts built from 19 years of hands-on cybersecurity work. Not theory. Not generic. Real prompts for real work.</p>
+  <ul>
+    <li><strong>Threat intelligence</strong> — Automate analysis and summarization workflows</li>
+    <li><strong>Incident response</strong> — Timelines, reports, exec briefs — faster</li>
+    <li><strong>Risk assessment</strong> — Structure, analyze, and present risk clearly</li>
+    <li><strong>Executive reporting</strong> — Translate technical findings into business language</li>
+    <li><strong>AI security</strong> — Prompts for evaluating and securing AI deployments</li>
+    <li><strong>Zero Trust &amp; CMMC</strong> — Policy docs, gap analysis, compliance frameworks</li>
+  </ul>
+  <p><a href="https://thezaraai.gumroad.com/l/yphml" target="_blank" rel="noopener">Get the Prompt Pack — $47 →</a></p>
+</div>
+
+<p>This one's for the cybersecurity professionals. And I need to be direct with you about something: I spent a long time wrestling with whether to release this, because I've seen too many "prompt packs" that are just generic filler dressed up in a domain costume.</p>
+<p>This is not that.</p>
+<p>These 100 prompts are the ones I actually use. Built and tested over 19 years in the field — U.S. Army Special Forces cyber, red team work, compliance, incident response, executive advisory. The kind of work where vague, generic prompts don't just waste time — they produce outputs you can't trust. These are engineered for specificity. They give AI the context it needs to produce work that's actually useful in a real security environment. (For the thinking behind them, read <a href="/blog/how-to-use-ai-for-cybersecurity.html">how to use AI for cybersecurity without getting burned</a>.)</p>
+<p>The most underrated thing in this pack is the executive reporting section. If you've ever spent four hours writing a findings brief that a VP glanced at for 30 seconds, you know exactly why I built that category. The right prompts cut that time dramatically — and produce outputs that are actually formatted for the humans who need to read them.</p>
+
+<h2>Why I Built These (The Real Version)</h2>
+<p>I've been in cybersecurity for almost two decades. I've watched the field change through every major technology shift. Cloud, mobile, IoT, and now AI. Every time, there's a window where early adopters get a serious edge — and then it closes, and everyone catches up, and the edge is gone.</p>
+<p>We're in that window right now with AI.</p>
+<p>Most security professionals are still treating AI like a novelty. They'll paste in a paragraph and ask it to "make this better." Maybe they'll ask it to summarize a CVE. That's fine — but it leaves most of the capability on the table. The people who figure out how to actually build AI into their workflow — who <a href="/blog/what-is-an-ai-agent.html">set up a real agent</a> and give it the right context — are doing significantly better work in significantly less time.</p>
+<p>I built these products to help close that gap. Not just for security people — the Starter Kit is for anyone — but especially for the people I know best: the ones who've put years into their expertise and deserve tools that honor that expertise instead of dumbing it down.</p>
+<p>No subscriptions. No upsells. Pay once, own it forever. That was a deliberate choice. I'm building products I'd actually want to buy.</p>
+
+<h2>What's Next</h2>
+<p>These are the first two — not the last. More in the pipeline. Check the <a href="/products/">products page</a> to see what's live and what's coming.</p>
+<p>And if you grab either product, I'd genuinely love to hear how it goes. DM me on <a href="https://x.com/the_Zaraai" target="_blank" rel="noopener">X</a> or reply to any newsletter email. Real feedback shapes what I build next.</p>
+    </article>
+
+    <aside class="further">
+      <h2 class="further-title">Further reading</h2>
+      <ul>
+      <li><a href="/blog/how-to-give-ai-agent-memory.html">How to Give Your AI Agent a Real Memory</a></li>
+      <li><a href="/blog/how-to-use-ai-for-cybersecurity.html">How to Use AI for Cybersecurity (Without Getting Burned)</a></li>
+      <li><a href="/blog/what-is-an-ai-agent.html">What Is an AI Agent? (And Why You Need One)</a></li>
+      </ul>
+    </aside>
+
+    <aside class="cta-panel">
+      <div>
+        <span class="cta-eyebrow">The products</span>
+        <h2>Both products, live now.</h2>
+        <p>The AI Agent Starter Kit ($27) and the Cybersecurity AI Prompt Pack ($47). One-time purchases, yours forever. Everything lives on the products page.</p>
+      </div>
+      <div class="cta-action">
+        <a href="/products/" class="btn btn-primary">Browse the products <span class="btn-arrow">&rarr;</span></a>
+      </div>
+    </aside>
+
+  </div>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="brand">
+          <span class="mark"><svg><use href="#zara-mark"/></svg></span>
+          <span>
+            <span class="brand-text">TheZara<span class="ai">AI</span></span>
+            <span class="brand-tag">AI · Cybersecurity · Automation</span>
+          </span>
+        </a>
+        <p>A boutique AI &amp; cybersecurity advisory for businesses tired of doing manually what AI can do for them.</p>
+        <div class="contact-socials">
+          <a href="https://x.com/the_ZaraAI" class="contact-social" aria-label="X">&#120143;</a>
+          <a href="https://instagram.com/the_Zaraai" class="contact-social" aria-label="Instagram">IG</a>
+          <a href="https://thezaraai.substack.com" class="contact-social" aria-label="Substack">SS</a>
+        </div>
+      </div>
+      <div>
+        <h4>Practice</h4>
+        <ul>
+          <li><a href="/#services">AI Automation</a></li>
+          <li><a href="/#services">vCISO</a></li>
+          <li><a href="/#services">Security for AI</a></li>
+          <li><a href="/#pricing">Pricing</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Studio</h4>
+        <ul>
+          <li><a href="/#team">Team</a></li>
+          <li><a href="/blog/">Journal</a></li>
+          <li><a href="/#handbook">Free Field Manual</a></li>
+          <li><a href="/#faq">FAQ</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal &amp; Trust</h4>
+        <ul>
+          <li><a href="/legal/privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="/legal/terms-of-service.html">Terms of Service</a></li>
+          <li><a href="/legal/cookie-policy.html">Cookie Policy</a></li>
+          <li><a href="/legal/accessibility.html">Accessibility</a></li>
+          <li><a href="/legal/disclaimer.html">Disclaimer</a></li>
+          <li><a href="/legal/data-processing.html">Data Processing (DPA)</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-disclaimer">
+      <p>
+        <strong>ZaraAI LLC</strong> — A veteran-owned small business · Registered in the United States ·
+        <a href="mailto:jax@thezaraai.com">jax@thezaraai.com</a>
+        <br>
+        TheZaraAI provides advisory and consulting services. Information on this site is for general purposes only and does not constitute legal, financial, or compliance advice. Each client engagement is governed by a written scope of work. We comply with the CAN-SPAM Act and honor unsubscribe requests promptly.
+      </p>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 ZaraAI LLC. All rights reserved.</span>
+      <span style="font-family: var(--font-serif); font-style: italic;">Built by Jax &amp; Zara</span>
+    </div>
+  </div>
 </footer>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 8) nav.classList.add('scrolled');
+  else nav.classList.remove('scrolled');
+}, { passive: true });
+
+// ============================================================
+// COOKIE CONSENT BANNER (GDPR / CCPA / CPRA-friendly)
+// ============================================================
+(function() {
+  const KEY = 'tza_cookie_consent_v1';
+  if (localStorage.getItem(KEY)) return;
+
+  const banner = document.createElement('div');
+  banner.className = 'cookie-banner';
+  banner.innerHTML = ''
+    + '<div class="cookie-banner-inner">'
+    + '  <p class="cookie-banner-text">We use minimal cookies to keep this site running and to learn what helps visitors. Read our '
+    + '    <a href="/legal/cookie-policy.html">Cookie Policy</a> &middot; '
+    + '    <a href="/legal/privacy-policy.html">Privacy Policy</a>.'
+    + '  </p>'
+    + '  <div class="cookie-banner-actions">'
+    + '    <button type="button" class="btn btn-link" data-cookie="decline">Decline</button>'
+    + '    <button type="button" class="btn btn-primary" data-cookie="accept">Accept</button>'
+    + '  </div>'
+    + '</div>';
+  document.body.appendChild(banner);
+  setTimeout(() => banner.classList.add('visible'), 100);
+
+  banner.querySelectorAll('button[data-cookie]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      localStorage.setItem(KEY, btn.dataset.cookie);
+      banner.classList.remove('visible');
+      setTimeout(() => banner.remove(), 400);
+    });
+  });
+})();
+</script>
 
 </body>
 </html>

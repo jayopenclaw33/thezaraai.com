@@ -65,13 +65,65 @@
       "priceRange": "$$$",
       "serviceType": ["AI Automation", "vCISO Services", "Security for AI"],
       "provider": { "@id": "https://thezaraai.com/#organization" },
-      "areaServed": "Worldwide"
+      "areaServed": "Worldwide",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Engagements & agent builds",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "Starter Agent",
+            "price": "325",
+            "priceCurrency": "USD",
+            "description": "One-time fixed-scope build of a lean AI assistant that triages and answers email and organises file storage. Delivered in under 30 days with core automations configured, a written handoff, and a month of light support."
+          },
+          {
+            "@type": "Offer",
+            "name": "Integrated Agent",
+            "price": "789",
+            "priceCurrency": "USD",
+            "description": "One-time fixed-scope build covering everything in the Starter Agent plus calendar — invites drafted and sent — and up to five additional integrations such as Slack, Notion, or a CRM, with custom skills and templates. Delivered in roughly six weeks."
+          },
+          {
+            "@type": "Offer",
+            "name": "Care Plan",
+            "price": "197",
+            "priceCurrency": "USD",
+            "priceSpecification": { "@type": "UnitPriceSpecification", "price": "197", "priceCurrency": "USD", "unitCode": "MON" },
+            "description": "Monthly care plan for a completed agent build — the default next step after handoff. Keeps the agent running as your tools and their APIs change: monitoring, updates, and fixes."
+          },
+          {
+            "@type": "Offer",
+            "name": "Reconnaissance",
+            "price": "1424",
+            "priceCurrency": "USD",
+            "priceSpecification": { "@type": "UnitPriceSpecification", "price": "1424", "priceCurrency": "USD", "unitCode": "MON" },
+            "description": "Monthly engagement, starting at $1,424 per month, focused on one workflow at a time — automated, then maintained — with bi-weekly strategy calls, monthly reporting, and email support. Hosting & security is $325 per month."
+          },
+          {
+            "@type": "Offer",
+            "name": "Operations",
+            "price": "3026",
+            "priceCurrency": "USD",
+            "priceSpecification": { "@type": "UnitPriceSpecification", "price": "3026", "priceCurrency": "USD", "unitCode": "MON" },
+            "description": "Monthly engagement, starting at $3,026 per month, building and optimising several workflows in parallel, with tooling integration, documentation, weekly strategy calls, and priority response. Hosting & security is $325 per month."
+          },
+          {
+            "@type": "Offer",
+            "name": "Command",
+            "price": "8010",
+            "priceCurrency": "USD",
+            "priceSpecification": { "@type": "UnitPriceSpecification", "price": "8010", "priceCurrency": "USD", "unitCode": "MON" },
+            "description": "Embedded monthly engagement, starting at $8,010 per month, with dedicated build-and-governance capacity: full AI workspace architecture, an AI security audit, a dedicated lead on an embedded weekly cadence, and hosting, monitoring, and governance included."
+          }
+        ]
+      }
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
         { "@type": "Question", "name": "How does an engagement begin?", "acceptedAnswer": { "@type": "Answer", "text": "Every engagement starts with a free 15-minute workflow call. We map where manual work and unmanaged risk actually sit before any money changes hands, then scope from what we found." } },
-        { "@type": "Question", "name": "What does pricing actually depend on?", "acceptedAnswer": { "@type": "Answer", "text": "Scope and cadence. The number of processes automated, the number of systems involved, how much security and governance work is required, and how much of our time you need each month." } },
+        { "@type": "Question", "name": "What does pricing actually depend on?", "acceptedAnswer": { "@type": "Answer", "text": "Scope and cadence. The number of workflows automated, the number of systems involved, how much security and governance work is required, and the depth of ongoing involvement you need each month." } },
         { "@type": "Question", "name": "How much does it cost to have you build an agent?", "acceptedAnswer": { "@type": "Answer", "text": "One-time agent builds start at $325 for the Starter Agent, built in under 30 days with a month of light support. The Integrated Agent is $789 and adds your calendar plus up to five additional integrations, delivered in roughly six weeks with an optional $197/month care plan. Larger builds are scoped individually." } },
         { "@type": "Question", "name": "How is my data handled? Is it secure?", "acceptedAnswer": { "@type": "Answer", "text": "Security is the practice, not an add-on. Least-privilege access, documented data flows, credentials stored in a managed secret store, and an audit trail on automated actions. You get a written record of exactly what each system can reach." } }
       ]
@@ -645,11 +697,6 @@ em { font-style: italic; color: var(--rose-deep); }
 .tiers.two { grid-template-columns: repeat(2, 1fr); }
 .tier { background: var(--navy); padding: 1.7rem 1.5rem; position: relative; }
 .tier.on { background: var(--navy-soft); }
-.tier-flag {
-  position: absolute; top: 0; right: 0; font-family: var(--font-mono); font-size: 0.55rem;
-  letter-spacing: 0.14em; text-transform: uppercase; color: var(--navy);
-  background: var(--rose-light); padding: 0.2rem 0.5rem;
-}
 .tier .what { font-size: 0.83rem; color: rgba(244,239,232,0.62); margin: 0 0 0.9rem; min-height: 2.6em; }
 .tier .k { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--rose-light); display: block; margin-bottom: 0.7rem; }
 .tier h3 { font-size: 1.3rem; margin-bottom: 0.2rem; }
@@ -659,6 +706,9 @@ em { font-style: italic; color: var(--rose-deep); }
 .tier li { font-size: 0.83rem; color: rgba(244,239,232,0.68); padding: 0.32rem 0 0.32rem 1.1rem; position: relative; }
 .tier li::before { content: ''; position: absolute; left: 0; top: 0.85em; width: 6px; height: 1px; background: var(--rose-light); }
 .price-foot { margin-top: 1.6rem; font-size: 0.79rem; color: rgba(244,239,232,0.52); max-width: 70ch; }
+.price-xlink { margin-top: 1.1rem; font-size: 0.83rem; color: rgba(244,239,232,0.62); }
+.price-xlink a { color: var(--rose-light); text-decoration: underline; text-decoration-color: rgba(214,165,147,0.5); text-underline-offset: 3px; }
+.price-xlink a:hover, .price-xlink a:focus-visible { color: #fff; }
 
 /* ═══ 8 · FIELD MANUAL ════════════════════════════════════════ */
 .fm-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 3.5rem; align-items: center; }
@@ -1246,6 +1296,8 @@ em { font-style: italic; color: var(--rose-deep); }
 </section>
 
 <!-- ══════════ 3 · SERVICES THEATRE ══════════ -->
+<!-- Anchor alias: subpage navs link to /#services; #practices keeps working. -->
+<div id="services" aria-hidden="true"></div>
 <section class="theatre" id="practices">
   <div class="theatre-track" id="theatreTrack">
     <div class="theatre-stage">
@@ -1693,6 +1745,8 @@ em { font-style: italic; color: var(--rose-deep); }
 </section>
 
 <!-- ══════════ 7 · ENGAGEMENT & PRICING ══════════ -->
+<!-- Anchor alias: subpage navs link to /#pricing; #engagement keeps working. -->
+<div id="pricing" aria-hidden="true"></div>
 <section class="chapter dark" id="engagement">
   <div class="shell">
     <div class="chapter-head rv">
@@ -1750,17 +1804,62 @@ em { font-style: italic; color: var(--rose-deep); }
       </div>
     </div>
 
-    <div class="price-group rv">
+    <div class="price-group rv" id="retainers">
       <div class="price-group-h">
-        <h3>Build an agent</h3>
-        <span>One-time project. Fixed scope, fixed price, yours to keep.</span>
+        <h3>Work with us monthly</h3>
+        <span>The main engagement. Ongoing advisory and build capacity — cancel or change tier as your season shifts.</span>
+      </div>
+      <div class="tiers">
+        <article class="tier" data-tier="recon">
+          <span class="k">Monthly</span>
+          <h3>Reconnaissance</h3>
+          <span class="amt">$1,424<small> starting / month</small></span>
+          <p class="what">Get one workflow off your plate at a time, done properly. The usual entry point.</p>
+          <ul>
+            <li>One workflow at a time — automated, then maintained</li>
+            <li>Bi-weekly strategy calls</li>
+            <li>Monthly reporting &middot; email support</li>
+          </ul>
+        </article>
+        <article class="tier on" data-tier="ops">
+          <span class="k">Monthly &middot; most common</span>
+          <h3>Operations</h3>
+          <span class="amt">$3,026<small> starting / month</small></span>
+          <p class="what">Ship new automations while what is already live keeps getting tuned.</p>
+          <ul>
+            <li>Several workflows built and optimised in parallel</li>
+            <li>Tooling integration &amp; documentation</li>
+            <li>Weekly strategy calls &middot; priority response</li>
+          </ul>
+        </article>
+        <article class="tier" data-tier="command">
+          <span class="k">Monthly</span>
+          <h3>Command</h3>
+          <span class="amt">$8,010<small> starting / month</small></span>
+          <p class="what">Run AI operations with an embedded partner. Security leadership included, hosting covered.</p>
+          <ul>
+            <li>Dedicated build-and-governance capacity</li>
+            <li>Full AI workspace architecture</li>
+            <li>AI security audit included</li>
+            <li>Dedicated lead &middot; embedded weekly cadence</li>
+            <li>Hosting, monitoring &amp; governance included</li>
+          </ul>
+        </article>
+      </div>
+      <p class="price-xlink">Not ready for a monthly engagement? <a href="#builds">Start with a one-time agent build below</a> — a build can roll into a retainer later.</p>
+    </div>
+
+    <div class="price-group rv" id="builds">
+      <div class="price-group-h">
+        <h3>Start with a one-time build</h3>
+        <span>Fixed scope, fixed price, yours to keep. The care plan carries the agent after handoff.</span>
       </div>
       <div class="tiers two">
         <article class="tier" data-tier="starter">
           <span class="k">One-time build</span>
           <h3>Starter Agent</h3>
-          <span class="amt">$325</span>
-          <p class="what">A lean assistant that answers your email and organises your files. Built in under 30 days.</p>
+          <span class="amt">$325<small> one-time</small></span>
+          <p class="what">Hand your email and your files to a lean assistant. Built in under 30 days.</p>
           <ul>
             <li>Email triaged and answered</li>
             <li>File storage organised</li>
@@ -1771,67 +1870,21 @@ em { font-style: italic; color: var(--rose-deep); }
         <article class="tier" data-tier="integrated">
           <span class="k">One-time build</span>
           <h3>Integrated Agent</h3>
-          <span class="amt">$789</span>
-          <p class="what">Everything above, plus your calendar and the tools your day actually runs on. Roughly six weeks.</p>
+          <span class="amt">$789<small> one-time</small></span>
+          <p class="what">Connect your calendar and the tools your day actually runs on. Roughly six weeks.</p>
           <ul>
             <li>Everything in the Starter Agent</li>
             <li>Calendar — invites drafted and sent</li>
             <li>Up to 5 more integrations (Slack, Notion, CRM&hellip;)</li>
             <li>Custom skills &amp; templates</li>
-            <li>Optional $197/mo care plan</li>
+            <li>Care plan — $197/month, the default next step after handoff</li>
           </ul>
         </article>
       </div>
+      <p class="price-xlink">Outgrown the fixed scope? <a href="#retainers">Move up to a monthly engagement</a> — the usual path once one agent proves the value.</p>
     </div>
 
-    <div class="price-group rv">
-      <div class="price-group-h">
-        <h3>Work with us monthly</h3>
-        <span>Ongoing advisory and build capacity. Cancel or change tier as your season shifts.</span>
-      </div>
-      <div class="tiers">
-        <article class="tier" data-tier="recon">
-          <span class="k">Monthly</span>
-          <h3>Reconnaissance</h3>
-          <span class="amt">$1,424<small> / month</small></span>
-          <p class="what">One process at a time, done properly. The usual entry point.</p>
-          <ul>
-            <li>8 hours advisory + build</li>
-            <li>Single-process automation focus</li>
-            <li>Bi-weekly strategy calls</li>
-            <li>Monthly reporting &middot; email support</li>
-          </ul>
-        </article>
-        <article class="tier on" data-tier="ops">
-          <span class="tier-flag">Most common</span>
-          <span class="k">Monthly</span>
-          <h3>Operations</h3>
-          <span class="amt">$3,026<small> / month</small></span>
-          <p class="what">Enough capacity to build and to keep tuning what is already live.</p>
-          <ul>
-            <li>17 hours advisory + build</li>
-            <li>Multi-process automation</li>
-            <li>Tooling integration &amp; documentation</li>
-            <li>Weekly calls &middot; priority response</li>
-          </ul>
-        </article>
-        <article class="tier" data-tier="command">
-          <span class="k">Monthly</span>
-          <h3>Command</h3>
-          <span class="amt">$8,010<small> / month</small></span>
-          <p class="what">Embedded partner. Security leadership included, hosting covered.</p>
-          <ul>
-            <li>Custom-scoped hours &amp; capacity</li>
-            <li>Full AI workspace architecture</li>
-            <li>AI security audit included</li>
-            <li>Dedicated lead &middot; embedded weekly cadence</li>
-            <li>Hosting, monitoring &amp; governance included</li>
-          </ul>
-        </article>
-      </div>
-    </div>
-
-    <p class="price-foot rv">Reconnaissance and Operations add <strong>$325/month</strong> for hosting &amp; security — managed hosting, uptime monitoring, updates, and patching. That is already inside Command. One-time builds cover a fixed scope; anything beyond it is quoted separately and can roll into a monthly engagement.</p>
+    <p class="price-foot rv">All prices in USD. Reconnaissance and Operations add <strong>$325/month</strong> for hosting &amp; security — managed hosting, uptime monitoring, updates, and patching. That is already inside Command. One-time builds cover a fixed scope; anything beyond it is quoted separately and can roll into a monthly engagement.</p>
   </div>
 </section>
 
@@ -1872,6 +1925,8 @@ em { font-style: italic; color: var(--rose-deep); }
 </section>
 
 <!-- ══════════ 9 · FOUNDER & ZARA ══════════ -->
+<!-- Anchor alias: subpage navs link to /#team; #practice-team keeps working. -->
+<div id="team" aria-hidden="true"></div>
 <section class="chapter" id="practice-team">
   <div class="shell">
     <div class="chapter-head rv">
@@ -1943,7 +1998,7 @@ em { font-style: italic; color: var(--rose-deep); }
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">What does pricing actually depend on?<span class="faq-icon" aria-hidden="true"></span></button>
-        <div class="faq-a"><div class="faq-a-in"><p>Scope and cadence. How many processes are being automated, how many systems are involved, how much security and governance work is required, and how much of our time you need each month. The engagement selector above gives you a shape; the call gives you a number.</p></div></div>
+        <div class="faq-a"><div class="faq-a-in"><p>Scope and cadence. How many workflows are being automated, how many systems are involved, how much security and governance work is required, and the depth of ongoing involvement you need each month. The engagement selector above gives you a shape; the call gives you a number.</p></div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">How much does it cost to have you build an agent?<span class="faq-icon" aria-hidden="true"></span></button>
@@ -1951,7 +2006,7 @@ em { font-style: italic; color: var(--rose-deep); }
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">Can we adjust scope mid-engagement?<span class="faq-icon" aria-hidden="true"></span></button>
-        <div class="faq-a"><div class="faq-a-in"><p>Yes. Monthly engagements are hours-based, so priorities can move between processes as your season or strategy shifts. Larger new build work either draws on those hours or gets quoted separately — we will tell you which before starting, not after.</p></div></div>
+        <div class="faq-a"><div class="faq-a-in"><p>Yes. Monthly engagements are scoped by deliverables, not a fixed task list, so priorities can move between workflows as your season or strategy shifts. Larger new builds are scoped and quoted before the work starts — never sprung on you after.</p></div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">What tools do you integrate with?<span class="faq-icon" aria-hidden="true"></span></button>
@@ -2329,16 +2384,16 @@ em { font-style: italic; color: var(--rose-deep); }
       why = 'A one-time build fits — contained scope, few systems, no ongoing advisory needed yet. If it is only email and files, the Starter Agent at $325 covers it.';
     } else if (wantsSecurity && big) {
       name = 'Command'; price = '$8,010'; sub = 'per month';
-      why = 'Security leadership at this size needs standing capacity, not hours borrowed from a build budget. Includes the AI security audit, governance, and hosting.';
+      why = 'Security leadership at this size needs dedicated, standing capacity — not attention borrowed from a build backlog. Includes the AI security audit, governance, and hosting.';
     } else if (wantsSecurity) {
       name = 'Operations'; price = '$3,026'; sub = 'per month + $325 hosting';
       why = 'Enough monthly capacity to run a real governance cadence alongside the automation work, without the cost of a full Command engagement.';
     } else if (big || a.need === 'mixed') {
       name = 'Operations'; price = '$3,026'; sub = 'per month + $325 hosting';
-      why = 'Multiple processes and systems want 17 hours a month and weekly calls — enough to build, and to keep tuning what is already live.';
+      why = 'Multiple workflows and systems want build-and-optimise scope with weekly strategy calls — enough to ship new automations and keep tuning what is already live.';
     } else {
       name = 'Reconnaissance'; price = '$1,424'; sub = 'per month + $325 hosting';
-      why = 'Eight hours a month with bi-weekly calls is the usual entry point: one process at a time, room to prove the value before scaling commitment.';
+      why = 'One workflow at a time with bi-weekly strategy calls is the usual entry point: prove the value on a single process before scaling commitment.';
     }
     if (a.time === 'explore') why += ' Since you are still exploring, the Field Manual below is a sensible first step before any of this.';
     if (a.time === 'now') why += ' Flag the urgent timeline on the call and we scope the fastest safe path to live.';

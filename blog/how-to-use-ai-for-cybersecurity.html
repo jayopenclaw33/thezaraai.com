@@ -1,444 +1,1100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>How to Use AI for Cybersecurity (Without Getting Burned) | ZaraAI</title>
-  <meta name="description" content="A 19-year cybersecurity veteran breaks down how to actually use AI in your security work — threat intel, incident response, red team prompting, and the serious risks you need to know."/>
-  <meta name="keywords" content="AI for cybersecurity, AI cybersecurity tools 2026, AI threat intelligence, AI incident response, AI red team, cybersecurity AI prompts, Jax Scott cybersecurity"/>
-  <meta name="author" content="Jax Scott, theZaraAI.com"/>
-  <link rel="canonical" href="https://thezaraai.com/blog/how-to-use-ai-for-cybersecurity.html"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Use AI for Cybersecurity (Without Getting Burned) — TheZaraAI</title>
+<meta name="description" content="Threat intel automation, incident response, red team prompting, and the risks that actually get practitioners burned — from 19 years in cybersecurity.">
+<meta name="author" content="Jax Scott, ZaraAI LLC">
+<link rel="canonical" href="https://thezaraai.com/blog/how-to-use-ai-for-cybersecurity.html">
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="article"/>
-  <meta property="og:title" content="How to Use AI for Cybersecurity (Without Getting Burned)"/>
-  <meta property="og:description" content="A 19-year cybersecurity veteran breaks down how to actually use AI in your security work — and what will get you burned if you're not careful."/>
-  <meta property="og:url" content="https://thezaraai.com/blog/how-to-use-ai-for-cybersecurity.html"/>
-  <meta property="og:site_name" content="theZaraAI.com"/>
+<link rel="icon" type="image/png" href="/assets/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:site" content="@the_Zaraai"/>
-  <meta name="twitter:title" content="How to Use AI for Cybersecurity (Without Getting Burned)"/>
-  <meta name="twitter:description" content="Real talk on AI in cybersecurity from a 19-year vet. Threat intel, IR, red team prompts, and the risks no one talks about."/>
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to Use AI for Cybersecurity (Without Getting Burned) — TheZaraAI">
+<meta property="og:description" content="Threat intel automation, incident response, red team prompting, and the risks that actually get practitioners burned — from 19 years in cybersecurity.">
+<meta property="og:url" content="https://thezaraai.com/blog/how-to-use-ai-for-cybersecurity.html">
+<meta property="og:site_name" content="TheZaraAI">
+<meta property="og:image" content="https://thezaraai.com/assets/zara-og-image.png">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@the_Zaraai">
+<meta name="twitter:title" content="How to Use AI for Cybersecurity (Without Getting Burned) — TheZaraAI">
+<meta name="twitter:description" content="Threat intel automation, incident response, red team prompting, and the risks that actually get practitioners burned — from 19 years in cybersecurity.">
+<meta name="twitter:image" content="https://thezaraai.com/assets/zara-og-image.png">
 
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --bg: #080b12;
-      --bg2: #0e1220;
-      --bg3: #141928;
-      --green: #00e5a0;
-      --green-dim: #00c488;
-      --purple: #7c3aed;
-      --purple-light: #a78bfa;
-      --red: #f87171;
-      --yellow: #fbbf24;
-      --text: #f0f4ff;
-      --text-muted: #8892a4;
-      --border: rgba(255,255,255,0.07);
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "How to Use AI for Cybersecurity (Without Getting Burned)",
+  "description": "Threat intel automation, incident response, red team prompting, and the risks that actually get practitioners burned \u2014 from 19 years in cybersecurity.",
+  "author": {
+    "@type": "Person",
+    "name": "Jax Scott",
+    "url": "https://thezaraai.com/#team"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "ZaraAI LLC",
+    "url": "https://thezaraai.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://thezaraai.com/assets/apple-touch-icon.png"
     }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; overflow-x: hidden; }
-    a { color: var(--green); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+  },
+  "image": "https://thezaraai.com/assets/zara-og-image.png",
+  "datePublished": "2026-03-20",
+  "dateModified": "2026-08-10",
+  "url": "https://thezaraai.com/blog/how-to-use-ai-for-cybersecurity.html",
+  "mainEntityOfPage": "https://thezaraai.com/blog/how-to-use-ai-for-cybersecurity.html",
+  "inLanguage": "en"
+}
+</script>
 
-    /* NAV */
-    nav { background: rgba(8,11,18,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
-    .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 16px 40px; max-width: 1200px; margin: 0 auto; }
-    .nav-logo { font-size: 1.3rem; font-weight: 800; color: var(--text); text-decoration: none; }
-    .nav-logo span { color: var(--green); }
-    .nav-links { display: flex; gap: 28px; align-items: center; }
-    .nav-links a { color: var(--text-muted); font-size: 0.9rem; font-weight: 500; transition: color 0.2s; text-decoration: none; }
-    .nav-links a:hover { color: var(--text); }
-    .nav-cta { background: var(--green); color: #000 !important; padding: 8px 18px; border-radius: 8px; font-weight: 700 !important; }
-    .nav-hamburger { display: none; background: none; border: none; color: var(--text); font-size: 1.5rem; cursor: pointer; padding: 4px 8px; }
-    .nav-mobile-menu { display: none; flex-direction: column; background: rgba(8,11,18,0.97); border-top: 1px solid var(--border); padding: 16px 20px; gap: 12px; }
-    .nav-mobile-menu.open { display: flex; }
-    .nav-mobile-menu a { color: var(--text-muted); text-decoration: none; font-size: 1rem; padding: 8px 0; border-bottom: 1px solid var(--border); }
-    @media (max-width: 768px) { .nav-inner { padding: 16px 20px; } .nav-links { display: none; } .nav-hamburger { display: block; } }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    /* ARTICLE HERO */
-    .article-hero {
-      background: linear-gradient(135deg, #0e1220 0%, #080b12 100%);
-      border-bottom: 1px solid var(--border);
-      padding: 80px 20px 60px;
-      text-align: center;
-    }
-    .article-tag {
-      display: inline-block;
-      padding: 4px 14px;
-      border-radius: 20px;
-      font-size: 0.72rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      background: rgba(248,113,113,0.1);
-      color: var(--red);
-      border: 1px solid rgba(248,113,113,0.25);
-      margin-bottom: 20px;
-    }
-    .article-hero h1 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(1.9rem, 5vw, 3rem);
-      font-weight: 700;
-      letter-spacing: -1px;
-      line-height: 1.15;
-      max-width: 800px;
-      margin: 0 auto 20px;
-    }
-    .article-meta { color: var(--text-muted); font-size: 0.875rem; }
-    .article-meta span { margin: 0 8px; }
+<style>
+:root {
+  --cream: #F4EFE8;
+  --cream-deep: #EDE6DB;
+  --cream-soft: #F9F5EE;
+  --paper: #FBF8F3;
 
-    /* ARTICLE BODY */
-    .article-wrap { max-width: 780px; margin: 0 auto; padding: 60px 20px 80px; }
-    .article-intro {
-      font-size: 1.15rem;
-      color: var(--text-muted);
-      line-height: 1.8;
-      border-left: 3px solid var(--red);
-      padding-left: 20px;
-      margin-bottom: 48px;
-    }
-    .article-wrap h2 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.65rem;
-      font-weight: 700;
-      letter-spacing: -0.5px;
-      margin: 52px 0 16px;
-      color: var(--text);
-      line-height: 1.3;
-    }
-    .article-wrap p { margin-bottom: 20px; color: #c8d0e0; line-height: 1.8; font-size: 1.02rem; }
-    .article-wrap ul, .article-wrap ol { margin: 0 0 24px 24px; }
-    .article-wrap li { color: #c8d0e0; margin-bottom: 10px; line-height: 1.7; font-size: 1rem; }
-    .article-wrap strong { color: var(--text); }
+  --navy: #1C2540;
+  --navy-deep: #131A2E;
+  --navy-soft: #2A3454;
+  --ink: #1C2540;
+  --ink-muted: #5C6480;
+  --ink-subtle: #8A91A6;
 
-    /* USE CASE BLOCK */
-    .use-case {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--green);
-      border-radius: 0 14px 14px 0;
-      padding: 28px 28px 24px;
-      margin: 36px 0;
-    }
-    .use-case h3 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.2rem;
-      font-weight: 700;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .use-case p { margin-bottom: 14px; color: #c8d0e0; font-size: 0.98rem; line-height: 1.75; }
-    .use-case p:last-child { margin-bottom: 0; }
+  --rose: #B87560;
+  --rose-deep: #9B5E4A;
+  --rose-light: #D6A593;
+  --rose-glow: rgba(184, 117, 96, 0.08);
 
-    /* PROMPT EXAMPLE */
-    .prompt-example {
-      background: var(--bg3);
-      border: 1px solid rgba(0,229,160,0.15);
-      border-radius: 10px;
-      padding: 18px 20px;
-      font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
-      font-size: 0.85rem;
-      line-height: 1.6;
-      color: var(--green);
-      margin: 16px 0;
-      overflow-x: auto;
-    }
-    .prompt-label {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.72rem;
-      font-weight: 700;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 8px;
-    }
+  --rule: rgba(184, 117, 96, 0.35);
+  --rule-soft: rgba(28, 37, 64, 0.08);
 
-    /* WARNING BOX */
-    .warning-box {
-      background: rgba(251,191,36,0.06);
-      border: 1px solid rgba(251,191,36,0.25);
-      border-radius: 14px;
-      padding: 24px 24px;
-      margin: 36px 0;
-    }
-    .warning-box h3 {
-      color: var(--yellow);
-      font-size: 1rem;
-      font-weight: 700;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .warning-box p { color: #c8d0e0; font-size: 0.97rem; line-height: 1.75; margin-bottom: 12px; }
-    .warning-box p:last-child { margin-bottom: 0; }
-    .warning-box ul { margin: 8px 0 0 20px; }
-    .warning-box li { color: #c8d0e0; font-size: 0.95rem; margin-bottom: 8px; }
+  --font-serif: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  --font-sans:  'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
 
-    /* DANGER BOX */
-    .danger-box {
-      background: rgba(248,113,113,0.06);
-      border: 1px solid rgba(248,113,113,0.25);
-      border-radius: 14px;
-      padding: 24px 24px;
-      margin: 36px 0;
-    }
-    .danger-box h3 {
-      color: var(--red);
-      font-size: 1rem;
-      font-weight: 700;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .danger-box p { color: #c8d0e0; font-size: 0.97rem; line-height: 1.75; margin-bottom: 12px; }
-    .danger-box p:last-child { margin-bottom: 0; }
-    .danger-box ul { margin: 8px 0 0 20px; }
-    .danger-box li { color: #c8d0e0; font-size: 0.95rem; margin-bottom: 8px; }
+  --transition: 350ms cubic-bezier(0.22, 1, 0.36, 1);
+  --transition-slow: 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
 
-    /* CTA BOX */
-    .cta-box {
-      background: linear-gradient(135deg, rgba(0,229,160,0.08) 0%, rgba(124,58,237,0.08) 100%);
-      border: 1px solid rgba(0,229,160,0.2);
-      border-radius: 16px;
-      padding: 36px 32px;
-      text-align: center;
-      margin: 56px 0 0;
-    }
-    .cta-box h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 700; margin-bottom: 10px; }
-    .cta-box p { color: var(--text-muted); margin-bottom: 24px; font-size: 0.97rem; }
-    .btn-cta {
-      display: inline-block;
-      background: var(--green);
-      color: #000;
-      padding: 13px 32px;
-      border-radius: 10px;
-      font-weight: 700;
-      font-size: 1rem;
-      text-decoration: none;
-      transition: background 0.2s;
-    }
-    .btn-cta:hover { background: var(--green-dim); text-decoration: none; }
-    .btn-cta-secondary {
-      display: inline-block;
-      background: transparent;
-      color: var(--purple-light);
-      padding: 13px 32px;
-      border-radius: 10px;
-      font-weight: 700;
-      font-size: 1rem;
-      text-decoration: none;
-      border: 1px solid rgba(124,58,237,0.5);
-      transition: all 0.2s;
-      margin-top: 12px;
-    }
-    .btn-cta-secondary:hover { background: rgba(124,58,237,0.1); text-decoration: none; }
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 1rem;
+  background: var(--navy);
+  color: var(--cream);
+  padding: 0.5rem 1rem;
+  z-index: 200;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: top 200ms ease;
+}
+.skip-link:focus { top: 0.75rem; }
 
-    footer { background: var(--bg); border-top: 1px solid var(--border); padding: 48px 20px; text-align: center; }
-    .footer-logo { font-size: 1.2rem; font-weight: 800; margin-bottom: 16px; }
-    .footer-logo span { color: var(--green); }
-    .footer-links { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px; }
-    .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; }
-    .footer-links a:hover { color: var(--text); }
-    .footer-copy { color: var(--text-muted); font-size: 0.8rem; }
-    .footer-legal { margin-top: 10px; font-size: 0.78rem; }
-    .footer-legal a { color: var(--text-muted); text-decoration: none; margin: 0 6px; }
-    .footer-legal a:hover { color: var(--green); }
-  </style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+body {
+  font-family: var(--font-sans);
+  background: var(--cream);
+  color: var(--ink);
+  font-size: 17px;
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+
+.container { max-width: 1180px; margin: 0 auto; padding: 0 1.75rem; }
+.container-narrow { max-width: 760px; margin: 0 auto; padding: 0 1.75rem; }
+
+.serif { font-family: var(--font-serif); font-weight: 500; letter-spacing: -0.005em; }
+h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 500; color: var(--navy); letter-spacing: -0.01em; }
+
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  color: var(--rose-deep);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.eyebrow::before,
+.eyebrow::after {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: var(--rose-light);
+}
+
+.mark {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+.mark svg { width: 100%; height: 100%; display: block; }
+
+/* ============ NAV ============ */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(244, 239, 232, 0.88);
+  backdrop-filter: saturate(160%) blur(18px);
+  -webkit-backdrop-filter: saturate(160%) blur(18px);
+  transition: border-color var(--transition), background var(--transition);
+  border-bottom: 1px solid transparent;
+}
+.nav.scrolled {
+  border-bottom-color: var(--rule-soft);
+  background: rgba(244, 239, 232, 0.95);
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 76px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.brand-text {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  color: var(--navy);
+  line-height: 1;
+}
+.brand-text .ai { color: var(--rose); }
+.brand-tag {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.55rem;
+  text-transform: uppercase;
+  letter-spacing: 0.32em;
+  color: var(--rose-deep);
+  margin-top: 0.3rem;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--ink);
+  position: relative;
+  padding: 0.5rem 0;
+  letter-spacing: 0.01em;
+  transition: color var(--transition);
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--rose);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform var(--transition);
+}
+.nav-links a:hover { color: var(--rose-deep); }
+.nav-links a:hover::after { transform: scaleX(1); }
+.nav-links a.active { color: var(--rose-deep); }
+.nav-links a.active::after { transform: scaleX(1); }
+
+.nav-cta-group { display: flex; gap: 0.6rem; align-items: center; }
+@media (max-width: 1080px) { .nav-links { display: none; } }
+@media (max-width: 600px) { .nav-cta-group .btn-ghost { display: none; } }
+
+/* ============ BUTTONS ============ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transition: all var(--transition);
+  white-space: nowrap;
+  cursor: pointer;
+  border: 1px solid transparent;
+  position: relative;
+}
+.btn-primary {
+  background: var(--navy);
+  color: var(--cream);
+}
+.btn-primary:hover {
+  background: var(--navy-deep);
+  transform: translateY(-1px);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--navy);
+  border-color: var(--navy);
+}
+.btn-ghost:hover {
+  background: var(--navy);
+  color: var(--cream);
+}
+.btn-link {
+  padding: 0.5rem 0;
+  background: transparent;
+  color: var(--rose-deep);
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.78rem;
+  font-weight: 500;
+  position: relative;
+}
+.btn-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--rose);
+  transform-origin: left;
+  transition: transform var(--transition);
+}
+.btn-link:hover::after { transform: scaleX(1.05); }
+.btn-arrow { font-family: var(--font-serif); font-size: 1rem; transition: transform var(--transition); }
+.btn:hover .btn-arrow { transform: translateX(4px); }
+@media (max-width: 600px) {
+  .btn { white-space: normal; text-align: center; }
+}
+
+/* ============ ARTICLE HERO ============ */
+.article-hero {
+  padding: clamp(3.5rem, 8vw, 5.5rem) 0 clamp(2.25rem, 4.5vw, 3.5rem);
+  text-align: center;
+  border-bottom: 1px solid var(--rule-soft);
+  background: var(--paper);
+}
+.article-hero .eyebrow { margin-bottom: 1.6rem; }
+.article-hero h1 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: clamp(2.1rem, 4.8vw, 3.4rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+  max-width: 24ch;
+  margin: 0 auto 1.4rem;
+}
+.article-hero h1 em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--rose-deep);
+}
+.article-meta {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-subtle);
+  margin-top: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  row-gap: 0.35rem;
+}
+.article-meta span + span::before {
+  content: '·';
+  margin: 0 0.65rem;
+  color: var(--rose-light);
+}
+.byline-link {
+  color: var(--rose-deep);
+  border-bottom: 1px solid var(--rule);
+  transition: color var(--transition);
+}
+.byline-link:hover { color: var(--rose); }
+
+/* ============ ARTICLE CONTENT ============ */
+.article-body {
+  padding: clamp(3rem, 6.5vw, 5rem) 0 clamp(4rem, 8vw, 6rem);
+}
+.article-content > * + * { margin-top: 1.25rem; }
+.article-content .lede {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.28rem;
+  color: var(--ink-muted);
+  line-height: 1.55;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--rule-soft);
+}
+.article-content h2 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  line-height: 1.15;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+  margin-top: 3rem;
+  margin-bottom: 1.1rem;
+  padding-top: 2.4rem;
+  border-top: 1px solid var(--rule);
+}
+.article-content h3 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: 1.32rem;
+  color: var(--navy);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.005em;
+}
+.article-content p {
+  line-height: 1.75;
+  color: var(--ink);
+  font-size: 1.02rem;
+}
+.article-content ul, .article-content ol {
+  padding-left: 1.5rem;
+  color: var(--ink);
+  margin: 1rem 0;
+}
+.article-content li {
+  margin-bottom: 0.6rem;
+  line-height: 1.68;
+  font-size: 1rem;
+}
+.article-content li::marker { color: var(--rose-deep); }
+.article-content a {
+  color: var(--rose-deep);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition: color var(--transition);
+}
+.article-content a:hover { color: var(--rose); }
+.article-content strong { color: var(--navy); font-weight: 600; }
+.article-content em { font-style: italic; }
+.article-content code {
+  font-family: var(--font-mono);
+  font-size: 0.86em;
+  background: var(--cream-deep);
+  color: var(--navy);
+  padding: 0.1em 0.4em;
+  border: 1px solid var(--rule-soft);
+}
+
+.callout {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  padding: 1.5rem 1.75rem;
+  margin: 2rem 0;
+  position: relative;
+}
+.callout::before {
+  content: '';
+  position: absolute;
+  top: -1px; left: -1px; right: -1px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--rose) 0%, var(--rose-light) 100%);
+}
+.callout p { font-size: 0.97rem; color: var(--ink); }
+.callout p + p { margin-top: 0.75rem; }
+.callout ul { margin: 0.75rem 0 0; }
+.callout li { font-size: 0.95rem; }
+.callout-label {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  color: var(--rose-deep);
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+  display: block;
+}
+
+.pull-quote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.4rem;
+  line-height: 1.45;
+  color: var(--navy);
+  border-left: 2px solid var(--rose);
+  padding: 0.35rem 0 0.35rem 1.6rem;
+  margin: 2.5rem 0;
+}
+
+pre.code-block {
+  background: var(--navy);
+  color: var(--cream);
+  font-family: var(--font-mono);
+  font-size: 0.83rem;
+  line-height: 1.6;
+  padding: 1.4rem 1.6rem;
+  margin: 1.5rem 0;
+  overflow-x: auto;
+  white-space: pre;
+}
+
+.prompt-label {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  color: var(--rose-deep);
+  font-weight: 600;
+  margin: 1.25rem 0 0.4rem;
+  display: block;
+}
+
+.table-scroll { overflow-x: auto; margin: 2rem 0; border: 1px solid var(--rule-soft); }
+table.article-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.93rem;
+  background: var(--paper);
+}
+table.article-table th {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--ink-muted);
+  text-align: left;
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid var(--rule);
+  background: var(--cream-soft);
+}
+table.article-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--rule-soft);
+  color: var(--ink);
+  vertical-align: top;
+}
+table.article-table tr:last-child td { border-bottom: none; }
+table.article-table td.rank {
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--rose-deep);
+}
+
+.step {
+  background: var(--paper);
+  border: 1px solid var(--rule-soft);
+  border-left: 2px solid var(--rose);
+  padding: 1.4rem 1.6rem;
+  margin: 1.5rem 0;
+}
+.step-num {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--rose-deep);
+  display: block;
+  margin-bottom: 0.4rem;
+}
+.step h3 { margin-top: 0; }
+.step p { font-size: 0.97rem; }
+
+.phase-label {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  color: var(--rose-deep);
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.procon {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.75rem;
+  margin: 1.25rem 0 1.5rem;
+}
+.procon h4 {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 0.6rem;
+}
+.procon ul { margin: 0; padding-left: 1.25rem; }
+.procon li { font-size: 0.93rem; margin-bottom: 0.45rem; }
+@media (max-width: 640px) { .procon { grid-template-columns: 1fr; gap: 1.25rem; } }
+
+.tool-card {
+  border-top: 2px solid var(--rose);
+  padding-top: 1.75rem;
+  margin-top: 2.75rem;
+}
+.tool-rank {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--rose-deep);
+  display: block;
+  margin-bottom: 0.35rem;
+}
+.tool-card h3 { margin-top: 0; font-size: 1.55rem; }
+.tool-best {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--ink-muted);
+  margin: 0.5rem 0 1rem;
+  display: block;
+}
+
+.mett-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--rule-soft);
+  border: 1px solid var(--rule-soft);
+  margin: 2rem 0;
+}
+.mett-item { background: var(--paper); padding: 1.4rem 1.5rem; }
+.mett-letter {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.9rem;
+  line-height: 1;
+  color: var(--rose-deep);
+  display: block;
+  margin-bottom: 0.4rem;
+}
+.mett-word { font-family: var(--font-serif); font-size: 1.15rem; color: var(--navy); margin-bottom: 0.3rem; }
+.mett-desc { font-size: 0.9rem; color: var(--ink-muted); line-height: 1.55; }
+@media (max-width: 640px) { .mett-grid { grid-template-columns: 1fr; } }
+
+/* ============ FURTHER READING ============ */
+.further {
+  margin-top: 3.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--rule);
+}
+.further-title {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  color: var(--rose-deep);
+  margin-bottom: 1rem;
+}
+.further ul { list-style: none; }
+.further li { margin-bottom: 0.65rem; }
+.further a {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  color: var(--navy);
+  border-bottom: 1px solid var(--rule);
+  transition: color var(--transition), border-color var(--transition);
+}
+.further a:hover { color: var(--rose-deep); border-color: var(--rose); }
+
+/* ============ CTA PANEL ============ */
+.cta-panel {
+  margin: 3rem 0 0;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  padding: clamp(1.5rem, 3vw, 2.25rem) clamp(1.5rem, 3vw, 2.5rem);
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+.cta-panel::before {
+  content: '';
+  position: absolute;
+  top: -1px; left: -1px; right: -1px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--rose) 0%, var(--rose-light) 100%);
+}
+.cta-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  color: var(--rose-deep);
+  margin-bottom: 0.6rem;
+  display: block;
+}
+.cta-panel h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.4rem, 2.4vw, 1.75rem);
+  line-height: 1.2;
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+}
+.cta-panel p {
+  color: var(--ink-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+.cta-action { display: flex; justify-content: flex-end; }
+@media (max-width: 720px) {
+  .cta-panel { grid-template-columns: 1fr; gap: 1.25rem; }
+  .cta-action { justify-content: flex-start; }
+}
+
+/* ============ FOOTER ============ */
+.footer {
+  background: var(--cream-deep);
+  border-top: 1px solid var(--rule-soft);
+  padding: 4.5rem 0 2rem;
+  margin-top: 0;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3.5rem;
+}
+.footer-brand { max-width: 320px; }
+.footer-brand .brand { margin-bottom: 1.25rem; }
+.footer-brand p {
+  color: var(--ink-muted);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.65;
+}
+.footer h4 {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 1.25rem;
+}
+.footer ul { list-style: none; }
+.footer ul li { margin-bottom: 0.7rem; font-size: 0.9rem; }
+.footer ul a {
+  color: var(--ink-muted);
+  transition: color var(--transition);
+}
+.footer ul a:hover { color: var(--rose-deep); }
+.footer-disclaimer {
+  padding: 2rem 0;
+  margin-bottom: 1rem;
+  border-top: 1px solid var(--rule-soft);
+}
+.footer-disclaimer p {
+  font-size: 0.78rem;
+  color: var(--ink-subtle);
+  line-height: 1.65;
+  max-width: 880px;
+}
+.footer-disclaimer a { color: var(--rose-deep); }
+.footer-disclaimer a:hover { color: var(--rose); }
+.footer-disclaimer strong { color: var(--ink-muted); font-weight: 600; }
+.footer-bottom {
+  padding-top: 2.25rem;
+  border-top: 1px solid var(--rule-soft);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.78rem;
+  color: var(--ink-subtle);
+  letter-spacing: 0.05em;
+}
+.contact-socials { display: flex; gap: 0.75rem; }
+.contact-social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--rule);
+  color: var(--rose-deep);
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  transition: all var(--transition);
+}
+.contact-social:hover { background: var(--rose); color: var(--cream); border-color: var(--rose); }
+@media (max-width: 900px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+  .footer-bottom { flex-direction: column; gap: 0.75rem; text-align: center; }
+}
+
+/* ============ COOKIE BANNER ============ */
+.cookie-banner {
+  position: fixed;
+  bottom: 1.25rem;
+  left: 50%;
+  transform: translate(-50%, 200%);
+  z-index: 1000;
+  width: calc(100% - 2.5rem);
+  max-width: 720px;
+  background: var(--navy);
+  color: var(--cream);
+  border: 1px solid var(--rule-soft);
+  box-shadow: 0 20px 60px rgba(15, 20, 25, 0.35);
+  transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.cookie-banner.visible { transform: translate(-50%, 0); }
+.cookie-banner-inner {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem 1.5rem;
+  flex-wrap: wrap;
+}
+.cookie-banner-text {
+  flex: 1;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: rgba(244, 239, 232, 0.85);
+  min-width: 240px;
+  margin: 0;
+}
+.cookie-banner-text a {
+  color: var(--rose-light);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.cookie-banner-text a:hover { color: var(--cream); }
+.cookie-banner-actions { display: flex; gap: 0.5rem; align-items: center; }
+.cookie-banner .btn-link { color: rgba(244, 239, 232, 0.7); padding: 0.5rem 0.75rem; }
+.cookie-banner .btn-link:hover { color: var(--cream); }
+.cookie-banner .btn-link::after { background: var(--cream); }
+.cookie-banner .btn-primary {
+  background: var(--cream);
+  color: var(--navy);
+  padding: 0.65rem 1.25rem;
+  font-size: 0.7rem;
+}
+.cookie-banner .btn-primary:hover { background: white; }
+@media (max-width: 600px) {
+  .cookie-banner-inner { flex-direction: column; align-items: stretch; gap: 1rem; }
+  .cookie-banner-actions { justify-content: space-between; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+</style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <div class="nav-inner">
-    <a href="/" class="nav-logo">Zara<span>AI</span></a>
-    <div class="nav-links">
-      <a href="/">Home</a>
-      <a href="/blog/">Blog</a>
-      <a href="/guide/index.html">Guide</a>
-      <a href="/products/">Products</a>
-      <a href="https://thezaraai.beehiiv.com/subscribe" target="_blank" class="nav-cta">Newsletter ⚡</a>
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- ============ INLINE COMPASS-STAR MARK ============ -->
+<svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+  <defs>
+    <linearGradient id="rose-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D6A593"/>
+      <stop offset="100%" stop-color="#9B5E4A"/>
+    </linearGradient>
+    <symbol id="zara-mark" viewBox="0 0 100 100">
+      <path d="M50 8 L52 48 L50 50 L48 48 Z" fill="url(#rose-grad)"/>
+      <path d="M50 92 L52 52 L50 50 L48 52 Z" fill="url(#rose-grad)"/>
+      <path d="M8 50 L48 48 L50 50 L48 52 Z" fill="url(#rose-grad)"/>
+      <path d="M92 50 L52 48 L50 50 L52 52 Z" fill="url(#rose-grad)"/>
+      <circle cx="50" cy="50" r="2.2" fill="#9B5E4A"/>
+      <line x1="20" y1="42" x2="42" y2="42" stroke="url(#rose-grad)" stroke-width="1.2" stroke-linecap="round"/>
+      <line x1="20" y1="58" x2="42" y2="58" stroke="url(#rose-grad)" stroke-width="1.2" stroke-linecap="round"/>
+      <circle cx="20" cy="42" r="1.6" fill="none" stroke="url(#rose-grad)" stroke-width="1.2"/>
+      <circle cx="20" cy="58" r="1.6" fill="none" stroke="url(#rose-grad)" stroke-width="1.2"/>
+      <line x1="58" y1="42" x2="80" y2="42" stroke="url(#rose-grad)" stroke-width="1.2" stroke-linecap="round"/>
+      <line x1="58" y1="58" x2="80" y2="58" stroke="url(#rose-grad)" stroke-width="1.2" stroke-linecap="round"/>
+      <circle cx="80" cy="42" r="1.6" fill="none" stroke="url(#rose-grad)" stroke-width="1.2"/>
+      <circle cx="80" cy="58" r="1.6" fill="none" stroke="url(#rose-grad)" stroke-width="1.2"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ============ NAV ============ -->
+<nav class="nav" id="nav" aria-label="Main">
+  <div class="container nav-inner">
+    <a href="/" class="brand" aria-label="TheZaraAI home">
+      <span class="mark"><svg><use href="#zara-mark"/></svg></span>
+      <span>
+        <span class="brand-text">TheZara<span class="ai">AI</span></span>
+        <span class="brand-tag">AI · Cybersecurity · Automation</span>
+      </span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/#services">Services</a></li>
+      <li><a href="/#assessment">Assessment</a></li>
+      <li><a href="/#process">Process</a></li>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/#team">Team</a></li>
+      <li><a href="/blog/" class="active">Journal</a></li>
+    </ul>
+    <div class="nav-cta-group">
+      <a href="/#handbook" class="btn btn-link">Field Manual</a>
+      <a href="/#contact" class="btn btn-ghost">Book a Call</a>
     </div>
-    <button class="nav-hamburger" aria-label="Menu" onclick="document.getElementById('navMobile').classList.toggle('open')">&#9776;</button>
-  </div>
-  <div class="nav-mobile-menu" id="navMobile">
-    <a href="/">Home</a>
-    <a href="/blog/">Blog</a>
-    <a href="/guide/index.html">Guide</a>
-    <a href="/products/">Products</a>
-    <a href="https://thezaraai.beehiiv.com/subscribe" target="_blank">Newsletter ⚡</a>
   </div>
 </nav>
 
-<!-- HERO -->
-<div class="article-hero">
-  <div class="article-tag">🔐 Cybersecurity · AI</div>
-  <h1>How to Use AI for Cybersecurity (Without Getting Burned)</h1>
-  <p class="article-meta">
-    <span>By <strong>Jax Scott</strong></span> ·
-    <span>March 20, 2026</span> ·
-    <span>11 min read</span>
-  </p>
-</div>
-
-<!-- ARTICLE BODY -->
-<div class="article-wrap">
-
-  <p class="article-intro">
-    I've been in cybersecurity for 19 years. Army Special Forces. Deployed. Classified environments. I've seen tools come and go — and I've learned to spot the difference between hype and capability. AI in cybersecurity is real, it's useful, and it will absolutely burn you if you use it wrong. Here's how to use it right.
-  </p>
-
-  <p>Let's be clear about something upfront: AI is a force multiplier in security, not a replacement for human expertise. The professionals who will win the next decade aren't the ones who know the most about AI — they're the ones who know when to use it, and when to put it down.</p>
-
-  <p>I've tested most of the major AI tools in actual security workflows. Not red team simulations on sanitized environments. Real threat intel pipelines, real incident response, real adversary emulation. What follows is what I've actually learned — good, bad, and ugly.</p>
-
-  <h2>1. Threat Intelligence Automation</h2>
-  <p>Threat intelligence is one of the highest-value use cases for AI in security, and it's one of the least glamorous. Most threat intel work is grinding: reading through advisories, ingesting indicators, correlating TTPs with your environment, writing reports no one reads. AI crushes this.</p>
-
-  <div class="use-case">
-    <h3>🛡️ Where AI wins on threat intel</h3>
-    <p>Feed AI a raw CVE advisory or a threat actor report and ask it to extract: affected products, CVSS score, exploitation likelihood, detection opportunities, and recommended mitigations — structured for your team's format. What took 30 minutes takes 3.</p>
-    <div class="prompt-label">Example prompt:</div>
-    <div class="prompt-example">You are a senior threat intelligence analyst. Analyze the following CVE advisory and extract: affected products and versions, exploitation complexity (High/Med/Low), detection opportunities (network/host/log), top 3 mitigations ranked by implementation speed, and a one-paragraph executive summary for non-technical leadership. Advisory: [paste text]</div>
-    <p>You can also use AI to build TTP mapping. Paste a threat report and ask it to map every mentioned technique to MITRE ATT&CK framework categories. Output as a table. What used to take hours now takes minutes, and you can run it on 20 reports instead of 2.</p>
+<!-- ============ HERO ============ -->
+<header class="article-hero">
+  <div class="container-narrow">
+    <span class="eyebrow">Cybersecurity</span>
+    <h1>How to Use AI for Cybersecurity <em>(Without Getting Burned)</em></h1>
+    <div class="article-meta"><span>By <a href="/#team" class="byline-link" rel="author">Jax Scott</a></span><span>Published March 20, 2026</span><span>Updated August 10, 2026</span><span>11 min read</span></div>
   </div>
+</header>
 
-  <p>AI also shines for synthesizing open-source intelligence. Give it a domain, IP address, or threat actor name and ask it to summarize what's publicly known — it can pull context from its training data faster than any analyst Googling manually. Just verify the outputs (more on that below).</p>
+<!-- ============ ARTICLE ============ -->
+<main id="main" class="article-body">
+  <div class="container-narrow">
 
-  <h2>2. Incident Response with AI</h2>
-  <p>When an incident hits, time is everything. Cognitive load is high. People make bad decisions under pressure. AI can serve as a second brain — not the decision-maker, but the analyst who never gets flustered.</p>
+    <article class="article-content">
+<p class="lede">I've been in cybersecurity for 19 years. Army Special Forces. Deployed. Classified environments. AI in cybersecurity is real, it's useful, and it will absolutely burn you if you use it wrong. Here's how to use it right.</p>
 
-  <div class="use-case">
-    <h3>🚨 IR workflows where AI adds real value</h3>
-    <p><strong>Log triage:</strong> Paste a chunk of suspicious logs and ask AI to identify anomalies, flag potential indicators of compromise, and prioritize what needs human investigation. It won't catch everything — but it will cut through the noise and surface what matters fastest.</p>
-    <div class="prompt-label">Log triage prompt:</div>
-    <div class="prompt-example">You are a senior incident responder. Review the following authentication logs for signs of compromise. Flag: unusual login times, geographic anomalies, privilege escalation attempts, lateral movement indicators, and credential stuffing patterns. Assign a priority (Critical/High/Medium) to each finding and explain your reasoning. Logs: [paste]</div>
-    <p><strong>Playbook generation:</strong> Describe an incident scenario and ask AI to draft an initial response playbook. It won't replace your runbooks, but it's a solid starting point — especially when you're dealing with something novel and your existing playbooks don't quite fit.</p>
-    <p><strong>Communication drafting:</strong> One of the most underrated uses. Ask AI to draft the executive notification email for an ongoing incident. Feed it the technical details, tell it the audience is the CISO and board, ask for a one-page summary with timeline, current status, business impact, and next steps. It does this well.</p>
+<p>Let's be clear about something upfront: AI is a force multiplier in security, not a replacement for human expertise. The professionals who will win the next decade aren't the ones who know the most about AI — they're the ones who know when to use it, and when to put it down.</p>
+<p>I've tested most of the major AI tools in actual security workflows. Not red team simulations on sanitized environments. Real threat intel pipelines, real incident response, real adversary emulation — the same workflows that inform <a href="/#services">the security-for-AI services we run for clients</a>. What follows is what I've actually learned — good, bad, and ugly.</p>
+
+<h2>1. Threat Intelligence Automation</h2>
+<p>Threat intelligence is one of the highest-value use cases for AI in security, and it's one of the least glamorous. Most threat intel work is grinding: reading through advisories, ingesting indicators, correlating TTPs with your environment, writing reports no one reads. AI eats this workload.</p>
+
+<h3>Where AI wins on threat intel</h3>
+<p>Feed AI a raw CVE advisory or a threat actor report and ask it to extract: affected products, CVSS score, exploitation likelihood, detection opportunities, and recommended mitigations — structured for your team's format. In my workflow, an advisory that used to take half an hour to break down now takes minutes.</p>
+<span class="prompt-label">Example prompt</span>
+<pre class="code-block">You are a senior threat intelligence analyst. Analyze the following CVE
+advisory and extract: affected products and versions, exploitation
+complexity (High/Med/Low), detection opportunities (network/host/log),
+top 3 mitigations ranked by implementation speed, and a one-paragraph
+executive summary for non-technical leadership. Advisory: [paste text]</pre>
+<p>You can also use AI to build TTP mapping. Paste a threat report and ask it to map every mentioned technique to MITRE ATT&amp;CK framework categories. Output as a table. Work that used to take hours now takes minutes — and it scales to twenty reports as easily as two.</p>
+<p>AI also shines for synthesizing open-source intelligence. Give it a domain, IP address, or threat actor name and ask it to summarize what's publicly known — it can pull context from its training data faster than any analyst Googling manually. Just verify the outputs (more on that below).</p>
+
+<h2>2. Incident Response with AI</h2>
+<p>When an incident hits, time is everything. Cognitive load is high. People make bad decisions under pressure. AI can serve as a second brain — not the decision-maker, but the analyst who never gets flustered.</p>
+
+<h3>IR workflows where AI adds real value</h3>
+<p><strong>Log triage:</strong> Paste a chunk of suspicious logs and ask AI to identify anomalies, flag potential indicators of compromise, and prioritize what needs human investigation. It won't catch everything — but it will cut through the noise and surface what matters fastest.</p>
+<span class="prompt-label">Log triage prompt</span>
+<pre class="code-block">You are a senior incident responder. Review the following authentication
+logs for signs of compromise. Flag: unusual login times, geographic
+anomalies, privilege escalation attempts, lateral movement indicators,
+and credential stuffing patterns. Assign a priority (Critical/High/Medium)
+to each finding and explain your reasoning. Logs: [paste]</pre>
+<p><strong>Playbook generation:</strong> Describe an incident scenario and ask AI to draft an initial response playbook. It won't replace your runbooks, but it's a solid starting point — especially when you're dealing with something novel and your existing playbooks don't quite fit.</p>
+<p><strong>Communication drafting:</strong> One of the most underrated uses. Ask AI to draft the executive notification email for an ongoing incident. Feed it the technical details, tell it the audience is the CISO and board, ask for a one-page summary with timeline, current status, business impact, and next steps. It does this well.</p>
+
+<h2>3. Red Team Prompting and Adversary Emulation</h2>
+<p>This is where it gets sensitive — and where most practitioners either oversell what AI can do or pretend it can't do anything at all. The truth is in the middle.</p>
+<p>AI is useful for red team work in specific, bounded ways. It's a good thinking partner for attack chain development. It helps you think through adversary perspective and identify gaps in blue team coverage. It can help you write more realistic phishing lures, generate scenario narratives, and map attack paths.</p>
+
+<h3>Legitimate red team uses</h3>
+<p><strong>Attack chain reasoning:</strong> "Given this environment (Windows AD, cloud-hybrid, no EDR on legacy systems), walk me through a realistic initial access and lateral movement path that a sophisticated threat actor might use, based on TTPs from groups like APT29." This kind of adversary emulation thinking is exactly what red teams need — and AI can cover a lot of ground quickly.</p>
+<span class="prompt-label">Attack path planning prompt</span>
+<pre class="code-block">Act as a senior red team operator. Given the following environment
+profile: [paste profile]. Outline a realistic kill chain from initial
+access to domain admin compromise. Focus on living-off-the-land
+techniques and staying below EDR detection thresholds. For each stage,
+identify the top 2-3 techniques, detection opportunities blue team
+should watch for, and the indicators of compromise we would leave behind.</pre>
+<p><strong>Phishing scenario development:</strong> AI can help craft realistic, contextually appropriate social engineering scenarios for authorized phishing simulations. Give it the target profile, the pretext, and the organizational context. The output is a starting point — your operators will still refine it.</p>
+<p><strong>Defensive gap analysis:</strong> Turn the adversary lens inward. "Based on these controls and this environment, where would an attacker find the easiest path?" This is threat modeling, and AI accelerates it significantly.</p>
+
+<div class="callout"><span class="callout-label">The line you don't cross</span>
+<p>There are things AI tools will refuse to help with — and things that require explicit authorization regardless of what a tool says. Using AI to generate functional malware, bypass specific production security controls, or conduct unauthorized testing isn't "red teaming." It's criminal activity in most jurisdictions.</p>
+<p>I'm not being preachy. I'm being practical. If you don't have a signed rules of engagement document, you don't have authorization. AI doesn't change that calculus.</p></div>
+
+<h2>4. The Risks — What Will Actually Get You Burned</h2>
+<p>Here's where most "AI for cybersecurity" posts go quiet. I'm not going to do that. These risks are real, and I've seen experienced practitioners make every one of these mistakes. (They're the same failure modes I catalogue in <a href="/blog/security-first-ai.html">why security-first AI is the only kind worth building</a>.)</p>
+
+<h3>Risk 1: Data leakage</h3>
+<p>This is the big one. When you paste incident data, customer logs, vulnerability scan results, or classified information into a commercial AI tool, you are potentially feeding that data to a third party's training pipeline. Most enterprise agreements have carve-outs, but consumer products often don't.</p>
+<p><strong>Rules I follow:</strong></p>
+<ul>
+  <li>Never paste real PII, PHI, or classified data into any commercial AI tool</li>
+  <li>Sanitize or anonymize data before using it in AI prompts</li>
+  <li>For sensitive workflows, use a self-hosted model (or OpenClaw with a local model) where data never leaves your machine</li>
+  <li>Read the data retention policies of every tool in your stack. Know what you're agreeing to.</li>
+</ul>
+
+<h3>Risk 2: Hallucinations in high-stakes contexts</h3>
+<p>AI confidently makes things up. In a creative writing context, that's manageable. In a security context, a hallucinated CVE number, a fake MITRE technique, or incorrect remediation guidance can send your team chasing ghosts — or worse, implementing bad controls.</p>
+<p><strong>My rule:</strong> Never ship AI output on security matters without verification. Use AI to get to a draft fast; use human expertise to verify before it goes anywhere consequential. Treat every AI-generated security claim like you would an anonymous tip: investigate before you act on it.</p>
+
+<h3>Risk 3: Over-reliance and skill atrophy</h3>
+<p>This one's slow and quiet, but it's real. When analysts start relying on AI for the grunt work of security, they stop building the intuition that comes from doing that grunt work. In 5 years, you're going to have analysts who can prompt AI brilliantly but can't read a packet capture or reason through an attack chain without assistance.</p>
+<p>Use AI to handle volume. Use humans to build judgment. Keep your people in the loop on everything, not just the escalations. Skills you don't practice atrophy — in every field, in every generation of technology. Security is not exempt.</p>
+
+<h2>Where to Start</h2>
+<p>If you're a cybersecurity professional looking to integrate AI into your workflow right now, here's my practical starting point:</p>
+<ol>
+  <li><strong>Start with sanitized data.</strong> Pick a non-sensitive use case — threat advisory summarization, TTP mapping from public reports — and get comfortable with what AI can and can't do before you touch anything sensitive. (New to agents entirely? Start with <a href="/blog/what-is-an-ai-agent.html">what an AI agent actually is</a>.)</li>
+  <li><strong>Build a prompt library.</strong> The best security teams have AI prompt templates for common workflows. Threat briefs, IR comms, phishing scenarios. Consistent prompts → consistent outputs. My <a href="/products/">Cybersecurity AI Prompt Pack</a> has 100 ready-to-use prompts across 10 categories if you want a head start.</li>
+  <li><strong>Know your data governance rules.</strong> Before your team uses any AI tool on work data, get clear on your organization's AI policy. If there isn't one, push for one. This is a governance issue, not just a technical one.</li>
+  <li><strong>Stay human in the loop.</strong> AI is your analyst who never sleeps. Not your CISO. Not your decision-maker. You own the outcomes — make sure you understand what the AI gave you before you act on it.</li>
+</ol>
+
+<p>AI isn't going to replace good security practitioners. It's going to make good security practitioners dramatically more effective — and make mediocre ones dangerous. <a href="/blog/jax-scott-women-in-ai.html">The future of this field belongs to people</a> who understand both domains: security and AI. Not one or the other.</p>
+<p>The time to learn this intersection is now.</p>
+    </article>
+
+    <aside class="further">
+      <h2 class="further-title">Further reading</h2>
+      <ul>
+      <li><a href="/blog/security-first-ai.html">Why Security-First AI Is the Only Kind Worth Building</a></li>
+      <li><a href="/blog/what-is-an-ai-agent.html">What Is an AI Agent? (And Why You Need One)</a></li>
+      <li><a href="/blog/jax-scott-women-in-ai.html">Jax Scott: Army Veteran, Cybersecurity Expert, Women in AI</a></li>
+      </ul>
+    </aside>
+
+    <aside class="cta-panel">
+      <div>
+        <span class="cta-eyebrow">Free download</span>
+        <h2>The AI Agent Field Manual.</h2>
+        <p>The free operating guide to putting an AI agent to work in your business — what to automate first, how to keep it secure, and what to skip. Two questions, immediate download.</p>
+      </div>
+      <div class="cta-action">
+        <a href="/#handbook" class="btn btn-primary">Get the Field Manual <span class="btn-arrow">&rarr;</span></a>
+      </div>
+    </aside>
+
   </div>
+</main>
 
-  <h2>3. Red Team Prompting and Adversary Emulation</h2>
-  <p>This is where it gets sensitive — and where most practitioners either oversell what AI can do or pretend it can't do anything at all. The truth is in the middle.</p>
-
-  <p>AI is useful for red team work in specific, bounded ways. It's a good thinking partner for attack chain development. It helps you think through adversary perspective and identify gaps in blue team coverage. It can help you write more realistic phishing lures, generate scenario narratives, and map attack paths.</p>
-
-  <div class="use-case">
-    <h3>⚔️ Legitimate red team uses</h3>
-    <p><strong>Attack chain reasoning:</strong> "Given this environment (Windows AD, cloud-hybrid, no EDR on legacy systems), walk me through a realistic initial access and lateral movement path that a sophisticated threat actor might use, based on TTPs from groups like APT29." This kind of adversary emulation thinking is exactly what red teams need — and AI can cover a lot of ground quickly.</p>
-    <div class="prompt-label">Attack path planning prompt:</div>
-    <div class="prompt-example">Act as a senior red team operator. Given the following environment profile: [paste profile]. Outline a realistic kill chain from initial access to domain admin compromise. Focus on living-off-the-land techniques and staying below EDR detection thresholds. For each stage, identify the top 2-3 techniques, detection opportunities blue team should watch for, and the indicators of compromise we would leave behind.</div>
-    <p><strong>Phishing scenario development:</strong> AI can help craft realistic, contextually appropriate social engineering scenarios for authorized phishing simulations. Give it the target profile, the pretext, and the organizational context. The output is a starting point — your operators will still refine it.</p>
-    <p><strong>Defensive gap analysis:</strong> Turn the adversary lens inward. "Based on these controls and this environment, where would an attacker find the easiest path?" This is threat modeling, and AI accelerates it significantly.</p>
-  </div>
-
-  <div class="warning-box">
-    <h3>⚠️ The line you don't cross</h3>
-    <p>There are things AI tools will refuse to help with — and things that require explicit authorization regardless of what a tool says. Using AI to generate functional malware, bypass specific production security controls, or conduct unauthorized testing isn't "red teaming." It's criminal activity in most jurisdictions.</p>
-    <p>I'm not being preachy. I'm being practical. If you don't have a signed rules of engagement document, you don't have authorization. AI doesn't change that calculus.</p>
-  </div>
-
-  <h2>4. The Risks — What Will Actually Get You Burned</h2>
-  <p>Here's where most "AI for cybersecurity" posts go quiet. I'm not going to do that. These risks are real, and I've seen experienced practitioners make every one of these mistakes.</p>
-
-  <div class="danger-box">
-    <h3>🔥 Risk 1: Data Leakage</h3>
-    <p>This is the big one. When you paste incident data, customer logs, vulnerability scan results, or classified information into a commercial AI tool, you are potentially feeding that data to a third-party's training pipeline. Most enterprise agreements have carve-outs, but consumer products often don't.</p>
-    <p><strong>Rules I follow:</strong></p>
-    <ul>
-      <li>Never paste real PII, PHI, or classified data into any commercial AI tool</li>
-      <li>Sanitize or anonymize data before using it in AI prompts</li>
-      <li>For sensitive workflows, use a self-hosted model (or OpenClaw with a local model) where data never leaves your machine</li>
-      <li>Read the data retention policies of every tool in your stack. Know what you're agreeing to.</li>
-    </ul>
-  </div>
-
-  <div class="danger-box">
-    <h3>🔥 Risk 2: Hallucinations in High-Stakes Contexts</h3>
-    <p>AI confidently makes things up. In a creative writing context, that's manageable. In a security context, a hallucinated CVE number, a fake MITRE technique, or incorrect remediation guidance can send your team chasing ghosts — or worse, implementing bad controls.</p>
-    <p><strong>My rule:</strong> Never ship AI output on security matters without verification. Use AI to get to a draft fast; use human expertise to verify before it goes anywhere consequential. Treat every AI-generated security claim like you would an anonymous tip: investigate before you act on it.</p>
-  </div>
-
-  <div class="danger-box">
-    <h3>🔥 Risk 3: Over-Reliance and Skill Atrophy</h3>
-    <p>This one's slow and quiet, but it's real. When analysts start relying on AI for the grunt work of security, they stop building the intuition that comes from doing that grunt work. In 5 years, you're going to have analysts who can prompt AI brilliantly but can't read a packet capture or reason through an attack chain without assistance.</p>
-    <p>Use AI to handle volume. Use humans to build judgment. Keep your people in the loop on everything, not just the escalations. Skills you don't practice atrophy — in every field, in every generation of technology. Security is not exempt.</p>
-  </div>
-
-  <h2>Where to Start</h2>
-  <p>If you're a cybersecurity professional looking to integrate AI into your workflow right now, here's my practical starting point:</p>
-  <ol>
-    <li><strong>Start with sanitized data.</strong> Pick a non-sensitive use case — threat advisory summarization, TTP mapping from public reports — and get comfortable with what AI can and can't do before you touch anything sensitive.</li>
-    <li><strong>Build a prompt library.</strong> The best security teams have AI prompt templates for common workflows. Threat briefs, IR comms, phishing scenarios. Consistent prompts → consistent outputs. My <a href="/products/">Cybersecurity AI Prompt Pack</a> has 100 ready-to-use prompts across 10 categories if you want a head start.</li>
-    <li><strong>Know your data governance rules.</strong> Before your team uses any AI tool on work data, get clear on your organization's AI policy. If there isn't one, push for one. This is a governance issue, not just a technical one.</li>
-    <li><strong>Stay human in the loop.</strong> AI is your analyst who never sleeps. Not your CISO. Not your decision-maker. You own the outcomes — make sure you understand what the AI gave you before you act on it.</li>
-  </ol>
-
-  <p>AI isn't going to replace good security practitioners. It's going to make good security practitioners dramatically more effective — and make mediocre ones dangerous. <a href="jax-scott-women-in-ai.html">The future of this field belongs to people</a> who understand both domains: security and AI. Not one or the other.</p>
-
-  <p>The time to learn this intersection is now.</p>
-
-  <div class="cta-box">
-    <h3>🛡️ Ready to go deeper?</h3>
-    <p>I built a Cybersecurity AI Prompt Pack — 100 battle-tested prompts across threat intel, incident response, red team, OSINT, and more. Built from 19 years in the field. Copy-paste ready.</p>
-    <a href="/products/" class="btn-cta">Get the Prompt Pack →</a>
-    <br>
-    <a href="https://thezaraai.beehiiv.com/subscribe" target="_blank" class="btn-cta-secondary">Join the Newsletter →</a>
-  </div>
-
-</div>
-
-<!-- FOOTER -->
-
-  <!-- PRODUCT CTA -->
-  <div style="background:linear-gradient(135deg,#0a1a10,#111f14); border:1px solid #00e676; border-radius:14px; padding:2rem; margin:2.5rem 0; text-align:center;">
-    <h3 style="color:#00e676; font-size:1.2rem; margin-bottom:0.8rem;">⚡ Ready to Go Deeper?</h3>
-    <p style="color:#a3c9a8; margin-bottom:1.5rem; line-height:1.6;">Get the tools Jax uses to run her AI agent — built for real professionals, not demos.</p>
-    <div style="display:flex; flex-wrap:wrap; gap:12px; justify-content:center;">
-      <a href="https://thezaraai.gumroad.com/l/qstadl" target="_blank" style="display:inline-block; background:#00e676; color:#080b12; font-weight:700; padding:0.8rem 1.6rem; border-radius:8px; text-decoration:none; font-size:0.95rem;">🤖 AI Agent Starter Kit — $27 →</a>
-      <a href="https://thezaraai.gumroad.com/l/yphml" target="_blank" style="display:inline-block; background:#1a2a1a; color:#00e676; font-weight:700; padding:0.8rem 1.6rem; border-radius:8px; text-decoration:none; font-size:0.95rem; border:1px solid #00e676;">🛡️ Cybersecurity AI Prompt Pack — $47 →</a>
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="brand">
+          <span class="mark"><svg><use href="#zara-mark"/></svg></span>
+          <span>
+            <span class="brand-text">TheZara<span class="ai">AI</span></span>
+            <span class="brand-tag">AI · Cybersecurity · Automation</span>
+          </span>
+        </a>
+        <p>A boutique AI &amp; cybersecurity advisory for businesses tired of doing manually what AI can do for them.</p>
+        <div class="contact-socials">
+          <a href="https://x.com/the_ZaraAI" class="contact-social" aria-label="X">&#120143;</a>
+          <a href="https://instagram.com/the_Zaraai" class="contact-social" aria-label="Instagram">IG</a>
+          <a href="https://thezaraai.substack.com" class="contact-social" aria-label="Substack">SS</a>
+        </div>
+      </div>
+      <div>
+        <h4>Practice</h4>
+        <ul>
+          <li><a href="/#services">AI Automation</a></li>
+          <li><a href="/#services">vCISO</a></li>
+          <li><a href="/#services">Security for AI</a></li>
+          <li><a href="/#pricing">Pricing</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Studio</h4>
+        <ul>
+          <li><a href="/#team">Team</a></li>
+          <li><a href="/blog/">Journal</a></li>
+          <li><a href="/#handbook">Free Field Manual</a></li>
+          <li><a href="/#faq">FAQ</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal &amp; Trust</h4>
+        <ul>
+          <li><a href="/legal/privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="/legal/terms-of-service.html">Terms of Service</a></li>
+          <li><a href="/legal/cookie-policy.html">Cookie Policy</a></li>
+          <li><a href="/legal/accessibility.html">Accessibility</a></li>
+          <li><a href="/legal/disclaimer.html">Disclaimer</a></li>
+          <li><a href="/legal/data-processing.html">Data Processing (DPA)</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-disclaimer">
+      <p>
+        <strong>ZaraAI LLC</strong> — A veteran-owned small business · Registered in the United States ·
+        <a href="mailto:jax@thezaraai.com">jax@thezaraai.com</a>
+        <br>
+        TheZaraAI provides advisory and consulting services. Information on this site is for general purposes only and does not constitute legal, financial, or compliance advice. Each client engagement is governed by a written scope of work. We comply with the CAN-SPAM Act and honor unsubscribe requests promptly.
+      </p>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 ZaraAI LLC. All rights reserved.</span>
+      <span style="font-family: var(--font-serif); font-style: italic;">Built by Jax &amp; Zara</span>
     </div>
   </div>
-
-  <!-- INTERNAL LINKS -->
-  <div style="background:#0d1a0f; border-radius:12px; padding:1.5rem; margin:2rem 0;">
-    <h4 style="color:#7ac98a; font-size:0.9rem; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:1rem;">📚 More From TheZaraAI.com</h4>
-    <ul style="list-style:none; padding:0; margin:0; display:flex; flex-wrap:wrap; gap:10px;">
-      <li><a href="/blog/what-is-an-ai-agent.html" style="color:#a3c9a8; text-decoration:none; font-size:0.9rem; background:#142014; padding:6px 12px; border-radius:6px; display:inline-block;">What Is an AI Agent?</a></li>
-      <li><a href="/blog/best-ai-tools-for-beginners-2026.html" style="color:#a3c9a8; text-decoration:none; font-size:0.9rem; background:#142014; padding:6px 12px; border-radius:6px; display:inline-block;">Best AI Tools 2026</a></li>
-      <li><a href="/blog/how-to-use-ai-for-cybersecurity.html" style="color:#a3c9a8; text-decoration:none; font-size:0.9rem; background:#142014; padding:6px 12px; border-radius:6px; display:inline-block;">AI for Cybersecurity</a></li>
-      <li><a href="/blog/jax-scott-women-in-ai.html" style="color:#a3c9a8; text-decoration:none; font-size:0.9rem; background:#142014; padding:6px 12px; border-radius:6px; display:inline-block;">Women in AI</a></li>
-      <li><a href="/guide/" style="color:#a3c9a8; text-decoration:none; font-size:0.9rem; background:#142014; padding:6px 12px; border-radius:6px; display:inline-block;">Free OpenClaw Guide</a></li>
-    </ul>
-  </div>
-
-<footer>
-  <div class="footer-logo">Zara<span>AI</span></div>
-  <div class="footer-links">
-    <a href="/">Home</a>
-    <a href="/blog/">Blog</a>
-    <a href="/products/">Products</a>
-    <a href="https://x.com/the_Zaraai" target="_blank">X / Twitter</a>
-    <a href="https://instagram.com/the_Zaraai" target="_blank">Instagram</a>
-  </div>
-  <p class="footer-copy">&copy; 2026 ZaraAI. All rights reserved.</p>
-  <div class="footer-legal">
-    <a href="/legal/terms-of-service.html">Terms of Service</a> |
-    <a href="/legal/privacy-policy.html">Privacy Policy</a> |
-    <a href="/legal/disclaimer.html">Disclaimer</a> |
-    <a href="/legal/refund-policy.html">Refund Policy</a>
-  </div>
-  <p class="footer-copy" style="margin-top:8px;">Jax Scott / Outpost Gray. Virginia, USA.</p>
 </footer>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 8) nav.classList.add('scrolled');
+  else nav.classList.remove('scrolled');
+}, { passive: true });
+
+// ============================================================
+// COOKIE CONSENT BANNER (GDPR / CCPA / CPRA-friendly)
+// ============================================================
+(function() {
+  const KEY = 'tza_cookie_consent_v1';
+  if (localStorage.getItem(KEY)) return;
+
+  const banner = document.createElement('div');
+  banner.className = 'cookie-banner';
+  banner.innerHTML = ''
+    + '<div class="cookie-banner-inner">'
+    + '  <p class="cookie-banner-text">We use minimal cookies to keep this site running and to learn what helps visitors. Read our '
+    + '    <a href="/legal/cookie-policy.html">Cookie Policy</a> &middot; '
+    + '    <a href="/legal/privacy-policy.html">Privacy Policy</a>.'
+    + '  </p>'
+    + '  <div class="cookie-banner-actions">'
+    + '    <button type="button" class="btn btn-link" data-cookie="decline">Decline</button>'
+    + '    <button type="button" class="btn btn-primary" data-cookie="accept">Accept</button>'
+    + '  </div>'
+    + '</div>';
+  document.body.appendChild(banner);
+  setTimeout(() => banner.classList.add('visible'), 100);
+
+  banner.querySelectorAll('button[data-cookie]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      localStorage.setItem(KEY, btn.dataset.cookie);
+      banner.classList.remove('visible');
+      setTimeout(() => banner.remove(), 400);
+    });
+  });
+})();
+</script>
 
 </body>
 </html>
